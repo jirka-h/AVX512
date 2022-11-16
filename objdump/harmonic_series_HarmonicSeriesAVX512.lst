@@ -1,0 +1,78 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+https://debuginfod.fedoraproject.org/
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+Dump of assembler code for function HarmonicSeriesAVX512:
+   0x00000000004024f0 <+0>:	4c 8d 54 24 08	lea    0x8(%rsp),%r10
+   0x00000000004024f5 <+5>:	48 83 e4 c0	and    $0xffffffffffffffc0,%rsp
+   0x00000000004024f9 <+9>:	41 ff 72 f8	push   -0x8(%r10)
+   0x00000000004024fd <+13>:	55	push   %rbp
+   0x00000000004024fe <+14>:	48 89 e5	mov    %rsp,%rbp
+   0x0000000000402501 <+17>:	41 52	push   %r10
+   0x0000000000402503 <+19>:	53	push   %rbx
+   0x0000000000402504 <+20>:	48 8d 75 b0	lea    -0x50(%rbp),%rsi
+   0x0000000000402508 <+24>:	48 89 fb	mov    %rdi,%rbx
+   0x000000000040250b <+27>:	bf 01 00 00 00	mov    $0x1,%edi
+   0x0000000000402510 <+32>:	48 81 ec a0 00 00 00	sub    $0xa0,%rsp
+   0x0000000000402517 <+39>:	e8 44 eb ff ff	call   0x401060 <clock_gettime@plt>
+   0x000000000040251c <+44>:	48 85 db	test   %rbx,%rbx
+   0x000000000040251f <+47>:	0f 84 0b 01 00 00	je     0x402630 <HarmonicSeriesAVX512+320>
+   0x0000000000402525 <+53>:	62 f1 fd 48 28 05 11 0d 00 00	vmovapd 0xd11(%rip),%zmm0        # 0x403240
+   0x000000000040252f <+63>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+   0x0000000000402533 <+67>:	31 c0	xor    %eax,%eax
+   0x0000000000402535 <+69>:	62 f2 fd 48 19 25 39 0d 00 00	vbroadcastsd 0xd39(%rip),%zmm4        # 0x403278
+   0x000000000040253f <+79>:	62 f2 fd 48 19 1d f7 0c 00 00	vbroadcastsd 0xcf7(%rip),%zmm3        # 0x403240
+   0x0000000000402549 <+89>:	0f 1f 80 00 00 00 00	nopl   0x0(%rax)
+   0x0000000000402550 <+96>:	48 83 c0 01	add    $0x1,%rax
+   0x0000000000402554 <+100>:	62 f1 dd 48 5e d0	vdivpd %zmm0,%zmm4,%zmm2
+   0x000000000040255a <+106>:	62 f1 fd 48 58 c3	vaddpd %zmm3,%zmm0,%zmm0
+   0x0000000000402560 <+112>:	62 f1 f5 48 58 ca	vaddpd %zmm2,%zmm1,%zmm1
+   0x0000000000402566 <+118>:	48 39 c3	cmp    %rax,%rbx
+   0x0000000000402569 <+121>:	75 e5	jne    0x402550 <HarmonicSeriesAVX512+96>
+   0x000000000040256b <+123>:	48 8d 75 c0	lea    -0x40(%rbp),%rsi
+   0x000000000040256f <+127>:	bf 01 00 00 00	mov    $0x1,%edi
+   0x0000000000402574 <+132>:	62 f1 fd 48 29 8d 50 ff ff ff	vmovapd %zmm1,-0xb0(%rbp)
+   0x000000000040257e <+142>:	c5 f8 77	vzeroupper 
+   0x0000000000402581 <+145>:	e8 da ea ff ff	call   0x401060 <clock_gettime@plt>
+   0x0000000000402586 <+150>:	c5 e8 57 d2	vxorps %xmm2,%xmm2,%xmm2
+   0x000000000040258a <+154>:	48 8b 3d ef 2a 00 00	mov    0x2aef(%rip),%rdi        # 0x405080 <stdout@GLIBC_2.2.5>
+   0x0000000000402591 <+161>:	c4 e1 eb 2a 5d b8	vcvtsi2sdq -0x48(%rbp),%xmm2,%xmm3
+   0x0000000000402597 <+167>:	be 10 30 40 00	mov    $0x403010,%esi
+   0x000000000040259c <+172>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x00000000004025a1 <+177>:	c4 e1 eb 2a 45 c8	vcvtsi2sdq -0x38(%rbp),%xmm2,%xmm0
+   0x00000000004025a7 <+183>:	c5 fb 5c c3	vsubsd %xmm3,%xmm0,%xmm0
+   0x00000000004025ab <+187>:	c5 fb 5e 05 45 0c 00 00	vdivsd 0xc45(%rip),%xmm0,%xmm0        # 0x4031f8
+   0x00000000004025b3 <+195>:	c4 e1 eb 2a 5d c0	vcvtsi2sdq -0x40(%rbp),%xmm2,%xmm3
+   0x00000000004025b9 <+201>:	c4 e1 eb 2a 55 b0	vcvtsi2sdq -0x50(%rbp),%xmm2,%xmm2
+   0x00000000004025bf <+207>:	c5 e3 5c da	vsubsd %xmm2,%xmm3,%xmm3
+   0x00000000004025c3 <+211>:	c5 fb 58 c3	vaddsd %xmm3,%xmm0,%xmm0
+   0x00000000004025c7 <+215>:	e8 c4 ea ff ff	call   0x401090 <fprintf@plt>
+   0x00000000004025cc <+220>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
+   0x00000000004025d0 <+224>:	62 f1 fd 48 28 8d 50 ff ff ff	vmovapd -0xb0(%rbp),%zmm1
+   0x00000000004025da <+234>:	c5 e3 58 d9	vaddsd %xmm1,%xmm3,%xmm3
+   0x00000000004025de <+238>:	c5 f1 15 c1	vunpckhpd %xmm1,%xmm1,%xmm0
+   0x00000000004025e2 <+242>:	c4 e3 7d 19 ca 01	vextractf128 $0x1,%ymm1,%xmm2
+   0x00000000004025e8 <+248>:	62 f3 fd 48 1b c9 01	vextractf64x4 $0x1,%zmm1,%ymm1
+   0x00000000004025ef <+255>:	c5 fb 58 c3	vaddsd %xmm3,%xmm0,%xmm0
+   0x00000000004025f3 <+259>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
+   0x00000000004025f7 <+263>:	c5 e9 15 d2	vunpckhpd %xmm2,%xmm2,%xmm2
+   0x00000000004025fb <+267>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
+   0x00000000004025ff <+271>:	c5 f1 15 d1	vunpckhpd %xmm1,%xmm1,%xmm2
+   0x0000000000402603 <+275>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
+   0x0000000000402607 <+279>:	c4 e3 7d 19 c9 01	vextractf128 $0x1,%ymm1,%xmm1
+   0x000000000040260d <+285>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
+   0x0000000000402611 <+289>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
+   0x0000000000402615 <+293>:	c5 f1 15 c9	vunpckhpd %xmm1,%xmm1,%xmm1
+   0x0000000000402619 <+297>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
+   0x000000000040261d <+301>:	c5 f8 77	vzeroupper 
+   0x0000000000402620 <+304>:	48 81 c4 a0 00 00 00	add    $0xa0,%rsp
+   0x0000000000402627 <+311>:	5b	pop    %rbx
+   0x0000000000402628 <+312>:	41 5a	pop    %r10
+   0x000000000040262a <+314>:	5d	pop    %rbp
+   0x000000000040262b <+315>:	49 8d 62 f8	lea    -0x8(%r10),%rsp
+   0x000000000040262f <+319>:	c3	ret    
+   0x0000000000402630 <+320>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+   0x0000000000402634 <+324>:	e9 32 ff ff ff	jmp    0x40256b <HarmonicSeriesAVX512+123>
+End of assembler dump.

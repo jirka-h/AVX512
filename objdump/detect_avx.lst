@@ -1,0 +1,1196 @@
+
+bin/detect_avx:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000401000 <_init>:
+  401000:	f3 0f 1e fa          	endbr64 
+  401004:	48 83 ec 08          	sub    $0x8,%rsp
+  401008:	48 8b 05 e9 3f 00 00 	mov    0x3fe9(%rip),%rax        # 404ff8 <__gmon_start__@Base>
+  40100f:	48 85 c0             	test   %rax,%rax
+  401012:	74 02                	je     401016 <_init+0x16>
+  401014:	ff d0                	call   *%rax
+  401016:	48 83 c4 08          	add    $0x8,%rsp
+  40101a:	c3                   	ret    
+
+Disassembly of section .plt:
+
+0000000000401020 <printf@plt-0x10>:
+  401020:	ff 35 e2 3f 00 00    	push   0x3fe2(%rip)        # 405008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  401026:	ff 25 e4 3f 00 00    	jmp    *0x3fe4(%rip)        # 405010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40102c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000401030 <printf@plt>:
+  401030:	ff 25 e2 3f 00 00    	jmp    *0x3fe2(%rip)        # 405018 <printf@GLIBC_2.2.5>
+  401036:	68 00 00 00 00       	push   $0x0
+  40103b:	e9 e0 ff ff ff       	jmp    401020 <_init+0x20>
+
+0000000000401040 <putc@plt>:
+  401040:	ff 25 da 3f 00 00    	jmp    *0x3fda(%rip)        # 405020 <putc@GLIBC_2.2.5>
+  401046:	68 01 00 00 00       	push   $0x1
+  40104b:	e9 d0 ff ff ff       	jmp    401020 <_init+0x20>
+
+Disassembly of section .text:
+
+0000000000401050 <main>:
+  401050:	55                   	push   %rbp
+  401051:	bd 10 30 40 00       	mov    $0x403010,%ebp
+  401056:	bf 18 30 40 00       	mov    $0x403018,%edi
+  40105b:	53                   	push   %rbx
+  40105c:	48 89 ee             	mov    %rbp,%rsi
+  40105f:	bb 12 30 40 00       	mov    $0x403012,%ebx
+  401064:	48 83 ec 08          	sub    $0x8,%rsp
+  401068:	f6 05 ed 3f 00 00 08 	testb  $0x8,0x3fed(%rip)        # 40505c <__cpu_model+0xc>
+  40106f:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401073:	31 c0                	xor    %eax,%eax
+  401075:	e8 b6 ff ff ff       	call   401030 <printf@plt>
+  40107a:	f6 05 db 3f 00 00 10 	testb  $0x10,0x3fdb(%rip)        # 40505c <__cpu_model+0xc>
+  401081:	48 89 ee             	mov    %rbp,%rsi
+  401084:	bf 40 30 40 00       	mov    $0x403040,%edi
+  401089:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40108d:	31 c0                	xor    %eax,%eax
+  40108f:	e8 9c ff ff ff       	call   401030 <printf@plt>
+  401094:	f6 05 c1 3f 00 00 20 	testb  $0x20,0x3fc1(%rip)        # 40505c <__cpu_model+0xc>
+  40109b:	48 89 ee             	mov    %rbp,%rsi
+  40109e:	bf 68 30 40 00       	mov    $0x403068,%edi
+  4010a3:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4010a7:	31 c0                	xor    %eax,%eax
+  4010a9:	e8 82 ff ff ff       	call   401030 <printf@plt>
+  4010ae:	f6 05 a7 3f 00 00 80 	testb  $0x80,0x3fa7(%rip)        # 40505c <__cpu_model+0xc>
+  4010b5:	48 89 ee             	mov    %rbp,%rsi
+  4010b8:	bf 90 30 40 00       	mov    $0x403090,%edi
+  4010bd:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4010c1:	31 c0                	xor    %eax,%eax
+  4010c3:	e8 68 ff ff ff       	call   401030 <printf@plt>
+  4010c8:	f6 05 8e 3f 00 00 01 	testb  $0x1,0x3f8e(%rip)        # 40505d <__cpu_model+0xd>
+  4010cf:	48 89 ee             	mov    %rbp,%rsi
+  4010d2:	bf b8 30 40 00       	mov    $0x4030b8,%edi
+  4010d7:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4010db:	31 c0                	xor    %eax,%eax
+  4010dd:	e8 4e ff ff ff       	call   401030 <printf@plt>
+  4010e2:	f6 05 74 3f 00 00 02 	testb  $0x2,0x3f74(%rip)        # 40505d <__cpu_model+0xd>
+  4010e9:	48 89 ee             	mov    %rbp,%rsi
+  4010ec:	bf e0 30 40 00       	mov    $0x4030e0,%edi
+  4010f1:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4010f5:	31 c0                	xor    %eax,%eax
+  4010f7:	e8 34 ff ff ff       	call   401030 <printf@plt>
+  4010fc:	f6 05 5a 3f 00 00 04 	testb  $0x4,0x3f5a(%rip)        # 40505d <__cpu_model+0xd>
+  401103:	48 89 ee             	mov    %rbp,%rsi
+  401106:	bf 08 31 40 00       	mov    $0x403108,%edi
+  40110b:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40110f:	31 c0                	xor    %eax,%eax
+  401111:	e8 1a ff ff ff       	call   401030 <printf@plt>
+  401116:	f6 05 40 3f 00 00 40 	testb  $0x40,0x3f40(%rip)        # 40505d <__cpu_model+0xd>
+  40111d:	48 89 ee             	mov    %rbp,%rsi
+  401120:	bf 30 31 40 00       	mov    $0x403130,%edi
+  401125:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401129:	31 c0                	xor    %eax,%eax
+  40112b:	e8 00 ff ff ff       	call   401030 <printf@plt>
+  401130:	f6 05 26 3f 00 00 10 	testb  $0x10,0x3f26(%rip)        # 40505d <__cpu_model+0xd>
+  401137:	48 89 ee             	mov    %rbp,%rsi
+  40113a:	bf 58 31 40 00       	mov    $0x403158,%edi
+  40113f:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401143:	31 c0                	xor    %eax,%eax
+  401145:	e8 e6 fe ff ff       	call   401030 <printf@plt>
+  40114a:	48 8b 35 df 3e 00 00 	mov    0x3edf(%rip),%rsi        # 405030 <stdout@@GLIBC_2.2.5>
+  401151:	bf 0a 00 00 00       	mov    $0xa,%edi
+  401156:	e8 e5 fe ff ff       	call   401040 <putc@plt>
+  40115b:	f6 05 fb 3e 00 00 80 	testb  $0x80,0x3efb(%rip)        # 40505d <__cpu_model+0xd>
+  401162:	48 89 ee             	mov    %rbp,%rsi
+  401165:	bf 80 31 40 00       	mov    $0x403180,%edi
+  40116a:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40116e:	31 c0                	xor    %eax,%eax
+  401170:	e8 bb fe ff ff       	call   401030 <printf@plt>
+  401175:	f6 05 e2 3e 00 00 10 	testb  $0x10,0x3ee2(%rip)        # 40505e <__cpu_model+0xe>
+  40117c:	48 89 ee             	mov    %rbp,%rsi
+  40117f:	bf b0 31 40 00       	mov    $0x4031b0,%edi
+  401184:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401188:	31 c0                	xor    %eax,%eax
+  40118a:	e8 a1 fe ff ff       	call   401030 <printf@plt>
+  40118f:	f6 05 c8 3e 00 00 20 	testb  $0x20,0x3ec8(%rip)        # 40505e <__cpu_model+0xe>
+  401196:	48 89 ee             	mov    %rbp,%rsi
+  401199:	bf e0 31 40 00       	mov    $0x4031e0,%edi
+  40119e:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4011a2:	31 c0                	xor    %eax,%eax
+  4011a4:	e8 87 fe ff ff       	call   401030 <printf@plt>
+  4011a9:	f6 05 ae 3e 00 00 40 	testb  $0x40,0x3eae(%rip)        # 40505e <__cpu_model+0xe>
+  4011b0:	48 89 ee             	mov    %rbp,%rsi
+  4011b3:	bf 10 32 40 00       	mov    $0x403210,%edi
+  4011b8:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4011bc:	31 c0                	xor    %eax,%eax
+  4011be:	e8 6d fe ff ff       	call   401030 <printf@plt>
+  4011c3:	f6 05 94 3e 00 00 80 	testb  $0x80,0x3e94(%rip)        # 40505e <__cpu_model+0xe>
+  4011ca:	48 89 ee             	mov    %rbp,%rsi
+  4011cd:	bf 40 32 40 00       	mov    $0x403240,%edi
+  4011d2:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4011d6:	31 c0                	xor    %eax,%eax
+  4011d8:	e8 53 fe ff ff       	call   401030 <printf@plt>
+  4011dd:	f6 05 7b 3e 00 00 01 	testb  $0x1,0x3e7b(%rip)        # 40505f <__cpu_model+0xf>
+  4011e4:	48 89 ee             	mov    %rbp,%rsi
+  4011e7:	bf 70 32 40 00       	mov    $0x403270,%edi
+  4011ec:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4011f0:	31 c0                	xor    %eax,%eax
+  4011f2:	e8 39 fe ff ff       	call   401030 <printf@plt>
+  4011f7:	f6 05 61 3e 00 00 02 	testb  $0x2,0x3e61(%rip)        # 40505f <__cpu_model+0xf>
+  4011fe:	48 89 ee             	mov    %rbp,%rsi
+  401201:	bf a0 32 40 00       	mov    $0x4032a0,%edi
+  401206:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40120a:	31 c0                	xor    %eax,%eax
+  40120c:	e8 1f fe ff ff       	call   401030 <printf@plt>
+  401211:	f6 05 47 3e 00 00 04 	testb  $0x4,0x3e47(%rip)        # 40505f <__cpu_model+0xf>
+  401218:	48 89 ee             	mov    %rbp,%rsi
+  40121b:	bf d0 32 40 00       	mov    $0x4032d0,%edi
+  401220:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401224:	31 c0                	xor    %eax,%eax
+  401226:	e8 05 fe ff ff       	call   401030 <printf@plt>
+  40122b:	f6 05 2d 3e 00 00 08 	testb  $0x8,0x3e2d(%rip)        # 40505f <__cpu_model+0xf>
+  401232:	48 89 ee             	mov    %rbp,%rsi
+  401235:	bf 00 33 40 00       	mov    $0x403300,%edi
+  40123a:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40123e:	31 c0                	xor    %eax,%eax
+  401240:	e8 eb fd ff ff       	call   401030 <printf@plt>
+  401245:	f6 05 13 3e 00 00 10 	testb  $0x10,0x3e13(%rip)        # 40505f <__cpu_model+0xf>
+  40124c:	48 89 ee             	mov    %rbp,%rsi
+  40124f:	bf 30 33 40 00       	mov    $0x403330,%edi
+  401254:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401258:	31 c0                	xor    %eax,%eax
+  40125a:	e8 d1 fd ff ff       	call   401030 <printf@plt>
+  40125f:	f6 05 f9 3d 00 00 20 	testb  $0x20,0x3df9(%rip)        # 40505f <__cpu_model+0xf>
+  401266:	48 89 ee             	mov    %rbp,%rsi
+  401269:	bf 60 33 40 00       	mov    $0x403360,%edi
+  40126e:	48 0f 45 f3          	cmovne %rbx,%rsi
+  401272:	31 c0                	xor    %eax,%eax
+  401274:	e8 b7 fd ff ff       	call   401030 <printf@plt>
+  401279:	f6 05 df 3d 00 00 40 	testb  $0x40,0x3ddf(%rip)        # 40505f <__cpu_model+0xf>
+  401280:	48 89 ee             	mov    %rbp,%rsi
+  401283:	bf 90 33 40 00       	mov    $0x403390,%edi
+  401288:	48 0f 45 f3          	cmovne %rbx,%rsi
+  40128c:	31 c0                	xor    %eax,%eax
+  40128e:	e8 9d fd ff ff       	call   401030 <printf@plt>
+  401293:	8b 05 c3 3d 00 00    	mov    0x3dc3(%rip),%eax        # 40505c <__cpu_model+0xc>
+  401299:	48 89 ee             	mov    %rbp,%rsi
+  40129c:	bf c0 33 40 00       	mov    $0x4033c0,%edi
+  4012a1:	85 c0                	test   %eax,%eax
+  4012a3:	48 0f 48 f3          	cmovs  %rbx,%rsi
+  4012a7:	31 c0                	xor    %eax,%eax
+  4012a9:	e8 82 fd ff ff       	call   401030 <printf@plt>
+  4012ae:	f6 05 8b 3d 00 00 08 	testb  $0x8,0x3d8b(%rip)        # 405040 <__cpu_features2>
+  4012b5:	48 89 ee             	mov    %rbp,%rsi
+  4012b8:	bf f0 33 40 00       	mov    $0x4033f0,%edi
+  4012bd:	48 0f 45 f3          	cmovne %rbx,%rsi
+  4012c1:	31 c0                	xor    %eax,%eax
+  4012c3:	e8 68 fd ff ff       	call   401030 <printf@plt>
+  4012c8:	48 83 c4 08          	add    $0x8,%rsp
+  4012cc:	31 c0                	xor    %eax,%eax
+  4012ce:	5b                   	pop    %rbx
+  4012cf:	5d                   	pop    %rbp
+  4012d0:	c3                   	ret    
+  4012d1:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  4012d8:	00 00 00 
+  4012db:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+00000000004012e0 <get_available_features.constprop.0>:
+  4012e0:	41 55                	push   %r13
+  4012e2:	49 89 fa             	mov    %rdi,%r10
+  4012e5:	41 89 f0             	mov    %esi,%r8d
+  4012e8:	41 89 d1             	mov    %edx,%r9d
+  4012eb:	41 54                	push   %r12
+  4012ed:	55                   	push   %rbp
+  4012ee:	53                   	push   %rbx
+  4012ef:	89 f3                	mov    %esi,%ebx
+  4012f1:	8b 6f 08             	mov    0x8(%rdi),%ebp
+  4012f4:	81 e3 00 00 00 08    	and    $0x8000000,%ebx
+  4012fa:	74 2c                	je     401328 <get_available_features.constprop.0+0x48>
+  4012fc:	31 c9                	xor    %ecx,%ecx
+  4012fe:	0f 01 d0             	xgetbv 
+  401301:	89 c2                	mov    %eax,%edx
+  401303:	83 e2 06             	and    $0x6,%edx
+  401306:	83 fa 06             	cmp    $0x6,%edx
+  401309:	0f 84 4b 06 00 00    	je     40195a <get_available_features.constprop.0+0x67a>
+  40130f:	45 31 e4             	xor    %r12d,%r12d
+  401312:	45 31 db             	xor    %r11d,%r11d
+  401315:	25 00 00 06 00       	and    $0x60000,%eax
+  40131a:	45 31 ed             	xor    %r13d,%r13d
+  40131d:	3d 00 00 06 00       	cmp    $0x60000,%eax
+  401322:	41 0f 94 c5          	sete   %r13b
+  401326:	eb 09                	jmp    401331 <get_available_features.constprop.0+0x51>
+  401328:	45 31 ed             	xor    %r13d,%r13d
+  40132b:	45 31 e4             	xor    %r12d,%r12d
+  40132e:	45 31 db             	xor    %r11d,%r11d
+  401331:	41 f7 c1 00 80 00 00 	test   $0x8000,%r9d
+  401338:	74 07                	je     401341 <get_available_features.constprop.0+0x61>
+  40133a:	83 0d 1b 3d 00 00 01 	orl    $0x1,0x3d1b(%rip)        # 40505c <__cpu_model+0xc>
+  401341:	41 f7 c1 00 00 80 00 	test   $0x800000,%r9d
+  401348:	74 07                	je     401351 <get_available_features.constprop.0+0x71>
+  40134a:	83 0d 0b 3d 00 00 02 	orl    $0x2,0x3d0b(%rip)        # 40505c <__cpu_model+0xc>
+  401351:	41 f7 c1 00 00 00 02 	test   $0x2000000,%r9d
+  401358:	74 07                	je     401361 <get_available_features.constprop.0+0x81>
+  40135a:	83 0d fb 3c 00 00 08 	orl    $0x8,0x3cfb(%rip)        # 40505c <__cpu_model+0xc>
+  401361:	41 f7 c1 00 00 00 04 	test   $0x4000000,%r9d
+  401368:	74 07                	je     401371 <get_available_features.constprop.0+0x91>
+  40136a:	83 0d eb 3c 00 00 10 	orl    $0x10,0x3ceb(%rip)        # 40505c <__cpu_model+0xc>
+  401371:	41 f7 c1 00 01 00 00 	test   $0x100,%r9d
+  401378:	0f 85 cd 05 00 00    	jne    40194b <get_available_features.constprop.0+0x66b>
+  40137e:	41 81 e1 00 00 00 01 	and    $0x1000000,%r9d
+  401385:	0f 85 b1 05 00 00    	jne    40193c <get_available_features.constprop.0+0x65c>
+  40138b:	41 f7 c0 00 00 80 00 	test   $0x800000,%r8d
+  401392:	74 07                	je     40139b <get_available_features.constprop.0+0xbb>
+  401394:	83 0d c1 3c 00 00 04 	orl    $0x4,0x3cc1(%rip)        # 40505c <__cpu_model+0xc>
+  40139b:	45 89 c1             	mov    %r8d,%r9d
+  40139e:	41 81 e1 00 00 00 02 	and    $0x2000000,%r9d
+  4013a5:	74 0a                	je     4013b1 <get_available_features.constprop.0+0xd1>
+  4013a7:	81 0d ab 3c 00 00 00 	orl    $0x40000,0x3cab(%rip)        # 40505c <__cpu_model+0xc>
+  4013ae:	00 04 00 
+  4013b1:	41 f6 c0 02          	test   $0x2,%r8b
+  4013b5:	74 0a                	je     4013c1 <get_available_features.constprop.0+0xe1>
+  4013b7:	81 0d 9b 3c 00 00 00 	orl    $0x80000,0x3c9b(%rip)        # 40505c <__cpu_model+0xc>
+  4013be:	00 08 00 
+  4013c1:	41 f6 c0 01          	test   $0x1,%r8b
+  4013c5:	74 07                	je     4013ce <get_available_features.constprop.0+0xee>
+  4013c7:	83 0d 8e 3c 00 00 20 	orl    $0x20,0x3c8e(%rip)        # 40505c <__cpu_model+0xc>
+  4013ce:	41 f7 c0 00 02 00 00 	test   $0x200,%r8d
+  4013d5:	74 07                	je     4013de <get_available_features.constprop.0+0xfe>
+  4013d7:	83 0d 7e 3c 00 00 40 	orl    $0x40,0x3c7e(%rip)        # 40505c <__cpu_model+0xc>
+  4013de:	41 f7 c0 00 00 08 00 	test   $0x80000,%r8d
+  4013e5:	74 0a                	je     4013f1 <get_available_features.constprop.0+0x111>
+  4013e7:	81 0d 6b 3c 00 00 80 	orl    $0x80,0x3c6b(%rip)        # 40505c <__cpu_model+0xc>
+  4013ee:	00 00 00 
+  4013f1:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+  4013f8:	74 0a                	je     401404 <get_available_features.constprop.0+0x124>
+  4013fa:	81 0d 58 3c 00 00 00 	orl    $0x100,0x3c58(%rip)        # 40505c <__cpu_model+0xc>
+  401401:	01 00 00 
+  401404:	85 db                	test   %ebx,%ebx
+  401406:	0f 85 21 05 00 00    	jne    40192d <get_available_features.constprop.0+0x64d>
+  40140c:	41 f7 c0 00 20 00 00 	test   $0x2000,%r8d
+  401413:	0f 85 05 05 00 00    	jne    40191e <get_available_features.constprop.0+0x63e>
+  401419:	41 f7 c0 00 00 40 00 	test   $0x400000,%r8d
+  401420:	0f 85 e9 04 00 00    	jne    40190f <get_available_features.constprop.0+0x62f>
+  401426:	45 85 c9             	test   %r9d,%r9d
+  401429:	74 0a                	je     401435 <get_available_features.constprop.0+0x155>
+  40142b:	81 0d 27 3c 00 00 00 	orl    $0x40000,0x3c27(%rip)        # 40505c <__cpu_model+0xc>
+  401432:	00 04 00 
+  401435:	41 f7 c0 00 00 00 20 	test   $0x20000000,%r8d
+  40143c:	0f 85 be 04 00 00    	jne    401900 <get_available_features.constprop.0+0x620>
+  401442:	41 f7 c0 00 00 00 40 	test   $0x40000000,%r8d
+  401449:	0f 85 a2 04 00 00    	jne    4018f1 <get_available_features.constprop.0+0x611>
+  40144f:	41 f7 c0 00 00 00 04 	test   $0x4000000,%r8d
+  401456:	0f 85 86 04 00 00    	jne    4018e2 <get_available_features.constprop.0+0x602>
+  40145c:	45 85 db             	test   %r11d,%r11d
+  40145f:	74 20                	je     401481 <get_available_features.constprop.0+0x1a1>
+  401461:	41 f7 c0 00 00 00 10 	test   $0x10000000,%r8d
+  401468:	0f 85 2e 04 00 00    	jne    40189c <get_available_features.constprop.0+0x5bc>
+  40146e:	41 81 e0 00 10 00 00 	and    $0x1000,%r8d
+  401475:	74 0a                	je     401481 <get_available_features.constprop.0+0x1a1>
+  401477:	81 0d db 3b 00 00 00 	orl    $0x4000,0x3bdb(%rip)        # 40505c <__cpu_model+0xc>
+  40147e:	40 00 00 
+  401481:	83 fd 06             	cmp    $0x6,%ebp
+  401484:	0f 86 3a 03 00 00    	jbe    4017c4 <get_available_features.constprop.0+0x4e4>
+  40148a:	b8 07 00 00 00       	mov    $0x7,%eax
+  40148f:	31 c9                	xor    %ecx,%ecx
+  401491:	0f a2                	cpuid  
+  401493:	41 89 d1             	mov    %edx,%r9d
+  401496:	41 89 c8             	mov    %ecx,%r8d
+  401499:	f6 c3 08             	test   $0x8,%bl
+  40149c:	0f 85 31 04 00 00    	jne    4018d3 <get_available_features.constprop.0+0x5f3>
+  4014a2:	f6 c3 04             	test   $0x4,%bl
+  4014a5:	0f 85 ee 06 00 00    	jne    401b99 <get_available_features.constprop.0+0x8b9>
+  4014ab:	f6 c3 10             	test   $0x10,%bl
+  4014ae:	0f 85 9a 06 00 00    	jne    401b4e <get_available_features.constprop.0+0x86e>
+  4014b4:	f6 c7 08             	test   $0x8,%bh
+  4014b7:	0f 85 82 06 00 00    	jne    401b3f <get_available_features.constprop.0+0x85f>
+  4014bd:	45 85 db             	test   %r11d,%r11d
+  4014c0:	74 1c                	je     4014de <get_available_features.constprop.0+0x1fe>
+  4014c2:	f6 c3 20             	test   $0x20,%bl
+  4014c5:	74 0a                	je     4014d1 <get_available_features.constprop.0+0x1f1>
+  4014c7:	81 0d 8b 3b 00 00 00 	orl    $0x400,0x3b8b(%rip)        # 40505c <__cpu_model+0xc>
+  4014ce:	04 00 00 
+  4014d1:	41 f7 c0 00 04 00 00 	test   $0x400,%r8d
+  4014d8:	0f 85 da 05 00 00    	jne    401ab8 <get_available_features.constprop.0+0x7d8>
+  4014de:	f6 c7 01             	test   $0x1,%bh
+  4014e1:	74 0a                	je     4014ed <get_available_features.constprop.0+0x20d>
+  4014e3:	81 0d 6f 3b 00 00 00 	orl    $0x20000,0x3b6f(%rip)        # 40505c <__cpu_model+0xc>
+  4014ea:	00 02 00 
+  4014ed:	f6 c3 01             	test   $0x1,%bl
+  4014f0:	0f 85 3a 06 00 00    	jne    401b30 <get_available_features.constprop.0+0x850>
+  4014f6:	f7 c3 00 00 04 00    	test   $0x40000,%ebx
+  4014fc:	0f 85 1f 06 00 00    	jne    401b21 <get_available_features.constprop.0+0x841>
+  401502:	f7 c3 00 00 08 00    	test   $0x80000,%ebx
+  401508:	0f 85 99 07 00 00    	jne    401ca7 <get_available_features.constprop.0+0x9c7>
+  40150e:	f7 c3 00 00 00 20    	test   $0x20000000,%ebx
+  401514:	0f 85 7e 07 00 00    	jne    401c98 <get_available_features.constprop.0+0x9b8>
+  40151a:	f7 c3 00 00 80 00    	test   $0x800000,%ebx
+  401520:	0f 85 63 07 00 00    	jne    401c89 <get_available_features.constprop.0+0x9a9>
+  401526:	f7 c3 00 00 00 01    	test   $0x1000000,%ebx
+  40152c:	0f 85 48 07 00 00    	jne    401c7a <get_available_features.constprop.0+0x99a>
+  401532:	41 f6 c0 01          	test   $0x1,%r8b
+  401536:	0f 85 2f 07 00 00    	jne    401c6b <get_available_features.constprop.0+0x98b>
+  40153c:	41 f6 c0 10          	test   $0x10,%r8b
+  401540:	0f 85 16 07 00 00    	jne    401c5c <get_available_features.constprop.0+0x97c>
+  401546:	41 f7 c0 00 00 40 00 	test   $0x400000,%r8d
+  40154d:	0f 85 fa 06 00 00    	jne    401c4d <get_available_features.constprop.0+0x96d>
+  401553:	41 f7 c0 00 02 00 00 	test   $0x200,%r8d
+  40155a:	0f 85 de 06 00 00    	jne    401c3e <get_available_features.constprop.0+0x95e>
+  401560:	41 f7 c0 00 01 00 00 	test   $0x100,%r8d
+  401567:	0f 85 c2 06 00 00    	jne    401c2f <get_available_features.constprop.0+0x94f>
+  40156d:	41 f7 c0 00 00 00 08 	test   $0x8000000,%r8d
+  401574:	0f 85 a6 06 00 00    	jne    401c20 <get_available_features.constprop.0+0x940>
+  40157a:	41 f7 c0 00 00 00 10 	test   $0x10000000,%r8d
+  401581:	0f 85 8a 06 00 00    	jne    401c11 <get_available_features.constprop.0+0x931>
+  401587:	41 f7 c0 00 00 00 20 	test   $0x20000000,%r8d
+  40158e:	0f 85 6e 06 00 00    	jne    401c02 <get_available_features.constprop.0+0x922>
+  401594:	41 f7 c0 00 00 00 02 	test   $0x2000000,%r8d
+  40159b:	0f 85 52 06 00 00    	jne    401bf3 <get_available_features.constprop.0+0x913>
+  4015a1:	41 f6 c0 20          	test   $0x20,%r8b
+  4015a5:	0f 85 39 06 00 00    	jne    401be4 <get_available_features.constprop.0+0x904>
+  4015ab:	41 f6 c0 80          	test   $0x80,%r8b
+  4015af:	0f 85 20 06 00 00    	jne    401bd5 <get_available_features.constprop.0+0x8f5>
+  4015b5:	41 f7 c1 00 40 00 00 	test   $0x4000,%r9d
+  4015bc:	0f 85 04 06 00 00    	jne    401bc6 <get_available_features.constprop.0+0x8e6>
+  4015c2:	41 f7 c1 00 00 01 00 	test   $0x10000,%r9d
+  4015c9:	0f 85 bb 05 00 00    	jne    401b8a <get_available_features.constprop.0+0x8aa>
+  4015cf:	41 f7 c1 00 00 04 00 	test   $0x40000,%r9d
+  4015d6:	0f 85 9f 05 00 00    	jne    401b7b <get_available_features.constprop.0+0x89b>
+  4015dc:	41 f7 c1 00 00 10 00 	test   $0x100000,%r9d
+  4015e3:	0f 85 83 05 00 00    	jne    401b6c <get_available_features.constprop.0+0x88c>
+  4015e9:	41 f6 c1 20          	test   $0x20,%r9b
+  4015ed:	0f 85 6a 05 00 00    	jne    401b5d <get_available_features.constprop.0+0x87d>
+  4015f3:	45 85 ed             	test   %r13d,%r13d
+  4015f6:	74 27                	je     40161f <get_available_features.constprop.0+0x33f>
+  4015f8:	41 f7 c1 00 00 00 01 	test   $0x1000000,%r9d
+  4015ff:	0f 85 95 04 00 00    	jne    401a9a <get_available_features.constprop.0+0x7ba>
+  401605:	41 f7 c1 00 00 00 02 	test   $0x2000000,%r9d
+  40160c:	0f 85 79 04 00 00    	jne    401a8b <get_available_features.constprop.0+0x7ab>
+  401612:	41 f7 c1 00 00 40 00 	test   $0x400000,%r9d
+  401619:	0f 85 4e 04 00 00    	jne    401a6d <get_available_features.constprop.0+0x78d>
+  40161f:	45 85 e4             	test   %r12d,%r12d
+  401622:	0f 84 00 01 00 00    	je     401728 <get_available_features.constprop.0+0x448>
+  401628:	f7 c3 00 00 01 00    	test   $0x10000,%ebx
+  40162e:	74 0a                	je     40163a <get_available_features.constprop.0+0x35a>
+  401630:	81 0d 22 3a 00 00 00 	orl    $0x8000,0x3a22(%rip)        # 40505c <__cpu_model+0xc>
+  401637:	80 00 00 
+  40163a:	85 db                	test   %ebx,%ebx
+  40163c:	0f 88 1c 04 00 00    	js     401a5e <get_available_features.constprop.0+0x77e>
+  401642:	f7 c3 00 00 00 40    	test   $0x40000000,%ebx
+  401648:	74 0a                	je     401654 <get_available_features.constprop.0+0x374>
+  40164a:	81 0d 08 3a 00 00 00 	orl    $0x200000,0x3a08(%rip)        # 40505c <__cpu_model+0xc>
+  401651:	00 20 00 
+  401654:	f7 c3 00 00 02 00    	test   $0x20000,%ebx
+  40165a:	74 0a                	je     401666 <get_available_features.constprop.0+0x386>
+  40165c:	81 0d f6 39 00 00 00 	orl    $0x400000,0x39f6(%rip)        # 40505c <__cpu_model+0xc>
+  401663:	00 40 00 
+  401666:	f7 c3 00 00 00 10    	test   $0x10000000,%ebx
+  40166c:	74 0a                	je     401678 <get_available_features.constprop.0+0x398>
+  40166e:	81 0d e4 39 00 00 00 	orl    $0x800000,0x39e4(%rip)        # 40505c <__cpu_model+0xc>
+  401675:	00 80 00 
+  401678:	f7 c3 00 00 00 04    	test   $0x4000000,%ebx
+  40167e:	74 0a                	je     40168a <get_available_features.constprop.0+0x3aa>
+  401680:	81 0d d2 39 00 00 00 	orl    $0x2000000,0x39d2(%rip)        # 40505c <__cpu_model+0xc>
+  401687:	00 00 02 
+  40168a:	f7 c3 00 00 00 08    	test   $0x8000000,%ebx
+  401690:	74 0a                	je     40169c <get_available_features.constprop.0+0x3bc>
+  401692:	81 0d c0 39 00 00 00 	orl    $0x1000000,0x39c0(%rip)        # 40505c <__cpu_model+0xc>
+  401699:	00 00 01 
+  40169c:	81 e3 00 00 20 00    	and    $0x200000,%ebx
+  4016a2:	74 0a                	je     4016ae <get_available_features.constprop.0+0x3ce>
+  4016a4:	81 0d ae 39 00 00 00 	orl    $0x8000000,0x39ae(%rip)        # 40505c <__cpu_model+0xc>
+  4016ab:	00 00 08 
+  4016ae:	41 f6 c0 02          	test   $0x2,%r8b
+  4016b2:	74 0a                	je     4016be <get_available_features.constprop.0+0x3de>
+  4016b4:	81 0d 9e 39 00 00 00 	orl    $0x4000000,0x399e(%rip)        # 40505c <__cpu_model+0xc>
+  4016bb:	00 00 04 
+  4016be:	41 f6 c0 40          	test   $0x40,%r8b
+  4016c2:	74 0a                	je     4016ce <get_available_features.constprop.0+0x3ee>
+  4016c4:	81 0d 8e 39 00 00 00 	orl    $0x80000000,0x398e(%rip)        # 40505c <__cpu_model+0xc>
+  4016cb:	00 00 80 
+  4016ce:	41 f7 c0 00 08 00 00 	test   $0x800,%r8d
+  4016d5:	0f 85 a1 03 00 00    	jne    401a7c <get_available_features.constprop.0+0x79c>
+  4016db:	41 f7 c0 00 10 00 00 	test   $0x1000,%r8d
+  4016e2:	0f 85 df 03 00 00    	jne    401ac7 <get_available_features.constprop.0+0x7e7>
+  4016e8:	41 f7 c0 00 40 00 00 	test   $0x4000,%r8d
+  4016ef:	74 0a                	je     4016fb <get_available_features.constprop.0+0x41b>
+  4016f1:	81 0d 61 39 00 00 00 	orl    $0x40000000,0x3961(%rip)        # 40505c <__cpu_model+0xc>
+  4016f8:	00 00 40 
+  4016fb:	41 f6 c1 04          	test   $0x4,%r9b
+  4016ff:	74 0a                	je     40170b <get_available_features.constprop.0+0x42b>
+  401701:	81 0d 51 39 00 00 00 	orl    $0x10000000,0x3951(%rip)        # 40505c <__cpu_model+0xc>
+  401708:	00 00 10 
+  40170b:	41 f6 c1 08          	test   $0x8,%r9b
+  40170f:	74 0a                	je     40171b <get_available_features.constprop.0+0x43b>
+  401711:	81 0d 41 39 00 00 00 	orl    $0x20000000,0x3941(%rip)        # 40505c <__cpu_model+0xc>
+  401718:	00 00 20 
+  40171b:	41 81 e1 00 01 00 00 	and    $0x100,%r9d
+  401722:	0f 85 81 03 00 00    	jne    401aa9 <get_available_features.constprop.0+0x7c9>
+  401728:	41 b9 07 00 00 00    	mov    $0x7,%r9d
+  40172e:	b9 01 00 00 00       	mov    $0x1,%ecx
+  401733:	44 89 c8             	mov    %r9d,%eax
+  401736:	0f a2                	cpuid  
+  401738:	41 89 c1             	mov    %eax,%r9d
+  40173b:	a9 00 00 40 00       	test   $0x400000,%eax
+  401740:	0f 85 ae 03 00 00    	jne    401af4 <get_available_features.constprop.0+0x814>
+  401746:	45 85 db             	test   %r11d,%r11d
+  401749:	74 0a                	je     401755 <get_available_features.constprop.0+0x475>
+  40174b:	41 f6 c1 10          	test   $0x10,%r9b
+  40174f:	0f 85 90 03 00 00    	jne    401ae5 <get_available_features.constprop.0+0x805>
+  401755:	45 85 e4             	test   %r12d,%r12d
+  401758:	74 0a                	je     401764 <get_available_features.constprop.0+0x484>
+  40175a:	41 80 e1 20          	and    $0x20,%r9b
+  40175e:	0f 85 72 03 00 00    	jne    401ad6 <get_available_features.constprop.0+0x7f6>
+  401764:	83 fd 0c             	cmp    $0xc,%ebp
+  401767:	76 5b                	jbe    4017c4 <get_available_features.constprop.0+0x4e4>
+  401769:	41 b9 0d 00 00 00    	mov    $0xd,%r9d
+  40176f:	b9 01 00 00 00       	mov    $0x1,%ecx
+  401774:	44 89 c8             	mov    %r9d,%eax
+  401777:	0f a2                	cpuid  
+  401779:	41 89 c1             	mov    %eax,%r9d
+  40177c:	a8 01                	test   $0x1,%al
+  40177e:	0f 85 8e 03 00 00    	jne    401b12 <get_available_features.constprop.0+0x832>
+  401784:	41 f6 c1 02          	test   $0x2,%r9b
+  401788:	0f 85 75 03 00 00    	jne    401b03 <get_available_features.constprop.0+0x823>
+  40178e:	41 80 e1 08          	and    $0x8,%r9b
+  401792:	0f 85 1f 04 00 00    	jne    401bb7 <get_available_features.constprop.0+0x8d7>
+  401798:	83 fd 13             	cmp    $0x13,%ebp
+  40179b:	76 27                	jbe    4017c4 <get_available_features.constprop.0+0x4e4>
+  40179d:	b8 14 00 00 00       	mov    $0x14,%eax
+  4017a2:	31 c9                	xor    %ecx,%ecx
+  4017a4:	0f a2                	cpuid  
+  4017a6:	80 e3 10             	and    $0x10,%bl
+  4017a9:	0f 85 f9 03 00 00    	jne    401ba8 <get_available_features.constprop.0+0x8c8>
+  4017af:	83 fd 18             	cmp    $0x18,%ebp
+  4017b2:	76 10                	jbe    4017c4 <get_available_features.constprop.0+0x4e4>
+  4017b4:	b8 19 00 00 00       	mov    $0x19,%eax
+  4017b9:	0f a2                	cpuid  
+  4017bb:	f6 c3 01             	test   $0x1,%bl
+  4017be:	0f 85 b6 01 00 00    	jne    40197a <get_available_features.constprop.0+0x69a>
+  4017c4:	b8 00 00 00 80       	mov    $0x80000000,%eax
+  4017c9:	0f a2                	cpuid  
+  4017cb:	41 89 42 0c          	mov    %eax,0xc(%r10)
+  4017cf:	41 89 c0             	mov    %eax,%r8d
+  4017d2:	3d 00 00 00 80       	cmp    $0x80000000,%eax
+  4017d7:	0f 86 b8 00 00 00    	jbe    401895 <get_available_features.constprop.0+0x5b5>
+  4017dd:	b8 01 00 00 80       	mov    $0x80000001,%eax
+  4017e2:	0f a2                	cpuid  
+  4017e4:	41 89 d2             	mov    %edx,%r10d
+  4017e7:	41 89 c9             	mov    %ecx,%r9d
+  4017ea:	f6 c1 40             	test   $0x40,%cl
+  4017ed:	74 0a                	je     4017f9 <get_available_features.constprop.0+0x519>
+  4017ef:	81 0d 63 38 00 00 00 	orl    $0x800,0x3863(%rip)        # 40505c <__cpu_model+0xc>
+  4017f6:	08 00 00 
+  4017f9:	41 f6 c1 01          	test   $0x1,%r9b
+  4017fd:	0f 85 01 02 00 00    	jne    401a04 <get_available_features.constprop.0+0x724>
+  401803:	44 89 cb             	mov    %r9d,%ebx
+  401806:	83 e3 20             	and    $0x20,%ebx
+  401809:	0f 85 04 02 00 00    	jne    401a13 <get_available_features.constprop.0+0x733>
+  40180f:	41 f7 c1 00 80 00 00 	test   $0x8000,%r9d
+  401816:	0f 85 06 02 00 00    	jne    401a22 <get_available_features.constprop.0+0x742>
+  40181c:	41 f7 c1 00 00 20 00 	test   $0x200000,%r9d
+  401823:	0f 85 80 01 00 00    	jne    4019a9 <get_available_features.constprop.0+0x6c9>
+  401829:	85 db                	test   %ebx,%ebx
+  40182b:	0f 85 00 02 00 00    	jne    401a31 <get_available_features.constprop.0+0x751>
+  401831:	41 f7 c1 00 01 00 00 	test   $0x100,%r9d
+  401838:	0f 85 02 02 00 00    	jne    401a40 <get_available_features.constprop.0+0x760>
+  40183e:	41 f7 c1 00 00 00 20 	test   $0x20000000,%r9d
+  401845:	0f 85 6d 01 00 00    	jne    4019b8 <get_available_features.constprop.0+0x6d8>
+  40184b:	41 f7 c2 00 00 00 20 	test   $0x20000000,%r10d
+  401852:	0f 85 6f 01 00 00    	jne    4019c7 <get_available_features.constprop.0+0x6e7>
+  401858:	41 f7 c2 00 00 00 40 	test   $0x40000000,%r10d
+  40185f:	0f 85 71 01 00 00    	jne    4019d6 <get_available_features.constprop.0+0x6f6>
+  401865:	45 85 d2             	test   %r10d,%r10d
+  401868:	0f 88 e1 01 00 00    	js     401a4f <get_available_features.constprop.0+0x76f>
+  40186e:	45 85 db             	test   %r11d,%r11d
+  401871:	75 38                	jne    4018ab <get_available_features.constprop.0+0x5cb>
+  401873:	41 81 f8 07 00 00 80 	cmp    $0x80000007,%r8d
+  40187a:	76 19                	jbe    401895 <get_available_features.constprop.0+0x5b5>
+  40187c:	b8 08 00 00 80       	mov    $0x80000008,%eax
+  401881:	0f a2                	cpuid  
+  401883:	f6 c3 01             	test   $0x1,%bl
+  401886:	0f 85 59 01 00 00    	jne    4019e5 <get_available_features.constprop.0+0x705>
+  40188c:	80 e7 02             	and    $0x2,%bh
+  40188f:	0f 85 5f 01 00 00    	jne    4019f4 <get_available_features.constprop.0+0x714>
+  401895:	5b                   	pop    %rbx
+  401896:	5d                   	pop    %rbp
+  401897:	41 5c                	pop    %r12
+  401899:	41 5d                	pop    %r13
+  40189b:	c3                   	ret    
+  40189c:	81 0d b6 37 00 00 00 	orl    $0x200,0x37b6(%rip)        # 40505c <__cpu_model+0xc>
+  4018a3:	02 00 00 
+  4018a6:	e9 c3 fb ff ff       	jmp    40146e <get_available_features.constprop.0+0x18e>
+  4018ab:	41 f7 c1 00 00 01 00 	test   $0x10000,%r9d
+  4018b2:	74 0a                	je     4018be <get_available_features.constprop.0+0x5de>
+  4018b4:	81 0d 9e 37 00 00 00 	orl    $0x1000,0x379e(%rip)        # 40505c <__cpu_model+0xc>
+  4018bb:	10 00 00 
+  4018be:	41 81 e1 00 08 00 00 	and    $0x800,%r9d
+  4018c5:	74 ac                	je     401873 <get_available_features.constprop.0+0x593>
+  4018c7:	81 0d 8b 37 00 00 00 	orl    $0x2000,0x378b(%rip)        # 40505c <__cpu_model+0xc>
+  4018ce:	20 00 00 
+  4018d1:	eb a0                	jmp    401873 <get_available_features.constprop.0+0x593>
+  4018d3:	81 0d 7f 37 00 00 00 	orl    $0x10000,0x377f(%rip)        # 40505c <__cpu_model+0xc>
+  4018da:	00 01 00 
+  4018dd:	e9 c0 fb ff ff       	jmp    4014a2 <get_available_features.constprop.0+0x1c2>
+  4018e2:	bf 51 00 00 00       	mov    $0x51,%edi
+  4018e7:	e8 d4 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4018ec:	e9 6b fb ff ff       	jmp    40145c <get_available_features.constprop.0+0x17c>
+  4018f1:	bf 45 00 00 00       	mov    $0x45,%edi
+  4018f6:	e8 c5 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4018fb:	e9 4f fb ff ff       	jmp    40144f <get_available_features.constprop.0+0x16f>
+  401900:	bf 31 00 00 00       	mov    $0x31,%edi
+  401905:	e8 b6 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  40190a:	e9 33 fb ff ff       	jmp    401442 <get_available_features.constprop.0+0x162>
+  40190f:	bf 3a 00 00 00       	mov    $0x3a,%edi
+  401914:	e8 a7 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401919:	e9 08 fb ff ff       	jmp    401426 <get_available_features.constprop.0+0x146>
+  40191e:	bf 2e 00 00 00       	mov    $0x2e,%edi
+  401923:	e8 98 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401928:	e9 ec fa ff ff       	jmp    401419 <get_available_features.constprop.0+0x139>
+  40192d:	bf 3e 00 00 00       	mov    $0x3e,%edi
+  401932:	e8 89 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401937:	e9 d0 fa ff ff       	jmp    40140c <get_available_features.constprop.0+0x12c>
+  40193c:	bf 33 00 00 00       	mov    $0x33,%edi
+  401941:	e8 7a 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401946:	e9 40 fa ff ff       	jmp    40138b <get_available_features.constprop.0+0xab>
+  40194b:	bf 2f 00 00 00       	mov    $0x2f,%edi
+  401950:	e8 6b 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401955:	e9 24 fa ff ff       	jmp    40137e <get_available_features.constprop.0+0x9e>
+  40195a:	89 c2                	mov    %eax,%edx
+  40195c:	45 31 e4             	xor    %r12d,%r12d
+  40195f:	41 bb 01 00 00 00    	mov    $0x1,%r11d
+  401965:	81 e2 e6 00 00 00    	and    $0xe6,%edx
+  40196b:	81 fa e6 00 00 00    	cmp    $0xe6,%edx
+  401971:	41 0f 94 c4          	sete   %r12b
+  401975:	e9 9b f9 ff ff       	jmp    401315 <get_available_features.constprop.0+0x35>
+  40197a:	bf 5b 00 00 00       	mov    $0x5b,%edi
+  40197f:	e8 3c 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401984:	80 e3 04             	and    $0x4,%bl
+  401987:	0f 85 29 03 00 00    	jne    401cb6 <get_available_features.constprop.0+0x9d6>
+  40198d:	41 81 e0 00 00 80 00 	and    $0x800000,%r8d
+  401994:	0f 84 2a fe ff ff    	je     4017c4 <get_available_features.constprop.0+0x4e4>
+  40199a:	bf 5a 00 00 00       	mov    $0x5a,%edi
+  40199f:	e8 1c 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019a4:	e9 1b fe ff ff       	jmp    4017c4 <get_available_features.constprop.0+0x4e4>
+  4019a9:	bf 4c 00 00 00       	mov    $0x4c,%edi
+  4019ae:	e8 0d 0a 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019b3:	e9 71 fe ff ff       	jmp    401829 <get_available_features.constprop.0+0x549>
+  4019b8:	bf 3d 00 00 00       	mov    $0x3d,%edi
+  4019bd:	e8 fe 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019c2:	e9 84 fe ff ff       	jmp    40184b <get_available_features.constprop.0+0x56b>
+  4019c7:	bf 37 00 00 00       	mov    $0x37,%edi
+  4019cc:	e8 ef 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019d1:	e9 82 fe ff ff       	jmp    401858 <get_available_features.constprop.0+0x578>
+  4019d6:	bf 27 00 00 00       	mov    $0x27,%edi
+  4019db:	e8 e0 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019e0:	e9 80 fe ff ff       	jmp    401865 <get_available_features.constprop.0+0x585>
+  4019e5:	bf 2d 00 00 00       	mov    $0x2d,%edi
+  4019ea:	e8 d1 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  4019ef:	e9 98 fe ff ff       	jmp    40188c <get_available_features.constprop.0+0x5ac>
+  4019f4:	5b                   	pop    %rbx
+  4019f5:	bf 50 00 00 00       	mov    $0x50,%edi
+  4019fa:	5d                   	pop    %rbp
+  4019fb:	41 5c                	pop    %r12
+  4019fd:	41 5d                	pop    %r13
+  4019ff:	e9 bc 09 00 00       	jmp    4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a04:	bf 36 00 00 00       	mov    $0x36,%edi
+  401a09:	e8 b2 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a0e:	e9 f0 fd ff ff       	jmp    401803 <get_available_features.constprop.0+0x523>
+  401a13:	bf 29 00 00 00       	mov    $0x29,%edi
+  401a18:	e8 a3 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a1d:	e9 ed fd ff ff       	jmp    40180f <get_available_features.constprop.0+0x52f>
+  401a22:	bf 38 00 00 00       	mov    $0x38,%edi
+  401a27:	e8 94 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a2c:	e9 eb fd ff ff       	jmp    40181c <get_available_features.constprop.0+0x53c>
+  401a31:	bf 39 00 00 00       	mov    $0x39,%edi
+  401a36:	e8 85 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a3b:	e9 f1 fd ff ff       	jmp    401831 <get_available_features.constprop.0+0x551>
+  401a40:	bf 42 00 00 00       	mov    $0x42,%edi
+  401a45:	e8 76 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a4a:	e9 ef fd ff ff       	jmp    40183e <get_available_features.constprop.0+0x55e>
+  401a4f:	bf 26 00 00 00       	mov    $0x26,%edi
+  401a54:	e8 67 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a59:	e9 10 fe ff ff       	jmp    40186e <get_available_features.constprop.0+0x58e>
+  401a5e:	81 0d f4 35 00 00 00 	orl    $0x100000,0x35f4(%rip)        # 40505c <__cpu_model+0xc>
+  401a65:	00 10 00 
+  401a68:	e9 d5 fb ff ff       	jmp    401642 <get_available_features.constprop.0+0x362>
+  401a6d:	bf 57 00 00 00       	mov    $0x57,%edi
+  401a72:	e8 49 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a77:	e9 a3 fb ff ff       	jmp    40161f <get_available_features.constprop.0+0x33f>
+  401a7c:	bf 22 00 00 00       	mov    $0x22,%edi
+  401a81:	e8 3a 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a86:	e9 50 fc ff ff       	jmp    4016db <get_available_features.constprop.0+0x3fb>
+  401a8b:	bf 56 00 00 00       	mov    $0x56,%edi
+  401a90:	e8 2b 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401a95:	e9 78 fb ff ff       	jmp    401612 <get_available_features.constprop.0+0x332>
+  401a9a:	bf 55 00 00 00       	mov    $0x55,%edi
+  401a9f:	e8 1c 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401aa4:	e9 5c fb ff ff       	jmp    401605 <get_available_features.constprop.0+0x325>
+  401aa9:	bf 25 00 00 00       	mov    $0x25,%edi
+  401aae:	e8 0d 09 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ab3:	e9 70 fc ff ff       	jmp    401728 <get_available_features.constprop.0+0x448>
+  401ab8:	bf 21 00 00 00       	mov    $0x21,%edi
+  401abd:	e8 fe 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ac2:	e9 17 fa ff ff       	jmp    4014de <get_available_features.constprop.0+0x1fe>
+  401ac7:	bf 23 00 00 00       	mov    $0x23,%edi
+  401acc:	e8 ef 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ad1:	e9 12 fc ff ff       	jmp    4016e8 <get_available_features.constprop.0+0x408>
+  401ad6:	bf 24 00 00 00       	mov    $0x24,%edi
+  401adb:	e8 e0 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ae0:	e9 7f fc ff ff       	jmp    401764 <get_available_features.constprop.0+0x484>
+  401ae5:	bf 5d 00 00 00       	mov    $0x5d,%edi
+  401aea:	e8 d1 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401aef:	e9 61 fc ff ff       	jmp    401755 <get_available_features.constprop.0+0x475>
+  401af4:	bf 59 00 00 00       	mov    $0x59,%edi
+  401af9:	e8 c2 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401afe:	e9 43 fc ff ff       	jmp    401746 <get_available_features.constprop.0+0x466>
+  401b03:	bf 52 00 00 00       	mov    $0x52,%edi
+  401b08:	e8 b3 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b0d:	e9 7c fc ff ff       	jmp    40178e <get_available_features.constprop.0+0x4ae>
+  401b12:	bf 53 00 00 00       	mov    $0x53,%edi
+  401b17:	e8 a4 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b1c:	e9 63 fc ff ff       	jmp    401784 <get_available_features.constprop.0+0x4a4>
+  401b21:	bf 46 00 00 00       	mov    $0x46,%edi
+  401b26:	e8 95 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b2b:	e9 d2 f9 ff ff       	jmp    401502 <get_available_features.constprop.0+0x222>
+  401b30:	bf 32 00 00 00       	mov    $0x32,%edi
+  401b35:	e8 86 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b3a:	e9 b7 f9 ff ff       	jmp    4014f6 <get_available_features.constprop.0+0x216>
+  401b3f:	bf 47 00 00 00       	mov    $0x47,%edi
+  401b44:	e8 77 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b49:	e9 6f f9 ff ff       	jmp    4014bd <get_available_features.constprop.0+0x1dd>
+  401b4e:	bf 34 00 00 00       	mov    $0x34,%edi
+  401b53:	e8 68 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b58:	e9 57 f9 ff ff       	jmp    4014b4 <get_available_features.constprop.0+0x1d4>
+  401b5d:	bf 58 00 00 00       	mov    $0x58,%edi
+  401b62:	e8 59 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b67:	e9 87 fa ff ff       	jmp    4015f3 <get_available_features.constprop.0+0x313>
+  401b6c:	bf 35 00 00 00       	mov    $0x35,%edi
+  401b71:	e8 4a 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b76:	e9 6e fa ff ff       	jmp    4015e9 <get_available_features.constprop.0+0x309>
+  401b7b:	bf 3f 00 00 00       	mov    $0x3f,%edi
+  401b80:	e8 3b 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b85:	e9 52 fa ff ff       	jmp    4015dc <get_available_features.constprop.0+0x2fc>
+  401b8a:	bf 4d 00 00 00       	mov    $0x4d,%edi
+  401b8f:	e8 2c 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401b94:	e9 36 fa ff ff       	jmp    4015cf <get_available_features.constprop.0+0x2ef>
+  401b99:	bf 49 00 00 00       	mov    $0x49,%edi
+  401b9e:	e8 1d 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ba3:	e9 03 f9 ff ff       	jmp    4014ab <get_available_features.constprop.0+0x1cb>
+  401ba8:	bf 43 00 00 00       	mov    $0x43,%edi
+  401bad:	e8 0e 08 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bb2:	e9 f8 fb ff ff       	jmp    4017af <get_available_features.constprop.0+0x4cf>
+  401bb7:	bf 54 00 00 00       	mov    $0x54,%edi
+  401bbc:	e8 ff 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bc1:	e9 d2 fb ff ff       	jmp    401798 <get_available_features.constprop.0+0x4b8>
+  401bc6:	bf 48 00 00 00       	mov    $0x48,%edi
+  401bcb:	e8 f0 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bd0:	e9 ed f9 ff ff       	jmp    4015c2 <get_available_features.constprop.0+0x2e2>
+  401bd5:	bf 4b 00 00 00       	mov    $0x4b,%edi
+  401bda:	e8 e1 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bdf:	e9 d1 f9 ff ff       	jmp    4015b5 <get_available_features.constprop.0+0x2d5>
+  401be4:	bf 4f 00 00 00       	mov    $0x4f,%edi
+  401be9:	e8 d2 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bee:	e9 b8 f9 ff ff       	jmp    4015ab <get_available_features.constprop.0+0x2cb>
+  401bf3:	bf 2a 00 00 00       	mov    $0x2a,%edi
+  401bf8:	e8 c3 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401bfd:	e9 9f f9 ff ff       	jmp    4015a1 <get_available_features.constprop.0+0x2c1>
+  401c02:	bf 30 00 00 00       	mov    $0x30,%edi
+  401c07:	e8 b4 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c0c:	e9 83 f9 ff ff       	jmp    401594 <get_available_features.constprop.0+0x2b4>
+  401c11:	bf 3b 00 00 00       	mov    $0x3b,%edi
+  401c16:	e8 a5 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c1b:	e9 67 f9 ff ff       	jmp    401587 <get_available_features.constprop.0+0x2a7>
+  401c20:	bf 3c 00 00 00       	mov    $0x3c,%edi
+  401c25:	e8 96 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c2a:	e9 4b f9 ff ff       	jmp    40157a <get_available_features.constprop.0+0x29a>
+  401c2f:	bf 20 00 00 00       	mov    $0x20,%edi
+  401c34:	e8 87 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c39:	e9 2f f9 ff ff       	jmp    40156d <get_available_features.constprop.0+0x28d>
+  401c3e:	bf 4e 00 00 00       	mov    $0x4e,%edi
+  401c43:	e8 78 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c48:	e9 13 f9 ff ff       	jmp    401560 <get_available_features.constprop.0+0x280>
+  401c4d:	bf 44 00 00 00       	mov    $0x44,%edi
+  401c52:	e8 69 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c57:	e9 f7 f8 ff ff       	jmp    401553 <get_available_features.constprop.0+0x273>
+  401c5c:	bf 40 00 00 00       	mov    $0x40,%edi
+  401c61:	e8 5a 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c66:	e9 db f8 ff ff       	jmp    401546 <get_available_features.constprop.0+0x266>
+  401c6b:	bf 41 00 00 00       	mov    $0x41,%edi
+  401c70:	e8 4b 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c75:	e9 c2 f8 ff ff       	jmp    40153c <get_available_features.constprop.0+0x25c>
+  401c7a:	bf 2c 00 00 00       	mov    $0x2c,%edi
+  401c7f:	e8 3c 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c84:	e9 a9 f8 ff ff       	jmp    401532 <get_available_features.constprop.0+0x252>
+  401c89:	bf 2b 00 00 00       	mov    $0x2b,%edi
+  401c8e:	e8 2d 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401c93:	e9 8e f8 ff ff       	jmp    401526 <get_available_features.constprop.0+0x246>
+  401c98:	bf 4a 00 00 00       	mov    $0x4a,%edi
+  401c9d:	e8 1e 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401ca2:	e9 73 f8 ff ff       	jmp    40151a <get_available_features.constprop.0+0x23a>
+  401ca7:	bf 28 00 00 00       	mov    $0x28,%edi
+  401cac:	e8 0f 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401cb1:	e9 58 f8 ff ff       	jmp    40150e <get_available_features.constprop.0+0x22e>
+  401cb6:	bf 5c 00 00 00       	mov    $0x5c,%edi
+  401cbb:	e8 00 07 00 00       	call   4023c0 <set_cpu_feature.part.0.constprop.0>
+  401cc0:	e9 c8 fc ff ff       	jmp    40198d <get_available_features.constprop.0+0x6ad>
+  401cc5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  401ccc:	00 00 00 00 
+
+0000000000401cd0 <has_cpu_feature.part.0.constprop.0>:
+  401cd0:	89 f9                	mov    %edi,%ecx
+  401cd2:	b8 01 00 00 00       	mov    $0x1,%eax
+  401cd7:	d3 e0                	shl    %cl,%eax
+  401cd9:	83 ff 40             	cmp    $0x40,%edi
+  401cdc:	48 8d 0d 5d 33 00 00 	lea    0x335d(%rip),%rcx        # 405040 <__cpu_features2>
+  401ce3:	48 19 d2             	sbb    %rdx,%rdx
+  401ce6:	48 f7 d2             	not    %rdx
+  401ce9:	83 e2 04             	and    $0x4,%edx
+  401cec:	23 04 11             	and    (%rcx,%rdx,1),%eax
+  401cef:	c3                   	ret    
+
+0000000000401cf0 <__cpu_indicator_init>:
+  401cf0:	f3 0f 1e fa          	endbr64 
+  401cf4:	8b 3d 56 33 00 00    	mov    0x3356(%rip),%edi        # 405050 <__cpu_model>
+  401cfa:	45 31 c0             	xor    %r8d,%r8d
+  401cfd:	85 ff                	test   %edi,%edi
+  401cff:	0f 85 bb 00 00 00    	jne    401dc0 <__cpu_indicator_init+0xd0>
+  401d05:	53                   	push   %rbx
+  401d06:	44 89 c0             	mov    %r8d,%eax
+  401d09:	48 83 ec 10          	sub    $0x10,%rsp
+  401d0d:	0f a2                	cpuid  
+  401d0f:	85 c0                	test   %eax,%eax
+  401d11:	0f 84 06 02 00 00    	je     401f1d <__cpu_indicator_init+0x22d>
+  401d17:	44 89 c0             	mov    %r8d,%eax
+  401d1a:	0f a2                	cpuid  
+  401d1c:	41 89 d9             	mov    %ebx,%r9d
+  401d1f:	89 c6                	mov    %eax,%esi
+  401d21:	85 c0                	test   %eax,%eax
+  401d23:	0f 8e f4 01 00 00    	jle    401f1d <__cpu_indicator_init+0x22d>
+  401d29:	44 89 c0             	mov    %r8d,%eax
+  401d2c:	0f a2                	cpuid  
+  401d2e:	85 c0                	test   %eax,%eax
+  401d30:	0f 84 e7 01 00 00    	je     401f1d <__cpu_indicator_init+0x22d>
+  401d36:	b8 01 00 00 00       	mov    $0x1,%eax
+  401d3b:	0f a2                	cpuid  
+  401d3d:	89 c7                	mov    %eax,%edi
+  401d3f:	41 89 c2             	mov    %eax,%r10d
+  401d42:	89 74 24 08          	mov    %esi,0x8(%rsp)
+  401d46:	89 c6                	mov    %eax,%esi
+  401d48:	c1 ef 04             	shr    $0x4,%edi
+  401d4b:	c1 ee 08             	shr    $0x8,%esi
+  401d4e:	41 c1 ea 0c          	shr    $0xc,%r10d
+  401d52:	c1 e8 14             	shr    $0x14,%eax
+  401d55:	83 e7 0f             	and    $0xf,%edi
+  401d58:	83 e6 0f             	and    $0xf,%esi
+  401d5b:	41 81 e2 f0 00 00 00 	and    $0xf0,%r10d
+  401d62:	0f b6 c0             	movzbl %al,%eax
+  401d65:	41 81 f9 47 65 6e 75 	cmp    $0x756e6547,%r9d
+  401d6c:	74 43                	je     401db1 <__cpu_indicator_init+0xc1>
+  401d6e:	41 81 f9 41 75 74 68 	cmp    $0x68747541,%r9d
+  401d75:	0f 84 3b 01 00 00    	je     401eb6 <__cpu_indicator_init+0x1c6>
+  401d7b:	41 81 f9 43 65 6e 74 	cmp    $0x746e6543,%r9d
+  401d82:	74 40                	je     401dc4 <__cpu_indicator_init+0xd4>
+  401d84:	41 81 f9 43 79 72 69 	cmp    $0x69727943,%r9d
+  401d8b:	0f 84 7d 01 00 00    	je     401f0e <__cpu_indicator_init+0x21e>
+  401d91:	41 81 f9 47 65 6f 64 	cmp    $0x646f6547,%r9d
+  401d98:	0f 84 c7 03 00 00    	je     402165 <__cpu_indicator_init+0x475>
+  401d9e:	c7 05 a8 32 00 00 03 	movl   $0x3,0x32a8(%rip)        # 405050 <__cpu_model>
+  401da5:	00 00 00 
+  401da8:	48 83 c4 10          	add    $0x10,%rsp
+  401dac:	44 89 c0             	mov    %r8d,%eax
+  401daf:	5b                   	pop    %rbx
+  401db0:	c3                   	ret    
+  401db1:	83 fe 0f             	cmp    $0xf,%esi
+  401db4:	74 1a                	je     401dd0 <__cpu_indicator_init+0xe0>
+  401db6:	83 fe 06             	cmp    $0x6,%esi
+  401db9:	75 1b                	jne    401dd6 <__cpu_indicator_init+0xe6>
+  401dbb:	44 09 d7             	or     %r10d,%edi
+  401dbe:	eb 16                	jmp    401dd6 <__cpu_indicator_init+0xe6>
+  401dc0:	44 89 c0             	mov    %r8d,%eax
+  401dc3:	c3                   	ret    
+  401dc4:	c7 05 82 32 00 00 04 	movl   $0x4,0x3282(%rip)        # 405050 <__cpu_model>
+  401dcb:	00 00 00 
+  401dce:	eb d8                	jmp    401da8 <__cpu_indicator_init+0xb8>
+  401dd0:	8d 70 0f             	lea    0xf(%rax),%esi
+  401dd3:	44 09 d7             	or     %r10d,%edi
+  401dd6:	89 34 24             	mov    %esi,(%rsp)
+  401dd9:	89 ce                	mov    %ecx,%esi
+  401ddb:	89 7c 24 04          	mov    %edi,0x4(%rsp)
+  401ddf:	48 89 e7             	mov    %rsp,%rdi
+  401de2:	e8 f9 f4 ff ff       	call   4012e0 <get_available_features.constprop.0>
+  401de7:	83 3c 24 06          	cmpl   $0x6,(%rsp)
+  401deb:	75 63                	jne    401e50 <__cpu_indicator_init+0x160>
+  401ded:	8b 4c 24 04          	mov    0x4(%rsp),%ecx
+  401df1:	81 f9 a7 00 00 00    	cmp    $0xa7,%ecx
+  401df7:	77 57                	ja     401e50 <__cpu_indicator_init+0x160>
+  401df9:	83 f9 46             	cmp    $0x46,%ecx
+  401dfc:	76 19                	jbe    401e17 <__cpu_indicator_init+0x127>
+  401dfe:	83 e9 47             	sub    $0x47,%ecx
+  401e01:	83 f9 60             	cmp    $0x60,%ecx
+  401e04:	77 4a                	ja     401e50 <__cpu_indicator_init+0x160>
+  401e06:	48 8d 15 0f 16 00 00 	lea    0x160f(%rip),%rdx        # 40341c <__dso_handle+0x414>
+  401e0d:	48 63 04 8a          	movslq (%rdx,%rcx,4),%rax
+  401e11:	48 01 d0             	add    %rdx,%rax
+  401e14:	3e ff e0             	notrack jmp *%rax
+  401e17:	83 f9 37             	cmp    $0x37,%ecx
+  401e1a:	77 46                	ja     401e62 <__cpu_indicator_init+0x172>
+  401e1c:	83 f9 24             	cmp    $0x24,%ecx
+  401e1f:	77 7c                	ja     401e9d <__cpu_indicator_init+0x1ad>
+  401e21:	8d 41 f1             	lea    -0xf(%rcx),%eax
+  401e24:	83 f8 10             	cmp    $0x10,%eax
+  401e27:	77 27                	ja     401e50 <__cpu_indicator_init+0x160>
+  401e29:	b8 01 00 00 00       	mov    $0x1,%eax
+  401e2e:	48 d3 e0             	shl    %cl,%rax
+  401e31:	a9 00 80 80 20       	test   $0x20808000,%eax
+  401e36:	0f 85 93 03 00 00    	jne    4021cf <__cpu_indicator_init+0x4df>
+  401e3c:	a9 00 00 00 c4       	test   $0xc4000000,%eax
+  401e41:	0f 85 f8 01 00 00    	jne    40203f <__cpu_indicator_init+0x34f>
+  401e47:	83 f9 1c             	cmp    $0x1c,%ecx
+  401e4a:	0f 84 e0 01 00 00    	je     402030 <__cpu_indicator_init+0x340>
+  401e50:	c7 05 f6 31 00 00 01 	movl   $0x1,0x31f6(%rip)        # 405050 <__cpu_model>
+  401e57:	00 00 00 
+  401e5a:	45 31 c0             	xor    %r8d,%r8d
+  401e5d:	e9 46 ff ff ff       	jmp    401da8 <__cpu_indicator_init+0xb8>
+  401e62:	83 e9 3a             	sub    $0x3a,%ecx
+  401e65:	83 f9 0c             	cmp    $0xc,%ecx
+  401e68:	77 e6                	ja     401e50 <__cpu_indicator_init+0x160>
+  401e6a:	b8 01 00 00 00       	mov    $0x1,%eax
+  401e6f:	48 d3 e0             	shl    %cl,%rax
+  401e72:	a9 24 18 00 00       	test   $0x1824,%eax
+  401e77:	0f 85 61 03 00 00    	jne    4021de <__cpu_indicator_init+0x4ee>
+  401e7d:	a8 11                	test   $0x11,%al
+  401e7f:	0f 85 6f 03 00 00    	jne    4021f4 <__cpu_indicator_init+0x504>
+  401e85:	83 f9 03             	cmp    $0x3,%ecx
+  401e88:	75 c6                	jne    401e50 <__cpu_indicator_init+0x160>
+  401e8a:	48 b8 03 00 00 00 0e 	movabs $0xe00000003,%rax
+  401e91:	00 00 00 
+  401e94:	48 89 05 b9 31 00 00 	mov    %rax,0x31b9(%rip)        # 405054 <__cpu_model+0x4>
+  401e9b:	eb b3                	jmp    401e50 <__cpu_indicator_init+0x160>
+  401e9d:	83 e9 25             	sub    $0x25,%ecx
+  401ea0:	83 f9 12             	cmp    $0x12,%ecx
+  401ea3:	77 ab                	ja     401e50 <__cpu_indicator_init+0x160>
+  401ea5:	48 8d 15 f4 16 00 00 	lea    0x16f4(%rip),%rdx        # 4035a0 <__dso_handle+0x598>
+  401eac:	48 63 04 8a          	movslq (%rdx,%rcx,4),%rax
+  401eb0:	48 01 d0             	add    %rdx,%rax
+  401eb3:	3e ff e0             	notrack jmp *%rax
+  401eb6:	83 fe 0f             	cmp    $0xf,%esi
+  401eb9:	75 06                	jne    401ec1 <__cpu_indicator_init+0x1d1>
+  401ebb:	8d 70 0f             	lea    0xf(%rax),%esi
+  401ebe:	44 09 d7             	or     %r10d,%edi
+  401ec1:	89 34 24             	mov    %esi,(%rsp)
+  401ec4:	89 ce                	mov    %ecx,%esi
+  401ec6:	89 7c 24 04          	mov    %edi,0x4(%rsp)
+  401eca:	48 89 e7             	mov    %rsp,%rdi
+  401ecd:	e8 0e f4 ff ff       	call   4012e0 <get_available_features.constprop.0>
+  401ed2:	8b 04 24             	mov    (%rsp),%eax
+  401ed5:	8b 4c 24 04          	mov    0x4(%rsp),%ecx
+  401ed9:	83 e8 10             	sub    $0x10,%eax
+  401edc:	83 f8 09             	cmp    $0x9,%eax
+  401edf:	77 1b                	ja     401efc <__cpu_indicator_init+0x20c>
+  401ee1:	48 8d 15 04 17 00 00 	lea    0x1704(%rip),%rdx        # 4035ec <__dso_handle+0x5e4>
+  401ee8:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
+  401eec:	48 01 d0             	add    %rdx,%rax
+  401eef:	3e ff e0             	notrack jmp *%rax
+  401ef2:	c7 05 58 31 00 00 08 	movl   $0x8,0x3158(%rip)        # 405054 <__cpu_model+0x4>
+  401ef9:	00 00 00 
+  401efc:	c7 05 4a 31 00 00 02 	movl   $0x2,0x314a(%rip)        # 405050 <__cpu_model>
+  401f03:	00 00 00 
+  401f06:	45 31 c0             	xor    %r8d,%r8d
+  401f09:	e9 9a fe ff ff       	jmp    401da8 <__cpu_indicator_init+0xb8>
+  401f0e:	c7 05 38 31 00 00 05 	movl   $0x5,0x3138(%rip)        # 405050 <__cpu_model>
+  401f15:	00 00 00 
+  401f18:	e9 8b fe ff ff       	jmp    401da8 <__cpu_indicator_init+0xb8>
+  401f1d:	c7 05 29 31 00 00 03 	movl   $0x3,0x3129(%rip)        # 405050 <__cpu_model>
+  401f24:	00 00 00 
+  401f27:	41 83 c8 ff          	or     $0xffffffff,%r8d
+  401f2b:	e9 78 fe ff ff       	jmp    401da8 <__cpu_indicator_init+0xb8>
+  401f30:	48 b8 03 00 00 00 02 	movabs $0x200000003,%rax
+  401f37:	00 00 00 
+  401f3a:	48 89 05 13 31 00 00 	mov    %rax,0x3113(%rip)        # 405054 <__cpu_model+0x4>
+  401f41:	e9 0a ff ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  401f46:	48 b8 03 00 00 00 03 	movabs $0x300000003,%rax
+  401f4d:	00 00 00 
+  401f50:	48 89 05 fd 30 00 00 	mov    %rax,0x30fd(%rip)        # 405054 <__cpu_model+0x4>
+  401f57:	e9 f4 fe ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  401f5c:	c7 05 ee 30 00 00 0f 	movl   $0xf,0x30ee(%rip)        # 405054 <__cpu_model+0x4>
+  401f63:	00 00 00 
+  401f66:	83 f9 0f             	cmp    $0xf,%ecx
+  401f69:	0f 87 49 02 00 00    	ja     4021b8 <__cpu_indicator_init+0x4c8>
+  401f6f:	c7 05 df 30 00 00 1a 	movl   $0x1a,0x30df(%rip)        # 405058 <__cpu_model+0x8>
+  401f76:	00 00 00 
+  401f79:	eb 81                	jmp    401efc <__cpu_indicator_init+0x20c>
+  401f7b:	c7 05 cf 30 00 00 0a 	movl   $0xa,0x30cf(%rip)        # 405054 <__cpu_model+0x4>
+  401f82:	00 00 00 
+  401f85:	83 f9 1f             	cmp    $0x1f,%ecx
+  401f88:	0f 87 f5 01 00 00    	ja     402183 <__cpu_indicator_init+0x493>
+  401f8e:	c7 05 c0 30 00 00 0b 	movl   $0xb,0x30c0(%rip)        # 405058 <__cpu_model+0x8>
+  401f95:	00 00 00 
+  401f98:	e9 5f ff ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  401f9d:	c7 05 ad 30 00 00 09 	movl   $0x9,0x30ad(%rip)        # 405054 <__cpu_model+0x4>
+  401fa4:	00 00 00 
+  401fa7:	e9 50 ff ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  401fac:	c7 05 9e 30 00 00 04 	movl   $0x4,0x309e(%rip)        # 405054 <__cpu_model+0x4>
+  401fb3:	00 00 00 
+  401fb6:	83 f9 04             	cmp    $0x4,%ecx
+  401fb9:	0f 84 5a 02 00 00    	je     402219 <__cpu_indicator_init+0x529>
+  401fbf:	83 f9 08             	cmp    $0x8,%ecx
+  401fc2:	0f 84 42 02 00 00    	je     40220a <__cpu_indicator_init+0x51a>
+  401fc8:	83 f9 02             	cmp    $0x2,%ecx
+  401fcb:	0f 85 2b ff ff ff    	jne    401efc <__cpu_indicator_init+0x20c>
+  401fd1:	c7 05 7d 30 00 00 04 	movl   $0x4,0x307d(%rip)        # 405058 <__cpu_model+0x8>
+  401fd8:	00 00 00 
+  401fdb:	e9 1c ff ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  401fe0:	c7 05 6a 30 00 00 05 	movl   $0x5,0x306a(%rip)        # 405054 <__cpu_model+0x4>
+  401fe7:	00 00 00 
+  401fea:	83 f9 02             	cmp    $0x2,%ecx
+  401fed:	0f 84 81 01 00 00    	je     402174 <__cpu_indicator_init+0x484>
+  401ff3:	83 f9 0f             	cmp    $0xf,%ecx
+  401ff6:	0f 87 9f 01 00 00    	ja     40219b <__cpu_indicator_init+0x4ab>
+  401ffc:	c7 05 52 30 00 00 07 	movl   $0x7,0x3052(%rip)        # 405058 <__cpu_model+0x8>
+  402003:	00 00 00 
+  402006:	e9 f1 fe ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  40200b:	c7 05 3f 30 00 00 06 	movl   $0x6,0x303f(%rip)        # 405054 <__cpu_model+0x4>
+  402012:	00 00 00 
+  402015:	e9 36 fe ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40201a:	48 b8 03 00 00 00 0f 	movabs $0xf00000003,%rax
+  402021:	00 00 00 
+  402024:	48 89 05 29 30 00 00 	mov    %rax,0x3029(%rip)        # 405054 <__cpu_model+0x4>
+  40202b:	e9 20 fe ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402030:	c7 05 1a 30 00 00 01 	movl   $0x1,0x301a(%rip)        # 405054 <__cpu_model+0x4>
+  402037:	00 00 00 
+  40203a:	e9 11 fe ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40203f:	48 b8 03 00 00 00 01 	movabs $0x100000003,%rax
+  402046:	00 00 00 
+  402049:	48 89 05 04 30 00 00 	mov    %rax,0x3004(%rip)        # 405054 <__cpu_model+0x4>
+  402050:	e9 fb fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402055:	c7 05 f5 2f 00 00 0e 	movl   $0xe,0x2ff5(%rip)        # 405054 <__cpu_model+0x4>
+  40205c:	00 00 00 
+  40205f:	e9 ec fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402064:	48 b8 03 00 00 00 12 	movabs $0x1200000003,%rax
+  40206b:	00 00 00 
+  40206e:	48 89 05 df 2f 00 00 	mov    %rax,0x2fdf(%rip)        # 405054 <__cpu_model+0x4>
+  402075:	e9 d6 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40207a:	48 b8 03 00 00 00 19 	movabs $0x1900000003,%rax
+  402081:	00 00 00 
+  402084:	48 89 05 c9 2f 00 00 	mov    %rax,0x2fc9(%rip)        # 405054 <__cpu_model+0x4>
+  40208b:	e9 c0 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402090:	48 b8 03 00 00 00 13 	movabs $0x1300000003,%rax
+  402097:	00 00 00 
+  40209a:	48 89 05 b3 2f 00 00 	mov    %rax,0x2fb3(%rip)        # 405054 <__cpu_model+0x4>
+  4020a1:	e9 aa fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020a6:	48 b8 03 00 00 00 16 	movabs $0x1600000003,%rax
+  4020ad:	00 00 00 
+  4020b0:	48 89 05 9d 2f 00 00 	mov    %rax,0x2f9d(%rip)        # 405054 <__cpu_model+0x4>
+  4020b7:	e9 94 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020bc:	c7 05 8e 2f 00 00 0c 	movl   $0xc,0x2f8e(%rip)        # 405054 <__cpu_model+0x4>
+  4020c3:	00 00 00 
+  4020c6:	e9 85 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020cb:	c7 05 7f 2f 00 00 07 	movl   $0x7,0x2f7f(%rip)        # 405054 <__cpu_model+0x4>
+  4020d2:	00 00 00 
+  4020d5:	e9 76 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020da:	c7 05 70 2f 00 00 0d 	movl   $0xd,0x2f70(%rip)        # 405054 <__cpu_model+0x4>
+  4020e1:	00 00 00 
+  4020e4:	e9 67 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020e9:	48 b8 03 00 00 00 1b 	movabs $0x1b00000003,%rax
+  4020f0:	00 00 00 
+  4020f3:	48 89 05 5a 2f 00 00 	mov    %rax,0x2f5a(%rip)        # 405054 <__cpu_model+0x4>
+  4020fa:	e9 51 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4020ff:	48 b8 03 00 00 00 11 	movabs $0x1100000003,%rax
+  402106:	00 00 00 
+  402109:	48 89 05 44 2f 00 00 	mov    %rax,0x2f44(%rip)        # 405054 <__cpu_model+0x4>
+  402110:	e9 3b fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402115:	48 b8 03 00 00 00 18 	movabs $0x1800000003,%rax
+  40211c:	00 00 00 
+  40211f:	48 89 05 2e 2f 00 00 	mov    %rax,0x2f2e(%rip)        # 405054 <__cpu_model+0x4>
+  402126:	e9 25 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40212b:	c7 05 1f 2f 00 00 0b 	movl   $0xb,0x2f1f(%rip)        # 405054 <__cpu_model+0x4>
+  402132:	00 00 00 
+  402135:	e9 16 fd ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40213a:	c7 05 10 2f 00 00 03 	movl   $0x3,0x2f10(%rip)        # 405054 <__cpu_model+0x4>
+  402141:	00 00 00 
+  402144:	bf 24 00 00 00       	mov    $0x24,%edi
+  402149:	e8 82 fb ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  40214e:	85 c0                	test   %eax,%eax
+  402150:	0f 84 fb 00 00 00    	je     402251 <__cpu_indicator_init+0x561>
+  402156:	c7 05 f8 2e 00 00 17 	movl   $0x17,0x2ef8(%rip)        # 405058 <__cpu_model+0x8>
+  40215d:	00 00 00 
+  402160:	e9 eb fc ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  402165:	c7 05 e1 2e 00 00 06 	movl   $0x6,0x2ee1(%rip)        # 405050 <__cpu_model>
+  40216c:	00 00 00 
+  40216f:	e9 34 fc ff ff       	jmp    401da8 <__cpu_indicator_init+0xb8>
+  402174:	c7 05 da 2e 00 00 08 	movl   $0x8,0x2eda(%rip)        # 405058 <__cpu_model+0x8>
+  40217b:	00 00 00 
+  40217e:	e9 79 fd ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  402183:	83 f9 2f             	cmp    $0x2f,%ecx
+  402186:	0f 86 9c 00 00 00    	jbe    402228 <__cpu_indicator_init+0x538>
+  40218c:	c7 05 c2 2e 00 00 14 	movl   $0x14,0x2ec2(%rip)        # 405058 <__cpu_model+0x8>
+  402193:	00 00 00 
+  402196:	e9 61 fd ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  40219b:	83 f9 2f             	cmp    $0x2f,%ecx
+  40219e:	76 d4                	jbe    402174 <__cpu_indicator_init+0x484>
+  4021a0:	83 f9 4f             	cmp    $0x4f,%ecx
+  4021a3:	0f 87 c5 00 00 00    	ja     40226e <__cpu_indicator_init+0x57e>
+  4021a9:	c7 05 a5 2e 00 00 09 	movl   $0x9,0x2ea5(%rip)        # 405058 <__cpu_model+0x8>
+  4021b0:	00 00 00 
+  4021b3:	e9 44 fd ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  4021b8:	bf 4e 00 00 00       	mov    $0x4e,%edi
+  4021bd:	e8 0e fb ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  4021c2:	85 c0                	test   %eax,%eax
+  4021c4:	0f 85 a5 fd ff ff    	jne    401f6f <__cpu_indicator_init+0x27f>
+  4021ca:	e9 2d fd ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  4021cf:	c7 05 7b 2e 00 00 02 	movl   $0x2,0x2e7b(%rip)        # 405054 <__cpu_model+0x4>
+  4021d6:	00 00 00 
+  4021d9:	e9 72 fc ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4021de:	48 b8 03 00 00 00 0d 	movabs $0xd00000003,%rax
+  4021e5:	00 00 00 
+  4021e8:	48 89 05 65 2e 00 00 	mov    %rax,0x2e65(%rip)        # 405054 <__cpu_model+0x4>
+  4021ef:	e9 5c fc ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  4021f4:	48 b8 03 00 00 00 0c 	movabs $0xc00000003,%rax
+  4021fb:	00 00 00 
+  4021fe:	48 89 05 4f 2e 00 00 	mov    %rax,0x2e4f(%rip)        # 405054 <__cpu_model+0x4>
+  402205:	e9 46 fc ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40220a:	c7 05 44 2e 00 00 06 	movl   $0x6,0x2e44(%rip)        # 405058 <__cpu_model+0x8>
+  402211:	00 00 00 
+  402214:	e9 e3 fc ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  402219:	c7 05 35 2e 00 00 05 	movl   $0x5,0x2e35(%rip)        # 405058 <__cpu_model+0x8>
+  402220:	00 00 00 
+  402223:	e9 d4 fc ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  402228:	bf 2c 00 00 00       	mov    $0x2c,%edi
+  40222d:	e8 9e fa ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  402232:	85 c0                	test   %eax,%eax
+  402234:	0f 85 52 ff ff ff    	jne    40218c <__cpu_indicator_init+0x49c>
+  40223a:	bf 2d 00 00 00       	mov    $0x2d,%edi
+  40223f:	e8 8c fa ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  402244:	85 c0                	test   %eax,%eax
+  402246:	0f 85 42 fd ff ff    	jne    401f8e <__cpu_indicator_init+0x29e>
+  40224c:	e9 ab fc ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  402251:	bf 22 00 00 00       	mov    $0x22,%edi
+  402256:	e8 75 fa ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  40225b:	85 c0                	test   %eax,%eax
+  40225d:	74 31                	je     402290 <__cpu_indicator_init+0x5a0>
+  40225f:	c7 05 ef 2d 00 00 15 	movl   $0x15,0x2def(%rip)        # 405058 <__cpu_model+0x8>
+  402266:	00 00 00 
+  402269:	e9 e2 fb ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40226e:	83 f9 7f             	cmp    $0x7f,%ecx
+  402271:	76 0e                	jbe    402281 <__cpu_indicator_init+0x591>
+  402273:	8b 35 e3 2d 00 00    	mov    0x2de3(%rip),%esi        # 40505c <__cpu_model+0xc>
+  402279:	f7 c6 00 04 00 00    	test   $0x400,%esi
+  40227f:	74 1e                	je     40229f <__cpu_indicator_init+0x5af>
+  402281:	c7 05 cd 2d 00 00 0a 	movl   $0xa,0x2dcd(%rip)        # 405058 <__cpu_model+0x8>
+  402288:	00 00 00 
+  40228b:	e9 6c fc ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+  402290:	c7 05 be 2d 00 00 10 	movl   $0x10,0x2dbe(%rip)        # 405058 <__cpu_model+0x8>
+  402297:	00 00 00 
+  40229a:	e9 b1 fb ff ff       	jmp    401e50 <__cpu_indicator_init+0x160>
+  40229f:	bf 53 00 00 00       	mov    $0x53,%edi
+  4022a4:	e8 27 fa ff ff       	call   401cd0 <has_cpu_feature.part.0.constprop.0>
+  4022a9:	85 c0                	test   %eax,%eax
+  4022ab:	0f 85 f8 fe ff ff    	jne    4021a9 <__cpu_indicator_init+0x4b9>
+  4022b1:	f7 c6 00 00 01 00    	test   $0x10000,%esi
+  4022b7:	0f 85 b7 fe ff ff    	jne    402174 <__cpu_indicator_init+0x484>
+  4022bd:	81 e6 00 20 00 00    	and    $0x2000,%esi
+  4022c3:	0f 85 33 fd ff ff    	jne    401ffc <__cpu_indicator_init+0x30c>
+  4022c9:	e9 2e fc ff ff       	jmp    401efc <__cpu_indicator_init+0x20c>
+
+00000000004022ce <.annobin_abi_note.c.hot>:
+  4022ce:	66 90                	xchg   %ax,%ax
+
+00000000004022d0 <_start>:
+  4022d0:	f3 0f 1e fa          	endbr64 
+  4022d4:	31 ed                	xor    %ebp,%ebp
+  4022d6:	49 89 d1             	mov    %rdx,%r9
+  4022d9:	5e                   	pop    %rsi
+  4022da:	48 89 e2             	mov    %rsp,%rdx
+  4022dd:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+  4022e1:	50                   	push   %rax
+  4022e2:	54                   	push   %rsp
+  4022e3:	45 31 c0             	xor    %r8d,%r8d
+  4022e6:	31 c9                	xor    %ecx,%ecx
+  4022e8:	48 c7 c7 50 10 40 00 	mov    $0x401050,%rdi
+  4022ef:	ff 15 fb 2c 00 00    	call   *0x2cfb(%rip)        # 404ff0 <__libc_start_main@GLIBC_2.34>
+  4022f5:	f4                   	hlt    
+
+00000000004022f6 <.annobin_abi_note.c>:
+  4022f6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  4022fd:	00 00 00 
+
+0000000000402300 <_dl_relocate_static_pie>:
+  402300:	f3 0f 1e fa          	endbr64 
+  402304:	c3                   	ret    
+
+0000000000402305 <.annobin__dl_relocate_static_pie.end>:
+  402305:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  40230c:	00 00 00 
+  40230f:	90                   	nop
+
+0000000000402310 <deregister_tm_clones>:
+  402310:	b8 30 50 40 00       	mov    $0x405030,%eax
+  402315:	48 3d 30 50 40 00    	cmp    $0x405030,%rax
+  40231b:	74 13                	je     402330 <deregister_tm_clones+0x20>
+  40231d:	b8 00 00 00 00       	mov    $0x0,%eax
+  402322:	48 85 c0             	test   %rax,%rax
+  402325:	74 09                	je     402330 <deregister_tm_clones+0x20>
+  402327:	bf 30 50 40 00       	mov    $0x405030,%edi
+  40232c:	ff e0                	jmp    *%rax
+  40232e:	66 90                	xchg   %ax,%ax
+  402330:	c3                   	ret    
+  402331:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  402338:	00 00 00 00 
+  40233c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000402340 <register_tm_clones>:
+  402340:	be 30 50 40 00       	mov    $0x405030,%esi
+  402345:	48 81 ee 30 50 40 00 	sub    $0x405030,%rsi
+  40234c:	48 89 f0             	mov    %rsi,%rax
+  40234f:	48 c1 ee 3f          	shr    $0x3f,%rsi
+  402353:	48 c1 f8 03          	sar    $0x3,%rax
+  402357:	48 01 c6             	add    %rax,%rsi
+  40235a:	48 d1 fe             	sar    %rsi
+  40235d:	74 11                	je     402370 <register_tm_clones+0x30>
+  40235f:	b8 00 00 00 00       	mov    $0x0,%eax
+  402364:	48 85 c0             	test   %rax,%rax
+  402367:	74 07                	je     402370 <register_tm_clones+0x30>
+  402369:	bf 30 50 40 00       	mov    $0x405030,%edi
+  40236e:	ff e0                	jmp    *%rax
+  402370:	c3                   	ret    
+  402371:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  402378:	00 00 00 00 
+  40237c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000402380 <__do_global_dtors_aux>:
+  402380:	f3 0f 1e fa          	endbr64 
+  402384:	80 3d ad 2c 00 00 00 	cmpb   $0x0,0x2cad(%rip)        # 405038 <completed.0>
+  40238b:	75 13                	jne    4023a0 <__do_global_dtors_aux+0x20>
+  40238d:	55                   	push   %rbp
+  40238e:	48 89 e5             	mov    %rsp,%rbp
+  402391:	e8 7a ff ff ff       	call   402310 <deregister_tm_clones>
+  402396:	c6 05 9b 2c 00 00 01 	movb   $0x1,0x2c9b(%rip)        # 405038 <completed.0>
+  40239d:	5d                   	pop    %rbp
+  40239e:	c3                   	ret    
+  40239f:	90                   	nop
+  4023a0:	c3                   	ret    
+  4023a1:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+  4023a8:	00 00 00 00 
+  4023ac:	0f 1f 40 00          	nopl   0x0(%rax)
+
+00000000004023b0 <frame_dummy>:
+  4023b0:	f3 0f 1e fa          	endbr64 
+  4023b4:	eb 8a                	jmp    402340 <register_tm_clones>
+  4023b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+  4023bd:	00 00 00 
+
+00000000004023c0 <set_cpu_feature.part.0.constprop.0>:
+  4023c0:	83 ff 40             	cmp    $0x40,%edi
+  4023c3:	89 f9                	mov    %edi,%ecx
+  4023c5:	ba 01 00 00 00       	mov    $0x1,%edx
+  4023ca:	48 19 c0             	sbb    %rax,%rax
+  4023cd:	48 8d 35 6c 2c 00 00 	lea    0x2c6c(%rip),%rsi        # 405040 <__cpu_features2>
+  4023d4:	d3 e2                	shl    %cl,%edx
+  4023d6:	48 f7 d0             	not    %rax
+  4023d9:	83 e0 04             	and    $0x4,%eax
+  4023dc:	09 14 06             	or     %edx,(%rsi,%rax,1)
+  4023df:	c3                   	ret    
+
+Disassembly of section .fini:
+
+00000000004023e0 <_fini>:
+  4023e0:	f3 0f 1e fa          	endbr64 
+  4023e4:	48 83 ec 08          	sub    $0x8,%rsp
+  4023e8:	48 83 c4 08          	add    $0x8,%rsp
+  4023ec:	c3                   	ret    
