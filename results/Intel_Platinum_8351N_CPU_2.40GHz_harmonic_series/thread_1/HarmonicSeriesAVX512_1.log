@@ -1,0 +1,52 @@
+Time elapsed: 21.5072 s
+AVX512:
+Sum 24.7662
+Difference Sum - Formula -1.40332e-12
+Performed 4e+09 HarmonicSeriesAVX512 operations. Avg: 12.9042 CPU cycles/call
+Time elapsed: 21.5073 s
+
+ Performance counter stats for '/home/AVX512/results/Intel_Platinum_8351N_CPU_2.40GHz_harmonic_series/../../bin/harmonic_series 0 4e9':
+
+         21,478.78 msec task-clock                       #    0.999 CPUs utilized          
+             7,520      context-switches                 #  350.113 /sec                   
+                 1      cpu-migrations                   #    0.047 /sec                   
+                74      page-faults                      #    3.445 /sec                   
+    64,559,425,731      cycles                           #    3.006 GHz                    
+    24,170,976,876      instructions                     #    0.37  insn per cycle         
+     4,035,118,030      branches                         #  187.865 M/sec                  
+           220,649      branch-misses                    #    0.01% of all branches        
+   322,794,997,395      slots                            #   15.029 G/sec                  
+    27,848,980,167      topdown-retiring                 #      8.6% Retiring              
+     7,595,176,409      topdown-bad-spec                 #      2.3% Bad Speculation       
+         1,677,107      topdown-fe-bound                 #      0.0% Frontend Bound        
+   288,595,528,097      topdown-be-bound                 #     89.1% Backend Bound         
+
+      21.510296119 seconds time elapsed
+
+      21.463395000 seconds user
+       0.002968000 seconds sys
+
+
+	Command being timed: "perf stat /home/AVX512/results/Intel_Platinum_8351N_CPU_2.40GHz_harmonic_series/../../bin/harmonic_series 0 4e9"
+	User time (seconds): 21.98
+	System time (seconds): 0.04
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.09
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 57332
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 11747
+	Voluntary context switches: 6
+	Involuntary context switches: 7734
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,47 @@
+Time elapsed: 22.541 s
+AVX512:
+Sum 24.7662
+Difference Sum - Formula -1.40332e-12
+Performed 4e+09 HarmonicSeriesAVX512 operations. Avg: 14.6518 CPU cycles/call
+Time elapsed: 22.541 s
+
+ Performance counter stats for '/home/AVX512/results/Intel_Gold_6126_CPU_2.60GHz_harmonic_series/../../bin/harmonic_series 0 4e9':
+
+         22,499.03 msec task-clock                       #    0.998 CPUs utilized          
+             8,559      context-switches                 #  380.416 /sec                   
+               116      cpu-migrations                   #    5.156 /sec                   
+                73      page-faults                      #    3.245 /sec                   
+    65,050,309,008      cycles                           #    2.891 GHz                    
+    24,175,006,992      instructions                     #    0.37  insn per cycle         
+     4,036,410,173      branches                         #  179.404 M/sec                  
+           720,505      branch-misses                    #    0.02% of all branches        
+
+      22.542607374 seconds time elapsed
+
+      22.471168000 seconds user
+       0.000991000 seconds sys
+
+
+	Command being timed: "perf stat /home/AVX512/results/Intel_Gold_6126_CPU_2.60GHz_harmonic_series/../../bin/harmonic_series 0 4e9"
+	User time (seconds): 22.76
+	System time (seconds): 0.05
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.89
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 30972
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4792
+	Voluntary context switches: 6
+	Involuntary context switches: 8696
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,25 @@
+Test 			Wall clock (m:ss)
+./HarmonicSeriesPlain_1.log 			0:40.73
+./HarmonicSeriesPlain_2.log 			0:40.69
+./HarmonicSeriesPlain_3.log 			0:40.68
+./HarmonicSeriesPlain_4.log 			0:40.57
+./HarmonicSeriesPlain_5.log 			0:40.57
+./HarmonicSeriesPlain_6.log 			0:40.64
+./HarmonicSeriesPlain_7.log 			0:40.68
+./HarmonicSeriesPlain_8.log 			0:40.69
+./HarmonicSeriesAVX256_1.log 			0:19.98
+./HarmonicSeriesAVX256_2.log 			0:19.96
+./HarmonicSeriesAVX256_3.log 			0:20.02
+./HarmonicSeriesAVX256_4.log 			0:19.91
+./HarmonicSeriesAVX256_5.log 			0:19.90
+./HarmonicSeriesAVX256_6.log 			0:19.93
+./HarmonicSeriesAVX256_7.log 			0:19.96
+./HarmonicSeriesAVX256_8.log 			0:19.87
+./HarmonicSeriesAVX512_1.log 			0:22.91
+./HarmonicSeriesAVX512_2.log 			0:22.87
+./HarmonicSeriesAVX512_3.log 			0:22.88
+./HarmonicSeriesAVX512_4.log 			0:22.92
+./HarmonicSeriesAVX512_5.log 			0:22.88
+./HarmonicSeriesAVX512_6.log 			0:22.89
+./HarmonicSeriesAVX512_7.log 			0:22.86
+./HarmonicSeriesAVX512_8.log 			0:22.85

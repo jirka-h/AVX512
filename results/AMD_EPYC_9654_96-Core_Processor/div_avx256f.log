@@ -1,0 +1,48 @@
+0 1.00000000039999959
+1 1.00000000029999980
+2 1.00000000019999979
+3 1.00000000010000001
+
+ Performance counter stats for '../../bin/div_avx256f':
+
+         28,445.29 msec task-clock                #    1.000 CPUs utilized          
+                 9      context-switches          #    0.316 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                61      page-faults               #    2.144 /sec                   
+   104,792,184,970      cycles                    #    3.684 GHz                      (66.67%)
+           185,010      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+        28,777,884      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    24,143,927,744      instructions              #    0.23  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.67%)
+     8,027,990,429      branches                  #  282.226 M/sec                    (66.67%)
+           775,927      branch-misses             #    0.01% of all branches          (66.67%)
+
+      28.446414264 seconds time elapsed
+
+      28.313242000 seconds user
+       0.000000000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/div_avx256f"
+	User time (seconds): 28.31
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.47
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15348
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1506
+	Voluntary context switches: 6
+	Involuntary context switches: 10
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

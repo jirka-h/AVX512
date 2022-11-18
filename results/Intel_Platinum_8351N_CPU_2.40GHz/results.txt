@@ -1,0 +1,16 @@
+Test 			Wall clock (m:ss)
+add_avx256f 			0:11.31
+add_avx512f 			0:05.99
+detect_avx 			0:00.58
+div_avx256f 			0:37.22
+div_avx512f 			0:30.40
+div_plain 			2:25.68
+fma_avx256f 			0:10.96
+fma_avx512f 			0:05.77
+HarmonicSeriesPlain 			0:44.16
+HarmonicSeriesAVX256 			0:21.33
+HarmonicSeriesAVX512 			0:21.47
+mul_avx256f 			0:11.26
+mul_avx512f 			0:05.77
+sub_avx256f 			0:10.95
+sub_avx512f 			0:05.78

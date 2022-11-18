@@ -1,0 +1,52 @@
+0 3200000160.58648490905761719
+1 2799999925.46387243270874023
+2 2399999819.31458139419555664
+3 2000000000.00000000000000000
+4 1600000080.29324245452880859
+5 1199999909.65729069709777832
+6 800000040.14662122726440430
+7 400000020.07331061363220215
+
+ Performance counter stats for '../../bin/add_avx512f':
+
+          3,266.33 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    0.918 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                61      page-faults               #   18.675 /sec                   
+    12,033,804,238      cycles                    #    3.684 GHz                      (66.65%)
+            51,719      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.68%)
+         3,722,787      stalled-cycles-backend    #    0.03% backend cycles idle      (66.69%)
+    12,015,719,144      instructions              #    1.00  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.69%)
+     4,003,263,559      branches                  #    1.226 G/sec                    (66.66%)
+            93,720      branch-misses             #    0.00% of all branches          (66.63%)
+
+       3.266729150 seconds time elapsed
+
+       3.249882000 seconds user
+       0.000996000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/add_avx512f"
+	User time (seconds): 3.25
+	System time (seconds): 0.00
+	Percent of CPU this job got: 98%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.30
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15448
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1508
+	Voluntary context switches: 6
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

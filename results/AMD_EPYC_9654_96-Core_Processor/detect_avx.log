@@ -1,0 +1,72 @@
+Extension SSE    is supported
+Extension SSE2   is supported
+Extension SSE3   is supported
+Extension SSE4.1 is supported
+Extension SSE4.2 is supported
+Extension AVX    is supported
+Extension AVX2   is supported
+Extension FMA    is supported
+Extension FMA4   is unsupported
+
+Extension AVX512F         is supported
+Extension AVX512VL        is supported
+Extension AVX512BW        is supported
+Extension AVX512DQ        is supported
+Extension AVX512CD        is supported
+Extension AVX512ER        is unsupported
+Extension AVX512PF        is unsupported
+Extension AVX512VBMI      is supported
+Extension AVX512IFMA      is supported
+Extension AVX5124VNNIW    is unsupported
+Extension AVX5124FMAPS    is unsupported
+Extension AVX512VPOPCNTDQ is supported
+Extension AVX512VBMI2     is supported
+Extension AVX512BITALG    is supported
+
+ Performance counter stats for '../../bin/detect_avx':
+
+              1.87 msec task-clock                #    0.889 CPUs utilized          
+                 0      context-switches          #    0.000 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                59      page-faults               #   31.475 K/sec                  
+         6,903,195      cycles                    #    3.683 GHz                      (95.23%)
+            27,531      stalled-cycles-frontend   #    0.40% frontend cycles idle   
+            80,769      stalled-cycles-backend    #    1.17% backend cycles idle    
+         4,494,847      instructions              #    0.65  insn per cycle         
+                                                  #    0.02  stalled cycles per insn
+         1,313,229      branches                  #  700.574 M/sec                    (4.77%)
+     <not counted>      branch-misses                                                 (0.00%)
+
+       0.002107927 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002173000 seconds sys
+
+
+Some events weren't counted. Try disabling the NMI watchdog:
+	echo 0 > /proc/sys/kernel/nmi_watchdog
+	perf stat ...
+	echo 1 > /proc/sys/kernel/nmi_watchdog
+	Command being timed: "perf stat ../../bin/detect_avx"
+	User time (seconds): 0.00
+	System time (seconds): 0.00
+	Percent of CPU this job got: 57%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.02
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15220
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1507
+	Voluntary context switches: 5
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

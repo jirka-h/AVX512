@@ -1,0 +1,49 @@
+0 210.70250878024842223
+1 -298.32623522916156844
+2 198.78716728995914309
+3 -304.00380778976318652
+4 128.06117621755288383
+5 -349.88874229943007776
+6 70.04203779538981678
+7 -410.17500538597477089
+
+ Performance counter stats for '../../bin/sub_avx512f':
+
+          5,581.36 msec task-clock                       #    0.998 CPUs utilized          
+             2,224      context-switches                 #  398.469 /sec                   
+                 1      cpu-migrations                   #    0.179 /sec                   
+                60      page-faults                      #   10.750 /sec                   
+    16,062,945,423      cycles                           #    2.878 GHz                    
+    12,047,469,900      instructions                     #    0.75  insn per cycle         
+     4,009,755,389      branches                         #  718.419 M/sec                  
+           192,852      branch-misses                    #    0.00% of all branches        
+
+       5.593530374 seconds time elapsed
+
+       5.575197000 seconds user
+       0.001976000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/sub_avx512f"
+	User time (seconds): 5.87
+	System time (seconds): 0.04
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.95
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 31184
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4781
+	Voluntary context switches: 6
+	Involuntary context switches: 2366
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

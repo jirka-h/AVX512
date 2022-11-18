@@ -1,0 +1,52 @@
+0 1.00000000079999984
+1 1.00000000069999961
+2 1.00000000060000005
+3 1.00000000049999982
+4 1.00000000039999959
+5 1.00000000029999980
+6 1.00000000019999979
+7 1.00000000010000001
+
+ Performance counter stats for '../../bin/div_avx512f':
+
+         14,225.14 msec task-clock                #    1.000 CPUs utilized          
+                 6      context-switches          #    0.422 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                61      page-faults               #    4.288 /sec                   
+    52,403,087,405      cycles                    #    3.684 GHz                      (66.66%)
+           181,252      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        15,732,248      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    12,073,463,788      instructions              #    0.23  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.67%)
+     4,014,138,176      branches                  #  282.186 M/sec                    (66.67%)
+           393,762      branch-misses             #    0.01% of all branches          (66.67%)
+
+      14.225872879 seconds time elapsed
+
+      14.156409000 seconds user
+       0.000996000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/div_avx512f"
+	User time (seconds): 14.16
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.25
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15380
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1506
+	Voluntary context switches: 6
+	Involuntary context switches: 7
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

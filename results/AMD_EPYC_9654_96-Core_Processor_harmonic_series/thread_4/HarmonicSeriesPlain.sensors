@@ -1,0 +1,64 @@
+k10temp-pci-00c3
+Adapter: PCI adapter
+Tctl:         +33.5°C  
+Tccd1:        +28.4°C  
+Tccd2:        +28.5°C  
+Tccd3:        +27.4°C  
+Tccd4:        +30.2°C  
+Tccd5:        +29.2°C  
+Tccd6:        +28.9°C  
+Tccd7:        +29.1°C  
+Tccd8:        +30.2°C  
+Tccd9:        +28.8°C  
+Tccd10:       +29.6°C  
+Tccd11:       +29.0°C  
+Tccd12:       +29.1°C  
+
+k10temp-pci-00cb
+Adapter: PCI adapter
+Tctl:         +32.5°C  
+Tccd1:        +28.1°C  
+Tccd2:        +28.2°C  
+Tccd3:        +27.6°C  
+Tccd4:        +27.6°C  
+Tccd5:        +28.5°C  
+Tccd6:        +29.0°C  
+Tccd7:        +28.6°C  
+Tccd8:        +28.6°C  
+Tccd9:        +28.6°C  
+Tccd10:       +28.1°C  
+Tccd11:       +28.0°C  
+Tccd12:       +28.0°C  
+
+k10temp-pci-00c3
+Adapter: PCI adapter
+Tctl:         +41.1°C  
+Tccd1:        +32.9°C  
+Tccd2:        +31.9°C  
+Tccd3:        +31.0°C  
+Tccd4:        +34.6°C  
+Tccd5:        +33.2°C  
+Tccd6:        +32.0°C  
+Tccd7:        +32.4°C  
+Tccd8:        +33.5°C  
+Tccd9:        +32.2°C  
+Tccd10:       +32.4°C  
+Tccd11:       +31.2°C  
+Tccd12:       +32.0°C  
+
+k10temp-pci-00cb
+Adapter: PCI adapter
+Tctl:         +39.8°C  
+Tccd1:        +31.8°C  
+Tccd2:        +32.0°C  
+Tccd3:        +31.4°C  
+Tccd4:        +31.9°C  
+Tccd5:        +31.9°C  
+Tccd6:        +31.9°C  
+Tccd7:        +31.8°C  
+Tccd8:        +31.0°C  
+Tccd9:        +31.9°C  
+Tccd10:       +30.9°C  
+Tccd11:       +31.1°C  
+Tccd12:       +30.8°C  
+

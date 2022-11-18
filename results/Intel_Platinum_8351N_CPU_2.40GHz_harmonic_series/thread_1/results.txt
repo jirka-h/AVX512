@@ -1,0 +1,4 @@
+Test 			Wall clock (m:ss)
+./HarmonicSeriesPlain_1.log 			0:44.49
+./HarmonicSeriesAVX256_1.log 			0:21.70
+./HarmonicSeriesAVX512_1.log 			0:22.09

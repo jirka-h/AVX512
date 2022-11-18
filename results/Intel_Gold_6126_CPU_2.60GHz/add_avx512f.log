@@ -1,0 +1,49 @@
+0 3200000160.58648490905761719
+1 2799999925.46387243270874023
+2 2399999819.31458139419555664
+3 2000000000.00000000000000000
+4 1600000080.29324245452880859
+5 1199999909.65729069709777832
+6 800000040.14662122726440430
+7 400000020.07331061363220215
+
+ Performance counter stats for '../../bin/add_avx512f':
+
+          5,581.96 msec task-clock                       #    0.998 CPUs utilized          
+             2,256      context-switches                 #  404.159 /sec                   
+                 1      cpu-migrations                   #    0.179 /sec                   
+                60      page-faults                      #   10.749 /sec                   
+    16,063,587,820      cycles                           #    2.878 GHz                    
+    12,047,759,386      instructions                     #    0.75  insn per cycle         
+     4,009,817,688      branches                         #  718.353 M/sec                  
+           199,019      branch-misses                    #    0.00% of all branches        
+
+       5.594252284 seconds time elapsed
+
+       5.575690000 seconds user
+       0.001975000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/add_avx512f"
+	User time (seconds): 5.90
+	System time (seconds): 0.04
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.98
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 31084
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4778
+	Voluntary context switches: 6
+	Involuntary context switches: 2414
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

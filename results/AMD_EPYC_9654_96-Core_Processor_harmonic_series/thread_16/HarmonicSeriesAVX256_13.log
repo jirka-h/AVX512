@@ -1,0 +1,50 @@
+Time elapsed: 10.4028 s
+AVX256:
+Sum 24.7662
+Difference Sum - Formula 2.05098e-11
+Performed 8e+09 HarmonicSeriesAVX256 operations. Avg: 3.11611 CPU cycles/call
+Time elapsed: 10.4029 s
+
+ Performance counter stats for '/home/AVX512/results/AMD_EPYC_9654_96-Core_Processor_harmonic_series/../../bin/harmonic_series 1 4e9':
+
+         10,403.21 msec task-clock                #    1.000 CPUs utilized          
+                 5      context-switches          #    0.481 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                75      page-faults               #    7.209 /sec                   
+    38,326,018,097      cycles                    #    3.684 GHz                      (66.66%)
+            82,977      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+        11,077,279      stalled-cycles-backend    #    0.03% backend cycles idle      (66.66%)
+    48,058,291,119      instructions              #    1.25  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.67%)
+     8,012,480,551      branches                  #  770.193 M/sec                    (66.67%)
+           262,511      branch-misses             #    0.00% of all branches          (66.67%)
+
+      10.403820129 seconds time elapsed
+
+      10.340944000 seconds user
+       0.000999000 seconds sys
+
+
+	Command being timed: "perf stat /home/AVX512/results/AMD_EPYC_9654_96-Core_Processor_harmonic_series/../../bin/harmonic_series 1 4e9"
+	User time (seconds): 10.34
+	System time (seconds): 0.09
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.50
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15304
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1534
+	Voluntary context switches: 5
+	Involuntary context switches: 8
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
