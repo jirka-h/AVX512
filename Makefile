@@ -28,6 +28,10 @@ div_avx512f:	div_avx512f.c
 	gcc $(CFLAGS) $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst
 
+div_plain:	div_plain.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
 fma_avx256f:	fma_avx256f.c
 	gcc $(CFLAGS) -mfma $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst

@@ -32,12 +32,12 @@ Disassembly of section .text:
   401040:	48 b8 00 40 59 73 07 	movabs $0x773594000,%rax
   401047:	00 00 00 
   40104a:	48 83 ec 08          	sub    $0x8,%rsp
-  40104e:	f2 0f 10 05 c2 0f 00 	movsd  0xfc2(%rip),%xmm0        # 402018 <__dso_handle+0x10>
+  40104e:	c5 fb 10 05 c2 0f 00 	vmovsd 0xfc2(%rip),%xmm0        # 402018 <__dso_handle+0x10>
   401055:	00 
-  401056:	f2 0f 10 0d c2 0f 00 	movsd  0xfc2(%rip),%xmm1        # 402020 <__dso_handle+0x18>
+  401056:	c5 fb 10 0d c2 0f 00 	vmovsd 0xfc2(%rip),%xmm1        # 402020 <__dso_handle+0x18>
   40105d:	00 
   40105e:	66 90                	xchg   %ax,%ax
-  401060:	f2 0f 5e c1          	divsd  %xmm1,%xmm0
+  401060:	c5 fb 5e c1          	vdivsd %xmm1,%xmm0,%xmm0
   401064:	48 83 e8 01          	sub    $0x1,%rax
   401068:	75 f6                	jne    401060 <main+0x20>
   40106a:	bf 10 20 40 00       	mov    $0x402010,%edi
