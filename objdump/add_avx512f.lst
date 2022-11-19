@@ -34,6 +34,12 @@ Disassembly of section .plt:
 Disassembly of section .text:
 
 0000000000401050 <main>:
+*/
+
+#include <stdio.h>
+#include <immintrin.h>
+
+int main(void) {
   401050:	4c 8d 54 24 08       	lea    0x8(%rsp),%r10
   401055:	48 83 e4 c0          	and    $0xffffffffffffffc0,%rsp
   401059:	41 ff 72 f8          	push   -0x8(%r10)
@@ -42,37 +48,70 @@ Disassembly of section .text:
   401061:	41 52                	push   %r10
   401063:	53                   	push   %rbx
   401064:	48 83 ec 60          	sub    $0x60,%rsp
+  const unsigned long long int N = (unsigned long long int) 4.0e9;
+  unsigned long long int i;
+  if( ! __builtin_cpu_supports("avx512f")) {
   401068:	f6 05 ee 3f 00 00 80 	testb  $0x80,0x3fee(%rip)        # 40505d <__cpu_model+0xd>
   40106f:	74 68                	je     4010d9 <main+0x89>
   401071:	62 f1 fd 48 28 0d 05 	vmovapd 0x2005(%rip),%zmm1        # 403080 <__dso_handle+0x78>
   401078:	20 00 00 
   40107b:	bb 00 28 6b ee       	mov    $0xee6b2800,%ebx
+    printf("CPU does not support avx512f, exiting.\n");
+    return 1;
+  }
+  __m512d addv = _mm512_set_pd(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8);
+  __m512d av = _mm512_setzero_pd();
   401080:	c5 f9 57 c0          	vxorpd %xmm0,%xmm0,%xmm0
   401084:	0f 1f 40 00          	nopl   0x0(%rax)
+
+extern __inline __m512d
+__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+_mm512_add_pd (__m512d __A, __m512d __B)
+{
+  return (__m512d) ((__v8df)__A + (__v8df)__B);
   401088:	62 f1 fd 48 58 c1    	vaddpd %zmm1,%zmm0,%zmm0
+  __attribute__ ((aligned (64))) double out[8];
+
+  for(i=0; i<N; ++i) {
   40108e:	48 83 eb 01          	sub    $0x1,%rbx
   401092:	75 f4                	jne    401088 <main+0x38>
+  *(__m512d *) __P = __A;
   401094:	62 f1 fd 48 29 85 90 	vmovapd %zmm0,-0x70(%rbp)
   40109b:	ff ff ff 
+    av = _mm512_add_pd(av, addv);
+  }
+
+  _mm512_store_pd(out, av);
+  for (i=0; i<8; ++i) {
   40109e:	c5 f8 77             	vzeroupper 
   4010a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    printf("%llu %.17f\n", i, out[i]);
   4010a8:	c5 fb 10 44 dd 90    	vmovsd -0x70(%rbp,%rbx,8),%xmm0
   4010ae:	48 89 de             	mov    %rbx,%rsi
   4010b1:	bf 37 30 40 00       	mov    $0x403037,%edi
   4010b6:	b8 01 00 00 00       	mov    $0x1,%eax
+  for (i=0; i<8; ++i) {
   4010bb:	48 83 c3 01          	add    $0x1,%rbx
+    printf("%llu %.17f\n", i, out[i]);
   4010bf:	e8 7c ff ff ff       	call   401040 <printf@plt>
+  for (i=0; i<8; ++i) {
   4010c4:	48 83 fb 08          	cmp    $0x8,%rbx
   4010c8:	75 de                	jne    4010a8 <main+0x58>
+  }
+
+  return 0;
   4010ca:	31 c0                	xor    %eax,%eax
+}
   4010cc:	48 83 c4 60          	add    $0x60,%rsp
   4010d0:	5b                   	pop    %rbx
   4010d1:	41 5a                	pop    %r10
   4010d3:	5d                   	pop    %rbp
   4010d4:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
   4010d8:	c3                   	ret    
+    printf("CPU does not support avx512f, exiting.\n");
   4010d9:	bf 10 30 40 00       	mov    $0x403010,%edi
   4010de:	e8 4d ff ff ff       	call   401030 <puts@plt>
+    return 1;
   4010e3:	b8 01 00 00 00       	mov    $0x1,%eax
   4010e8:	eb e2                	jmp    4010cc <main+0x7c>
   4010ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)

@@ -1,10 +1,14 @@
-
-This GDB supports auto-downloading debuginfo from the following URLs:
-https://debuginfod.fedoraproject.org/
-Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
-Debuginfod has been disabled.
-To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
 Dump of assembler code for function HarmonicSeriesAVX512:
+harmonic_series.c:
+54	double HarmonicSeriesAVX512(const unsigned long long int N) {
+55	  struct timespec t[2];
+56	  unsigned long long int i;
+57	  __m512d sumv = _mm512_setzero_pd();
+58	  __m512d onesv =_mm512_set1_pd(1.0);
+59	  __m512d eightv =_mm512_set1_pd(8.0);
+60	  __m512d divv = _mm512_set_pd(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0);
+61	
+62	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
    0x00000000004024f0 <+0>:	4c 8d 54 24 08	lea    0x8(%rsp),%r10
    0x00000000004024f5 <+5>:	48 83 e4 c0	and    $0xffffffffffffffc0,%rsp
    0x00000000004024f9 <+9>:	41 ff 72 f8	push   -0x8(%r10)
@@ -13,42 +17,417 @@ Dump of assembler code for function HarmonicSeriesAVX512:
    0x0000000000402501 <+17>:	41 52	push   %r10
    0x0000000000402503 <+19>:	53	push   %rbx
    0x0000000000402504 <+20>:	48 8d 75 b0	lea    -0x50(%rbp),%rsi
+
+54	double HarmonicSeriesAVX512(const unsigned long long int N) {
    0x0000000000402508 <+24>:	48 89 fb	mov    %rdi,%rbx
+
+61	
+62	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
    0x000000000040250b <+27>:	bf 01 00 00 00	mov    $0x1,%edi
+
+54	double HarmonicSeriesAVX512(const unsigned long long int N) {
    0x0000000000402510 <+32>:	48 81 ec a0 00 00 00	sub    $0xa0,%rsp
+
+61	
+62	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
    0x0000000000402517 <+39>:	e8 44 eb ff ff	call   0x401060 <clock_gettime@plt>
+
+63	  for(i=0; i<N; ++i) {
    0x000000000040251c <+44>:	48 85 db	test   %rbx,%rbx
    0x000000000040251f <+47>:	0f 84 0b 01 00 00	je     0x402630 <HarmonicSeriesAVX512+320>
+
+60	  __m512d divv = _mm512_set_pd(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0);
    0x0000000000402525 <+53>:	62 f1 fd 48 28 05 11 0d 00 00	vmovapd 0xd11(%rip),%zmm0        # 0x403240
+
+57	  __m512d sumv = _mm512_setzero_pd();
    0x000000000040252f <+63>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+
+63	  for(i=0; i<N; ++i) {
    0x0000000000402533 <+67>:	31 c0	xor    %eax,%eax
    0x0000000000402535 <+69>:	62 f2 fd 48 19 25 39 0d 00 00	vbroadcastsd 0xd39(%rip),%zmm4        # 0x403278
    0x000000000040253f <+79>:	62 f2 fd 48 19 1d f7 0c 00 00	vbroadcastsd 0xcf7(%rip),%zmm3        # 0x403240
    0x0000000000402549 <+89>:	0f 1f 80 00 00 00 00	nopl   0x0(%rax)
+
+/usr/lib/gcc/x86_64-redhat-linux/11/include/avx512fintrin.h:
+12492	  return (__m512d) ((__v8df)__A + (__v8df)__B);
    0x0000000000402550 <+96>:	48 83 c0 01	add    $0x1,%rax
+
+12493	}
+12494	
+12495	extern __inline __m512d
+12496	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12497	_mm512_mask_add_pd (__m512d __W, __mmask8 __U, __m512d __A, __m512d __B)
+12498	{
+12499	  return (__m512d) __builtin_ia32_addpd512_mask ((__v8df) __A,
+12500							 (__v8df) __B,
+12501							 (__v8df) __W,
+12502							 (__mmask8) __U,
+12503							 _MM_FROUND_CUR_DIRECTION);
+12504	}
+12505	
+12506	extern __inline __m512d
+12507	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12508	_mm512_maskz_add_pd (__mmask8 __U, __m512d __A, __m512d __B)
+12509	{
+12510	  return (__m512d) __builtin_ia32_addpd512_mask ((__v8df) __A,
+12511							 (__v8df) __B,
+12512							 (__v8df)
+12513							 _mm512_setzero_pd (),
+12514							 (__mmask8) __U,
+12515							 _MM_FROUND_CUR_DIRECTION);
+12516	}
+12517	
+12518	extern __inline __m512
+12519	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12520	_mm512_add_ps (__m512 __A, __m512 __B)
+12521	{
+12522	  return (__m512) ((__v16sf)__A + (__v16sf)__B);
+12523	}
+12524	
+12525	extern __inline __m512
+12526	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12527	_mm512_mask_add_ps (__m512 __W, __mmask16 __U, __m512 __A, __m512 __B)
+12528	{
+12529	  return (__m512) __builtin_ia32_addps512_mask ((__v16sf) __A,
+12530							(__v16sf) __B,
+12531							(__v16sf) __W,
+12532							(__mmask16) __U,
+12533							_MM_FROUND_CUR_DIRECTION);
+12534	}
+12535	
+12536	extern __inline __m512
+12537	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12538	_mm512_maskz_add_ps (__mmask16 __U, __m512 __A, __m512 __B)
+12539	{
+12540	  return (__m512) __builtin_ia32_addps512_mask ((__v16sf) __A,
+12541							(__v16sf) __B,
+12542							(__v16sf)
+12543							_mm512_setzero_ps (),
+12544							(__mmask16) __U,
+12545							_MM_FROUND_CUR_DIRECTION);
+12546	}
+12547	
+12548	extern __inline __m128d
+12549	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12550	_mm_mask_add_sd (__m128d __W, __mmask8 __U, __m128d __A, __m128d __B)
+12551	{
+12552	  return (__m128d) __builtin_ia32_addsd_mask_round ((__v2df) __A,
+12553							(__v2df) __B,
+12554							(__v2df) __W,
+12555							(__mmask8) __U,
+12556							_MM_FROUND_CUR_DIRECTION);
+12557	}
+12558	
+12559	extern __inline __m128d
+12560	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12561	_mm_maskz_add_sd (__mmask8 __U, __m128d __A, __m128d __B)
+12562	{
+12563	  return (__m128d) __builtin_ia32_addsd_mask_round ((__v2df) __A,
+12564							(__v2df) __B,
+12565							(__v2df)
+12566							_mm_setzero_pd (),
+12567							(__mmask8) __U,
+12568							_MM_FROUND_CUR_DIRECTION);
+12569	}
+12570	
+12571	extern __inline __m128
+12572	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12573	_mm_mask_add_ss (__m128 __W, __mmask8 __U, __m128 __A, __m128 __B)
+12574	{
+12575	  return (__m128) __builtin_ia32_addss_mask_round ((__v4sf) __A,
+12576							(__v4sf) __B,
+12577							(__v4sf) __W,
+12578							(__mmask8) __U,
+12579							_MM_FROUND_CUR_DIRECTION);
+12580	}
+12581	
+12582	extern __inline __m128
+12583	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12584	_mm_maskz_add_ss (__mmask8 __U, __m128 __A, __m128 __B)
+12585	{
+12586	  return (__m128) __builtin_ia32_addss_mask_round ((__v4sf) __A,
+12587							(__v4sf) __B,
+12588							(__v4sf)
+12589							_mm_setzero_ps (),
+12590							(__mmask8) __U,
+12591							_MM_FROUND_CUR_DIRECTION);
+12592	}
+12593	
+12594	extern __inline __m512d
+12595	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12596	_mm512_sub_pd (__m512d __A, __m512d __B)
+12597	{
+12598	  return (__m512d) ((__v8df)__A - (__v8df)__B);
+12599	}
+12600	
+12601	extern __inline __m512d
+12602	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12603	_mm512_mask_sub_pd (__m512d __W, __mmask8 __U, __m512d __A, __m512d __B)
+12604	{
+12605	  return (__m512d) __builtin_ia32_subpd512_mask ((__v8df) __A,
+12606							 (__v8df) __B,
+12607							 (__v8df) __W,
+12608							 (__mmask8) __U,
+12609							 _MM_FROUND_CUR_DIRECTION);
+12610	}
+12611	
+12612	extern __inline __m512d
+12613	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12614	_mm512_maskz_sub_pd (__mmask8 __U, __m512d __A, __m512d __B)
+12615	{
+12616	  return (__m512d) __builtin_ia32_subpd512_mask ((__v8df) __A,
+12617							 (__v8df) __B,
+12618							 (__v8df)
+12619							 _mm512_setzero_pd (),
+12620							 (__mmask8) __U,
+12621							 _MM_FROUND_CUR_DIRECTION);
+12622	}
+12623	
+12624	extern __inline __m512
+12625	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12626	_mm512_sub_ps (__m512 __A, __m512 __B)
+12627	{
+12628	  return (__m512) ((__v16sf)__A - (__v16sf)__B);
+12629	}
+12630	
+12631	extern __inline __m512
+12632	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12633	_mm512_mask_sub_ps (__m512 __W, __mmask16 __U, __m512 __A, __m512 __B)
+12634	{
+12635	  return (__m512) __builtin_ia32_subps512_mask ((__v16sf) __A,
+12636							(__v16sf) __B,
+12637							(__v16sf) __W,
+12638							(__mmask16) __U,
+12639							_MM_FROUND_CUR_DIRECTION);
+12640	}
+12641	
+12642	extern __inline __m512
+12643	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12644	_mm512_maskz_sub_ps (__mmask16 __U, __m512 __A, __m512 __B)
+12645	{
+12646	  return (__m512) __builtin_ia32_subps512_mask ((__v16sf) __A,
+12647							(__v16sf) __B,
+12648							(__v16sf)
+12649							_mm512_setzero_ps (),
+12650							(__mmask16) __U,
+12651							_MM_FROUND_CUR_DIRECTION);
+12652	}
+12653	
+12654	extern __inline __m128d
+12655	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12656	_mm_mask_sub_sd (__m128d __W, __mmask8 __U, __m128d __A, __m128d __B)
+12657	{
+12658	  return (__m128d) __builtin_ia32_subsd_mask_round ((__v2df) __A,
+12659							(__v2df) __B,
+12660							(__v2df) __W,
+12661							(__mmask8) __U,
+12662							_MM_FROUND_CUR_DIRECTION);
+12663	}
+12664	
+12665	extern __inline __m128d
+12666	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12667	_mm_maskz_sub_sd (__mmask8 __U, __m128d __A, __m128d __B)
+12668	{
+12669	  return (__m128d) __builtin_ia32_subsd_mask_round ((__v2df) __A,
+12670							(__v2df) __B,
+12671							(__v2df)
+12672							_mm_setzero_pd (),
+12673							(__mmask8) __U,
+12674							_MM_FROUND_CUR_DIRECTION);
+12675	}
+12676	
+12677	extern __inline __m128
+12678	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12679	_mm_mask_sub_ss (__m128 __W, __mmask8 __U, __m128 __A, __m128 __B)
+12680	{
+12681	  return (__m128) __builtin_ia32_subss_mask_round ((__v4sf) __A,
+12682							(__v4sf) __B,
+12683							(__v4sf) __W,
+12684							(__mmask8) __U,
+12685							_MM_FROUND_CUR_DIRECTION);
+12686	}
+12687	
+12688	extern __inline __m128
+12689	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12690	_mm_maskz_sub_ss (__mmask8 __U, __m128 __A, __m128 __B)
+12691	{
+12692	  return (__m128) __builtin_ia32_subss_mask_round ((__v4sf) __A,
+12693							(__v4sf) __B,
+12694							(__v4sf)
+12695							_mm_setzero_ps (),
+12696							(__mmask8) __U,
+12697							_MM_FROUND_CUR_DIRECTION);
+12698	}
+12699	
+12700	extern __inline __m512d
+12701	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12702	_mm512_mul_pd (__m512d __A, __m512d __B)
+12703	{
+12704	  return (__m512d) ((__v8df)__A * (__v8df)__B);
+12705	}
+12706	
+12707	extern __inline __m512d
+12708	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12709	_mm512_mask_mul_pd (__m512d __W, __mmask8 __U, __m512d __A, __m512d __B)
+12710	{
+12711	  return (__m512d) __builtin_ia32_mulpd512_mask ((__v8df) __A,
+12712							 (__v8df) __B,
+12713							 (__v8df) __W,
+12714							 (__mmask8) __U,
+12715							 _MM_FROUND_CUR_DIRECTION);
+12716	}
+12717	
+12718	extern __inline __m512d
+12719	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12720	_mm512_maskz_mul_pd (__mmask8 __U, __m512d __A, __m512d __B)
+12721	{
+12722	  return (__m512d) __builtin_ia32_mulpd512_mask ((__v8df) __A,
+12723							 (__v8df) __B,
+12724							 (__v8df)
+12725							 _mm512_setzero_pd (),
+12726							 (__mmask8) __U,
+12727							 _MM_FROUND_CUR_DIRECTION);
+12728	}
+12729	
+12730	extern __inline __m512
+12731	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12732	_mm512_mul_ps (__m512 __A, __m512 __B)
+12733	{
+12734	  return (__m512) ((__v16sf)__A * (__v16sf)__B);
+12735	}
+12736	
+12737	extern __inline __m512
+12738	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12739	_mm512_mask_mul_ps (__m512 __W, __mmask16 __U, __m512 __A, __m512 __B)
+12740	{
+12741	  return (__m512) __builtin_ia32_mulps512_mask ((__v16sf) __A,
+12742							(__v16sf) __B,
+12743							(__v16sf) __W,
+12744							(__mmask16) __U,
+12745							_MM_FROUND_CUR_DIRECTION);
+12746	}
+12747	
+12748	extern __inline __m512
+12749	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12750	_mm512_maskz_mul_ps (__mmask16 __U, __m512 __A, __m512 __B)
+12751	{
+12752	  return (__m512) __builtin_ia32_mulps512_mask ((__v16sf) __A,
+12753							(__v16sf) __B,
+12754							(__v16sf)
+12755							_mm512_setzero_ps (),
+12756							(__mmask16) __U,
+12757							_MM_FROUND_CUR_DIRECTION);
+12758	}
+12759	
+12760	extern __inline __m128d
+12761	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12762	_mm_mask_mul_sd (__m128d __W, __mmask8 __U, __m128d __A,
+12763				  __m128d __B)
+12764	{
+12765	  return (__m128d) __builtin_ia32_mulsd_mask_round ((__v2df) __A,
+12766							 (__v2df) __B,
+12767							 (__v2df) __W,
+12768							 (__mmask8) __U,
+12769							  _MM_FROUND_CUR_DIRECTION);
+12770	}
+12771	
+12772	extern __inline __m128d
+12773	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12774	_mm_maskz_mul_sd (__mmask8 __U, __m128d __A, __m128d __B)
+12775	{
+12776	  return (__m128d) __builtin_ia32_mulsd_mask_round ((__v2df) __A,
+12777							 (__v2df) __B,
+12778							 (__v2df)
+12779							 _mm_setzero_pd (),
+12780							 (__mmask8) __U,
+12781							  _MM_FROUND_CUR_DIRECTION);
+12782	}
+12783	
+12784	extern __inline __m128
+12785	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12786	_mm_mask_mul_ss (__m128 __W, __mmask8 __U, __m128 __A,
+12787				  __m128 __B)
+12788	{
+12789	  return (__m128) __builtin_ia32_mulss_mask_round ((__v4sf) __A,
+12790							 (__v4sf) __B,
+12791							 (__v4sf) __W,
+12792							 (__mmask8) __U,
+12793							  _MM_FROUND_CUR_DIRECTION);
+12794	}
+12795	
+12796	extern __inline __m128
+12797	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12798	_mm_maskz_mul_ss (__mmask8 __U, __m128 __A, __m128 __B)
+12799	{
+12800	  return (__m128) __builtin_ia32_mulss_mask_round ((__v4sf) __A,
+12801							 (__v4sf) __B,
+12802							 (__v4sf)
+12803							 _mm_setzero_ps (),
+12804							 (__mmask8) __U,
+12805							  _MM_FROUND_CUR_DIRECTION);
+12806	}
+12807	
+12808	extern __inline __m512d
+12809	__attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
+12810	_mm512_div_pd (__m512d __M, __m512d __V)
+12811	{
+12812	  return (__m512d) ((__v8df)__M / (__v8df)__V);
    0x0000000000402554 <+100>:	62 f1 dd 48 5e d0	vdivpd %zmm0,%zmm4,%zmm2
+
+12492	  return (__m512d) ((__v8df)__A + (__v8df)__B);
    0x000000000040255a <+106>:	62 f1 fd 48 58 c3	vaddpd %zmm3,%zmm0,%zmm0
    0x0000000000402560 <+112>:	62 f1 f5 48 58 ca	vaddpd %zmm2,%zmm1,%zmm1
+
+harmonic_series.c:
+63	  for(i=0; i<N; ++i) {
    0x0000000000402566 <+118>:	48 39 c3	cmp    %rax,%rbx
    0x0000000000402569 <+121>:	75 e5	jne    0x402550 <HarmonicSeriesAVX512+96>
+
+64	    sumv = _mm512_add_pd( _mm512_div_pd(onesv, divv), sumv);
+65	    divv = _mm512_add_pd(eightv, divv);
+66	  }
+67	  clock_gettime(CLOCK_MONOTONIC, &t[1]);
    0x000000000040256b <+123>:	48 8d 75 c0	lea    -0x40(%rbp),%rsi
    0x000000000040256f <+127>:	bf 01 00 00 00	mov    $0x1,%edi
    0x0000000000402574 <+132>:	62 f1 fd 48 29 8d 50 ff ff ff	vmovapd %zmm1,-0xb0(%rbp)
    0x000000000040257e <+142>:	c5 f8 77	vzeroupper 
    0x0000000000402581 <+145>:	e8 da ea ff ff	call   0x401060 <clock_gettime@plt>
+
+51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
    0x0000000000402586 <+150>:	c5 e8 57 d2	vxorps %xmm2,%xmm2,%xmm2
    0x000000000040258a <+154>:	48 8b 3d ef 2a 00 00	mov    0x2aef(%rip),%rdi        # 0x405080 <stdout@GLIBC_2.2.5>
+
+49	    ( (double)(end->tv_nsec) - (double)(start->tv_nsec) ) / 1.0E9;
    0x0000000000402591 <+161>:	c4 e1 eb 2a 5d b8	vcvtsi2sdq -0x48(%rbp),%xmm2,%xmm3
+
+50	
+51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
    0x0000000000402597 <+167>:	be 10 30 40 00	mov    $0x403010,%esi
    0x000000000040259c <+172>:	b8 01 00 00 00	mov    $0x1,%eax
+
+49	    ( (double)(end->tv_nsec) - (double)(start->tv_nsec) ) / 1.0E9;
    0x00000000004025a1 <+177>:	c4 e1 eb 2a 45 c8	vcvtsi2sdq -0x38(%rbp),%xmm2,%xmm0
    0x00000000004025a7 <+183>:	c5 fb 5c c3	vsubsd %xmm3,%xmm0,%xmm0
    0x00000000004025ab <+187>:	c5 fb 5e 05 45 0c 00 00	vdivsd 0xc45(%rip),%xmm0,%xmm0        # 0x4031f8
+
+48	  double run_time = (double)(end->tv_sec) - (double)(start->tv_sec) +
    0x00000000004025b3 <+195>:	c4 e1 eb 2a 5d c0	vcvtsi2sdq -0x40(%rbp),%xmm2,%xmm3
    0x00000000004025b9 <+201>:	c4 e1 eb 2a 55 b0	vcvtsi2sdq -0x50(%rbp),%xmm2,%xmm2
    0x00000000004025bf <+207>:	c5 e3 5c da	vsubsd %xmm2,%xmm3,%xmm3
    0x00000000004025c3 <+211>:	c5 fb 58 c3	vaddsd %xmm3,%xmm0,%xmm0
+
+50	
+51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
    0x00000000004025c7 <+215>:	e8 c4 ea ff ff	call   0x401090 <fprintf@plt>
+
+68	  printTimer(&t[0], &t[1]);
+69	
+70	  double c[8];
+71	  double sum = 0.0;;
+72	  _mm512_storeu_pd(c, sumv); // write sumv to c array
+73	  for (i=0; i<8; ++i) {
+74	    //printf("%d %g\n", i, c[i]);
+75	    sum += c[i];
    0x00000000004025cc <+220>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
    0x00000000004025d0 <+224>:	62 f1 fd 48 28 8d 50 ff ff ff	vmovapd -0xb0(%rbp),%zmm1
    0x00000000004025da <+234>:	c5 e3 58 d9	vaddsd %xmm1,%xmm3,%xmm3
@@ -63,16 +442,25 @@ Dump of assembler code for function HarmonicSeriesAVX512:
    0x0000000000402603 <+275>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
    0x0000000000402607 <+279>:	c4 e3 7d 19 c9 01	vextractf128 $0x1,%ymm1,%xmm1
    0x000000000040260d <+285>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
+
+76	  }
+77	  return sum;
    0x0000000000402611 <+289>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
+
+75	    sum += c[i];
    0x0000000000402615 <+293>:	c5 f1 15 c9	vunpckhpd %xmm1,%xmm1,%xmm1
    0x0000000000402619 <+297>:	c5 fb 58 c1	vaddsd %xmm1,%xmm0,%xmm0
    0x000000000040261d <+301>:	c5 f8 77	vzeroupper 
+
+78	}
    0x0000000000402620 <+304>:	48 81 c4 a0 00 00 00	add    $0xa0,%rsp
    0x0000000000402627 <+311>:	5b	pop    %rbx
    0x0000000000402628 <+312>:	41 5a	pop    %r10
    0x000000000040262a <+314>:	5d	pop    %rbp
    0x000000000040262b <+315>:	49 8d 62 f8	lea    -0x8(%r10),%rsp
    0x000000000040262f <+319>:	c3	ret    
+
+57	  __m512d sumv = _mm512_setzero_pd();
    0x0000000000402630 <+320>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
    0x0000000000402634 <+324>:	e9 32 ff ff ff	jmp    0x40256b <HarmonicSeriesAVX512+123>
 End of assembler dump.

@@ -1,4 +1,4 @@
-CFLAGS=-Wall -Wextra -O3 -mavx512f
+CFLAGS=-Wall -Wextra -O3 -g -mavx512f
 
 SRCS=$(wildcard *.c)
 BINARIES=$(SRCS:%.c=%)

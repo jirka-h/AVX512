@@ -3,6 +3,11 @@ gcc -O3 -Wall -Wextra -o harmonic_series harmonic_series.c -mavx512f -lrt -lm
 gcc -O3 -pg -Wall -Wextra -fsanitize=undefined -o harmonic_series harmonic_series.c -mavx512f -lrt -lm
 gcc -O3 -Wall -Wextra -fsanitize=undefined -o harmonic_series_sanitized harmonic_series.c -mavx512f -lrt -lm
 
+Harmonic series summation https://en.wikipedia.org/wiki/Harmonic_series_(mathematics) with
+  * no AVX
+  * AVX2 (4 packed doubles)
+  * AVX-512F (8 packed doubles)
+
 https://blog.triplez.cn/posts/avx-avx2-learning-notes/
 https://www.root.cz/clanky/rozsireni-instrukcni-sady-f16c-fma-a-avx-512-na-platforme-x86-64
 https://www.root.cz/clanky/rozsireni-instrukcni-sady-advanced-vector-extensions-na-platforme-x86-64

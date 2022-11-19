@@ -34,140 +34,180 @@ Disassembly of section .plt:
 Disassembly of section .text:
 
 0000000000401050 <main>:
+https://www.root.cz/clanky/rozsireni-instrukcni-sady-f16c-fma-a-avx-512-na-platforme-x86-64/
+*/
+
+#include <stdio.h>
+
+int main(void) {
   401050:	55                   	push   %rbp
+    printf("Extension SSE    is %ssupported\n", __builtin_cpu_supports("sse") ? "" : "un");
   401051:	bd 10 30 40 00       	mov    $0x403010,%ebp
   401056:	bf 18 30 40 00       	mov    $0x403018,%edi
+int main(void) {
   40105b:	53                   	push   %rbx
+    printf("Extension SSE    is %ssupported\n", __builtin_cpu_supports("sse") ? "" : "un");
   40105c:	48 89 ee             	mov    %rbp,%rsi
   40105f:	bb 12 30 40 00       	mov    $0x403012,%ebx
+int main(void) {
   401064:	48 83 ec 08          	sub    $0x8,%rsp
+    printf("Extension SSE    is %ssupported\n", __builtin_cpu_supports("sse") ? "" : "un");
   401068:	f6 05 ed 3f 00 00 08 	testb  $0x8,0x3fed(%rip)        # 40505c <__cpu_model+0xc>
   40106f:	48 0f 45 f3          	cmovne %rbx,%rsi
   401073:	31 c0                	xor    %eax,%eax
   401075:	e8 b6 ff ff ff       	call   401030 <printf@plt>
+    printf("Extension SSE2   is %ssupported\n", __builtin_cpu_supports("sse2") ? "" : "un");
   40107a:	f6 05 db 3f 00 00 10 	testb  $0x10,0x3fdb(%rip)        # 40505c <__cpu_model+0xc>
   401081:	48 89 ee             	mov    %rbp,%rsi
   401084:	bf 40 30 40 00       	mov    $0x403040,%edi
   401089:	48 0f 45 f3          	cmovne %rbx,%rsi
   40108d:	31 c0                	xor    %eax,%eax
   40108f:	e8 9c ff ff ff       	call   401030 <printf@plt>
+    printf("Extension SSE3   is %ssupported\n", __builtin_cpu_supports("sse3") ? "" : "un");
   401094:	f6 05 c1 3f 00 00 20 	testb  $0x20,0x3fc1(%rip)        # 40505c <__cpu_model+0xc>
   40109b:	48 89 ee             	mov    %rbp,%rsi
   40109e:	bf 68 30 40 00       	mov    $0x403068,%edi
   4010a3:	48 0f 45 f3          	cmovne %rbx,%rsi
   4010a7:	31 c0                	xor    %eax,%eax
   4010a9:	e8 82 ff ff ff       	call   401030 <printf@plt>
+    printf("Extension SSE4.1 is %ssupported\n", __builtin_cpu_supports("sse4.1") ? "" : "un");
   4010ae:	f6 05 a7 3f 00 00 80 	testb  $0x80,0x3fa7(%rip)        # 40505c <__cpu_model+0xc>
   4010b5:	48 89 ee             	mov    %rbp,%rsi
   4010b8:	bf 90 30 40 00       	mov    $0x403090,%edi
   4010bd:	48 0f 45 f3          	cmovne %rbx,%rsi
   4010c1:	31 c0                	xor    %eax,%eax
   4010c3:	e8 68 ff ff ff       	call   401030 <printf@plt>
+    printf("Extension SSE4.2 is %ssupported\n", __builtin_cpu_supports("sse4.2") ? "" : "un");
   4010c8:	f6 05 8e 3f 00 00 01 	testb  $0x1,0x3f8e(%rip)        # 40505d <__cpu_model+0xd>
   4010cf:	48 89 ee             	mov    %rbp,%rsi
   4010d2:	bf b8 30 40 00       	mov    $0x4030b8,%edi
   4010d7:	48 0f 45 f3          	cmovne %rbx,%rsi
   4010db:	31 c0                	xor    %eax,%eax
   4010dd:	e8 4e ff ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX    is %ssupported\n", __builtin_cpu_supports("avx") ? "" : "un");
   4010e2:	f6 05 74 3f 00 00 02 	testb  $0x2,0x3f74(%rip)        # 40505d <__cpu_model+0xd>
   4010e9:	48 89 ee             	mov    %rbp,%rsi
   4010ec:	bf e0 30 40 00       	mov    $0x4030e0,%edi
   4010f1:	48 0f 45 f3          	cmovne %rbx,%rsi
   4010f5:	31 c0                	xor    %eax,%eax
   4010f7:	e8 34 ff ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX2   is %ssupported\n", __builtin_cpu_supports("avx2") ? "" : "un");
   4010fc:	f6 05 5a 3f 00 00 04 	testb  $0x4,0x3f5a(%rip)        # 40505d <__cpu_model+0xd>
   401103:	48 89 ee             	mov    %rbp,%rsi
   401106:	bf 08 31 40 00       	mov    $0x403108,%edi
   40110b:	48 0f 45 f3          	cmovne %rbx,%rsi
   40110f:	31 c0                	xor    %eax,%eax
   401111:	e8 1a ff ff ff       	call   401030 <printf@plt>
+    printf("Extension FMA    is %ssupported\n", __builtin_cpu_supports("fma") ? "" : "un");
   401116:	f6 05 40 3f 00 00 40 	testb  $0x40,0x3f40(%rip)        # 40505d <__cpu_model+0xd>
   40111d:	48 89 ee             	mov    %rbp,%rsi
   401120:	bf 30 31 40 00       	mov    $0x403130,%edi
   401125:	48 0f 45 f3          	cmovne %rbx,%rsi
   401129:	31 c0                	xor    %eax,%eax
   40112b:	e8 00 ff ff ff       	call   401030 <printf@plt>
+    printf("Extension FMA4   is %ssupported\n", __builtin_cpu_supports("fma4") ? "" : "un");
   401130:	f6 05 26 3f 00 00 10 	testb  $0x10,0x3f26(%rip)        # 40505d <__cpu_model+0xd>
   401137:	48 89 ee             	mov    %rbp,%rsi
   40113a:	bf 58 31 40 00       	mov    $0x403158,%edi
   40113f:	48 0f 45 f3          	cmovne %rbx,%rsi
   401143:	31 c0                	xor    %eax,%eax
   401145:	e8 e6 fe ff ff       	call   401030 <printf@plt>
+
+/* Write a character to stdout.  */
+__STDIO_INLINE int
+putchar (int __c)
+{
+  return putc (__c, stdout);
   40114a:	48 8b 35 df 3e 00 00 	mov    0x3edf(%rip),%rsi        # 405030 <stdout@@GLIBC_2.2.5>
   401151:	bf 0a 00 00 00       	mov    $0xa,%edi
   401156:	e8 e5 fe ff ff       	call   401040 <putc@plt>
+    putchar('\n');
+
+    printf("Extension AVX512F         is %ssupported\n", __builtin_cpu_supports("avx512f") ? "" : "un");
   40115b:	f6 05 fb 3e 00 00 80 	testb  $0x80,0x3efb(%rip)        # 40505d <__cpu_model+0xd>
   401162:	48 89 ee             	mov    %rbp,%rsi
   401165:	bf 80 31 40 00       	mov    $0x403180,%edi
   40116a:	48 0f 45 f3          	cmovne %rbx,%rsi
   40116e:	31 c0                	xor    %eax,%eax
   401170:	e8 bb fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512VL        is %ssupported\n", __builtin_cpu_supports("avx512vl") ? "" : "un");
   401175:	f6 05 e2 3e 00 00 10 	testb  $0x10,0x3ee2(%rip)        # 40505e <__cpu_model+0xe>
   40117c:	48 89 ee             	mov    %rbp,%rsi
   40117f:	bf b0 31 40 00       	mov    $0x4031b0,%edi
   401184:	48 0f 45 f3          	cmovne %rbx,%rsi
   401188:	31 c0                	xor    %eax,%eax
   40118a:	e8 a1 fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512BW        is %ssupported\n", __builtin_cpu_supports("avx512bw") ? "" : "un");
   40118f:	f6 05 c8 3e 00 00 20 	testb  $0x20,0x3ec8(%rip)        # 40505e <__cpu_model+0xe>
   401196:	48 89 ee             	mov    %rbp,%rsi
   401199:	bf e0 31 40 00       	mov    $0x4031e0,%edi
   40119e:	48 0f 45 f3          	cmovne %rbx,%rsi
   4011a2:	31 c0                	xor    %eax,%eax
   4011a4:	e8 87 fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512DQ        is %ssupported\n", __builtin_cpu_supports("avx512dq") ? "" : "un");
   4011a9:	f6 05 ae 3e 00 00 40 	testb  $0x40,0x3eae(%rip)        # 40505e <__cpu_model+0xe>
   4011b0:	48 89 ee             	mov    %rbp,%rsi
   4011b3:	bf 10 32 40 00       	mov    $0x403210,%edi
   4011b8:	48 0f 45 f3          	cmovne %rbx,%rsi
   4011bc:	31 c0                	xor    %eax,%eax
   4011be:	e8 6d fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512CD        is %ssupported\n", __builtin_cpu_supports("avx512cd") ? "" : "un");
   4011c3:	f6 05 94 3e 00 00 80 	testb  $0x80,0x3e94(%rip)        # 40505e <__cpu_model+0xe>
   4011ca:	48 89 ee             	mov    %rbp,%rsi
   4011cd:	bf 40 32 40 00       	mov    $0x403240,%edi
   4011d2:	48 0f 45 f3          	cmovne %rbx,%rsi
   4011d6:	31 c0                	xor    %eax,%eax
   4011d8:	e8 53 fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512ER        is %ssupported\n", __builtin_cpu_supports("avx512er") ? "" : "un");
   4011dd:	f6 05 7b 3e 00 00 01 	testb  $0x1,0x3e7b(%rip)        # 40505f <__cpu_model+0xf>
   4011e4:	48 89 ee             	mov    %rbp,%rsi
   4011e7:	bf 70 32 40 00       	mov    $0x403270,%edi
   4011ec:	48 0f 45 f3          	cmovne %rbx,%rsi
   4011f0:	31 c0                	xor    %eax,%eax
   4011f2:	e8 39 fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512PF        is %ssupported\n", __builtin_cpu_supports("avx512pf") ? "" : "un");
   4011f7:	f6 05 61 3e 00 00 02 	testb  $0x2,0x3e61(%rip)        # 40505f <__cpu_model+0xf>
   4011fe:	48 89 ee             	mov    %rbp,%rsi
   401201:	bf a0 32 40 00       	mov    $0x4032a0,%edi
   401206:	48 0f 45 f3          	cmovne %rbx,%rsi
   40120a:	31 c0                	xor    %eax,%eax
   40120c:	e8 1f fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512VBMI      is %ssupported\n", __builtin_cpu_supports("avx512vbmi") ? "" : "un");
   401211:	f6 05 47 3e 00 00 04 	testb  $0x4,0x3e47(%rip)        # 40505f <__cpu_model+0xf>
   401218:	48 89 ee             	mov    %rbp,%rsi
   40121b:	bf d0 32 40 00       	mov    $0x4032d0,%edi
   401220:	48 0f 45 f3          	cmovne %rbx,%rsi
   401224:	31 c0                	xor    %eax,%eax
   401226:	e8 05 fe ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512IFMA      is %ssupported\n", __builtin_cpu_supports("avx512ifma") ? "" : "un");
   40122b:	f6 05 2d 3e 00 00 08 	testb  $0x8,0x3e2d(%rip)        # 40505f <__cpu_model+0xf>
   401232:	48 89 ee             	mov    %rbp,%rsi
   401235:	bf 00 33 40 00       	mov    $0x403300,%edi
   40123a:	48 0f 45 f3          	cmovne %rbx,%rsi
   40123e:	31 c0                	xor    %eax,%eax
   401240:	e8 eb fd ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX5124VNNIW    is %ssupported\n", __builtin_cpu_supports("avx5124vnniw") ? "" : "un");
   401245:	f6 05 13 3e 00 00 10 	testb  $0x10,0x3e13(%rip)        # 40505f <__cpu_model+0xf>
   40124c:	48 89 ee             	mov    %rbp,%rsi
   40124f:	bf 30 33 40 00       	mov    $0x403330,%edi
   401254:	48 0f 45 f3          	cmovne %rbx,%rsi
   401258:	31 c0                	xor    %eax,%eax
   40125a:	e8 d1 fd ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX5124FMAPS    is %ssupported\n", __builtin_cpu_supports("avx5124fmaps") ? "" : "un");
   40125f:	f6 05 f9 3d 00 00 20 	testb  $0x20,0x3df9(%rip)        # 40505f <__cpu_model+0xf>
   401266:	48 89 ee             	mov    %rbp,%rsi
   401269:	bf 60 33 40 00       	mov    $0x403360,%edi
   40126e:	48 0f 45 f3          	cmovne %rbx,%rsi
   401272:	31 c0                	xor    %eax,%eax
   401274:	e8 b7 fd ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512VPOPCNTDQ is %ssupported\n", __builtin_cpu_supports("avx512vpopcntdq") ? "" : "un");
   401279:	f6 05 df 3d 00 00 40 	testb  $0x40,0x3ddf(%rip)        # 40505f <__cpu_model+0xf>
   401280:	48 89 ee             	mov    %rbp,%rsi
   401283:	bf 90 33 40 00       	mov    $0x403390,%edi
   401288:	48 0f 45 f3          	cmovne %rbx,%rsi
   40128c:	31 c0                	xor    %eax,%eax
   40128e:	e8 9d fd ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512VBMI2     is %ssupported\n", __builtin_cpu_supports("avx512vbmi2") ? "" : "un");
   401293:	8b 05 c3 3d 00 00    	mov    0x3dc3(%rip),%eax        # 40505c <__cpu_model+0xc>
   401299:	48 89 ee             	mov    %rbp,%rsi
   40129c:	bf c0 33 40 00       	mov    $0x4033c0,%edi
@@ -175,12 +215,15 @@ Disassembly of section .text:
   4012a3:	48 0f 48 f3          	cmovs  %rbx,%rsi
   4012a7:	31 c0                	xor    %eax,%eax
   4012a9:	e8 82 fd ff ff       	call   401030 <printf@plt>
+    printf("Extension AVX512BITALG    is %ssupported\n", __builtin_cpu_supports("avx512bitalg") ? "" : "un");
   4012ae:	f6 05 8b 3d 00 00 08 	testb  $0x8,0x3d8b(%rip)        # 405040 <__cpu_features2>
   4012b5:	48 89 ee             	mov    %rbp,%rsi
   4012b8:	bf f0 33 40 00       	mov    $0x4033f0,%edi
   4012bd:	48 0f 45 f3          	cmovne %rbx,%rsi
   4012c1:	31 c0                	xor    %eax,%eax
   4012c3:	e8 68 fd ff ff       	call   401030 <printf@plt>
+    return 0;
+}
   4012c8:	48 83 c4 08          	add    $0x8,%rsp
   4012cc:	31 c0                	xor    %eax,%eax
   4012ce:	5b                   	pop    %rbx

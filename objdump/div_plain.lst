@@ -29,20 +29,40 @@ Disassembly of section .plt:
 Disassembly of section .text:
 
 0000000000401040 <main>:
+gcc -O3 -Wall -Wextra -o div_plain div_plain.c
+*/
+
+#include <stdio.h>
+
+int main(void) {
   401040:	48 b8 00 40 59 73 07 	movabs $0x773594000,%rax
   401047:	00 00 00 
   40104a:	48 83 ec 08          	sub    $0x8,%rsp
+  const unsigned long long int N = (unsigned long long int) 4.0e9;
+  unsigned long long int i;
+  double div = 1.0000000001;
+  double a = 1.49182474713380642;
   40104e:	c5 fb 10 05 c2 0f 00 	vmovsd 0xfc2(%rip),%xmm0        # 402018 <__dso_handle+0x10>
   401055:	00 
   401056:	c5 fb 10 0d c2 0f 00 	vmovsd 0xfc2(%rip),%xmm1        # 402020 <__dso_handle+0x18>
   40105d:	00 
   40105e:	66 90                	xchg   %ax,%ax
+
+  for(i=0; i<8*N; ++i) {
+    a = a / div;
   401060:	c5 fb 5e c1          	vdivsd %xmm1,%xmm0,%xmm0
+  for(i=0; i<8*N; ++i) {
   401064:	48 83 e8 01          	sub    $0x1,%rax
   401068:	75 f6                	jne    401060 <main+0x20>
+  }
+
+  printf("%.17f\n", a);
   40106a:	bf 10 20 40 00       	mov    $0x402010,%edi
   40106f:	b8 01 00 00 00       	mov    $0x1,%eax
   401074:	e8 b7 ff ff ff       	call   401030 <printf@plt>
+
+  return 0;
+}
   401079:	31 c0                	xor    %eax,%eax
   40107b:	48 83 c4 08          	add    $0x8,%rsp
   40107f:	c3                   	ret    
