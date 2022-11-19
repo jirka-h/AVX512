@@ -64,7 +64,18 @@ It will run all binaries, including [harmonic_series.c](harmonic_series.c), and 
 [here.](results/Intel_Platinum_8351N_CPU_2.40GHz/results.txt)
 
 ### Discussion of results
-Zen4 double pumped (two AVX-256 units in parallel)
+#### Intel Skylake & Icelake architecture
+On Intel CPUs, all tested basic packed double opearations runs two times faster with AVX-512 compared with AVX2, with the exception of the divisionwhich shows no acceleration on Skylake (Intel Gold 6126) and only minor improvement on Icelake (Intel Platinum 8351N). 
+#### AMD Zen4 architecture
+Zen4 has impleted AVX-512 using two parallel AVX-256 units (double-pumping). The runtime of all simple operations improves by factor 4x between standard and AVX2 (4 packed doubles) and 2x between AVX2 and AVX-512 (8 packed doubles). 
+
+Program       Wall clock time(minute:seconds)
+* div_plain   1:53
+* div_avx256f 0:28
+* div_avx512f 0:14
+* 
+See [full results.](results/AMD_EPYC_9654_96-Core_Processor/results.txt)
+double pumped (two AVX-256 units in parallel)
 Skylake & Icelake - no change in performance for vdivpd
 harmonic_series - pipelining
 
