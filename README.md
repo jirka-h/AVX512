@@ -65,24 +65,38 @@ It will run all binaries, including [harmonic_series.c](harmonic_series.c), and 
 
 ### Discussion of results
 #### Intel Skylake & Icelake architecture
-On Intel CPUs, AVX-512 divison (in terms of floating operations per second) shows no acceleration on Skylake (Intel Gold 6126) and only minor improvement on Icelake (Intel Platinum 8351N) compared to AVX-256. In contrary, other tested basic packed double operations runs two times faster with AVX-512 compared with AVX2.
+On Intel CPUs, the AVX-512 division (in terms of floating operations per second) shows no acceleration on Skylake (Intel Gold 6126) and only minor improvement on Icelake (Intel Platinum 8351N) compared to AVX-256. On the contrary, other tested basic packed double operations (like addition and multiplication) run two times faster with AVX-512 compared with AVX2.
 
-The explanation is provided for example in [this discussion on stackoverflow.com:](https://stackoverflow.com/questions/4125033/floating-point-division-vs-floating-point-multiplication/45899202#45899202)
+The explanation is provided, for example, in [this discussion on stackoverflow.com:](https://stackoverflow.com/questions/4125033/floating-point-division-vs-floating-point-multiplication/45899202#45899202)
 
 *The divide / sqrt unit is not fully pipelined, for reasons explained in @NathanWhitehead's answer. The worst ratios are for 256b vectors, because (unlike other execution units) the divide unit is usually not full-width, so wide vectors have to be done in two halves. A not-fully-pipelined execution unit is so unusual that Intel CPUs have an arith.divider_active hardware performance counter to help you find code that bottlenecks on divider throughput instead of the usual front-end or execution port bottlenecks. (Or more often, memory bottlenecks or long latency chains limiting instruction-level parallelism causing instruction throughput to be less than ~4 per clock).*
 
-I have confirmed it with [llvm-mca](https://man.archlinux.org/man/extra/llvm/llvm-mca.1.en) and [perf-stat](doc/linux-perf.pdf).
-Compare [llvm-mca results](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca) on Intel Platinum 8351N CPU for [div_avx256](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca/div_avx256f.log) and [div_avx512](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca/div_avx512f.log). Notice that Block RThroughput (Block Reciprocal Throughput) is 10.3 for div_avx256 and 16.0 for div_avx512. Since avx512 variant makes 2 times more floating point operations, the resulting throughput is ((using arbitraty units) 100/10.3=9.7 and 200/16=12.5, respectively. This is inline with `perf stat` [results](analysis/Intel_Platinum_8351N_CPU_2.40GHz) showing that both div_avx256 and div_avx512 are backed bound, with execution slots being in 89% of time in the `Instruction executed, waiting to be retired` state. 
+I have confirmed it with the [llvm-mca](https://man.archlinux.org/man/extra/llvm/llvm-mca.1.en) and [perf-stat](doc/linux-perf.pdf).
+Compare the [llvm-mca results](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca) on Intel Platinum 8351N CPU for [div_avx256](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca/div_avx256f.log) and [div_avx512](analysis/Intel_Platinum_8351N_CPU_2.40GHz_llvm-mca/div_avx512f.log). Notice that Block RThroughput (Block Reciprocal Throughput) is 10.3 for div_avx256 and 16.0 for div_avx512. Since the avx512 variant makes 2 times more floating point operations, the resulting throughput is (using arbitrary units) 100/10.3=9.7 and 200/16=12.5, respectively. This is in line with `perf stat` [results](analysis/Intel_Platinum_8351N_CPU_2.40GHz) showing that both div_avx256 and div_avx512 are backed bound, with execution slots being in 89% of time in the `Instruction executed, waiting to be retired` state. 
 
 #### AMD Zen4 architecture
-Zen4 has impleted AVX-512 using two parallel AVX-256 units (double-pumping). The runtime of all simple operations improves by factor 4x between standard and AVX2 (4 packed doubles) and 2x between AVX2 and AVX-512 (8 packed doubles). Here is the example for the division operation:
+Zen4 has implemented AVX-512 using two parallel AVX-256 units (double-pumping). The runtime of all simple operations improves by a factor of 4x between standard doubles and AVX2 (4 packed doubles) and 2x between AVX2 and AVX-512 (8 packed doubles). Here is an example for the division operation:
 
-Program       Wall clock time(minute:seconds)
+Program       Wall clock time (minute:seconds)
 * div_plain   1:53
 * div_avx256f 0:28
 * div_avx512f 0:14
 * 
 See [full results.](results/AMD_EPYC_9654_96-Core_Processor/results.txt)
 
-It's also interesting to notice that 
+The results for harmonic series summation are woth some futher investigation:
+
+Program       Wall clock time (minute:seconds)
+HarmonicSeriesPlain 			0:41.33
+HarmonicSeriesAVX256 			0:10.32
+HarmonicSeriesAVX512 			0:09.82
+
+AVX-256 shows runtime improvement by 4x over the standard double FP arithmetics. However, moving to AVX-512 shows no performance improvement anymore. It's also interesting to notice that HarmonicSeriesAVX256 runtime is significantly shorter than  for div_avx256f (10 seconds versus 28 seconds), even though both programs are doing the same amount of the AVX-256 divisions. However, HarmonicSeriesAVX256 is doing divisions on different numbers, meanining that CPU can use instruction pipelining and utilize both AVX-256 units simultaneously. This is why the AVX-512 version does not bring any improvement - AVX-256 is already fully utilizitating the both units anyhow. Moving to AVX-512 cannot increase the utilization anymore. By comparing `perf stat` results for [HarmonicSeriesAVX256](analysis/AMD_EPYC_9654_96-Core_Processor/HarmonicSeriesAVX256.log) and [HarmonicSeriesAVX512.log](analysis/AMD_EPYC_9654_96-Core_Processor/HarmonicSeriesAVX512.log) we can see that
+
+* fp_ret_sse_avx_ops.all (the number of retired SSE/AVX opearations) is the same in both cases
+* fpu_pipe_assignment.total is 2x higher for AVX-256 than for AVX-512
+
+We can conclude that the workload is backend bound, and runtime is dominated by division. AVX-256 version already fully utilizes the HW, moving to AVX-512 does not bring any runtime improvement. However, it havles the number of instructions and fpu_pipe_assignments. 
+
+
 
