@@ -98,5 +98,6 @@ AVX-256 shows runtime improvement by 4x over the standard double FP arithmetics.
 
 We can conclude that the workload is backend bound, and runtime is dominated by division. AVX-256 version already fully utilizes the HW, moving to AVX-512 does not bring any runtime improvement. However, it havles the number of instructions and fpu_pipe_assignments. 
 
+#### Comparing performance of AMD Zen4 and Intel Icelake AVX-512 performance for packed doubles
 
 
