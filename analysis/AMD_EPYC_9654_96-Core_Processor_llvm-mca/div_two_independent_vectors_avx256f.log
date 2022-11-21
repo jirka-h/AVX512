@@ -1,0 +1,334 @@
+warning: found a call in the input assembly sequence.
+note: call instructions are not correctly modeled. Assume a latency of 100cy.
+warning: found a return instruction in the input assembly sequence.
+note: program counter updates are ignored.
+Iterations:        10000
+Instructions:      470000
+Total Cycles:      230108
+Total uOps:        480000
+
+Dispatch Width:    6
+uOps Per Cycle:    2.09
+IPC:               2.04
+Block RThroughput: 10.0
+
+
+Cycles with backend pressure increase [ 26.08% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 21.73% ]
+  - Zn3ALU0  [ 4.35% ]
+  - Zn3ALU1  [ 4.35% ]
+  - Zn3ALU2  [ 4.35% ]
+  - Zn3ALU3  [ 4.35% ]
+  - Zn3BRU1  [ 0.00% ]
+  - Zn3FPP1  [ 13.04% ]
+  - Zn3FPP45  [ 4.35% ]
+  - Zn3FPSt  [ 0.00% ]
+  - Zn3LSU  [ 4.34% ]
+  Data Dependencies:      [ 26.08% ]
+  - Register Dependencies [ 26.08% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 41.   leaq	-8(%r10), %rsp
+ |
+ |    < loop carried > 
+ |
+ |      0.    leaq	8(%rsp), %r10
+ +----> 1.    andq	$-32, %rsp                        ## REGISTER dependency:  %rsp
+ +----> 2.    pushq	-8(%r10)                          ## REGISTER dependency:  %rsp
+ +----> 3.    pushq	%rbp                              ## REGISTER dependency:  %rsp
+ |      4.    movq	%rsp, %rbp
+ +----> 5.    pushq	%r10                              ## REGISTER dependency:  %rsp
+ +----> 6.    pushq	%rbx                              ## REGISTER dependency:  %rsp
+ +----> 7.    subq	$96, %rsp                         ## REGISTER dependency:  %rsp
+ |      8.    testb	$-128, __cpu_model+13(%rip)
+ |      9.    je	.L10
+ |      10.   vmovapd	.LC0(%rip), %ymm0
+ |      11.   movl	$4000000000, %ebx
+ |      12.   vmovapd	.LC1(%rip), %ymm1
+ |      13.   vmovapd	.LC3(%rip), %ymm3
+ |      14.   vmovapd	.LC4(%rip), %ymm2
+ |      15.   vdivpd	%ymm3, %ymm1, %ymm1
+ |      16.   vdivpd	%ymm2, %ymm0, %ymm0
+ |      17.   subq	$1, %rbx
+ |      18.   jne	.L2
+ |      19.   vmovapd	%ymm1, -80(%rbp)
+ |      20.   vmovapd	%ymm0, -48(%rbp)
+ |      21.   vzeroupper
+ |      22.   vmovsd	-80(%rbp,%rbx,8), %xmm0
+ |      23.   movq	%rbx, %rsi
+ |      24.   movl	$.LC5, %edi
+ |      25.   movl	$1, %eax
+ |      26.   vmovsd	%xmm0, -88(%rbp)
+ |      27.   callq	printf
+ |      28.   vmovsd	-88(%rbp), %xmm0
+ |      29.   movq	%rbx, %rsi
+ |      30.   movl	$.LC5, %edi
+ |      31.   movl	$1, %eax
+ |      32.   addq	$1, %rbx
+ |      33.   callq	printf
+ |      34.   cmpq	$8, %rbx
+ |      35.   jne	.L4
+ |      36.   xorl	%eax, %eax
+ +----> 37.   addq	$96, %rsp                         ## REGISTER dependency:  %rsp
+ +----> 38.   popq	%rbx                              ## REGISTER dependency:  %rsp
+ +----> 39.   popq	%r10                              ## REGISTER dependency:  %rsp
+ |      40.   popq	%rbp
+ +----> 41.   leaq	-8(%r10), %rsp                    ## REGISTER dependency:  %r10
+ |      42.   retq
+ |      43.   movl	$.LC2, %edi
+ |      44.   callq	puts
+ |      45.   movl	$1, %eax
+ |      46.   jmp	.L1
+ |
+ |    < loop carried > 
+ |
+ +----> 0.    leaq	8(%rsp), %r10                     ## REGISTER dependency:  %rsp
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      1     0.33                        leaq	8(%rsp), %r10
+ 1      1     0.25                        andq	$-32, %rsp
+ 2      6     1.00    *      *            pushq	-8(%r10)
+ 1      1     1.00           *            pushq	%rbp
+ 1      0     0.17                        movq	%rsp, %rbp
+ 1      1     1.00           *            pushq	%r10
+ 1      1     1.00           *            pushq	%rbx
+ 1      1     0.25                        subq	$96, %rsp
+ 1      5     0.33    *                   testb	$-128, __cpu_model+13(%rip)
+ 1      1     0.50                        je	.L10
+ 1      8     0.50    *                   vmovapd	.LC0(%rip), %ymm0
+ 1      1     0.50                        movl	$4000000000, %ebx
+ 1      8     0.50    *                   vmovapd	.LC1(%rip), %ymm1
+ 1      8     0.50    *                   vmovapd	.LC3(%rip), %ymm3
+ 1      8     0.50    *                   vmovapd	.LC4(%rip), %ymm2
+ 1      13    5.00                        vdivpd	%ymm3, %ymm1, %ymm1
+ 1      13    5.00                        vdivpd	%ymm2, %ymm0, %ymm0
+ 1      1     0.25                        subq	$1, %rbx
+ 1      1     0.50                        jne	.L2
+ 1      1     1.00           *            vmovapd	%ymm1, -80(%rbp)
+ 1      1     1.00           *            vmovapd	%ymm0, -48(%rbp)
+ 1      0     0.25                  U     vzeroupper
+ 1      8     0.50    *                   vmovsd	-80(%rbp,%rbx,8), %xmm0
+ 1      0     0.17                        movq	%rbx, %rsi
+ 1      1     0.50                        movl	$.LC5, %edi
+ 1      1     0.50                        movl	$1, %eax
+ 1      1     1.00           *            vmovsd	%xmm0, -88(%rbp)
+ 1      1     0.50                        callq	printf
+ 1      8     0.50    *                   vmovsd	-88(%rbp), %xmm0
+ 1      0     0.17                        movq	%rbx, %rsi
+ 1      1     0.50                        movl	$.LC5, %edi
+ 1      1     0.50                        movl	$1, %eax
+ 1      1     0.25                        addq	$1, %rbx
+ 1      1     0.50                        callq	printf
+ 1      1     0.25                        cmpq	$8, %rbx
+ 1      1     0.50                        jne	.L4
+ 1      0     0.17                        xorl	%eax, %eax
+ 1      1     0.25                        addq	$96, %rsp
+ 1      5     0.33    *                   popq	%rbx
+ 1      5     0.33    *                   popq	%r10
+ 1      5     0.33    *                   popq	%rbp
+ 1      1     0.33                        leaq	-8(%r10), %rsp
+ 1      5     0.50                  U     retq
+ 1      1     0.50                        movl	$.LC2, %edi
+ 1      1     0.50                        callq	puts
+ 1      1     0.50                        movl	$1, %eax
+ 1      1     0.50                        jmp	.L1
+
+
+Retire Control Unit - number of cycles where we saw N instructions retired:
+[# retired], [# cycles]
+ 0,           160101  (69.6%)
+ 1,           10005  (4.3%)
+ 2,           2  (0.0%)
+ 3,           1  (0.0%)
+ 4,           1  (0.0%)
+ 6,           10000  (4.3%)
+ 8,           49998  (21.7%)
+
+Total ROB Entries:                256
+Max Used ROB Entries:             256  ( 100.0% )
+Average Used ROB Entries per cy:  254  ( 99.2% )
+
+
+Resources:
+[0]   - Zn3AGU0
+[1]   - Zn3AGU1
+[2]   - Zn3AGU2
+[3]   - Zn3ALU0
+[4]   - Zn3ALU1
+[5]   - Zn3ALU2
+[6]   - Zn3ALU3
+[7]   - Zn3BRU1
+[8]   - Zn3FPP0
+[9]   - Zn3FPP1
+[10]  - Zn3FPP2
+[11]  - Zn3FPP3
+[12.0] - Zn3FPP45
+[12.1] - Zn3FPP45
+[13]  - Zn3FPSt
+[14.0] - Zn3LSU
+[14.1] - Zn3LSU
+[14.2] - Zn3LSU
+[15.0] - Zn3Load
+[15.1] - Zn3Load
+[15.2] - Zn3Load
+[16.0] - Zn3Store
+[16.1] - Zn3Store
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] 
+4.00   4.00   4.00   7.00   5.00   5.00   7.00   5.00   0.33   10.00  0.33   0.33   4.50   4.50   3.00   9.00   7.00   7.00   4.00   4.00   4.00   5.50   5.50   
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] Instructions:
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     leaq	8(%rsp), %r10
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     andq	$-32, %rsp
+0.67   0.67   0.67    -      -      -      -      -      -      -      -      -      -      -      -     3.00    -      -     1.00    -      -     1.00   1.00   pushq	-8(%r10)
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -      -      -     2.00    -      -      -     1.00   1.00   pushq	%rbp
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rsp, %rbp
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -      -     2.00    -      -      -      -     1.00   1.00   pushq	%r10
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -     2.00    -      -      -      -      -     1.00   1.00   pushq	%rbx
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$96, %rsp
+0.33   0.33   0.33    -     1.00    -      -      -      -      -      -      -      -      -      -      -      -     1.00    -      -     1.00    -      -     testb	$-128, __cpu_model+13(%rip)
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     je	.L10
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -     1.00    -      -     1.00    -      -      -     vmovapd	.LC0(%rip), %ymm0
+ -      -      -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$4000000000, %ebx
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -      -     1.00    -      -     1.00    -      -     vmovapd	.LC1(%rip), %ymm1
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -     1.00    -      -     1.00    -      -      -     vmovapd	.LC3(%rip), %ymm3
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -      -     1.00   1.00    -      -      -      -     vmovapd	.LC4(%rip), %ymm2
+ -      -      -      -      -      -      -      -      -     5.00    -      -      -      -      -      -      -      -      -      -      -      -      -     vdivpd	%ymm3, %ymm1, %ymm1
+ -      -      -      -      -      -      -      -      -     5.00    -      -      -      -      -      -      -      -      -      -      -      -      -     vdivpd	%ymm2, %ymm0, %ymm0
+ -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$1, %rbx
+ -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     jne	.L2
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50   1.00   1.00    -      -      -      -      -     0.50   0.50   vmovapd	%ymm1, -80(%rbp)
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50   1.00    -     1.00    -      -      -      -     0.50   0.50   vmovapd	%ymm0, -48(%rbp)
+ -      -      -      -      -      -      -      -     0.33    -     0.33   0.33    -      -      -      -      -      -      -      -      -      -      -     vzeroupper
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -      -     1.00   1.00    -      -      -      -     vmovsd	-80(%rbp,%rbx,8), %xmm0
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rsi
+ -      -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$.LC5, %edi
+ -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %eax
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50   1.00    -     1.00    -      -      -      -     0.50   0.50   vmovsd	%xmm0, -88(%rbp)
+ -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     callq	printf
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -      -     1.00    -      -      -     1.00    -      -     vmovsd	-88(%rbp), %xmm0
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rsi
+ -      -      -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$.LC5, %edi
+ -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %eax
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$1, %rbx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     callq	printf
+ -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     cmpq	$8, %rbx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     jne	.L4
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$96, %rsp
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -     1.00    -      -      -     1.00    -      -      -     popq	%rbx
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -      -      -     1.00    -     1.00    -      -      -     popq	%r10
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -     1.00    -      -     1.00    -      -      -      -     popq	%rbp
+0.33   0.33   0.33    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     leaq	-8(%r10), %rsp
+0.33   0.33   0.33    -      -      -      -     1.00    -      -      -      -      -      -      -     1.00    -      -      -      -     1.00    -      -     retq
+ -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$.LC2, %edi
+ -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     callq	puts
+ -      -      -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %eax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     jmp	.L1
+
+
+Timeline view:
+                    0123456789          0123456789          0123456789          0123456789
+Index     0123456789          0123456789          0123456789          0123456789          
+
+[0,0]     DeER .    .    .    .    .    .    .    .    .    .    .    .    .    .    .   .   leaq	8(%rsp), %r10
+[0,1]     DeER .    .    .    .    .    .    .    .    .    .    .    .    .    .    .   .   andq	$-32, %rsp
+[0,2]     D=eeeeeeER.    .    .    .    .    .    .    .    .    .    .    .    .    .   .   pushq	-8(%r10)
+[0,3]     D=======eER    .    .    .    .    .    .    .    .    .    .    .    .    .   .   pushq	%rbp
+[0,4]     D---------R    .    .    .    .    .    .    .    .    .    .    .    .    .   .   movq	%rsp, %rbp
+[0,5]     .D=======eER   .    .    .    .    .    .    .    .    .    .    .    .    .   .   pushq	%r10
+[0,6]     .D========eER  .    .    .    .    .    .    .    .    .    .    .    .    .   .   pushq	%rbx
+[0,7]     .D=========eER .    .    .    .    .    .    .    .    .    .    .    .    .   .   subq	$96, %rsp
+[0,8]     .DeeeeeE-----R .    .    .    .    .    .    .    .    .    .    .    .    .   .   testb	$-128, __cpu_model+13(%rip)
+[0,9]     .D=====eE----R .    .    .    .    .    .    .    .    .    .    .    .    .   .   je	.L10
+[0,10]    .DeeeeeeeeE--R .    .    .    .    .    .    .    .    .    .    .    .    .   .   vmovapd	.LC0(%rip), %ymm0
+[0,11]    . DeE--------R .    .    .    .    .    .    .    .    .    .    .    .    .   .   movl	$4000000000, %ebx
+[0,12]    . DeeeeeeeeE-R .    .    .    .    .    .    .    .    .    .    .    .    .   .   vmovapd	.LC1(%rip), %ymm1
+[0,13]    . DeeeeeeeeE-R .    .    .    .    .    .    .    .    .    .    .    .    .   .   vmovapd	.LC3(%rip), %ymm3
+[0,14]    . D=eeeeeeeeER .    .    .    .    .    .    .    .    .    .    .    .    .   .   vmovapd	.LC4(%rip), %ymm2
+[0,15]    . D========eeeeeeeeeeeeeER    .    .    .    .    .    .    .    .    .    .   .   vdivpd	%ymm3, %ymm1, %ymm1
+[0,16]    . D=============eeeeeeeeeeeeeER    .    .    .    .    .    .    .    .    .   .   vdivpd	%ymm2, %ymm0, %ymm0
+[0,17]    .  DeE------------------------R    .    .    .    .    .    .    .    .    .   .   subq	$1, %rbx
+[0,18]    .  D=eE-----------------------R    .    .    .    .    .    .    .    .    .   .   jne	.L2
+[0,19]    .  D====================eE----R    .    .    .    .    .    .    .    .    .   .   vmovapd	%ymm1, -80(%rbp)
+[0,20]    .  D=========================eER   .    .    .    .    .    .    .    .    .   .   vmovapd	%ymm0, -48(%rbp)
+[0,21]    .  DE--------------------------R   .    .    .    .    .    .    .    .    .   .   vzeroupper
+[0,22]    .  D========eeeeeeeeE----------R   .    .    .    .    .    .    .    .    .   .   vmovsd	-80(%rbp,%rbx,8), %xmm0
+[0,23]    .   D--------------------------R   .    .    .    .    .    .    .    .    .   .   movq	%rbx, %rsi
+[0,24]    .   DeE------------------------R   .    .    .    .    .    .    .    .    .   .   movl	$.LC5, %edi
+[0,25]    .   DeE------------------------R   .    .    .    .    .    .    .    .    .   .   movl	$1, %eax
+[0,26]    .   D=========================eER  .    .    .    .    .    .    .    .    .   .   vmovsd	%xmm0, -88(%rbp)
+Truncated display due to cycle limit
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    36.0   0.1    89.1      leaq	8(%rsp), %r10
+1.     10    36.0   0.1    89.1      andq	$-32, %rsp
+2.     10    37.1   0.0    83.2      pushq	-8(%r10)
+3.     10    43.1   0.0    82.3      pushq	%rbp
+4.     10    0.0    0.0    126.4     movq	%rsp, %rbp
+5.     10    43.5   0.0    82.3      pushq	%r10
+6.     10    44.5   0.0    81.4      pushq	%rbx
+7.     10    45.1   0.0    80.5      subq	$96, %rsp
+8.     10    1.0    1.0    120.6     testb	$-128, __cpu_model+13(%rip)
+9.     10    6.0    0.0    119.6     je	.L10
+10.    10    1.1    1.1    117.5     vmovapd	.LC0(%rip), %ymm0
+11.    10    1.0    1.0    124.0     movl	$4000000000, %ebx
+12.    10    1.0    1.0    113.0     vmovapd	.LC1(%rip), %ymm1
+13.    10    1.2    1.2    113.7     vmovapd	.LC3(%rip), %ymm3
+14.    10    2.5    2.5    112.4     vmovapd	.LC4(%rip), %ymm2
+15.    10    12.0   2.8    99.1      vdivpd	%ymm3, %ymm1, %ymm1
+16.    10    17.0   6.5    94.6      vdivpd	%ymm2, %ymm0, %ymm0
+17.    10    1.0    0.4    122.0     subq	$1, %rbx
+18.    10    1.9    0.3    120.7     jne	.L2
+19.    10    41.7   0.0    80.9      vmovapd	%ymm1, -80(%rbp)
+20.    10    43.4   0.6    79.3      vmovapd	%ymm0, -48(%rbp)
+21.    10    1.0    1.0    123.6     vzeroupper
+22.    10    40.5   0.0    76.1      vmovsd	-80(%rbp,%rbx,8), %xmm0
+23.    10    0.0    0.0    124.0     movq	%rbx, %rsi
+24.    10    1.0    1.0    121.6     movl	$.LC5, %edi
+25.    10    1.0    1.0    121.6     movl	$1, %eax
+26.    10    48.5   0.1    74.2      vmovsd	%xmm0, -88(%rbp)
+27.    10    39.5   0.0    0.0       callq	printf
+28.    10    40.4   0.9    91.1      vmovsd	-88(%rbp), %xmm0
+29.    10    0.0    0.0    138.9     movq	%rbx, %rsi
+30.    10    1.0    1.0    136.5     movl	$.LC5, %edi
+31.    10    1.0    1.0    136.5     movl	$1, %eax
+32.    10    2.0    2.0    135.5     addq	$1, %rbx
+33.    10    38.5   0.0    0.0       callq	printf
+34.    10    3.0    0.0    134.5     cmpq	$8, %rbx
+35.    10    3.5    0.1    134.4     jne	.L4
+36.    10    0.0    0.0    138.5     xorl	%eax, %eax
+37.    10    37.5   0.0    100.0     addq	$96, %rsp
+38.    10    38.5   0.0    95.0      popq	%rbx
+39.    10    43.5   0.0    90.0      popq	%r10
+40.    10    48.5   0.0    85.0      popq	%rbp
+41.    10    47.9   0.0    89.0      leaq	-8(%r10), %rsp
+42.    10    1.2    1.2    131.3     retq
+43.    10    1.0    1.0    127.0     movl	$.LC2, %edi
+44.    10    39.0   0.0    0.0       callq	puts
+45.    10    1.2    1.2    136.8     movl	$1, %eax
+46.    10    1.6    1.6    136.4     jmp	.L1
+       10    19.1   0.7    102.3     <total>

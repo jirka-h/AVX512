@@ -1,0 +1,60 @@
+0 4.95303308089291860
+1 4.05520043743646141
+2 3.32011725318244544
+3 2.71828205405043644
+4 2.22554107634004739
+5 1.82211889123070492
+6 1.49182474725345715
+7 1.22140277848178180
+8 2.71828205405043644
+9 4.05520043743646141
+10 3.32011725318244544
+11 4.95303308089291860
+12 1.82211889123070492
+13 2.22554107634004739
+14 1.22140277848178180
+15 1.49182474725345715
+
+ Performance counter stats for '../../bin/div_two_independent_vectors_avx512f':
+
+          9,795.36 msec task-clock                #    1.000 CPUs utilized          
+                 4      context-switches          #    0.408 /sec                   
+                 0      cpu-migrations            #    0.000 /sec                   
+                61      page-faults               #    6.227 /sec                   
+    36,087,359,597      cycles                    #    3.684 GHz                      (66.66%)
+            43,042      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        10,556,883      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+     8,050,330,267      instructions              #    0.22  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.68%)
+     2,009,594,362      branches                  #  205.158 M/sec                    (66.67%)
+           270,124      branch-misses             #    0.01% of all branches          (66.66%)
+
+       9.795932441 seconds time elapsed
+
+       9.750256000 seconds user
+       0.000994000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/div_two_independent_vectors_avx512f"
+	User time (seconds): 9.75
+	System time (seconds): 0.01
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.82
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15436
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1518
+	Voluntary context switches: 6
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

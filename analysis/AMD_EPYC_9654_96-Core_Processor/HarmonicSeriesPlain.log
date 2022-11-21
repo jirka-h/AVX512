@@ -1,9 +1,9 @@
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Time elapsed: 43.5355 s
+Time elapsed: 43.5341 s
 	Command being timed: "../../bin/harmonic_series 2 4e9"
-	User time (seconds): 43.31
+	User time (seconds): 43.32
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:43.53
@@ -11,10 +11,10 @@ Time elapsed: 43.5355 s
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2128
+	Maximum resident set size (kbytes): 2096
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 87
+	Minor (reclaiming a frame) page faults: 86
 	Voluntary context switches: 1
 	Involuntary context switches: 16
 	Swaps: 0
@@ -28,7 +28,7 @@ Time elapsed: 43.5355 s
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Time elapsed: 43.5341 s
+Time elapsed: 43.535 s
 	Command being timed: "../../bin/harmonic_series 2 4e9"
 	User time (seconds): 43.31
 	System time (seconds): 0.00
@@ -38,10 +38,10 @@ Time elapsed: 43.5341 s
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2160
+	Maximum resident set size (kbytes): 2108
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 86
+	Minor (reclaiming a frame) page faults: 87
 	Voluntary context switches: 1
 	Involuntary context switches: 15
 	Swaps: 0
@@ -55,17 +55,17 @@ Time elapsed: 43.5341 s
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Time elapsed: 43.5359 s
+Time elapsed: 43.5269 s
 	Command being timed: "../../bin/harmonic_series 2 4e9"
-	User time (seconds): 43.32
+	User time (seconds): 43.31
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:43.53
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:43.52
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2156
+	Maximum resident set size (kbytes): 2148
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 85
@@ -82,22 +82,22 @@ Time elapsed: 43.5359 s
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/harmonic_series 2 4e9' (3 runs):
 
-   160,296,767,585      cycles                                                        ( +-  0.00% )  (35.71%)
-           485,416      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  7.71% )  (35.71%)
-        20,866,530      stalled-cycles-backend    #    0.01% backend cycles idle      ( +- 34.78% )  (35.71%)
-           788,918      cache-misses                                                  ( +-  5.21% )  (35.71%)
+   160,269,741,338      cycles                                                        ( +-  0.00% )  (35.71%)
+           389,649      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  3.70% )  (35.71%)
+        41,813,327      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  0.63% )  (35.72%)
+           882,596      cache-misses                                                  ( +-  9.81% )  (35.72%)
                  0      sse_avx_stalls                                                (35.72%)
-    64,003,763,721      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.58%)
-    31,997,797,332      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.01% )  (21.43%)
-    95,993,699,512      fpu_pipe_assignment.total                                     ( +-  0.00% )  (21.43%)
-    15,996,240,945      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.43%)
-    15,998,432,547      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.57%)
-    31,999,366,261      fpu_pipe_assignment.total2                                     ( +-  0.00% )  (28.57%)
-    32,000,005,839      fpu_pipe_assignment.total3                                     ( +-  0.00% )  (35.72%)
-        88,457,002      L1-dcache-loads                                               ( +-  0.47% )  (35.71%)
-         1,992,808      L1-dcache-load-misses     #    2.24% of all L1-dcache accesses  ( +- 10.20% )  (35.71%)
+    63,991,597,722      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.57%)
+    31,992,362,377      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.01% )  (21.43%)
+    95,982,897,178      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
+    15,997,140,952      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.43%)
+    15,998,743,371      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.57%)
+    32,000,161,744      fpu_pipe_assignment.total2                                     ( +-  0.01% )  (28.57%)
+    32,000,528,987      fpu_pipe_assignment.total3                                     ( +-  0.00% )  (35.71%)
+        86,778,147      L1-dcache-loads                                               ( +-  0.61% )  (35.71%)
+         1,480,236      L1-dcache-load-misses     #    1.69% of all L1-dcache accesses  ( +-  4.32% )  (35.71%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-         43.537261 +- 0.000519 seconds time elapsed  ( +-  0.00% )
+          43.53413 +- 0.00257 seconds time elapsed  ( +-  0.01% )
 

@@ -18,9 +18,9 @@
 	Maximum resident set size (kbytes): 1708
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 74
+	Minor (reclaiming a frame) page faults: 73
 	Voluntary context switches: 1
-	Involuntary context switches: 3
+	Involuntary context switches: 4
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
@@ -46,7 +46,7 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1708
+	Maximum resident set size (kbytes): 1712
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 74
@@ -94,22 +94,22 @@
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/fma_avx512f' (3 runs):
 
-    16,038,217,754      cycles                                                        ( +-  0.00% )  (35.69%)
-           264,967      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  2.08% )  (35.72%)
-         4,872,000      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.32% )  (35.75%)
-           236,959      cache-misses                                                  ( +-  6.49% )  (35.75%)
+    16,039,710,445      cycles                                                        ( +-  0.01% )  (35.70%)
+           268,450      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  2.53% )  (35.73%)
+         5,189,996      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  2.60% )  (35.75%)
+           250,773      cache-misses                                                  ( +-  1.62% )  (35.75%)
                  0      sse_avx_stalls                                                (35.75%)
-    63,997,447,905      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
+    64,024,364,187      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.59%)
                  0      fp_ret_sse_avx_ops.div_flops                                     (21.42%)
-     4,001,032,162      fpu_pipe_assignment.total                                     ( +-  0.02% )  (21.42%)
-     2,000,205,204      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.42%)
-     2,000,262,680      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.56%)
-               903      fpu_pipe_assignment.total2                                     ( +-  6.15% )  (28.56%)
-                36      fpu_pipe_assignment.total3                                     ( +- 30.32% )  (35.70%)
-         8,942,405      L1-dcache-loads                                               ( +-  0.37% )  (35.69%)
-           214,059      L1-dcache-load-misses     #    2.40% of all L1-dcache accesses  ( +-  4.99% )  (35.69%)
+     4,001,302,508      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.42%)
+     2,000,088,274      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.42%)
+     2,000,120,310      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.55%)
+               721      fpu_pipe_assignment.total2                                     ( +- 33.59% )  (28.55%)
+                 8      fpu_pipe_assignment.total3                                     ( +- 29.17% )  (35.69%)
+         8,773,463      L1-dcache-loads                                               ( +-  0.39% )  (35.69%)
+           178,294      L1-dcache-load-misses     #    2.03% of all L1-dcache accesses  ( +-  7.27% )  (35.69%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-         4.3569185 +- 0.0000817 seconds time elapsed  ( +-  0.00% )
+          4.356976 +- 0.000144 seconds time elapsed  ( +-  0.00% )
 

@@ -5,41 +5,41 @@
 
  Performance counter stats for '../../bin/fma_avx256f':
 
-         10,369.54 msec task-clock                       #    0.998 CPUs utilized          
-             3,810      context-switches                 #  367.422 /sec                   
-                 0      cpu-migrations                   #    0.000 /sec                   
-                61      page-faults                      #    5.883 /sec                   
-    32,067,346,368      cycles                           #    3.092 GHz                    
-    24,084,429,721      instructions                     #    0.75  insn per cycle         
-     8,017,386,193      branches                         #  773.167 M/sec                  
-            73,197      branch-misses                    #    0.00% of all branches        
-   160,335,518,675      slots                            #   15.462 G/sec                  
-    15,719,168,497      topdown-retiring                 #      9.8% Retiring              
-     5,030,133,919      topdown-bad-spec                 #      3.1% Bad Speculation       
-     3,772,600,439      topdown-fe-bound                 #      2.3% Frontend Bound        
-   136,431,679,229      topdown-be-bound                 #     84.8% Backend Bound         
+         10,365.76 msec task-clock                       #    0.998 CPUs utilized          
+             3,847      context-switches                 #  371.126 /sec                   
+                 1      cpu-migrations                   #    0.096 /sec                   
+                57      page-faults                      #    5.499 /sec                   
+    32,068,361,163      cycles                           #    3.094 GHz                    
+    24,084,836,828      instructions                     #    0.75  insn per cycle         
+     8,017,470,917      branches                         #  773.457 M/sec                  
+            79,263      branch-misses                    #    0.00% of all branches        
+   160,339,486,630      slots                            #   15.468 G/sec                  
+    15,719,557,512      topdown-retiring                 #      9.8% Retiring              
+     5,030,258,404      topdown-bad-spec                 #      3.1% Bad Speculation       
+     3,772,693,803      topdown-fe-bound                 #      2.3% Frontend Bound        
+   136,423,675,771      topdown-be-bound                 #     84.8% Backend Bound         
 
-      10.385599804 seconds time elapsed
+      10.382164614 seconds time elapsed
 
-      10.363015000 seconds user
-       0.001978000 seconds sys
+      10.358156000 seconds user
+       0.002963000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/fma_avx256f"
-	User time (seconds): 10.88
-	System time (seconds): 0.04
+	User time (seconds): 10.86
+	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.96
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57300
+	Maximum resident set size (kbytes): 57276
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11733
+	Minor (reclaiming a frame) page faults: 11728
 	Voluntary context switches: 6
-	Involuntary context switches: 4024
+	Involuntary context switches: 4068
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

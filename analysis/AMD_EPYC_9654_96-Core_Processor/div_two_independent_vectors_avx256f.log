@@ -1,0 +1,139 @@
+0 0.99999986761553039
+0 0.99999986761553039
+1 0.99999990071167355
+1 0.99999990071167355
+2 0.99999993380782670
+2 0.99999993380782670
+3 0.99999996690413551
+3 0.99999996690413551
+4 0.99999983451938979
+4 0.99999983451938979
+5 0.99999986761553039
+5 0.99999986761553039
+6 0.99999990071167355
+6 0.99999990071167355
+7 0.99999993380782670
+7 0.99999993380782670
+	Command being timed: "../../bin/div_two_independent_vectors_avx256f"
+	User time (seconds): 15.16
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 75
+	Voluntary context switches: 1
+	Involuntary context switches: 7
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 0.99999986761553039
+0 0.99999986761553039
+1 0.99999990071167355
+1 0.99999990071167355
+2 0.99999993380782670
+2 0.99999993380782670
+3 0.99999996690413551
+3 0.99999996690413551
+4 0.99999983451938979
+4 0.99999983451938979
+5 0.99999986761553039
+5 0.99999986761553039
+6 0.99999990071167355
+6 0.99999990071167355
+7 0.99999993380782670
+7 0.99999993380782670
+	Command being timed: "../../bin/div_two_independent_vectors_avx256f"
+	User time (seconds): 15.16
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 74
+	Voluntary context switches: 1
+	Involuntary context switches: 7
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 0.99999986761553039
+0 0.99999986761553039
+1 0.99999990071167355
+1 0.99999990071167355
+2 0.99999993380782670
+2 0.99999993380782670
+3 0.99999996690413551
+3 0.99999996690413551
+4 0.99999983451938979
+4 0.99999983451938979
+5 0.99999986761553039
+5 0.99999986761553039
+6 0.99999990071167355
+6 0.99999990071167355
+7 0.99999993380782670
+7 0.99999993380782670
+	Command being timed: "../../bin/div_two_independent_vectors_avx256f"
+	User time (seconds): 15.16
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:15.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1716
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 75
+	Voluntary context switches: 1
+	Involuntary context switches: 8
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+ Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/div_two_independent_vectors_avx256f' (3 runs):
+
+    56,117,603,222      cycles                                                        ( +-  0.00% )  (35.70%)
+           338,489      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  5.50% )  (35.70%)
+        15,345,828      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.37% )  (35.70%)
+           457,418      cache-misses                                                  ( +-  7.36% )  (35.71%)
+                 0      sse_avx_stalls                                                (35.72%)
+    32,002,843,960      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
+    32,001,214,116      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.00% )  (21.44%)
+     8,002,380,819      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.44%)
+     4,001,032,090      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.44%)
+     4,001,421,959      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.58%)
+                17      fpu_pipe_assignment.total2                                     ( +-3578.10% )  (28.58%)
+               391      fpu_pipe_assignment.total3                                     ( +-  7.49% )  (35.72%)
+        30,750,015      L1-dcache-loads                                               ( +-  0.40% )  (35.71%)
+           559,417      L1-dcache-load-misses     #    1.81% of all L1-dcache accesses  ( +- 17.04% )  (35.70%)
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+         15.243669 +- 0.000331 seconds time elapsed  ( +-  0.00% )
+

@@ -6,7 +6,7 @@
 	User time (seconds): 8.66
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.70
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.71
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -14,7 +14,7 @@
 	Maximum resident set size (kbytes): 1712
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 74
+	Minor (reclaiming a frame) page faults: 75
 	Voluntary context switches: 1
 	Involuntary context switches: 5
 	Swaps: 0
@@ -33,7 +33,7 @@
 	User time (seconds): 8.66
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.70
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.71
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
@@ -43,7 +43,7 @@
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 73
 	Voluntary context switches: 1
-	Involuntary context switches: 4
+	Involuntary context switches: 5
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -60,17 +60,17 @@
 	User time (seconds): 8.66
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.70
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.71
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1712
+	Maximum resident set size (kbytes): 1716
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 74
+	Minor (reclaiming a frame) page faults: 75
 	Voluntary context switches: 1
-	Involuntary context switches: 6
+	Involuntary context switches: 5
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -82,22 +82,22 @@
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/fma_avx256f' (3 runs):
 
-    32,066,833,998      cycles                                                        ( +-  0.00% )  (35.70%)
-           279,815      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  2.26% )  (35.72%)
-         8,891,221      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  0.50% )  (35.73%)
-           266,261      cache-misses                                                  ( +- 10.78% )  (35.74%)
+    32,071,278,034      cycles                                                        ( +-  0.00% )  (35.70%)
+           263,761      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  9.90% )  (35.72%)
+         9,067,201      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  2.17% )  (35.73%)
+           339,839      cache-misses                                                  ( +-  4.00% )  (35.74%)
                  0      sse_avx_stalls                                                (35.74%)
-    64,013,249,638      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
-                 0      fp_ret_sse_avx_ops.div_flops                                     (21.43%)
-     8,001,169,470      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.42%)
-     4,000,869,948      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.43%)
-     4,000,298,763      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.57%)
-             1,417      fpu_pipe_assignment.total2                                     ( +- 33.13% )  (28.56%)
-                 2      fpu_pipe_assignment.total3                                     ( +- 72.65% )  (35.70%)
-        17,687,244      L1-dcache-loads                                               ( +-  0.39% )  (35.70%)
-           404,856      L1-dcache-load-misses     #    2.28% of all L1-dcache accesses  ( +-  8.90% )  (35.70%)
+    64,005,672,266      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
+                 0      fp_ret_sse_avx_ops.div_flops                                     (21.42%)
+     8,000,360,915      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.42%)
+     4,000,428,773      fpu_pipe_assignment.total0                                     ( +-  0.02% )  (21.42%)
+     4,000,769,674      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.56%)
+             1,155      fpu_pipe_assignment.total2                                     ( +- 36.56% )  (28.56%)
+                 5      fpu_pipe_assignment.total3                                     ( +- 34.64% )  (35.70%)
+        17,474,520      L1-dcache-loads                                               ( +-  0.36% )  (35.70%)
+           375,308      L1-dcache-load-misses     #    2.15% of all L1-dcache accesses  ( +-  9.12% )  (35.70%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-          8.711302 +- 0.000173 seconds time elapsed  ( +-  0.00% )
+         8.7117619 +- 0.0000785 seconds time elapsed  ( +-  0.00% )
 

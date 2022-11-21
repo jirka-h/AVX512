@@ -5,22 +5,22 @@
 
  Performance counter stats for '../../bin/add_avx256f':
 
-          6,531.40 msec task-clock                #    1.000 CPUs utilized          
-                 4      context-switches          #    0.612 /sec                   
+          6,530.42 msec task-clock                #    1.000 CPUs utilized          
+                 4      context-switches          #    0.613 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                63      page-faults               #    9.646 /sec                   
-    24,063,014,542      cycles                    #    3.684 GHz                      (66.66%)
-            56,085      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-         7,184,632      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    24,029,908,362      instructions              #    1.00  insn per cycle         
+                61      page-faults               #    9.341 /sec                   
+    24,058,664,269      cycles                    #    3.684 GHz                      (66.65%)
+            63,914      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+         6,779,018      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
+    24,036,930,537      instructions              #    1.00  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     8,005,725,208      branches                  #    1.226 G/sec                    (66.67%)
-           177,361      branch-misses             #    0.00% of all branches          (66.66%)
+     8,007,126,694      branches                  #    1.226 G/sec                    (66.67%)
+           181,850      branch-misses             #    0.00% of all branches          (66.65%)
 
-       6.531919089 seconds time elapsed
+       6.530897482 seconds time elapsed
 
-       6.500160000 seconds user
-       0.000996000 seconds sys
+       6.500859000 seconds user
+       0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx256f"
@@ -32,12 +32,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15292
+	Maximum resident set size (kbytes): 15336
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1509
+	Minor (reclaiming a frame) page faults: 1519
 	Voluntary context switches: 6
-	Involuntary context switches: 5
+	Involuntary context switches: 4
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

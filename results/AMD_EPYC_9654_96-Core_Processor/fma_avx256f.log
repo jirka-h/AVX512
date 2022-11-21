@@ -5,37 +5,37 @@
 
  Performance counter stats for '../../bin/fma_avx256f':
 
-          8,708.16 msec task-clock                #    1.000 CPUs utilized          
+          8,709.18 msec task-clock                #    1.000 CPUs utilized          
                  5      context-switches          #    0.574 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #    7.005 /sec                   
-    32,079,726,773      cycles                    #    3.684 GHz                      (66.65%)
-            78,893      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
-         9,502,759      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    24,047,420,266      instructions              #    0.75  insn per cycle         
+                62      page-faults               #    7.119 /sec                   
+    32,083,633,430      cycles                    #    3.684 GHz                      (66.65%)
+           166,306      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+         9,746,426      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
+    24,047,195,227      instructions              #    0.75  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     8,008,536,519      branches                  #  919.659 M/sec                    (66.67%)
-           234,841      branch-misses             #    0.00% of all branches          (66.65%)
+     8,008,036,424      branches                  #  919.493 M/sec                    (66.67%)
+           242,599      branch-misses             #    0.00% of all branches          (66.66%)
 
-       8.708782853 seconds time elapsed
+       8.709709323 seconds time elapsed
 
-       8.666672000 seconds user
-       0.000999000 seconds sys
+       8.666815000 seconds user
+       0.000996000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/fma_avx256f"
 	User time (seconds): 8.67
-	System time (seconds): 0.00
+	System time (seconds): 0.01
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.75
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.74
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15384
+	Maximum resident set size (kbytes): 15272
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1508
+	Minor (reclaiming a frame) page faults: 1519
 	Voluntary context switches: 6
 	Involuntary context switches: 6
 	Swaps: 0

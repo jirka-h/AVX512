@@ -1,25 +1,25 @@
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Time elapsed: 43.5282 s
+Time elapsed: 43.5287 s
 
  Performance counter stats for '../../bin/harmonic_series 2 4e9':
 
-         43,527.51 msec task-clock                #    1.000 CPUs utilized          
+         43,528.02 msec task-clock                #    1.000 CPUs utilized          
                 13      context-switches          #    0.299 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                72      page-faults               #    1.654 /sec                   
-   160,355,847,731      cycles                    #    3.684 GHz                      (66.67%)
-           503,114      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
-        45,419,123      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-   192,231,050,255      instructions              #    1.20  insn per cycle         
+                74      page-faults               #    1.700 /sec                   
+   160,359,196,271      cycles                    #    3.684 GHz                      (66.67%)
+           379,756      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+        44,369,390      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+   192,214,446,888      instructions              #    1.20  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.67%)
-    32,040,319,223      branches                  #  736.094 M/sec                    (66.67%)
-         1,157,699      branch-misses             #    0.00% of all branches          (66.67%)
+    32,043,563,890      branches                  #  736.159 M/sec                    (66.67%)
+         1,183,577      branch-misses             #    0.00% of all branches          (66.67%)
 
-      43.529076099 seconds time elapsed
+      43.529533778 seconds time elapsed
 
-      43.327628000 seconds user
+      43.328612000 seconds user
        0.000000000 seconds sys
 
 
@@ -32,10 +32,10 @@ Time elapsed: 43.5282 s
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15292
+	Maximum resident set size (kbytes): 15356
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1522
+	Minor (reclaiming a frame) page faults: 1530
 	Voluntary context switches: 6
 	Involuntary context switches: 13
 	Swaps: 0

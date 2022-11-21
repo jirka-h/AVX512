@@ -9,21 +9,21 @@
 
  Performance counter stats for '../../bin/add_avx512f':
 
-          3,265.82 msec task-clock                #    1.000 CPUs utilized          
+          3,265.60 msec task-clock                #    1.000 CPUs utilized          
                  3      context-switches          #    0.919 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                62      page-faults               #   18.984 /sec                   
-    12,030,819,712      cycles                    #    3.684 GHz                      (66.66%)
-            73,467      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.69%)
-         3,479,925      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    12,018,911,543      instructions              #    1.00  insn per cycle         
+                62      page-faults               #   18.986 /sec                   
+    12,031,759,930      cycles                    #    3.684 GHz                      (66.67%)
+            84,072      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.69%)
+         3,458,220      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
+    12,015,743,883      instructions              #    1.00  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     4,004,165,025      branches                  #    1.226 G/sec                    (66.66%)
-            87,810      branch-misses             #    0.00% of all branches          (66.63%)
+     4,003,145,921      branches                  #    1.226 G/sec                    (66.65%)
+            90,696      branch-misses             #    0.00% of all branches          (66.63%)
 
-       3.266218124 seconds time elapsed
+       3.265987308 seconds time elapsed
 
-       3.250850000 seconds user
+       3.250867000 seconds user
        0.000000000 seconds sys
 
 
@@ -36,10 +36,10 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15436
+	Maximum resident set size (kbytes): 15448
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1510
+	Minor (reclaiming a frame) page faults: 1523
 	Voluntary context switches: 6
 	Involuntary context switches: 4
 	Swaps: 0

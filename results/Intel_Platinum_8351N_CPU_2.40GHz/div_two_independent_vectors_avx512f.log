@@ -1,0 +1,62 @@
+0 4.95303308089291860
+1 4.05520043743646141
+2 3.32011725318244544
+3 2.71828205405043644
+4 2.22554107634004739
+5 1.82211889123070492
+6 1.49182474725345715
+7 1.22140277848178180
+8 2.71828205405043644
+9 4.05520043743646141
+10 3.32011725318244544
+11 4.95303308089291860
+12 1.82211889123070492
+13 2.22554107634004739
+14 1.22140277848178180
+15 1.49182474725345715
+
+ Performance counter stats for '../../bin/div_two_independent_vectors_avx512f':
+
+         21,060.62 msec task-clock                       #    0.999 CPUs utilized          
+             7,701      context-switches                 #  365.659 /sec                   
+                 1      cpu-migrations                   #    0.047 /sec                   
+                58      page-faults                      #    2.754 /sec                   
+    64,135,039,332      cycles                           #    3.045 GHz                    
+     8,170,153,914      instructions                     #    0.13  insn per cycle         
+     2,035,002,216      branches                         #   96.626 M/sec                  
+           142,982      branch-misses                    #    0.01% of all branches        
+   320,665,541,850      slots                            #   15.226 G/sec                  
+    13,832,631,217      topdown-retiring                 #      4.3% Retiring              
+     7,545,071,572      topdown-bad-spec                 #      2.3% Bad Speculation       
+         1,303,681      topdown-fe-bound                 #      0.0% Frontend Bound        
+   300,502,489,764      topdown-be-bound                 #     93.4% Backend Bound         
+
+      21.091528946 seconds time elapsed
+
+      21.046155000 seconds user
+       0.002974000 seconds sys
+
+
+	Command being timed: "perf stat ../../bin/div_two_independent_vectors_avx512f"
+	User time (seconds): 21.56
+	System time (seconds): 0.04
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.67
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 57376
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 11730
+	Voluntary context switches: 6
+	Involuntary context switches: 7922
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

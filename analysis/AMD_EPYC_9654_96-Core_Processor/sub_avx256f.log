@@ -3,7 +3,7 @@
 2 -1660.51736653126727106
 3 -1325.70214176529589167
 	Command being timed: "../../bin/sub_avx256f"
-	User time (seconds): 6.49
+	User time (seconds): 6.50
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.53
@@ -14,9 +14,9 @@
 	Maximum resident set size (kbytes): 1712
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 74
+	Minor (reclaiming a frame) page faults: 75
 	Voluntary context switches: 1
-	Involuntary context switches: 7
+	Involuntary context switches: 5
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
@@ -38,12 +38,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1708
+	Maximum resident set size (kbytes): 1712
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 73
+	Minor (reclaiming a frame) page faults: 74
 	Voluntary context switches: 1
-	Involuntary context switches: 3
+	Involuntary context switches: 4
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -82,22 +82,22 @@
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/sub_avx256f' (3 runs):
 
-    24,053,874,274      cycles                                                        ( +-  0.00% )  (35.67%)
-           289,573      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  1.86% )  (35.68%)
-         7,215,932      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  2.05% )  (35.70%)
-           227,824      cache-misses                                                  ( +-  6.16% )  (35.71%)
-                 0      sse_avx_stalls                                                (35.73%)
-    32,010,416,034      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.60%)
+    24,054,911,749      cycles                                                        ( +-  0.00% )  (35.67%)
+           269,322      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  5.58% )  (35.69%)
+         7,100,416      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  2.56% )  (35.70%)
+           266,943      cache-misses                                                  ( +-  2.52% )  (35.72%)
+                 0      sse_avx_stalls                                                (35.74%)
+    32,011,647,065      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.59%)
                  0      fp_ret_sse_avx_ops.div_flops                                     (21.45%)
-     7,998,819,970      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.44%)
-                74      fpu_pipe_assignment.total0                                     ( +- 39.01% )  (21.44%)
-               139      fpu_pipe_assignment.total1                                     ( +- 47.81% )  (28.59%)
-     4,000,632,176      fpu_pipe_assignment.total2                                     ( +-  0.00% )  (28.58%)
-     4,000,509,433      fpu_pipe_assignment.total3                                     ( +-  0.00% )  (35.71%)
-        13,831,453      L1-dcache-loads                                               ( +-  0.40% )  (35.70%)
-           341,671      L1-dcache-load-misses     #    2.47% of all L1-dcache accesses  ( +- 11.09% )  (35.68%)
+     7,998,784,661      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.44%)
+               158      fpu_pipe_assignment.total0                                     ( +- 28.63% )  (21.44%)
+               353      fpu_pipe_assignment.total1                                     ( +- 32.86% )  (28.59%)
+     4,000,665,942      fpu_pipe_assignment.total2                                     ( +-  0.01% )  (28.58%)
+     4,000,905,630      fpu_pipe_assignment.total3                                     ( +-  0.01% )  (35.71%)
+        13,422,768      L1-dcache-loads                                               ( +-  0.37% )  (35.69%)
+           224,245      L1-dcache-load-misses     #    1.67% of all L1-dcache accesses  ( +- 12.54% )  (35.68%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-          6.534408 +- 0.000147 seconds time elapsed  ( +-  0.00% )
+          6.534312 +- 0.000212 seconds time elapsed  ( +-  0.00% )
 

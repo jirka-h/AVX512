@@ -2,36 +2,36 @@
 
  Performance counter stats for '../../bin/div_plain':
 
-        136,340.48 msec task-clock                       #    0.998 CPUs utilized          
-            56,174      context-switches                 #  412.013 /sec                   
-                24      cpu-migrations                   #    0.176 /sec                   
-                59      page-faults                      #    0.433 /sec                   
-   449,523,106,342      cycles                           #    3.297 GHz                    
-    97,158,391,058      instructions                     #    0.22  insn per cycle         
-    32,237,646,664      branches                         #  236.450 M/sec                  
-         4,463,366      branch-misses                    #    0.01% of all branches        
+        136,273.55 msec task-clock                       #    0.998 CPUs utilized          
+            56,057      context-switches                 #  411.356 /sec                   
+                25      cpu-migrations                   #    0.183 /sec                   
+                57      page-faults                      #    0.418 /sec                   
+   449,520,175,771      cycles                           #    3.299 GHz                    
+    97,156,473,801      instructions                     #    0.22  insn per cycle         
+    32,237,199,711      branches                         #  236.562 M/sec                  
+         4,329,794      branch-misses                    #    0.01% of all branches        
 
-     136.575651867 seconds time elapsed
+     136.516140793 seconds time elapsed
 
-     136.220617000 seconds user
-       0.001978000 seconds sys
+     136.156561000 seconds user
+       0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_plain"
-	User time (seconds): 136.55
-	System time (seconds): 0.05
+	User time (seconds): 136.49
+	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:16.97
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:16.91
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31096
+	Maximum resident set size (kbytes): 31060
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4776
+	Minor (reclaiming a frame) page faults: 4775
 	Voluntary context switches: 6
-	Involuntary context switches: 56327
+	Involuntary context switches: 56208
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

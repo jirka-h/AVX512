@@ -5,19 +5,19 @@
 
  Performance counter stats for '../../bin/add_avx256f':
 
-          8,790.30 msec task-clock                       #    0.998 CPUs utilized          
-             3,713      context-switches                 #  422.397 /sec                   
+          8,794.48 msec task-clock                       #    0.998 CPUs utilized          
+             3,728      context-switches                 #  423.902 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                59      page-faults                      #    6.712 /sec                   
-    32,102,381,562      cycles                           #    3.652 GHz                    
-    24,076,464,608      instructions                     #    0.75  insn per cycle         
-     8,015,720,988      branches                         #  911.882 M/sec                  
-           296,513      branch-misses                    #    0.00% of all branches        
+                60      page-faults                      #    6.822 /sec                   
+    32,102,765,238      cycles                           #    3.650 GHz                    
+    24,076,617,620      instructions                     #    0.75  insn per cycle         
+     8,015,751,600      branches                         #  911.453 M/sec                  
+           300,536      branch-misses                    #    0.00% of all branches        
 
-       8.805886376 seconds time elapsed
+       8.810216275 seconds time elapsed
 
-       8.782999000 seconds user
-       0.001954000 seconds sys
+       8.785976000 seconds user
+       0.002969000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx256f"
@@ -29,12 +29,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31060
+	Maximum resident set size (kbytes): 30992
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4776
+	Minor (reclaiming a frame) page faults: 4778
 	Voluntary context switches: 6
-	Involuntary context switches: 3804
+	Involuntary context switches: 3823
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

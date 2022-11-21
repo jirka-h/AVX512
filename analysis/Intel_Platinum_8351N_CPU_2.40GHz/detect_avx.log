@@ -25,7 +25,7 @@ Extension AVX512BITALG    is supported
 	Command being timed: "../../bin/detect_avx"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 100%
+	Percent of CPU this job got: 0%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
@@ -34,7 +34,7 @@ Extension AVX512BITALG    is supported
 	Maximum resident set size (kbytes): 1424
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 69
+	Minor (reclaiming a frame) page faults: 70
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -78,7 +78,7 @@ Extension AVX512BITALG    is supported
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1532
+	Maximum resident set size (kbytes): 1496
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 70
@@ -125,7 +125,7 @@ Extension AVX512BITALG    is supported
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1444
+	Maximum resident set size (kbytes): 1448
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 69
@@ -142,21 +142,21 @@ Extension AVX512BITALG    is supported
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/detect_avx' (3 runs):
 
-        13,521,821      TOPDOWN.SLOTS                                                                                                                                                                 ( +- 21.08% )  (13.07%)
-         2,969,497      topdown-retiring                 #     27.1% Retiring                ( +- 47.10% )  (13.07%)
-           819,074      BR_INST_RETIRED.ALL_BRANCHES                                         ( +- 28.69% )  (42.14%)
-         3,630,224      INST_RETIRED.ANY                                                     ( +- 24.35% )  (72.34%)
+        10,950,614      TOPDOWN.SLOTS                                                                                                                                                                 ( +- 42.16% )  (8.39%)
+         2,404,838      topdown-retiring                 #     28.3% Retiring                ( +- 78.54% )  (8.39%)
+           900,932      BR_INST_RETIRED.ALL_BRANCHES                                         ( +- 31.53% )  (78.02%)
+         6,051,769      INST_RETIRED.ANY                                                     ( +- 17.86% )
                  0      FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE                                   
-         7,683,056      UOPS_EXECUTED.THREAD                                                 ( +-  4.74% )
+         7,617,067      UOPS_EXECUTED.THREAD                                                 ( +- 10.23% )
                  0      FP_ARITH_INST_RETIRED.SCALAR_DOUBLE                                   
                  0      FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE                                   
-         6,257,154      topdown-fe-bound                 #     43.0% Frontend Bound          ( +- 15.16% )  (13.07%)
-         1,166,351      IDQ.MS_UOPS                                                          ( +- 33.29% )
+         4,809,676      topdown-fe-bound                 #     44.6% Frontend Bound          ( +- 30.50% )  (8.39%)
+         1,156,522      IDQ.MS_UOPS                                                          ( +- 33.46% )
                  0      UOPS_EXECUTED.X87                                                  
-         2,545,276      topdown-be-bound                 #     17.8% Backend Bound           ( +- 14.28% )  (13.07%)
+         2,404,838      topdown-be-bound                 #     17.4% Backend Bound           ( +- 37.40% )  (8.39%)
                  0      FP_ARITH_INST_RETIRED.SCALAR_SINGLE                                   
-         2,793,473      MEM_INST_RETIRED.ANY                                                 ( +- 34.02% )  (70.05%)
-           411,834      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     ( +- 29.64% )  (7.99%)
+         3,053,252      MEM_INST_RETIRED.ANY                                                 ( +- 32.20% )  (41.94%)
+     <not counted>      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     (0.00%)
      <not counted>      UOPS_DECODED.DEC0                                             (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE                                     (0.00%)
      <not counted>      INST_RETIRED.NOP                                              (0.00%)
@@ -165,7 +165,7 @@ Extension AVX512BITALG    is supported
      <not counted>      IDQ.MITE_UOPS                                                 (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE                                     (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE                                     (0.00%)
-         1,749,877      topdown-bad-spec                 #     12.2% Bad Speculation         ( +-  8.83% )  (13.07%)
+         1,331,249      topdown-bad-spec                 #      9.6% Bad Speculation         ( +- 34.18% )  (8.39%)
      <not counted>      UOPS_EXECUTED.CORE_CYCLES_GE_1                                     (0.00%)
      <not counted>      UOPS_EXECUTED.THREAD                                          (0.00%)
      <not counted>      UOPS_EXECUTED.THREAD                                          (0.00%)
@@ -177,7 +177,7 @@ Extension AVX512BITALG    is supported
      <not counted>      LLC-loads                                                     (0.00%)
      <not counted>      LLC-load-misses                                               (0.00%)
 
-          0.007472 +- 0.000472 seconds time elapsed  ( +-  6.32% )
+          0.006730 +- 0.000206 seconds time elapsed  ( +-  3.07% )
 
 Some events weren't counted. Try disabling the NMI watchdog:
 	echo 0 > /proc/sys/kernel/nmi_watchdog

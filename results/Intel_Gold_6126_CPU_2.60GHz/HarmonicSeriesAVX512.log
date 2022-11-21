@@ -1,41 +1,41 @@
-Time elapsed: 22.4788 s
+Time elapsed: 22.511 s
 AVX512:
 Sum 24.7662
 Difference Sum - Formula -1.40332e-12
-Time elapsed: 22.4788 s
+Time elapsed: 22.5111 s
 
  Performance counter stats for '../../bin/harmonic_series 0 4e9':
 
-         22,436.59 msec task-clock                       #    0.998 CPUs utilized          
-             8,934      context-switches                 #  398.189 /sec                   
-                 3      cpu-migrations                   #    0.134 /sec                   
-                73      page-faults                      #    3.254 /sec                   
-    65,037,022,730      cycles                           #    2.899 GHz                    
-    24,188,567,674      instructions                     #    0.37  insn per cycle         
-     4,038,687,100      branches                         #  180.004 M/sec                  
-           731,863      branch-misses                    #    0.02% of all branches        
+         22,469.48 msec task-clock                       #    0.998 CPUs utilized          
+             8,919      context-switches                 #  396.939 /sec                   
+                 2      cpu-migrations                   #    0.089 /sec                   
+                72      page-faults                      #    3.204 /sec                   
+    65,031,335,561      cycles                           #    2.894 GHz                    
+    24,188,064,562      instructions                     #    0.37  insn per cycle         
+     4,038,570,158      branches                         #  179.736 M/sec                  
+           723,775      branch-misses                    #    0.02% of all branches        
 
-      22.479858882 seconds time elapsed
+      22.513736582 seconds time elapsed
 
-      22.412340000 seconds user
-       0.000971000 seconds sys
+      22.446744000 seconds user
+       0.001981000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/harmonic_series 0 4e9"
-	User time (seconds): 22.71
+	User time (seconds): 22.75
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.82
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.87
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31068
+	Maximum resident set size (kbytes): 31076
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4792
+	Minor (reclaiming a frame) page faults: 4790
 	Voluntary context switches: 6
-	Involuntary context switches: 9080
+	Involuntary context switches: 9064
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
