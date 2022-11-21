@@ -81,7 +81,7 @@ Program       Wall clock time (minute:seconds)
 * div_plain   1:53
 * div_avx256f 0:28
 * div_avx512f 0:14
-* 
+
 See [full results.](results/AMD_EPYC_9654_96-Core_Processor/results.txt)
 
 The results for harmonic series summation are woth some futher investigation:
@@ -98,6 +98,17 @@ AVX-256 shows runtime improvement by 4x over the standard double FP arithmetics.
 
 We can conclude that the workload is backend bound, and runtime is dominated by division. AVX-256 version already fully utilizes the HW, moving to AVX-512 does not bring any runtime improvement. However, it havles the number of instructions and fpu_pipe_assignments. 
 
-#### Comparing performance of AMD Zen4 and Intel Icelake AVX-512 performance for packed doubles
+#### Comparing FP division performance of AMD Zen4 and Intel Icelake for packed doubles
+AVX-256 and AVX-512 packed double division can be up to 2x faster on AMD Zen4 than on Intel Icelake. AMD Zen4 has in total [four 256-bit ALUs](https://chipsandcheese.com/2022/11/05/amds-zen-4-part-1-frontend-and-execution-engine/), and compared to the standard double division, the measured speed up for AVX division was up to 11x (113 compared to 10 seconds wallclock time) with 4 independent 256-bit packed double vectors or with two independent 512-bit packed double vectors. Intel Icelake AVX division shows maximum speed up compared to standard doubles by 6.9x (145 versus 21 seconds) for two independent 256-bit packed double vectors. It seems like the Intel CPU has just two 256-division units. 
 
+```
+                                     AMD Zen4 EPYC 9654    Intel Platinum 8351N
+div_plain                            1:53.82               2:25.68
+div_avx256f                          0:28.47               0:35.69
+div_avx512f                          0:14.25               0:30.38
+div_two_independent_vectors_avx256f  0:15.26               0:21.32
+div_two_independent_vectors_avx512f  0:09.82               0:21.55
+div_four_independent_vectors_avx256f 0:10.07               0:21.33
+div_four_independent_vectors_avx512f 0:09.82               0:21.33
+```
 
