@@ -2,39 +2,39 @@
 
  Performance counter stats for '../../bin/div_plain':
 
-        113,762.27 msec task-clock                #    1.000 CPUs utilized          
-                32      context-switches          #    0.281 /sec                   
+        113,775.41 msec task-clock                #    1.000 CPUs utilized          
+                30      context-switches          #    0.264 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
                 62      page-faults               #    0.545 /sec                   
-   419,118,702,169      cycles                    #    3.684 GHz                      (66.67%)
-           433,777      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
-       122,328,625      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    96,574,993,900      instructions              #    0.23  insn per cycle         
+   419,148,441,864      cycles                    #    3.684 GHz                      (66.67%)
+           651,427      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+       112,994,835      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    96,569,553,780      instructions              #    0.23  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.67%)
-    32,111,948,962      branches                  #  282.272 M/sec                    (66.67%)
-         3,103,173      branch-misses             #    0.01% of all branches          (66.67%)
+    32,111,465,156      branches                  #  282.236 M/sec                    (66.67%)
+         3,103,895      branch-misses             #    0.01% of all branches          (66.67%)
 
-     113.765874619 seconds time elapsed
+     113.778961934 seconds time elapsed
 
-     113.251146000 seconds user
-       0.000996000 seconds sys
+     113.250096000 seconds user
+       0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_plain"
 	User time (seconds): 113.25
-	System time (seconds): 0.01
+	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:53.79
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:53.82
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15256
+	Maximum resident set size (kbytes): 15412
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1518
+	Minor (reclaiming a frame) page faults: 1511
 	Voluntary context switches: 6
-	Involuntary context switches: 32
+	Involuntary context switches: 30
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

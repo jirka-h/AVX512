@@ -9,37 +9,37 @@
 
  Performance counter stats for '../../bin/add_avx512f':
 
-          3,265.60 msec task-clock                #    1.000 CPUs utilized          
-                 3      context-switches          #    0.919 /sec                   
+          3,266.40 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    0.918 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                62      page-faults               #   18.986 /sec                   
-    12,031,759,930      cycles                    #    3.684 GHz                      (66.67%)
-            84,072      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.69%)
-         3,458,220      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    12,015,743,883      instructions              #    1.00  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.68%)
-     4,003,145,921      branches                  #    1.226 G/sec                    (66.65%)
-            90,696      branch-misses             #    0.00% of all branches          (66.63%)
+                62      page-faults               #   18.981 /sec                   
+    12,033,727,659      cycles                    #    3.684 GHz                      (66.64%)
+            36,407      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+         3,710,384      stalled-cycles-backend    #    0.03% backend cycles idle      (66.69%)
+    12,014,948,703      instructions              #    1.00  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.69%)
+     4,003,542,493      branches                  #    1.226 G/sec                    (66.66%)
+            93,636      branch-misses             #    0.00% of all branches          (66.64%)
 
-       3.265987308 seconds time elapsed
+       3.266803446 seconds time elapsed
 
-       3.250867000 seconds user
-       0.000000000 seconds sys
+       3.249963000 seconds user
+       0.000995000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx512f"
 	User time (seconds): 3.25
 	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
+	Percent of CPU this job got: 98%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.29
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15448
+	Maximum resident set size (kbytes): 15312
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1523
+	Minor (reclaiming a frame) page faults: 1509
 	Voluntary context switches: 6
 	Involuntary context switches: 4
 	Swaps: 0

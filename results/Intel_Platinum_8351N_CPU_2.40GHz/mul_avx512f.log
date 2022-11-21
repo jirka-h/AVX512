@@ -9,24 +9,24 @@
 
  Performance counter stats for '../../bin/mul_avx512f':
 
-          5,196.70 msec task-clock                       #    0.998 CPUs utilized          
-             1,914      context-switches                 #  368.311 /sec                   
+          5,193.19 msec task-clock                       #    0.998 CPUs utilized          
+             1,910      context-switches                 #  367.789 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                61      page-faults                      #   11.738 /sec                   
-    16,034,202,175      cycles                           #    3.085 GHz                    
-    12,042,822,663      instructions                     #    0.75  insn per cycle         
-     4,008,827,624      branches                         #  771.418 M/sec                  
-            40,125      branch-misses                    #    0.00% of all branches        
-    80,170,403,295      slots                            #   15.427 G/sec                  
-     7,859,843,460      topdown-retiring                 #      9.8% Retiring              
-     2,515,149,907      topdown-bad-spec                 #      3.1% Bad Speculation       
-     1,886,362,430      topdown-fe-bound                 #      2.3% Frontend Bound        
-    68,264,370,571      topdown-be-bound                 #     84.8% Backend Bound         
+                60      page-faults                      #   11.554 /sec                   
+    16,034,091,522      cycles                           #    3.088 GHz                    
+    12,042,673,935      instructions                     #    0.75  insn per cycle         
+     4,008,802,389      branches                         #  771.934 M/sec                  
+            36,795      branch-misses                    #    0.00% of all branches        
+    80,169,855,230      slots                            #   15.437 G/sec                  
+     7,859,789,728      topdown-retiring                 #      9.8% Retiring              
+     2,200,741,123      topdown-bad-spec                 #      2.7% Bad Speculation       
+     1,886,349,534      topdown-fe-bound                 #      2.3% Frontend Bound        
+    68,503,376,470      topdown-be-bound                 #     85.1% Backend Bound         
 
-       5.205807101 seconds time elapsed
+       5.202334551 seconds time elapsed
 
-       5.192388000 seconds user
-       0.002972000 seconds sys
+       5.190023000 seconds user
+       0.001977000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/mul_avx512f"
@@ -38,10 +38,10 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57332
+	Maximum resident set size (kbytes): 57300
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11731
+	Minor (reclaiming a frame) page faults: 11734
 	Voluntary context switches: 6
 	Involuntary context switches: 2132
 	Swaps: 0

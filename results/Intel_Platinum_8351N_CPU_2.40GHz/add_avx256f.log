@@ -5,41 +5,41 @@
 
  Performance counter stats for '../../bin/add_avx256f':
 
-          9,669.87 msec task-clock                       #    0.998 CPUs utilized          
-             3,582      context-switches                 #  370.429 /sec                   
-                 0      cpu-migrations                   #    0.000 /sec                   
-                58      page-faults                      #    5.998 /sec                   
-    32,064,307,386      cycles                           #    3.316 GHz                    
-    24,079,227,693      instructions                     #    0.75  insn per cycle         
-     8,016,312,725      branches                         #  828.999 M/sec                  
-            66,857      branch-misses                    #    0.00% of all branches        
-   160,320,892,510      slots                            #   16.579 G/sec                  
-    15,717,734,559      topdown-retiring                 #      9.8% Retiring              
-     4,400,965,676      topdown-bad-spec                 #      2.7% Bad Speculation       
-     3,772,391,281      topdown-fe-bound                 #      2.3% Frontend Bound        
-   137,046,991,748      topdown-be-bound                 #     85.2% Backend Bound         
+          9,705.90 msec task-clock                       #    0.998 CPUs utilized          
+             3,597      context-switches                 #  370.599 /sec                   
+                 1      cpu-migrations                   #    0.103 /sec                   
+                58      page-faults                      #    5.976 /sec                   
+    32,064,180,388      cycles                           #    3.304 GHz                    
+    24,079,537,827      instructions                     #    0.75  insn per cycle         
+     8,016,379,682      branches                         #  825.928 M/sec                  
+            71,321      branch-misses                    #    0.00% of all branches        
+   160,317,682,895      slots                            #   16.518 G/sec                  
+    15,717,419,891      topdown-retiring                 #      9.7% Retiring              
+     5,029,574,365      topdown-bad-spec                 #      3.1% Bad Speculation       
+     3,772,180,774      topdown-fe-bound                 #      2.3% Frontend Bound        
+   137,010,872,153      topdown-be-bound                 #     84.8% Backend Bound         
 
-       9.685167377 seconds time elapsed
+       9.721153082 seconds time elapsed
 
-       9.662361000 seconds user
+       9.698238000 seconds user
        0.003965000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx256f"
-	User time (seconds): 10.23
-	System time (seconds): 0.05
+	User time (seconds): 10.22
+	System time (seconds): 0.06
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.33
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.32
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57352
+	Maximum resident set size (kbytes): 57452
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11728
+	Minor (reclaiming a frame) page faults: 11730
 	Voluntary context switches: 6
-	Involuntary context switches: 3818
+	Involuntary context switches: 3817
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

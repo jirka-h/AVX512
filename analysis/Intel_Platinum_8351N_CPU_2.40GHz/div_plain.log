@@ -1,19 +1,19 @@
 0.06081004855183660
 	Command being timed: "../../bin/div_plain"
-	User time (seconds): 144.95
+	User time (seconds): 144.96
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.21
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.22
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1604
+	Maximum resident set size (kbytes): 1444
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 72
+	Minor (reclaiming a frame) page faults: 69
 	Voluntary context switches: 1
-	Involuntary context switches: 52806
+	Involuntary context switches: 53113
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
@@ -27,17 +27,17 @@
 	User time (seconds): 144.95
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.21
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.20
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1572
+	Maximum resident set size (kbytes): 1520
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 73
+	Minor (reclaiming a frame) page faults: 70
 	Voluntary context switches: 1
-	Involuntary context switches: 53506
+	Involuntary context switches: 53481
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
@@ -51,17 +51,17 @@
 	User time (seconds): 144.95
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.21
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.20
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1528
+	Maximum resident set size (kbytes): 1516
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 71
+	Minor (reclaiming a frame) page faults: 69
 	Voluntary context switches: 1
-	Involuntary context switches: 53402
+	Involuntary context switches: 53150
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8
@@ -73,43 +73,43 @@
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/div_plain' (3 runs):
 
- 2,242,765,867,862      TOPDOWN.SLOTS                    #      1.3 %  tma_branch_instructions_percent
+ 2,242,800,350,268      TOPDOWN.SLOTS                    #      1.3 %  tma_branch_instructions_percent
                                                   #      0.0 %  tma_nop_instructions_percent
                                                   #      0.0 %  tma_memory_operations_percent
                                                   #      0.0 %  tma_other_light_ops_percent  ( +-  0.00% )  (28.54%)
-    61,566,372,070      topdown-retiring                 #      2.7% Retiring                ( +-  0.01% )  (28.54%)
-    32,222,809,441      BR_INST_RETIRED.ALL_BRANCHES                                         ( +-  0.00% )  (28.54%)
-    97,206,025,375      INST_RETIRED.ANY                                                     ( +-  0.00% )  (32.11%)
+    61,567,068,436      topdown-retiring                 #      2.7% Retiring                ( +-  0.01% )  (28.54%)
+    32,219,924,378      BR_INST_RETIRED.ALL_BRANCHES                                         ( +-  0.00% )  (28.53%)
+    97,195,165,677      INST_RETIRED.ANY                                                     ( +-  0.00% )  (32.11%)
                  0      FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE                                     (35.68%)
-    65,857,346,365      UOPS_EXECUTED.THREAD             #     1.00 Execute_per_Issue        ( +-  0.01% )  (35.69%)
-    31,979,688,132      FP_ARITH_INST_RETIRED.SCALAR_DOUBLE                                     ( +-  0.00% )  (35.69%)
+    65,842,435,005      UOPS_EXECUTED.THREAD             #     1.00 Execute_per_Issue        ( +-  0.01% )  (35.68%)
+    31,979,129,134      FP_ARITH_INST_RETIRED.SCALAR_DOUBLE                                     ( +-  0.00% )  (35.69%)
                  0      FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE                                     (35.70%)
-     8,801,842,810      topdown-fe-bound                 #      0.4% Frontend Bound          ( +-  0.09% )  (28.54%)
-       493,976,282      IDQ.MS_UOPS                                                          ( +-  0.41% )  (35.70%)
+     8,799,568,826      topdown-fe-bound                 #      0.4% Frontend Bound          ( +-  0.08% )  (28.54%)
+       492,510,151      IDQ.MS_UOPS                                                          ( +-  0.24% )  (35.71%)
                  0      UOPS_EXECUTED.X87                                                    (35.71%)
- 1,984,539,785,900      topdown-be-bound                 #     86.4% Backend Bound           ( +-  0.70% )  (28.54%)
+ 1,989,055,075,747      topdown-be-bound                 #     86.4% Backend Bound           ( +-  0.26% )  (28.54%)
                  0      FP_ARITH_INST_RETIRED.SCALAR_SINGLE                                     (35.72%)
-       598,584,240      MEM_INST_RETIRED.ANY                                                 ( +-  0.47% )  (32.16%)
-       117,357,254      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     ( +-  0.16% )  (28.59%)
-       222,292,405      UOPS_DECODED.DEC0                                                    ( +-  0.14% )  (28.59%)
+       595,459,396      MEM_INST_RETIRED.ANY                                                 ( +-  0.35% )  (32.16%)
+       117,294,897      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     ( +-  0.35% )  (28.59%)
+       221,874,155      UOPS_DECODED.DEC0                                                    ( +-  0.29% )  (28.59%)
                  0      FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE                                     (28.59%)
-        57,537,388      INST_RETIRED.NOP                                                     ( +-  0.19% )  (28.59%)
+        57,211,748      INST_RETIRED.NOP                                                     ( +-  0.03% )  (28.59%)
                  0      FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE                                     (28.59%)
-    65,974,170,062      UOPS_ISSUED.ANY                                                      ( +-  0.01% )  (28.59%)
-     1,147,081,417      IDQ.MITE_UOPS                                                        ( +-  0.16% )  (28.59%)
+    65,953,069,822      UOPS_ISSUED.ANY                                                      ( +-  0.00% )  (28.59%)
+     1,127,172,877      IDQ.MITE_UOPS                                                        ( +-  0.21% )  (28.59%)
                  0      FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE                                     (28.59%)
                  0      FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE                                     (28.59%)
-   219,879,006,651      topdown-bad-spec                 #     10.5% Bad Speculation         ( +-  7.42% )  (28.54%)
-    64,765,788,787      UOPS_EXECUTED.CORE_CYCLES_GE_1   #     2.04 ILP                      ( +-  0.00% )  (25.01%)
-    65,946,430,708      UOPS_EXECUTED.THREAD                                                 ( +-  0.00% )  (25.01%)
-    65,930,157,957      UOPS_EXECUTED.THREAD             #     1.02 Execute                  ( +-  0.01% )  (21.44%)
-    64,741,834,739      cpu/UOPS_EXECUTED.THREAD,cmask=1/                                     ( +-  0.00% )  (21.44%)
-   449,279,495,830      CPU_CLK_UNHALTED.THREAD          # 449280087354.67 CLKS              ( +-  0.00% )  (21.43%)
-   255,922,364,199      arith.divider_active                                                 ( +-  0.00% )  (21.43%)
-       385,703,026      L1-dcache-loads                                                      ( +-  0.63% )  (21.42%)
-        11,263,750      L1-dcache-load-misses            #    2.90% of all L1-dcache accesses  ( +-  6.33% )  (21.42%)
-           475,824      LLC-loads                                                            ( +-  1.67% )  (21.41%)
-                92      LLC-load-misses                  #    0.02% of all LL-cache accesses  ( +-2037.34% )  (24.97%)
+   246,268,273,752      topdown-bad-spec                 #     10.5% Bad Speculation         ( +-  4.29% )  (28.54%)
+    64,759,378,635      UOPS_EXECUTED.CORE_CYCLES_GE_1   #     2.04 ILP                      ( +-  0.00% )  (25.01%)
+    65,928,773,631      UOPS_EXECUTED.THREAD                                                 ( +-  0.00% )  (25.01%)
+    65,900,503,096      UOPS_EXECUTED.THREAD             #     1.02 Execute                  ( +-  0.01% )  (21.44%)
+    64,733,397,650      cpu/UOPS_EXECUTED.THREAD,cmask=1/                                     ( +-  0.00% )  (21.44%)
+   449,279,957,312      CPU_CLK_UNHALTED.THREAD          # 449278299148.33 CLKS              ( +-  0.00% )  (21.43%)
+   255,922,651,573      arith.divider_active                                                 ( +-  0.01% )  (21.43%)
+       384,356,962      L1-dcache-loads                                                      ( +-  0.49% )  (21.42%)
+         8,639,294      L1-dcache-load-misses            #    2.23% of all L1-dcache accesses  ( +- 12.80% )  (21.41%)
+           463,210      LLC-loads                                                            ( +-  1.12% )  (21.41%)
+               124      LLC-load-misses                  #    0.03% of all LL-cache accesses  ( +-825.48% )  (24.97%)
 
-         146.21954 +- 0.00150 seconds time elapsed  ( +-  0.00% )
+         146.21834 +- 0.00572 seconds time elapsed  ( +-  0.00% )
 

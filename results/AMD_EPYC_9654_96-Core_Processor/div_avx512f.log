@@ -9,21 +9,21 @@
 
  Performance counter stats for '../../bin/div_avx512f':
 
-         14,222.66 msec task-clock                #    1.000 CPUs utilized          
+         14,223.66 msec task-clock                #    1.000 CPUs utilized          
                  6      context-switches          #    0.422 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                60      page-faults               #    4.219 /sec                   
-    52,398,036,931      cycles                    #    3.684 GHz                      (66.66%)
-            57,462      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
-        14,979,368      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    12,071,178,956      instructions              #    0.23  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.67%)
-     4,013,800,180      branches                  #  282.212 M/sec                    (66.67%)
-           396,331      branch-misses             #    0.01% of all branches          (66.66%)
+                61      page-faults               #    4.289 /sec                   
+    52,399,628,424      cycles                    #    3.684 GHz                      (66.66%)
+            59,516      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        14,996,723      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    12,072,091,578      instructions              #    0.23  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.68%)
+     4,013,757,633      branches                  #  282.189 M/sec                    (66.67%)
+           396,239      branch-misses             #    0.01% of all branches          (66.66%)
 
-      14.223363727 seconds time elapsed
+      14.224370224 seconds time elapsed
 
-      14.157015000 seconds user
+      14.157198000 seconds user
        0.000000000 seconds sys
 
 
@@ -31,16 +31,16 @@
 	User time (seconds): 14.16
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.24
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.25
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15432
+	Maximum resident set size (kbytes): 15280
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1515
-	Voluntary context switches: 5
+	Minor (reclaiming a frame) page faults: 1507
+	Voluntary context switches: 6
 	Involuntary context switches: 7
 	Swaps: 0
 	File system inputs: 0

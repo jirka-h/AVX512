@@ -25,16 +25,16 @@ Extension AVX512BITALG    is supported
 	Command being timed: "../../bin/detect_avx"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 0%
+	Percent of CPU this job got: 72%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1424
+	Maximum resident set size (kbytes): 1420
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 70
+	Minor (reclaiming a frame) page faults: 68
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -72,16 +72,16 @@ Extension AVX512BITALG    is supported
 	Command being timed: "../../bin/detect_avx"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 0%
+	Percent of CPU this job got: 74%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1496
+	Maximum resident set size (kbytes): 1536
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 70
+	Minor (reclaiming a frame) page faults: 71
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -119,7 +119,7 @@ Extension AVX512BITALG    is supported
 	Command being timed: "../../bin/detect_avx"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 0%
+	Percent of CPU this job got: 74%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.00
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
@@ -128,7 +128,7 @@ Extension AVX512BITALG    is supported
 	Maximum resident set size (kbytes): 1448
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 69
+	Minor (reclaiming a frame) page faults: 70
 	Voluntary context switches: 1
 	Involuntary context switches: 0
 	Swaps: 0
@@ -142,20 +142,20 @@ Extension AVX512BITALG    is supported
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/detect_avx' (3 runs):
 
-        10,950,614      TOPDOWN.SLOTS                                                                                                                                                                 ( +- 42.16% )  (8.39%)
-         2,404,838      topdown-retiring                 #     28.3% Retiring                ( +- 78.54% )  (8.39%)
-           900,932      BR_INST_RETIRED.ALL_BRANCHES                                         ( +- 31.53% )  (78.02%)
-         6,051,769      INST_RETIRED.ANY                                                     ( +- 17.86% )
+        11,265,235      TOPDOWN.SLOTS                                                                                                                                                                 ( +- 33.85% )  (13.01%)
+         2,473,933      topdown-retiring                 #     27.3% Retiring                ( +- 65.47% )  (13.01%)
+           752,674      BR_INST_RETIRED.ALL_BRANCHES                                         ( +- 34.82% )  (55.39%)
+         6,162,767      INST_RETIRED.ANY                                                     ( +-  6.61% )  (98.84%)
                  0      FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE                                   
-         7,617,067      UOPS_EXECUTED.THREAD                                                 ( +- 10.23% )
+         7,596,909      UOPS_EXECUTED.THREAD                                                 ( +-  6.89% )
                  0      FP_ARITH_INST_RETIRED.SCALAR_DOUBLE                                   
                  0      FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE                                   
-         4,809,676      topdown-fe-bound                 #     44.6% Frontend Bound          ( +- 30.50% )  (8.39%)
-         1,156,522      IDQ.MS_UOPS                                                          ( +- 33.46% )
+         5,345,463      topdown-fe-bound                 #     43.3% Frontend Bound          ( +- 23.00% )  (13.01%)
+         1,150,859      IDQ.MS_UOPS                                                          ( +- 33.45% )
                  0      UOPS_EXECUTED.X87                                                  
-         2,404,838      topdown-be-bound                 #     17.4% Backend Bound           ( +- 37.40% )  (8.39%)
+         2,076,336      topdown-be-bound                 #     18.4% Backend Bound           ( +- 31.86% )  (13.01%)
                  0      FP_ARITH_INST_RETIRED.SCALAR_SINGLE                                   
-         3,053,252      MEM_INST_RETIRED.ANY                                                 ( +- 32.20% )  (41.94%)
+         2,976,057      MEM_INST_RETIRED.ANY                                                 ( +- 33.02% )  (60.97%)
      <not counted>      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     (0.00%)
      <not counted>      UOPS_DECODED.DEC0                                             (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE                                     (0.00%)
@@ -165,7 +165,7 @@ Extension AVX512BITALG    is supported
      <not counted>      IDQ.MITE_UOPS                                                 (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE                                     (0.00%)
      <not counted>      FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE                                     (0.00%)
-         1,331,249      topdown-bad-spec                 #      9.6% Bad Speculation         ( +- 34.18% )  (8.39%)
+         1,369,493      topdown-bad-spec                 #     10.9% Bad Speculation         ( +- 22.32% )  (13.01%)
      <not counted>      UOPS_EXECUTED.CORE_CYCLES_GE_1                                     (0.00%)
      <not counted>      UOPS_EXECUTED.THREAD                                          (0.00%)
      <not counted>      UOPS_EXECUTED.THREAD                                          (0.00%)
@@ -177,7 +177,7 @@ Extension AVX512BITALG    is supported
      <not counted>      LLC-loads                                                     (0.00%)
      <not counted>      LLC-load-misses                                               (0.00%)
 
-          0.006730 +- 0.000206 seconds time elapsed  ( +-  3.07% )
+          0.005125 +- 0.000123 seconds time elapsed  ( +-  2.41% )
 
 Some events weren't counted. Try disabling the NMI watchdog:
 	echo 0 > /proc/sys/kernel/nmi_watchdog

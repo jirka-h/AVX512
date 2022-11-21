@@ -15,46 +15,15 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1716
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 76
-	Voluntary context switches: 1
-	Involuntary context switches: 3
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 8
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-0 3200000160.58648490905761719
-1 2799999925.46387243270874023
-2 2399999819.31458139419555664
-3 2000000000.00000000000000000
-4 1600000080.29324245452880859
-5 1199999909.65729069709777832
-6 800000040.14662122726440430
-7 400000020.07331061363220215
-	Command being timed: "../../bin/add_avx512f"
-	User time (seconds): 3.25
-	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.26
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
 	Maximum resident set size (kbytes): 1712
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 74
 	Voluntary context switches: 1
-	Involuntary context switches: 3
+	Involuntary context switches: 2
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 0
+	File system outputs: 8
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0
@@ -77,12 +46,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1712
+	Maximum resident set size (kbytes): 1708
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 74
 	Voluntary context switches: 1
-	Involuntary context switches: 4
+	Involuntary context switches: 3
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 0
@@ -91,25 +60,56 @@
 	Signals delivered: 0
 	Page size (bytes): 4096
 	Exit status: 0
+0 3200000160.58648490905761719
+1 2799999925.46387243270874023
+2 2399999819.31458139419555664
+3 2000000000.00000000000000000
+4 1600000080.29324245452880859
+5 1199999909.65729069709777832
+6 800000040.14662122726440430
+7 400000020.07331061363220215
+	Command being timed: "../../bin/add_avx512f"
+	User time (seconds): 3.25
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.26
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1708
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 74
+	Voluntary context switches: 1
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/add_avx512f' (3 runs):
 
-    12,031,404,015      cycles                                                        ( +-  0.01% )  (35.67%)
-           282,431      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  2.13% )  (35.70%)
-         4,289,821      stalled-cycles-backend    #    0.04% backend cycles idle      ( +-  3.03% )  (35.74%)
-           186,079      cache-misses                                                  ( +-  5.96% )  (35.77%)
+    12,029,768,056      cycles                                                        ( +-  0.00% )  (35.67%)
+         2,324,257      stalled-cycles-frontend   #    0.02% frontend cycles idle     ( +- 29.83% )  (35.70%)
+         2,124,131      stalled-cycles-backend    #    0.02% backend cycles idle      ( +- 30.73% )  (35.74%)
+           219,223      cache-misses                                                  ( +-  5.29% )  (35.77%)
                  0      sse_avx_stalls                                                (35.80%)
-    32,005,044,302      fp_ret_sse_avx_ops.all                                        ( +-  0.02% )  (28.65%)
-                 0      fp_ret_sse_avx_ops.div_flops                                     (21.46%)
-     3,998,232,695      fpu_pipe_assignment.total                                     ( +-  0.02% )  (21.43%)
-               612      fpu_pipe_assignment.total0                                     ( +-  6.93% )  (21.40%)
-               939      fpu_pipe_assignment.total1                                     ( +-  5.14% )  (28.53%)
-     2,000,984,361      fpu_pipe_assignment.total2                                     ( +-  0.00% )  (28.52%)
-     2,001,009,183      fpu_pipe_assignment.total3                                     ( +-  0.00% )  (35.65%)
-         6,772,257      L1-dcache-loads                                               ( +-  0.34% )  (35.65%)
-           112,492      L1-dcache-load-misses     #    1.66% of all L1-dcache accesses  ( +- 23.08% )  (35.65%)
+    32,006,295,515      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.65%)
+                 0      fp_ret_sse_avx_ops.div_flops                                     (21.45%)
+     4,000,937,761      fpu_pipe_assignment.total                                     ( +-  0.02% )  (21.42%)
+               154      fpu_pipe_assignment.total0                                     ( +- 93.95% )  (21.40%)
+               294      fpu_pipe_assignment.total1                                     ( +- 79.88% )  (28.53%)
+     2,001,431,700      fpu_pipe_assignment.total2                                     ( +-  0.01% )  (28.52%)
+     2,001,393,942      fpu_pipe_assignment.total3                                     ( +-  0.01% )  (35.66%)
+         6,723,691      L1-dcache-loads                                               ( +-  0.66% )  (35.66%)
+           182,836      L1-dcache-load-misses     #    2.71% of all L1-dcache accesses  ( +- 14.36% )  (35.65%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-         3.2683301 +- 0.0000996 seconds time elapsed  ( +-  0.00% )
+         3.2682005 +- 0.0000906 seconds time elapsed  ( +-  0.00% )
 

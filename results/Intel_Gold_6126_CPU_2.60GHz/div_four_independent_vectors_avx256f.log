@@ -1,6 +1,6 @@
-0 2.71828160286824794
+0 2.22554078082271012
 1 1.82211870976895751
-2 2.22554078082271012
+2 1.49182464820800287
 3 1.22140273793625997
 4 2.71828160286824794
 5 2.22554078082271012
@@ -10,43 +10,43 @@
 9 2.22554078082271012
 10 1.82211870976895751
 11 2.71828160286824794
-12 inf
-13 inf
-14 -nan
-15 -nan
+12 2.71828160286824794
+13 1.82211870976895751
+14 2.22554078082271012
+15 1.22140273793625997
 
  Performance counter stats for '../../bin/div_four_independent_vectors_avx256f':
 
-         19,532.27 msec task-clock                       #    0.998 CPUs utilized          
-             8,016      context-switches                 #  410.398 /sec                   
-                 1      cpu-migrations                   #    0.051 /sec                   
-                59      page-faults                      #    3.021 /sec                   
-    64,219,919,880      cycles                           #    3.288 GHz                    
-    14,166,602,962      instructions                     #    0.22  insn per cycle         
-     2,034,180,248      branches                         #  104.145 M/sec                  
-           651,179      branch-misses                    #    0.03% of all branches        
+         19,535.40 msec task-clock                       #    0.998 CPUs utilized          
+             8,029      context-switches                 #  410.998 /sec                   
+                 3      cpu-migrations                   #    0.154 /sec                   
+                60      page-faults                      #    3.071 /sec                   
+    64,220,783,342      cycles                           #    3.287 GHz                    
+    12,167,278,445      instructions                     #    0.19  insn per cycle         
+     2,034,288,511      branches                         #  104.133 M/sec                  
+           654,633      branch-misses                    #    0.03% of all branches        
 
-      19.567499921 seconds time elapsed
+      19.570587248 seconds time elapsed
 
-      19.515458000 seconds user
-       0.000982000 seconds sys
+      19.517466000 seconds user
+       0.001972000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_four_independent_vectors_avx256f"
-	User time (seconds): 19.86
+	User time (seconds): 19.81
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.96
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.92
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31312
+	Maximum resident set size (kbytes): 31132
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 4779
 	Voluntary context switches: 6
-	Involuntary context switches: 8168
+	Involuntary context switches: 8170
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

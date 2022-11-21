@@ -17,23 +17,23 @@
 
  Performance counter stats for '../../bin/div_two_independent_vectors_avx256f':
 
-         19,543.76 msec task-clock                       #    0.998 CPUs utilized          
-             8,096      context-switches                 #  414.250 /sec                   
-                 8      cpu-migrations                   #    0.409 /sec                   
-                58      page-faults                      #    2.968 /sec                   
-    64,221,466,684      cycles                           #    3.286 GHz                    
-    16,167,144,721      instructions                     #    0.25  insn per cycle         
-     4,034,315,561      branches                         #  206.425 M/sec                  
-           648,488      branch-misses                    #    0.02% of all branches        
+         19,528.11 msec task-clock                       #    0.998 CPUs utilized          
+             8,042      context-switches                 #  411.817 /sec                   
+                 8      cpu-migrations                   #    0.410 /sec                   
+                57      page-faults                      #    2.919 /sec                   
+    64,219,249,922      cycles                           #    3.289 GHz                    
+    16,166,597,675      instructions                     #    0.25  insn per cycle         
+     4,034,188,075      branches                         #  206.584 M/sec                  
+           647,015      branch-misses                    #    0.02% of all branches        
 
-      19.579328729 seconds time elapsed
+      19.563367251 seconds time elapsed
 
-      19.524864000 seconds user
-       0.002977000 seconds sys
+      19.510511000 seconds user
+       0.001978000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_two_independent_vectors_avx256f"
-	User time (seconds): 19.84
+	User time (seconds): 19.83
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.94
@@ -41,12 +41,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31008
+	Maximum resident set size (kbytes): 31176
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4776
+	Minor (reclaiming a frame) page faults: 4775
 	Voluntary context switches: 6
-	Involuntary context switches: 8243
+	Involuntary context switches: 8180
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

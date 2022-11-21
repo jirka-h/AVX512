@@ -52,105 +52,106 @@ int main(void) {
   unsigned long long int i;
   if( ! __builtin_cpu_supports("avx512f")) {
   40106b:	f6 05 eb 3f 00 00 80 	testb  $0x80,0x3feb(%rip)        # 40505d <__cpu_model+0xd>
-  401072:	0f 84 f9 00 00 00    	je     401171 <main+0x121>
+  401072:	0f 84 01 01 00 00    	je     401179 <main+0x129>
+  divv[1] = _mm512_set_pd(1.0000000002, 1.0000000001, 1.0000000004, 1.0000000003, 1.0000000008, 1.0000000006, 1.0000000007, 1.0000000005);
   divv[2] = _mm512_set_pd(1.0000000008, 1.0000000001, 1.0000000004, 1.0000000003, 1.0000000008, 1.0000000006, 1.0000000007, 1.0000000002);
   divv[3] = _mm512_set_pd(1.0000000006, 1.0000000001, 1.0000000004, 1.0000000003, 1.0000000008, 1.0000000002, 1.0000000007, 1.0000000005);
   av[0] =  _mm512_set_pd(1.49182474713380642, 2.22554107607292417, 3.32011725278397885, 4.95303308049624480, 7.38905732167703544, 11.02317856826629416, 16.44465057627291671, 24.53253668079271677);
   av[1] =  _mm512_set_pd(2.22554107607292417, 1.49182474713380642, 4.95303308049624480, 3.32011725278397885, 24.53253668079271677, 11.02317856826629416, 16.44465057627291671, 7.38905732167703544);
   av[2] =  _mm512_set_pd(7.38905732167703544, 1.49182474713380642, 4.95303308049624480, 3.32011725278397885, 24.53253668079271677, 11.02317856826629416, 16.44465057627291671, 2.22554107607292417);
-  av[2] =  _mm512_set_pd(11.02317856826629416, 1.49182474713380642, 4.95303308049624480, 3.32011725278397885, 24.53253668079271677, 2.22554107607292417, 16.44465057627291671, 7.38905732167703544);
-  401078:	62 f1 fd 48 28 05 fe 	vmovapd 0x1ffe(%rip),%zmm0        # 403080 <__dso_handle+0x78>
+  401078:	62 f1 fd 48 28 0d fe 	vmovapd 0x1ffe(%rip),%zmm1        # 403080 <__dso_handle+0x78>
   40107f:	1f 00 00 
   401082:	bb 00 ca 9a 3b       	mov    $0x3b9aca00,%ebx
   av[1] =  _mm512_set_pd(2.22554107607292417, 1.49182474713380642, 4.95303308049624480, 3.32011725278397885, 24.53253668079271677, 11.02317856826629416, 16.44465057627291671, 7.38905732167703544);
-  401087:	62 f1 fd 48 28 0d 2f 	vmovapd 0x202f(%rip),%zmm1        # 4030c0 <__dso_handle+0xb8>
+  401087:	62 f1 fd 48 28 15 2f 	vmovapd 0x202f(%rip),%zmm2        # 4030c0 <__dso_handle+0xb8>
   40108e:	20 00 00 
   av[0] =  _mm512_set_pd(1.49182474713380642, 2.22554107607292417, 3.32011725278397885, 4.95303308049624480, 7.38905732167703544, 11.02317856826629416, 16.44465057627291671, 24.53253668079271677);
-  401091:	62 f1 fd 48 28 15 65 	vmovapd 0x2065(%rip),%zmm2        # 403100 <__dso_handle+0xf8>
+  401091:	62 f1 fd 48 28 1d 65 	vmovapd 0x2065(%rip),%zmm3        # 403100 <__dso_handle+0xf8>
   401098:	20 00 00 
-  40109b:	62 f1 fd 48 28 3d 9b 	vmovapd 0x209b(%rip),%zmm7        # 403140 <__dso_handle+0x138>
+  av[3] =  _mm512_set_pd(11.02317856826629416, 1.49182474713380642, 4.95303308049624480, 3.32011725278397885, 24.53253668079271677, 2.22554107607292417, 16.44465057627291671, 7.38905732167703544);
+  40109b:	62 f1 fd 48 28 05 9b 	vmovapd 0x209b(%rip),%zmm0        # 403140 <__dso_handle+0x138>
   4010a2:	20 00 00 
-  4010a5:	62 f1 fd 48 28 35 d1 	vmovapd 0x20d1(%rip),%zmm6        # 403180 <__dso_handle+0x178>
+  4010a5:	62 f1 fd 48 28 3d d1 	vmovapd 0x20d1(%rip),%zmm7        # 403180 <__dso_handle+0x178>
   4010ac:	20 00 00 
-  4010af:	62 f1 fd 48 28 2d 07 	vmovapd 0x2107(%rip),%zmm5        # 4031c0 <__dso_handle+0x1b8>
+  4010af:	62 f1 fd 48 28 35 07 	vmovapd 0x2107(%rip),%zmm6        # 4031c0 <__dso_handle+0x1b8>
   4010b6:	21 00 00 
-  4010b9:	62 f1 fd 48 28 25 3d 	vmovapd 0x213d(%rip),%zmm4        # 403200 <__dso_handle+0x1f8>
+  4010b9:	62 f1 fd 48 28 2d 3d 	vmovapd 0x213d(%rip),%zmm5        # 403200 <__dso_handle+0x1f8>
   4010c0:	21 00 00 
-  4010c3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  4010c3:	62 f1 fd 48 28 25 73 	vmovapd 0x2173(%rip),%zmm4        # 403240 <__dso_handle+0x238>
+  4010ca:	21 00 00 
+  4010cd:	0f 1f 00             	nopl   (%rax)
 
 extern __inline __m512d
 __attribute__ ((__gnu_inline__, __always_inline__, __artificial__))
 _mm512_div_pd (__m512d __M, __m512d __V)
 {
   return (__m512d) ((__v8df)__M / (__v8df)__V);
-  4010c8:	62 f1 ed 48 5e d7    	vdivpd %zmm7,%zmm2,%zmm2
-  4010ce:	62 f1 f5 48 5e ce    	vdivpd %zmm6,%zmm1,%zmm1
-  4010d4:	62 f1 fd 48 5e c5    	vdivpd %zmm5,%zmm0,%zmm0
-  4010da:	62 f1 e5 48 5e dc    	vdivpd %zmm4,%zmm3,%zmm3
+  4010d0:	62 f1 e5 48 5e df    	vdivpd %zmm7,%zmm3,%zmm3
+  4010d6:	62 f1 ed 48 5e d6    	vdivpd %zmm6,%zmm2,%zmm2
+  4010dc:	62 f1 f5 48 5e cd    	vdivpd %zmm5,%zmm1,%zmm1
+  4010e2:	62 f1 fd 48 5e c4    	vdivpd %zmm4,%zmm0,%zmm0
   __attribute__ ((aligned (64))) double out[8*4];
 
   for(i=0; i<N/4; ++i) {
-  4010e0:	48 83 eb 01          	sub    $0x1,%rbx
-  4010e4:	75 e2                	jne    4010c8 <main+0x78>
+  4010e8:	48 83 eb 01          	sub    $0x1,%rbx
+  4010ec:	75 e2                	jne    4010d0 <main+0x80>
   *(__m512d *) __P = __A;
-  4010e6:	62 f1 fd 48 29 95 d0 	vmovapd %zmm2,-0x130(%rbp)
-  4010ed:	fe ff ff 
-  4010f0:	62 f1 fd 48 29 8d 10 	vmovapd %zmm1,-0xf0(%rbp)
-  4010f7:	ff ff ff 
-  4010fa:	62 f1 fd 48 29 85 50 	vmovapd %zmm0,-0xb0(%rbp)
-  401101:	ff ff ff 
-  401104:	62 f1 fd 48 29 9d 90 	vmovapd %zmm3,-0x70(%rbp)
-  40110b:	ff ff ff 
+  4010ee:	62 f1 fd 48 29 9d d0 	vmovapd %zmm3,-0x130(%rbp)
+  4010f5:	fe ff ff 
+  4010f8:	62 f1 fd 48 29 95 10 	vmovapd %zmm2,-0xf0(%rbp)
+  4010ff:	ff ff ff 
+  401102:	62 f1 fd 48 29 8d 50 	vmovapd %zmm1,-0xb0(%rbp)
+  401109:	ff ff ff 
+  40110c:	62 f1 fd 48 29 85 90 	vmovapd %zmm0,-0x70(%rbp)
+  401113:	ff ff ff 
 
   _mm512_store_pd(out, av[0]);
   _mm512_store_pd(out+8, av[1]);
   _mm512_store_pd(out+16, av[2]);
   _mm512_store_pd(out+24, av[3]);
   for (i=0; i<8*4; ++i) {
-  40110e:	c5 f8 77             	vzeroupper 
-  401111:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+  401116:	c5 f8 77             	vzeroupper 
+  401119:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
     printf("%llu %.17f\n", i, out[i]);
-  401118:	48 89 de             	mov    %rbx,%rsi
-  40111b:	bf 37 30 40 00       	mov    $0x403037,%edi
-  401120:	b8 01 00 00 00       	mov    $0x1,%eax
-  401125:	c5 fb 10 84 dd d0 fe 	vmovsd -0x130(%rbp,%rbx,8),%xmm0
-  40112c:	ff ff 
-  40112e:	c5 fb 11 85 c8 fe ff 	vmovsd %xmm0,-0x138(%rbp)
-  401135:	ff 
-  401136:	e8 05 ff ff ff       	call   401040 <printf@plt>
+  401120:	48 89 de             	mov    %rbx,%rsi
+  401123:	bf 37 30 40 00       	mov    $0x403037,%edi
+  401128:	b8 01 00 00 00       	mov    $0x1,%eax
+  40112d:	c5 fb 10 84 dd d0 fe 	vmovsd -0x130(%rbp,%rbx,8),%xmm0
+  401134:	ff ff 
+  401136:	c5 fb 11 85 c8 fe ff 	vmovsd %xmm0,-0x138(%rbp)
+  40113d:	ff 
+  40113e:	e8 fd fe ff ff       	call   401040 <printf@plt>
     printf("%llu %.17f\n", i, out[i]);
-  40113b:	48 89 de             	mov    %rbx,%rsi
-  40113e:	bf 37 30 40 00       	mov    $0x403037,%edi
-  401143:	c5 fb 10 85 c8 fe ff 	vmovsd -0x138(%rbp),%xmm0
-  40114a:	ff 
-  40114b:	b8 01 00 00 00       	mov    $0x1,%eax
+  401143:	48 89 de             	mov    %rbx,%rsi
+  401146:	bf 37 30 40 00       	mov    $0x403037,%edi
+  40114b:	c5 fb 10 85 c8 fe ff 	vmovsd -0x138(%rbp),%xmm0
+  401152:	ff 
+  401153:	b8 01 00 00 00       	mov    $0x1,%eax
   for (i=0; i<8*4; ++i) {
-  401150:	48 83 c3 01          	add    $0x1,%rbx
+  401158:	48 83 c3 01          	add    $0x1,%rbx
     printf("%llu %.17f\n", i, out[i]);
-  401154:	e8 e7 fe ff ff       	call   401040 <printf@plt>
+  40115c:	e8 df fe ff ff       	call   401040 <printf@plt>
   for (i=0; i<8*4; ++i) {
-  401159:	48 83 fb 20          	cmp    $0x20,%rbx
-  40115d:	75 b9                	jne    401118 <main+0xc8>
+  401161:	48 83 fb 20          	cmp    $0x20,%rbx
+  401165:	75 b9                	jne    401120 <main+0xd0>
   }
 
   return 0;
-  40115f:	31 c0                	xor    %eax,%eax
+  401167:	31 c0                	xor    %eax,%eax
 }
-  401161:	48 81 c4 60 01 00 00 	add    $0x160,%rsp
-  401168:	5b                   	pop    %rbx
-  401169:	41 5a                	pop    %r10
-  40116b:	5d                   	pop    %rbp
-  40116c:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
-  401170:	c3                   	ret    
+  401169:	48 81 c4 60 01 00 00 	add    $0x160,%rsp
+  401170:	5b                   	pop    %rbx
+  401171:	41 5a                	pop    %r10
+  401173:	5d                   	pop    %rbp
+  401174:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
+  401178:	c3                   	ret    
     printf("CPU does not support avx512f, exiting.\n");
-  401171:	bf 10 30 40 00       	mov    $0x403010,%edi
-  401176:	e8 b5 fe ff ff       	call   401030 <puts@plt>
+  401179:	bf 10 30 40 00       	mov    $0x403010,%edi
+  40117e:	e8 ad fe ff ff       	call   401030 <puts@plt>
     return 1;
-  40117b:	b8 01 00 00 00       	mov    $0x1,%eax
-  401180:	eb df                	jmp    401161 <main+0x111>
-  401182:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-  401189:	00 00 00 
-  40118c:	0f 1f 40 00          	nopl   0x0(%rax)
+  401183:	b8 01 00 00 00       	mov    $0x1,%eax
+  401188:	eb df                	jmp    401169 <main+0x119>
+  40118a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
 
 0000000000401190 <get_available_features.constprop.0>:
   401190:	41 55                	push   %r13
@@ -786,7 +787,7 @@ _mm512_div_pd (__m512d __M, __m512d __V)
   401cae:	83 e9 47             	sub    $0x47,%ecx
   401cb1:	83 f9 60             	cmp    $0x60,%ecx
   401cb4:	77 4a                	ja     401d00 <__cpu_indicator_init+0x160>
-  401cb6:	48 8d 15 83 15 00 00 	lea    0x1583(%rip),%rdx        # 403240 <__dso_handle+0x238>
+  401cb6:	48 8d 15 c3 15 00 00 	lea    0x15c3(%rip),%rdx        # 403280 <__dso_handle+0x278>
   401cbd:	48 63 04 8a          	movslq (%rdx,%rcx,4),%rax
   401cc1:	48 01 d0             	add    %rdx,%rax
   401cc4:	3e ff e0             	notrack jmp *%rax
@@ -827,7 +828,7 @@ _mm512_div_pd (__m512d __M, __m512d __V)
   401d4d:	83 e9 25             	sub    $0x25,%ecx
   401d50:	83 f9 12             	cmp    $0x12,%ecx
   401d53:	77 ab                	ja     401d00 <__cpu_indicator_init+0x160>
-  401d55:	48 8d 15 68 16 00 00 	lea    0x1668(%rip),%rdx        # 4033c4 <__dso_handle+0x3bc>
+  401d55:	48 8d 15 a8 16 00 00 	lea    0x16a8(%rip),%rdx        # 403404 <__dso_handle+0x3fc>
   401d5c:	48 63 04 8a          	movslq (%rdx,%rcx,4),%rax
   401d60:	48 01 d0             	add    %rdx,%rax
   401d63:	3e ff e0             	notrack jmp *%rax
@@ -845,7 +846,7 @@ _mm512_div_pd (__m512d __M, __m512d __V)
   401d89:	83 e8 10             	sub    $0x10,%eax
   401d8c:	83 f8 09             	cmp    $0x9,%eax
   401d8f:	77 1b                	ja     401dac <__cpu_indicator_init+0x20c>
-  401d91:	48 8d 15 78 16 00 00 	lea    0x1678(%rip),%rdx        # 403410 <__dso_handle+0x408>
+  401d91:	48 8d 15 b8 16 00 00 	lea    0x16b8(%rip),%rdx        # 403450 <__dso_handle+0x448>
   401d98:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
   401d9c:	48 01 d0             	add    %rdx,%rax
   401d9f:	3e ff e0             	notrack jmp *%rax

@@ -30,12 +30,12 @@
 14 1.34985884119649113
 15 1.82211889110312342
 15 1.82211889110312342
-16 6.04964836552416774
-16 6.04964836552416774
+16 1.82211889110312342
+16 1.82211889110312342
 17 8.16617133119252792
 17 8.16617133119252792
-18 1.22140277873834147
-18 1.22140277873834147
+18 6.04964836576570075
+18 6.04964836576570075
 19 11.02317856782561734
 19 11.02317856782561734
 20 2.45960329472028860
@@ -44,62 +44,62 @@
 21 3.32011725291691739
 22 1.34985884119649113
 22 1.34985884119649113
-23 4.95303308109080831
-23 4.95303308109080831
-24 0.00000000000000000
-24 0.00000000000000000
-25 0.00000000000000000
-25 0.00000000000000000
-26 0.00000000000000000
-26 0.00000000000000000
-27 0.00000000000000000
-27 0.00000000000000000
-28 0.00000000000000000
-28 0.00000000000000000
-29 0.00000000000000000
-29 0.00000000000000000
-30 0.00000000000000000
-30 0.00000000000000000
-31 0.00000000000000000
-31 0.00000000000000000
+23 3.32011725344827457
+23 3.32011725344827457
+24 4.48168962712299734
+24 4.48168962712299734
+25 8.16617133119252792
+25 8.16617133119252792
+26 1.82211889110312342
+26 1.82211889110312342
+27 11.02317856782561734
+27 11.02317856782561734
+28 2.45960329472028860
+28 2.45960329472028860
+29 3.32011725291691739
+29 3.32011725291691739
+30 1.34985884119649113
+30 1.34985884119649113
+31 6.04964836576570075
+31 6.04964836576570075
 
  Performance counter stats for '../../bin/div_four_independent_vectors_avx512f':
 
-         65,706.77 msec task-clock                       #    0.999 CPUs utilized          
-            24,327      context-switches                 #  370.236 /sec                   
-                 0      cpu-migrations                   #    0.000 /sec                   
-                59      page-faults                      #    0.898 /sec                   
-   203,527,208,596      cycles                           #    3.098 GHz                    
-     6,531,497,985      instructions                     #    0.03  insn per cycle         
-     1,109,367,371      branches                         #   16.884 M/sec                  
-           430,719      branch-misses                    #    0.04% of all branches        
- 1,017,633,924,875      slots                            #   15.488 G/sec                  
-    51,879,376,562      topdown-retiring                 #      5.1% Retiring              
-   151,647,408,412      topdown-bad-spec                 #     14.8% Bad Speculation       
-   343,233,640,818      topdown-fe-bound                 #     33.6% Frontend Bound        
-   474,892,618,193      topdown-be-bound                 #     46.5% Backend Bound         
+         20,718.56 msec task-clock                       #    0.999 CPUs utilized          
+             7,684      context-switches                 #  370.875 /sec                   
+                 1      cpu-migrations                   #    0.048 /sec                   
+                58      page-faults                      #    2.799 /sec                   
+    64,133,238,544      cycles                           #    3.095 GHz                    
+     6,168,462,088      instructions                     #    0.10  insn per cycle         
+     1,034,683,239      branches                         #   49.940 M/sec                  
+           139,689      branch-misses                    #    0.01% of all branches        
+   320,663,147,905      slots                            #   15.477 G/sec                  
+    12,575,025,408      topdown-retiring                 #      3.9% Retiring              
+    10,060,020,326      topdown-bad-spec                 #      3.1% Bad Speculation       
+         1,287,885      topdown-fe-bound                 #      0.0% Frontend Bound        
+   300,524,251,179      topdown-be-bound                 #     93.0% Backend Bound         
 
-      65.798238148 seconds time elapsed
+      20.748809901 seconds time elapsed
 
-      65.666754000 seconds user
-       0.001973000 seconds sys
+      20.703845000 seconds user
+       0.003974000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_four_independent_vectors_avx512f"
-	User time (seconds): 66.17
+	User time (seconds): 21.23
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:06.36
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.33
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57384
+	Maximum resident set size (kbytes): 57344
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11732
+	Minor (reclaiming a frame) page faults: 11727
 	Voluntary context switches: 6
-	Involuntary context switches: 24537
+	Involuntary context switches: 7906
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

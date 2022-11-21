@@ -17,41 +17,41 @@
 
  Performance counter stats for '../../bin/div_two_independent_vectors_avx512f':
 
-         21,060.62 msec task-clock                       #    0.999 CPUs utilized          
-             7,701      context-switches                 #  365.659 /sec                   
+         21,060.26 msec task-clock                       #    0.999 CPUs utilized          
+             7,801      context-switches                 #  370.413 /sec                   
                  1      cpu-migrations                   #    0.047 /sec                   
-                58      page-faults                      #    2.754 /sec                   
-    64,135,039,332      cycles                           #    3.045 GHz                    
-     8,170,153,914      instructions                     #    0.13  insn per cycle         
-     2,035,002,216      branches                         #   96.626 M/sec                  
-           142,982      branch-misses                    #    0.01% of all branches        
-   320,665,541,850      slots                            #   15.226 G/sec                  
-    13,832,631,217      topdown-retiring                 #      4.3% Retiring              
-     7,545,071,572      topdown-bad-spec                 #      2.3% Bad Speculation       
-         1,303,681      topdown-fe-bound                 #      0.0% Frontend Bound        
-   300,502,489,764      topdown-be-bound                 #     93.4% Backend Bound         
+                59      page-faults                      #    2.801 /sec                   
+    64,135,447,085      cycles                           #    3.045 GHz                    
+     8,170,901,278      instructions                     #    0.13  insn per cycle         
+     2,035,186,766      branches                         #   96.636 M/sec                  
+           153,783      branch-misses                    #    0.01% of all branches        
+   320,672,510,105      slots                            #   15.226 G/sec                  
+    13,832,931,808      topdown-retiring                 #      4.3% Retiring              
+     8,802,774,787      topdown-bad-spec                 #      2.7% Bad Speculation       
+         1,443,792      topdown-fe-bound                 #      0.0% Frontend Bound        
+   299,282,952,173      topdown-be-bound                 #     93.0% Backend Bound         
 
-      21.091528946 seconds time elapsed
+      21.091581696 seconds time elapsed
 
-      21.046155000 seconds user
-       0.002974000 seconds sys
+      21.047027000 seconds user
+       0.001971000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_two_independent_vectors_avx512f"
-	User time (seconds): 21.56
-	System time (seconds): 0.04
+	User time (seconds): 21.44
+	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.67
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.55
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57376
+	Maximum resident set size (kbytes): 57348
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11730
+	Minor (reclaiming a frame) page faults: 11731
 	Voluntary context switches: 6
-	Involuntary context switches: 7922
+	Involuntary context switches: 7992
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

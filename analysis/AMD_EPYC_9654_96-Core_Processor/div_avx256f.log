@@ -11,6 +11,33 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1696
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 73
+	Voluntary context switches: 1
+	Involuntary context switches: 12
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 1.00000000039999959
+1 1.00000000029999980
+2 1.00000000019999979
+3 1.00000000010000001
+	Command being timed: "../../bin/div_avx256f"
+	User time (seconds): 28.31
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.45
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
 	Maximum resident set size (kbytes): 1700
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
@@ -41,34 +68,7 @@
 	Maximum resident set size (kbytes): 1700
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 73
-	Voluntary context switches: 1
-	Involuntary context switches: 12
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 0
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-0 1.00000000039999959
-1 1.00000000029999980
-2 1.00000000019999979
-3 1.00000000010000001
-	Command being timed: "../../bin/div_avx256f"
-	User time (seconds): 28.31
-	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:28.45
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 1704
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 75
+	Minor (reclaiming a frame) page faults: 74
 	Voluntary context switches: 1
 	Involuntary context switches: 11
 	Swaps: 0
@@ -82,22 +82,22 @@
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/div_avx256f' (3 runs):
 
-   104,764,178,873      cycles                                                        ( +-  0.00% )  (35.71%)
-           401,412      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  3.69% )  (35.71%)
-        27,058,603      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.05% )  (35.72%)
-           695,514      cache-misses                                                  ( +-  5.96% )  (35.72%)
-                 0      sse_avx_stalls                                                (35.72%)
-    31,998,626,059      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.58%)
-    31,993,666,888      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.00% )  (21.43%)
-     8,002,049,469      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
-     4,001,318,968      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.43%)
-     4,001,286,555      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.57%)
-               280      fpu_pipe_assignment.total2                                     ( +-465.63% )  (28.57%)
-                25      fpu_pipe_assignment.total3                                     ( +- 29.48% )  (35.71%)
-        58,655,219      L1-dcache-loads                                               ( +-  0.37% )  (35.71%)
-         1,112,984      L1-dcache-load-misses     #    1.89% of all L1-dcache accesses  ( +-  2.77% )  (35.71%)
+   104,761,983,004      cycles                                                        ( +-  0.00% )  (35.71%)
+        18,222,901      stalled-cycles-frontend   #    0.02% frontend cycles idle     ( +-  0.16% )  (35.71%)
+        11,018,621      stalled-cycles-backend    #    0.01% backend cycles idle      ( +-  1.35% )  (35.72%)
+           411,331      cache-misses                                                  ( +-  9.60% )  (35.72%)
+                 0      sse_avx_stalls                                                (35.73%)
+    31,998,101,657      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
+    31,988,579,793      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.01% )  (21.43%)
+     8,000,333,971      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
+     4,000,850,736      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.43%)
+     4,000,765,031      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.57%)
+                21      fpu_pipe_assignment.total2                                     ( +-6046.38% )  (28.57%)
+                16      fpu_pipe_assignment.total3                                     ( +- 41.04% )  (35.71%)
+        58,999,491      L1-dcache-loads                                               ( +-  0.15% )  (35.71%)
+         1,250,150      L1-dcache-load-misses     #    2.12% of all L1-dcache accesses  ( +-  3.95% )  (35.71%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-         28.454761 +- 0.000195 seconds time elapsed  ( +-  0.00% )
+         28.453742 +- 0.000482 seconds time elapsed  ( +-  0.00% )
 

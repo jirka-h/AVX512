@@ -1,8 +1,8 @@
-Time elapsed: 9.79866 s
+Time elapsed: 9.79856 s
 AVX512:
 Sum 24.7662
 Difference Sum - Formula -1.40332e-12
-Time elapsed: 9.7987 s
+Time elapsed: 9.79861 s
 	Command being timed: "../../bin/harmonic_series 0 4e9"
 	User time (seconds): 9.75
 	System time (seconds): 0.00
@@ -12,7 +12,63 @@ Time elapsed: 9.7987 s
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2132
+	Maximum resident set size (kbytes): 2172
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 86
+	Voluntary context switches: 1
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Time elapsed: 9.79849 s
+AVX512:
+Sum 24.7662
+Difference Sum - Formula -1.40332e-12
+Time elapsed: 9.79853 s
+	Command being timed: "../../bin/harmonic_series 0 4e9"
+	User time (seconds): 9.75
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2104
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 85
+	Voluntary context switches: 1
+	Involuntary context switches: 5
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Time elapsed: 9.7982 s
+AVX512:
+Sum 24.7662
+Difference Sum - Formula -1.40332e-12
+Time elapsed: 9.79826 s
+	Command being timed: "../../bin/harmonic_series 0 4e9"
+	User time (seconds): 9.75
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2188
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 87
@@ -26,81 +82,25 @@ Time elapsed: 9.7987 s
 	Signals delivered: 0
 	Page size (bytes): 4096
 	Exit status: 0
-Time elapsed: 9.79851 s
-AVX512:
-Sum 24.7662
-Difference Sum - Formula -1.40332e-12
-Time elapsed: 9.79857 s
-	Command being timed: "../../bin/harmonic_series 0 4e9"
-	User time (seconds): 9.75
-	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2132
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 88
-	Voluntary context switches: 1
-	Involuntary context switches: 5
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 0
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-Time elapsed: 9.7989 s
-AVX512:
-Sum 24.7662
-Difference Sum - Formula -1.40332e-12
-Time elapsed: 9.79895 s
-	Command being timed: "../../bin/harmonic_series 0 4e9"
-	User time (seconds): 9.74
-	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2176
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 87
-	Voluntary context switches: 1
-	Involuntary context switches: 7
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 0
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/harmonic_series 0 4e9' (3 runs):
 
-    36,080,287,255      cycles                                                        ( +-  0.00% )  (35.71%)
-           341,056      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  1.98% )  (35.71%)
-        10,595,696      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  2.15% )  (35.71%)
-           350,705      cache-misses                                                  ( +-  7.34% )  (35.72%)
-                 0      sse_avx_stalls                                                (35.72%)
-    96,003,743,341      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.57%)
-    31,993,569,498      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.01% )  (21.43%)
-    12,001,533,948      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
-     2,000,366,244      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.43%)
-     2,000,685,916      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.57%)
-     3,993,873,275      fpu_pipe_assignment.total2                                     ( +-  0.03% )  (28.57%)
-     4,010,480,375      fpu_pipe_assignment.total3                                     ( +-  0.02% )  (35.71%)
-        19,662,776      L1-dcache-loads                                               ( +-  0.75% )  (35.71%)
-           329,509      L1-dcache-load-misses     #    1.66% of all L1-dcache accesses  ( +-  7.28% )  (35.71%)
+    36,077,110,308      cycles                                                        ( +-  0.00% )  (35.71%)
+           329,361      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  4.71% )  (35.71%)
+        10,215,803      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.79% )  (35.71%)
+           266,064      cache-misses                                                  ( +-  9.46% )  (35.71%)
+                 0      sse_avx_stalls                                                (35.73%)
+    96,031,099,253      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.58%)
+    32,007,185,370      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.00% )  (21.44%)
+    12,004,169,089      fpu_pipe_assignment.total                                     ( +-  0.00% )  (21.44%)
+     2,000,595,719      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.43%)
+     2,000,792,449      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.58%)
+     3,990,730,637      fpu_pipe_assignment.total2                                     ( +-  0.02% )  (28.57%)
+     4,011,711,418      fpu_pipe_assignment.total3                                     ( +-  0.02% )  (35.72%)
+        20,541,616      L1-dcache-loads                                               ( +-  1.14% )  (35.71%)
+           390,411      L1-dcache-load-misses     #    1.94% of all L1-dcache accesses  ( +-  3.44% )  (35.70%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-          9.800753 +- 0.000123 seconds time elapsed  ( +-  0.00% )
+          9.800451 +- 0.000101 seconds time elapsed  ( +-  0.00% )
 

@@ -5,39 +5,39 @@
 
  Performance counter stats for '../../bin/sub_avx256f':
 
-          6,530.94 msec task-clock                #    1.000 CPUs utilized          
-                 3      context-switches          #    0.459 /sec                   
+          6,531.48 msec task-clock                #    1.000 CPUs utilized          
+                 4      context-switches          #    0.612 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #    9.340 /sec                   
-    24,060,207,559      cycles                    #    3.684 GHz                      (66.65%)
-            60,139      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-         6,694,678      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    24,031,400,160      instructions              #    1.00  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.68%)
-     8,007,108,462      branches                  #    1.226 G/sec                    (66.67%)
-           181,607      branch-misses             #    0.00% of all branches          (66.66%)
+                62      page-faults               #    9.492 /sec                   
+    24,060,359,571      cycles                    #    3.684 GHz                      (66.65%)
+            46,417      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+         6,856,515      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    24,034,646,732      instructions              #    1.00  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.69%)
+     8,007,016,712      branches                  #    1.226 G/sec                    (66.67%)
+           182,333      branch-misses             #    0.00% of all branches          (66.66%)
 
-       6.531469595 seconds time elapsed
+       6.532020401 seconds time elapsed
 
-       6.500973000 seconds user
+       6.500991000 seconds user
        0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/sub_avx256f"
 	User time (seconds): 6.50
-	System time (seconds): 0.00
+	System time (seconds): 0.01
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.55
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.57
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15456
+	Maximum resident set size (kbytes): 15340
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1519
+	Minor (reclaiming a frame) page faults: 1512
 	Voluntary context switches: 6
-	Involuntary context switches: 3
+	Involuntary context switches: 5
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

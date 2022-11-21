@@ -5,36 +5,36 @@
 
  Performance counter stats for '../../bin/fma_avx256f':
 
-          9,798.11 msec task-clock                       #    0.998 CPUs utilized          
-             4,044      context-switches                 #  412.733 /sec                   
-                 1      cpu-migrations                   #    0.102 /sec                   
-                59      page-faults                      #    6.022 /sec                   
-    32,112,526,030      cycles                           #    3.277 GHz                    
-    24,084,112,969      instructions                     #    0.75  insn per cycle         
-     8,017,269,490      branches                         #  818.247 M/sec                  
-           327,737      branch-misses                    #    0.00% of all branches        
+          9,808.92 msec task-clock                       #    0.998 CPUs utilized          
+             4,050      context-switches                 #  412.889 /sec                   
+                 4      cpu-migrations                   #    0.408 /sec                   
+                60      page-faults                      #    6.117 /sec                   
+    32,113,747,708      cycles                           #    3.274 GHz                    
+    24,084,164,361      instructions                     #    0.75  insn per cycle         
+     8,017,286,186      branches                         #  817.346 M/sec                  
+           334,335      branch-misses                    #    0.00% of all branches        
 
-       9.816597493 seconds time elapsed
+       9.827803500 seconds time elapsed
 
-       9.789940000 seconds user
-       0.000987000 seconds sys
+       9.798746000 seconds user
+       0.002967000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/fma_avx256f"
 	User time (seconds): 10.10
-	System time (seconds): 0.03
+	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.18
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.19
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31060
+	Maximum resident set size (kbytes): 31052
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4777
+	Minor (reclaiming a frame) page faults: 4778
 	Voluntary context switches: 6
-	Involuntary context switches: 4184
+	Involuntary context switches: 4189
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

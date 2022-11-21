@@ -9,41 +9,41 @@
 
  Performance counter stats for '../../bin/add_avx512f':
 
-          5,174.77 msec task-clock                       #    0.998 CPUs utilized          
-             1,895      context-switches                 #  366.200 /sec                   
-                 0      cpu-migrations                   #    0.000 /sec                   
-                57      page-faults                      #   11.015 /sec                   
-    16,036,465,440      cycles                           #    3.099 GHz                    
-    12,042,820,826      instructions                     #    0.75  insn per cycle         
-     4,008,830,751      branches                         #  774.688 M/sec                  
-            38,661      branch-misses                    #    0.00% of all branches        
-    80,181,704,500      slots                            #   15.495 G/sec                  
-     7,860,951,421      topdown-retiring                 #      9.8% Retiring              
-     2,201,066,398      topdown-bad-spec                 #      2.7% Bad Speculation       
-     1,886,653,540      topdown-fe-bound                 #      2.3% Frontend Bound        
-    68,538,649,088      topdown-be-bound                 #     85.2% Backend Bound         
+          4,756.41 msec task-clock                       #    0.998 CPUs utilized          
+             1,792      context-switches                 #  376.755 /sec                   
+                 1      cpu-migrations                   #    0.210 /sec                   
+                60      page-faults                      #   12.615 /sec                   
+    16,031,958,672      cycles                           #    3.371 GHz                    
+    12,039,805,381      instructions                     #    0.75  insn per cycle         
+     4,008,206,667      branches                         #  842.696 M/sec                  
+            39,245      branch-misses                    #    0.00% of all branches        
+    80,158,825,510      slots                            #   16.853 G/sec                  
+     7,858,708,383      topdown-retiring                 #      9.8% Retiring              
+     2,514,786,682      topdown-bad-spec                 #      3.1% Bad Speculation       
+     1,886,230,554      topdown-fe-bound                 #      2.3% Frontend Bound        
+    68,180,708,667      topdown-be-bound                 #     84.8% Backend Bound         
 
-       5.184320973 seconds time elapsed
+       4.764740354 seconds time elapsed
 
-       5.169923000 seconds user
-       0.002969000 seconds sys
+       4.752799000 seconds user
+       0.002957000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx512f"
-	User time (seconds): 5.53
+	User time (seconds): 5.30
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.61
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.37
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57316
+	Maximum resident set size (kbytes): 57288
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11728
+	Minor (reclaiming a frame) page faults: 11730
 	Voluntary context switches: 6
-	Involuntary context switches: 2067
+	Involuntary context switches: 2020
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

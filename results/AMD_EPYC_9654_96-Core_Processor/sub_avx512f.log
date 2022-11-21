@@ -9,21 +9,21 @@
 
  Performance counter stats for '../../bin/sub_avx512f':
 
-          3,265.73 msec task-clock                #    1.000 CPUs utilized          
-                 3      context-switches          #    0.919 /sec                   
+          3,266.25 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    0.918 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                63      page-faults               #   19.291 /sec                   
-    12,031,374,531      cycles                    #    3.684 GHz                      (66.63%)
-            44,350      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-         3,523,753      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    12,015,746,898      instructions              #    1.00  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.68%)
-     4,003,530,865      branches                  #    1.226 G/sec                    (66.68%)
-            93,416      branch-misses             #    0.00% of all branches          (66.66%)
+                62      page-faults               #   18.982 /sec                   
+    12,032,260,628      cycles                    #    3.684 GHz                      (66.65%)
+            41,140      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.68%)
+         3,665,875      stalled-cycles-backend    #    0.03% backend cycles idle      (66.69%)
+    12,018,616,345      instructions              #    1.00  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.69%)
+     4,003,682,673      branches                  #    1.226 G/sec                    (66.66%)
+            93,104      branch-misses             #    0.00% of all branches          (66.63%)
 
-       3.266118388 seconds time elapsed
+       3.266658526 seconds time elapsed
 
-       3.250861000 seconds user
+       3.250878000 seconds user
        0.000000000 seconds sys
 
 
@@ -36,10 +36,10 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15496
+	Maximum resident set size (kbytes): 15256
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1522
+	Minor (reclaiming a frame) page faults: 1506
 	Voluntary context switches: 6
 	Involuntary context switches: 4
 	Swaps: 0

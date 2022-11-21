@@ -17,22 +17,22 @@
 
  Performance counter stats for '../../bin/div_two_independent_vectors_avx256f':
 
-         15,236.60 msec task-clock                #    1.000 CPUs utilized          
-                 5      context-switches          #    0.328 /sec                   
+         15,239.19 msec task-clock                #    1.000 CPUs utilized          
+                 6      context-switches          #    0.394 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #    4.004 /sec                   
-    56,130,699,824      cycles                    #    3.684 GHz                      (66.66%)
-            58,616      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-        15,254,183      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    16,079,940,387      instructions              #    0.29  insn per cycle         
+                62      page-faults               #    4.068 /sec                   
+    56,138,947,509      cycles                    #    3.684 GHz                      (66.66%)
+           176,564      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        16,061,984      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    16,079,062,712      instructions              #    0.29  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.67%)
-     4,015,390,183      branches                  #  263.536 M/sec                    (66.67%)
-           421,659      branch-misses             #    0.01% of all branches          (66.66%)
+     4,015,030,116      branches                  #  263.467 M/sec                    (66.67%)
+           423,874      branch-misses             #    0.01% of all branches          (66.67%)
 
-      15.237296633 seconds time elapsed
+      15.239915056 seconds time elapsed
 
-      15.167805000 seconds user
-       0.000000000 seconds sys
+      15.166988000 seconds user
+       0.000996000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_two_independent_vectors_avx256f"
@@ -44,12 +44,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15352
+	Maximum resident set size (kbytes): 15408
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1518
+	Minor (reclaiming a frame) page faults: 1510
 	Voluntary context switches: 6
-	Involuntary context switches: 6
+	Involuntary context switches: 7
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

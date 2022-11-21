@@ -25,41 +25,41 @@ Extension AVX512BITALG    is supported
 
  Performance counter stats for '../../bin/detect_avx':
 
-              1.10 msec task-clock                       #    0.316 CPUs utilized          
-                 0      context-switches                 #    0.000 /sec                   
+              1.09 msec task-clock                       #    0.347 CPUs utilized          
+                 1      context-switches                 #  921.142 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                56      page-faults                      #   50.868 K/sec                  
-           868,116      cycles                           #    0.789 GHz                    
-           908,494      instructions                     #    1.05  insn per cycle         
-           205,183      branches                         #  186.379 M/sec                  
-             6,903      branch-misses                    #    3.36% of all branches        
-         4,340,580      slots                            #    3.943 G/sec                  
-         1,004,291      topdown-retiring                 #     23.1% Retiring              
-           578,744      topdown-bad-spec                 #     13.3% Bad Speculation       
-         1,821,341      topdown-fe-bound                 #     42.0% Frontend Bound        
-           936,203      topdown-be-bound                 #     21.6% Backend Bound         
+                59      page-faults                      #   54.347 K/sec                  
+           850,017      cycles                           #    0.783 GHz                    
+           934,255      instructions                     #    1.10  insn per cycle         
+           211,904      branches                         #  195.194 M/sec                  
+             6,877      branch-misses                    #    3.25% of all branches        
+         4,250,085      slots                            #    3.915 G/sec                  
+         1,016,687      topdown-retiring                 #     23.9% Retiring              
+           583,345      topdown-bad-spec                 #     13.7% Bad Speculation       
+         1,800,036      topdown-fe-bound                 #     42.4% Frontend Bound        
+           850,017      topdown-be-bound                 #     20.0% Backend Bound         
 
-       0.003482315 seconds time elapsed
+       0.003129818 seconds time elapsed
 
        0.000000000 seconds user
-       0.003403000 seconds sys
+       0.003188000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/detect_avx"
-	User time (seconds): 0.52
-	System time (seconds): 0.05
+	User time (seconds): 0.51
+	System time (seconds): 0.03
 	Percent of CPU this job got: 97%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.59
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.57
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57260
+	Maximum resident set size (kbytes): 57240
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 11726
-	Voluntary context switches: 6
-	Involuntary context switches: 227
+	Voluntary context switches: 5
+	Involuntary context switches: 220
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

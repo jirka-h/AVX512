@@ -9,22 +9,22 @@
 
  Performance counter stats for '../../bin/mul_avx512f':
 
-          3,265.46 msec task-clock                #    1.000 CPUs utilized          
-                 2      context-switches          #    0.612 /sec                   
+          3,266.36 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    0.918 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #   18.680 /sec                   
-    12,030,332,711      cycles                    #    3.684 GHz                      (66.66%)
-            95,356      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.68%)
-         3,497,339      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    12,016,016,897      instructions              #    1.00  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.68%)
-     4,004,184,714      branches                  #    1.226 G/sec                    (66.66%)
-            90,272      branch-misses             #    0.00% of all branches          (66.64%)
+                62      page-faults               #   18.981 /sec                   
+    12,032,503,249      cycles                    #    3.684 GHz                      (66.64%)
+            33,896      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+         3,683,331      stalled-cycles-backend    #    0.03% backend cycles idle      (66.70%)
+    12,018,034,503      instructions              #    1.00  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.70%)
+     4,002,935,753      branches                  #    1.226 G/sec                    (66.66%)
+            93,828      branch-misses             #    0.00% of all branches          (66.63%)
 
-       3.265916120 seconds time elapsed
+       3.266779019 seconds time elapsed
 
-       3.250969000 seconds user
-       0.000000000 seconds sys
+       3.249987000 seconds user
+       0.000996000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/mul_avx512f"
@@ -36,12 +36,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15432
+	Maximum resident set size (kbytes): 15312
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1519
+	Minor (reclaiming a frame) page faults: 1509
 	Voluntary context switches: 6
-	Involuntary context switches: 3
+	Involuntary context switches: 4
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

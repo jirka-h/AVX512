@@ -1,26 +1,26 @@
-Time elapsed: 9.79573 s
+Time elapsed: 9.7966 s
 AVX512:
 Sum 24.7662
 Difference Sum - Formula -1.40332e-12
-Time elapsed: 9.79582 s
+Time elapsed: 9.7967 s
 
  Performance counter stats for '../../bin/harmonic_series 0 4e9':
 
-          9,795.98 msec task-clock                #    1.000 CPUs utilized          
+          9,796.90 msec task-clock                #    1.000 CPUs utilized          
                  4      context-switches          #    0.408 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                72      page-faults               #    7.350 /sec                   
-    36,087,183,117      cycles                    #    3.684 GHz                      (66.66%)
-            82,828      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-        10,183,242      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    24,053,819,528      instructions              #    0.67  insn per cycle         
-                                                  #    0.00  stalled cycles per insn  (66.68%)
-     4,009,638,929      branches                  #  409.315 M/sec                    (66.67%)
-           270,427      branch-misses             #    0.01% of all branches          (66.66%)
+                74      page-faults               #    7.553 /sec                   
+    36,091,739,634      cycles                    #    3.684 GHz                      (66.67%)
+           142,945      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        10,655,442      stalled-cycles-backend    #    0.03% backend cycles idle      (66.66%)
+    24,050,869,782      instructions              #    0.67  insn per cycle         
+                                                  #    0.00  stalled cycles per insn  (66.67%)
+     4,009,941,630      branches                  #  409.307 M/sec                    (66.67%)
+           273,866      branch-misses             #    0.01% of all branches          (66.67%)
 
-       9.796529508 seconds time elapsed
+       9.797521610 seconds time elapsed
 
-       9.751271000 seconds user
+       9.751765000 seconds user
        0.000000000 seconds sys
 
 
@@ -33,12 +33,12 @@ Time elapsed: 9.79582 s
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15400
+	Maximum resident set size (kbytes): 15488
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1530
+	Minor (reclaiming a frame) page faults: 1523
 	Voluntary context switches: 6
-	Involuntary context switches: 5
+	Involuntary context switches: 6
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

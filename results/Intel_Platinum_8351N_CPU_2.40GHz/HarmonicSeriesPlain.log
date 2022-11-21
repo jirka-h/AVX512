@@ -1,45 +1,45 @@
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Time elapsed: 41.481 s
+Time elapsed: 41.8099 s
 
  Performance counter stats for '../../bin/harmonic_series 2 4e9':
 
-         41,426.18 msec task-clock                       #    0.999 CPUs utilized          
-            15,178      context-switches                 #  366.387 /sec                   
-                 1      cpu-migrations                   #    0.024 /sec                   
-                72      page-faults                      #    1.738 /sec                   
-   128,268,127,561      cycles                           #    3.096 GHz                    
-   192,334,135,683      instructions                     #    1.50  insn per cycle         
-    32,068,742,511      branches                         #  774.118 M/sec                  
-           273,611      branch-misses                    #    0.00% of all branches        
-   641,338,851,125      slots                            #   15.481 G/sec                  
-   186,108,529,457      topdown-retiring                 #     28.8% Retiring              
-    25,150,543,181      topdown-bad-spec                 #      3.9% Bad Speculation       
-         1,657,409      topdown-fe-bound                 #      0.0% Frontend Bound        
-   435,091,562,110      topdown-be-bound                 #     67.3% Backend Bound         
+         41,754.19 msec task-clock                       #    0.999 CPUs utilized          
+            15,324      context-switches                 #  367.005 /sec                   
+                 2      cpu-migrations                   #    0.048 /sec                   
+                75      page-faults                      #    1.796 /sec                   
+   128,264,907,856      cycles                           #    3.072 GHz                    
+   192,337,369,420      instructions                     #    1.50  insn per cycle         
+    32,069,399,353      branches                         #  768.052 M/sec                  
+           260,524      branch-misses                    #    0.00% of all branches        
+   641,321,717,220      slots                            #   15.359 G/sec                  
+   184,641,775,808      topdown-retiring                 #     28.6% Retiring              
+    25,149,871,263      topdown-bad-spec                 #      3.9% Bad Speculation       
+         1,726,597      topdown-fe-bound                 #      0.0% Frontend Bound        
+   436,117,164,962      topdown-be-bound                 #     67.5% Backend Bound         
 
-      41.483994349 seconds time elapsed
+      41.812991784 seconds time elapsed
 
-      41.398763000 seconds user
-       0.002964000 seconds sys
+      41.726750000 seconds user
+       0.003964000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/harmonic_series 2 4e9"
-	User time (seconds): 41.91
-	System time (seconds): 0.04
+	User time (seconds): 42.24
+	System time (seconds): 0.06
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:42.05
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:42.40
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57140
+	Maximum resident set size (kbytes): 57296
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11738
+	Minor (reclaiming a frame) page faults: 11747
 	Voluntary context switches: 6
-	Involuntary context switches: 15399
+	Involuntary context switches: 15554
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

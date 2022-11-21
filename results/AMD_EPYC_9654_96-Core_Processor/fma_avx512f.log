@@ -9,37 +9,37 @@
 
  Performance counter stats for '../../bin/fma_avx512f':
 
-          4,354.16 msec task-clock                #    1.000 CPUs utilized          
+          4,354.52 msec task-clock                #    1.000 CPUs utilized          
                  3      context-switches          #    0.689 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #   14.010 /sec                   
-    16,041,259,766      cycles                    #    3.684 GHz                      (66.65%)
-            73,048      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.65%)
-         4,872,746      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    12,024,453,310      instructions              #    0.75  insn per cycle         
+                61      page-faults               #   14.008 /sec                   
+    16,041,116,943      cycles                    #    3.684 GHz                      (66.65%)
+           102,380      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.65%)
+         4,628,794      stalled-cycles-backend    #    0.03% backend cycles idle      (66.66%)
+    12,024,601,544      instructions              #    0.75  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.69%)
-     4,004,342,622      branches                  #  919.659 M/sec                    (66.68%)
-           123,718      branch-misses             #    0.00% of all branches          (66.65%)
+     4,004,414,749      branches                  #  919.599 M/sec                    (66.68%)
+           124,293      branch-misses             #    0.00% of all branches          (66.66%)
 
-       4.354574549 seconds time elapsed
+       4.354976183 seconds time elapsed
 
-       4.334209000 seconds user
+       4.334329000 seconds user
        0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/fma_avx512f"
 	User time (seconds): 4.33
-	System time (seconds): 0.00
+	System time (seconds): 0.01
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:04.38
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15464
+	Maximum resident set size (kbytes): 15444
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1518
+	Minor (reclaiming a frame) page faults: 1508
 	Voluntary context switches: 6
 	Involuntary context switches: 4
 	Swaps: 0

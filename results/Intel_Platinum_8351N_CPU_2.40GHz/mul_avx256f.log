@@ -5,41 +5,41 @@
 
  Performance counter stats for '../../bin/mul_avx256f':
 
-         10,369.48 msec task-clock                       #    0.998 CPUs utilized          
-             3,809      context-switches                 #  367.328 /sec                   
+         10,720.98 msec task-clock                       #    0.998 CPUs utilized          
+             3,810      context-switches                 #  355.378 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                59      page-faults                      #    5.690 /sec                   
-    32,066,518,921      cycles                           #    3.092 GHz                    
-    24,084,468,245      instructions                     #    0.75  insn per cycle         
-     8,017,385,457      branches                         #  773.172 M/sec                  
-            69,297      branch-misses                    #    0.00% of all branches        
-   160,331,821,020      slots                            #   15.462 G/sec                  
-    15,718,805,982      topdown-retiring                 #      9.8% Retiring              
-     4,401,265,675      topdown-bad-spec                 #      2.7% Bad Speculation       
-     3,772,513,435      topdown-fe-bound                 #      2.3% Frontend Bound        
-   137,031,274,786      topdown-be-bound                 #     85.2% Backend Bound         
+                57      page-faults                      #    5.317 /sec                   
+    32,068,153,167      cycles                           #    2.991 GHz                    
+    24,085,804,634      instructions                     #    0.75  insn per cycle         
+     8,017,651,020      branches                         #  747.847 M/sec                  
+            74,826      branch-misses                    #    0.00% of all branches        
+   160,339,964,430      slots                            #   14.956 G/sec                  
+    15,719,604,355      topdown-retiring                 #      9.8% Retiring              
+     4,401,489,219      topdown-bad-spec                 #      2.7% Bad Speculation       
+     3,772,705,045      topdown-fe-bound                 #      2.4% Frontend Bound        
+   136,496,932,855      topdown-be-bound                 #     85.1% Backend Bound         
 
-      10.385554981 seconds time elapsed
+      10.737769093 seconds time elapsed
 
-      10.363218000 seconds user
-       0.001976000 seconds sys
+      10.713132000 seconds user
+       0.002975000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/mul_avx256f"
-	User time (seconds): 10.88
+	User time (seconds): 11.22
 	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.97
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:11.31
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57264
+	Maximum resident set size (kbytes): 57388
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 11730
-	Voluntary context switches: 5
-	Involuntary context switches: 4033
+	Voluntary context switches: 6
+	Involuntary context switches: 4026
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

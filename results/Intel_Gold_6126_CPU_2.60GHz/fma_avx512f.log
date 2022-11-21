@@ -9,24 +9,24 @@
 
  Performance counter stats for '../../bin/fma_avx512f':
 
-          5,579.61 msec task-clock                       #    0.998 CPUs utilized          
-             2,234      context-switches                 #  400.386 /sec                   
-                 1      cpu-migrations                   #    0.179 /sec                   
-                57      page-faults                      #   10.216 /sec                   
-    16,062,997,963      cycles                           #    2.879 GHz                    
-    12,047,486,218      instructions                     #    0.75  insn per cycle         
-     4,009,757,876      branches                         #  718.645 M/sec                  
-           195,549      branch-misses                    #    0.00% of all branches        
+          5,579.19 msec task-clock                       #    0.998 CPUs utilized          
+             2,207      context-switches                 #  395.577 /sec                   
+                 0      cpu-migrations                   #    0.000 /sec                   
+                57      page-faults                      #   10.217 /sec                   
+    16,062,466,594      cycles                           #    2.879 GHz                    
+    12,047,239,007      instructions                     #    0.75  insn per cycle         
+     4,009,701,796      branches                         #  718.689 M/sec                  
+           186,531      branch-misses                    #    0.00% of all branches        
 
-       5.591816443 seconds time elapsed
+       5.591236993 seconds time elapsed
 
-       5.572431000 seconds user
-       0.002975000 seconds sys
+       5.573001000 seconds user
+       0.001973000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/fma_avx512f"
 	User time (seconds): 5.89
-	System time (seconds): 0.03
+	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.96
 	Average shared text size (kbytes): 0
@@ -38,7 +38,7 @@
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 4776
 	Voluntary context switches: 6
-	Involuntary context switches: 2380
+	Involuntary context switches: 2352
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

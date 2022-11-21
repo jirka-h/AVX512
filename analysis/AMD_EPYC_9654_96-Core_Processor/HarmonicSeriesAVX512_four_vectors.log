@@ -1,8 +1,36 @@
-Time elapsed: 9.79854 s
+Time elapsed: 9.79732 s
 HarmonicSeriesAVX512_four_vectors sum:
 Sum 24.7662
 Difference Sum - Formula -5.64881e-13
-Time elapsed: 9.7986 s
+Time elapsed: 9.79737 s
+	Command being timed: "../../bin/harmonic_series 3 4e9"
+	User time (seconds): 9.75
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2108
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 86
+	Voluntary context switches: 1
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Time elapsed: 9.79803 s
+HarmonicSeriesAVX512_four_vectors sum:
+Sum 24.7662
+Difference Sum - Formula -5.64881e-13
+Time elapsed: 9.79809 s
 	Command being timed: "../../bin/harmonic_series 3 4e9"
 	User time (seconds): 9.75
 	System time (seconds): 0.00
@@ -26,13 +54,13 @@ Time elapsed: 9.7986 s
 	Signals delivered: 0
 	Page size (bytes): 4096
 	Exit status: 0
-Time elapsed: 9.79925 s
+Time elapsed: 9.79768 s
 HarmonicSeriesAVX512_four_vectors sum:
 Sum 24.7662
 Difference Sum - Formula -5.64881e-13
-Time elapsed: 9.79929 s
+Time elapsed: 9.79774 s
 	Command being timed: "../../bin/harmonic_series 3 4e9"
-	User time (seconds): 9.75
+	User time (seconds): 9.74
 	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
@@ -45,38 +73,10 @@ Time elapsed: 9.79929 s
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 85
 	Voluntary context switches: 1
-	Involuntary context switches: 6
-	Swaps: 0
-	File system inputs: 0
-	File system outputs: 0
-	Socket messages sent: 0
-	Socket messages received: 0
-	Signals delivered: 0
-	Page size (bytes): 4096
-	Exit status: 0
-Time elapsed: 9.79854 s
-HarmonicSeriesAVX512_four_vectors sum:
-Sum 24.7662
-Difference Sum - Formula -5.64881e-13
-Time elapsed: 9.79859 s
-	Command being timed: "../../bin/harmonic_series 3 4e9"
-	User time (seconds): 9.75
-	System time (seconds): 0.00
-	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.79
-	Average shared text size (kbytes): 0
-	Average unshared data size (kbytes): 0
-	Average stack size (kbytes): 0
-	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2152
-	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 86
-	Voluntary context switches: 1
 	Involuntary context switches: 5
 	Swaps: 0
 	File system inputs: 0
-	File system outputs: 0
+	File system outputs: 8
 	Socket messages sent: 0
 	Socket messages received: 0
 	Signals delivered: 0
@@ -85,22 +85,22 @@ Time elapsed: 9.79859 s
 
  Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/harmonic_series 3 4e9' (3 runs):
 
-    36,080,801,881      cycles                                                        ( +-  0.00% )  (35.71%)
-           268,031      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  7.51% )  (35.71%)
-        10,622,335      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  0.73% )  (35.71%)
-           344,953      cache-misses                                                  ( +-  1.89% )  (35.71%)
-                 0      sse_avx_stalls                                                (35.72%)
-    95,996,452,116      fp_ret_sse_avx_ops.all                                        ( +-  0.00% )  (28.58%)
-    31,995,311,959      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.01% )  (21.43%)
-    12,000,029,577      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
-     2,000,284,258      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.43%)
-     2,000,380,528      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.57%)
-     4,001,355,338      fpu_pipe_assignment.total2                                     ( +-  0.00% )  (28.57%)
-     4,001,335,936      fpu_pipe_assignment.total3                                     ( +-  0.00% )  (35.71%)
-        19,547,230      L1-dcache-loads                                               ( +-  0.44% )  (35.71%)
-           313,929      L1-dcache-load-misses     #    1.60% of all L1-dcache accesses  ( +- 22.98% )  (35.71%)
+    36,078,797,447      cycles                                                        ( +-  0.00% )  (35.70%)
+           386,327      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  7.77% )  (35.71%)
+        10,857,643      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.66% )  (35.71%)
+           382,517      cache-misses                                                  ( +-  5.33% )  (35.71%)
+                 0      sse_avx_stalls                                                (35.71%)
+    95,984,320,354      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.58%)
+    32,001,055,171      fp_ret_sse_avx_ops.div_flops                                     ( +-  0.00% )  (21.43%)
+    12,002,006,634      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
+     2,000,267,221      fpu_pipe_assignment.total0                                     ( +-  0.00% )  (21.43%)
+     2,000,415,522      fpu_pipe_assignment.total1                                     ( +-  0.00% )  (28.58%)
+     4,002,028,824      fpu_pipe_assignment.total2                                     ( +-  0.00% )  (28.57%)
+     4,000,810,871      fpu_pipe_assignment.total3                                     ( +-  0.01% )  (35.72%)
+        20,003,871      L1-dcache-loads                                               ( +-  0.50% )  (35.71%)
+           352,666      L1-dcache-load-misses     #    1.75% of all L1-dcache accesses  ( +-  5.00% )  (35.71%)
    <not supported>      LLC-loads                                                   
    <not supported>      LLC-load-misses                                             
 
-          9.800851 +- 0.000228 seconds time elapsed  ( +-  0.00% )
+          9.799776 +- 0.000175 seconds time elapsed  ( +-  0.00% )
 
