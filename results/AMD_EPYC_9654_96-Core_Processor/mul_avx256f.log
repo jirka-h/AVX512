@@ -5,21 +5,21 @@
 
  Performance counter stats for '../../bin/mul_avx256f':
 
-          6,531.04 msec task-clock                #    1.000 CPUs utilized          
+          6,530.59 msec task-clock                #    1.000 CPUs utilized          
                  3      context-switches          #    0.459 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                62      page-faults               #    9.493 /sec                   
-    24,060,566,148      cycles                    #    3.684 GHz                      (66.65%)
-            64,363      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-         6,896,520      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
-    24,033,165,067      instructions              #    1.00  insn per cycle         
+                62      page-faults               #    9.494 /sec                   
+    24,057,451,339      cycles                    #    3.684 GHz                      (66.65%)
+            56,251      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+         6,915,433      stalled-cycles-backend    #    0.03% backend cycles idle      (66.68%)
+    24,035,609,581      instructions              #    1.00  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     8,005,904,437      branches                  #    1.226 G/sec                    (66.67%)
-           181,797      branch-misses             #    0.00% of all branches          (66.65%)
+     8,005,054,555      branches                  #    1.226 G/sec                    (66.67%)
+           176,956      branch-misses             #    0.00% of all branches          (66.65%)
 
-       6.531626153 seconds time elapsed
+       6.531066016 seconds time elapsed
 
-       6.501038000 seconds user
+       6.500931000 seconds user
        0.000000000 seconds sys
 
 
@@ -32,10 +32,10 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15424
+	Maximum resident set size (kbytes): 15400
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1509
+	Minor (reclaiming a frame) page faults: 1510
 	Voluntary context switches: 6
 	Involuntary context switches: 4
 	Swaps: 0

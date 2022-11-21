@@ -1,0 +1,711 @@
+warning: found a call in the input assembly sequence.
+note: call instructions are not correctly modeled. Assume a latency of 100cy.
+warning: found a return instruction in the input assembly sequence.
+note: program counter updates are ignored.
+Iterations:        10000
+Instructions:      1520000
+Total Cycles:      1210089
+Total uOps:        2540000
+
+Dispatch Width:    6
+uOps Per Cycle:    2.10
+IPC:               1.26
+Block RThroughput: 42.3
+
+
+Cycles with backend pressure increase [ 18.18% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 0.00% ]
+  Data Dependencies:      [ 18.18% ]
+  - Register Dependencies [ 18.18% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 150.  popq	%rbp
+ |
+ |    < loop carried > 
+ |
+ +----> 0.    pushq	%rbp                              ## REGISTER dependency:  %rsp
+ |      1.    movl	$.LC0, %ebp
+ |      2.    movl	$.LC2, %edi
+ +----> 3.    pushq	%rbx                              ## REGISTER dependency:  %rsp
+ |      4.    movq	%rbp, %rsi
+ |      5.    movl	$.LC1, %ebx
+ +----> 6.    subq	$8, %rsp                          ## REGISTER dependency:  %rsp
+ |      7.    testb	$8, __cpu_model+12(%rip)
+ |      8.    cmoveq	%rbx, %rsi
+ |      9.    xorl	%eax, %eax
+ +----> 10.   callq	printf                            ## REGISTER dependency:  %rsp
+ |      11.   testb	$16, __cpu_model+12(%rip)
+ |      12.   movq	%rbp, %rsi
+ |      13.   movl	$.LC3, %edi
+ |      14.   cmoveq	%rbx, %rsi
+ |      15.   xorl	%eax, %eax
+ +----> 16.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 100% ]
+ |      17.   testb	$32, __cpu_model+12(%rip)
+ |      18.   movq	%rbp, %rsi
+ |      19.   movl	$.LC4, %edi
+ |      20.   cmoveq	%rbx, %rsi
+ |      21.   xorl	%eax, %eax
+ +----> 22.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      23.   testb	$-128, __cpu_model+12(%rip)
+ |      24.   movq	%rbp, %rsi
+ |      25.   movl	$.LC5, %edi
+ |      26.   cmoveq	%rbx, %rsi
+ |      27.   xorl	%eax, %eax
+ +----> 28.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      29.   testb	$1, __cpu_model+13(%rip)
+ |      30.   movq	%rbp, %rsi
+ |      31.   movl	$.LC6, %edi
+ |      32.   cmoveq	%rbx, %rsi
+ |      33.   xorl	%eax, %eax
+ +----> 34.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      35.   testb	$2, __cpu_model+13(%rip)
+ |      36.   movq	%rbp, %rsi
+ |      37.   movl	$.LC7, %edi
+ |      38.   cmoveq	%rbx, %rsi
+ |      39.   xorl	%eax, %eax
+ +----> 40.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      41.   testb	$4, __cpu_model+13(%rip)
+ |      42.   movq	%rbp, %rsi
+ |      43.   movl	$.LC8, %edi
+ |      44.   cmoveq	%rbx, %rsi
+ |      45.   xorl	%eax, %eax
+ +----> 46.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      47.   testb	$64, __cpu_model+13(%rip)
+ |      48.   movq	%rbp, %rsi
+ |      49.   movl	$.LC9, %edi
+ |      50.   cmoveq	%rbx, %rsi
+ |      51.   xorl	%eax, %eax
+ +----> 52.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 99% ]
+ |      53.   testb	$16, __cpu_model+13(%rip)
+ |      54.   movq	%rbp, %rsi
+ |      55.   movl	$.LC10, %edi
+ |      56.   cmoveq	%rbx, %rsi
+ |      57.   xorl	%eax, %eax
+ +----> 58.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 0% ]
+ |      59.   movq	stdout(%rip), %rsi
+ |      60.   movl	$10, %edi
+ +----> 61.   callq	putc                              ## RESOURCE interference:  SKXPort4 [ probability: 0% ]
+ |      62.   testb	$-128, __cpu_model+13(%rip)
+ |      63.   movq	%rbp, %rsi
+ |      64.   movl	$.LC11, %edi
+ |      65.   cmoveq	%rbx, %rsi
+ |      66.   xorl	%eax, %eax
+ +----> 67.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 0% ]
+ |      68.   testb	$16, __cpu_model+14(%rip)
+ |      69.   movq	%rbp, %rsi
+ |      70.   movl	$.LC12, %edi
+ |      71.   cmoveq	%rbx, %rsi
+ |      72.   xorl	%eax, %eax
+ +----> 73.   callq	printf                            ## RESOURCE interference:  SKXPort4 [ probability: 0% ]
+ |      74.   testb	$32, __cpu_model+14(%rip)
+ |      75.   movq	%rbp, %rsi
+ |      76.   movl	$.LC13, %edi
+ |      77.   cmoveq	%rbx, %rsi
+ |      78.   xorl	%eax, %eax
+ |      79.   callq	printf
+ |      80.   testb	$64, __cpu_model+14(%rip)
+ |      81.   movq	%rbp, %rsi
+ |      82.   movl	$.LC14, %edi
+ |      83.   cmoveq	%rbx, %rsi
+ |      84.   xorl	%eax, %eax
+ |      85.   callq	printf
+ +----> 86.   testb	$-128, __cpu_model+14(%rip)       ## RESOURCE interference:  SKXPort6 [ probability: 0% ]
+ |      87.   movq	%rbp, %rsi
+ |      88.   movl	$.LC15, %edi
+ +----> 89.   cmoveq	%rbx, %rsi                        ## REGISTER dependency:  %flags
+        90.   xorl	%eax, %eax
+        91.   callq	printf
+        92.   testb	$1, __cpu_model+15(%rip)
+        93.   movq	%rbp, %rsi
+        94.   movl	$.LC16, %edi
+        95.   cmoveq	%rbx, %rsi
+        96.   xorl	%eax, %eax
+        97.   callq	printf
+        98.   testb	$2, __cpu_model+15(%rip)
+        99.   movq	%rbp, %rsi
+        100.  movl	$.LC17, %edi
+        101.  cmoveq	%rbx, %rsi
+        102.  xorl	%eax, %eax
+        103.  callq	printf
+        104.  testb	$4, __cpu_model+15(%rip)
+        105.  movq	%rbp, %rsi
+        106.  movl	$.LC18, %edi
+        107.  cmoveq	%rbx, %rsi
+        108.  xorl	%eax, %eax
+        109.  callq	printf
+        110.  testb	$8, __cpu_model+15(%rip)
+        111.  movq	%rbp, %rsi
+        112.  movl	$.LC19, %edi
+        113.  cmoveq	%rbx, %rsi
+        114.  xorl	%eax, %eax
+        115.  callq	printf
+        116.  testb	$16, __cpu_model+15(%rip)
+        117.  movq	%rbp, %rsi
+        118.  movl	$.LC20, %edi
+        119.  cmoveq	%rbx, %rsi
+        120.  xorl	%eax, %eax
+        121.  callq	printf
+        122.  testb	$32, __cpu_model+15(%rip)
+        123.  movq	%rbp, %rsi
+        124.  movl	$.LC21, %edi
+        125.  cmoveq	%rbx, %rsi
+        126.  xorl	%eax, %eax
+        127.  callq	printf
+        128.  testb	$64, __cpu_model+15(%rip)
+        129.  movq	%rbp, %rsi
+        130.  movl	$.LC22, %edi
+        131.  cmoveq	%rbx, %rsi
+        132.  xorl	%eax, %eax
+        133.  callq	printf
+        134.  movl	__cpu_model+12(%rip), %eax
+        135.  movq	%rbp, %rsi
+        136.  movl	$.LC23, %edi
+        137.  testl	%eax, %eax
+        138.  cmovnsq	%rbx, %rsi
+        139.  xorl	%eax, %eax
+        140.  callq	printf
+        141.  testb	$8, __cpu_features2(%rip)
+        142.  movq	%rbp, %rsi
+        143.  movl	$.LC24, %edi
+        144.  cmoveq	%rbx, %rsi
+        145.  xorl	%eax, %eax
+        146.  callq	printf
+        147.  addq	$8, %rsp
+        148.  xorl	%eax, %eax
+        149.  popq	%rbx
+        150.  popq	%rbp
+        151.  retq
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 3      2     1.00           *            pushq	%rbp
+ 1      1     0.25                        movl	$.LC0, %ebp
+ 1      1     0.25                        movl	$.LC2, %edi
+ 3      2     1.00           *            pushq	%rbx
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC1, %ebx
+ 1      1     0.25                        subq	$8, %rsp
+ 2      6     0.50    *                   testb	$8, __cpu_model+12(%rip)
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$16, __cpu_model+12(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC3, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$32, __cpu_model+12(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC4, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$-128, __cpu_model+12(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC5, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$1, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC6, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$2, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC7, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$4, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC8, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$64, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC9, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$16, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC10, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 1      5     0.50    *                   movq	stdout(%rip), %rsi
+ 1      1     0.25                        movl	$10, %edi
+ 4      3     1.00                        callq	putc
+ 2      6     0.50    *                   testb	$-128, __cpu_model+13(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC11, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$16, __cpu_model+14(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC12, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$32, __cpu_model+14(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC13, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$64, __cpu_model+14(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC14, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$-128, __cpu_model+14(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC15, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$1, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC16, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$2, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC17, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$4, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC18, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$8, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC19, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$16, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC20, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$32, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC21, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$64, __cpu_model+15(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC22, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 1      5     0.50    *                   movl	__cpu_model+12(%rip), %eax
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC23, %edi
+ 1      1     0.25                        testl	%eax, %eax
+ 1      1     0.50                        cmovnsq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 2      6     0.50    *                   testb	$8, __cpu_features2(%rip)
+ 1      1     0.25                        movq	%rbp, %rsi
+ 1      1     0.25                        movl	$.LC24, %edi
+ 1      1     0.50                        cmoveq	%rbx, %rsi
+ 1      0     0.17                        xorl	%eax, %eax
+ 4      3     1.00                        callq	printf
+ 1      1     0.25                        addq	$8, %rsp
+ 1      0     0.17                        xorl	%eax, %eax
+ 2      6     0.50    *                   popq	%rbx
+ 2      6     0.50    *                   popq	%rbp
+ 3      7     1.00                  U     retq
+
+
+Retire Control Unit - number of cycles where we saw N instructions retired:
+[# retired], [# cycles]
+ 0,           970084  (80.2%)
+ 1,           2  (0.0%)
+ 2,           1  (0.0%)
+ 3,           10002  (0.8%)
+ 6,           210001  (17.4%)
+ 7,           10000  (0.8%)
+ 16,          9999  (0.8%)
+
+Total ROB Entries:                224
+Max Used ROB Entries:             224  ( 100.0% )
+Average Used ROB Entries per cy:  219  ( 97.8% )
+
+
+Resources:
+[0]   - SKXDivider
+[1]   - SKXFPDivider
+[2]   - SKXPort0
+[3]   - SKXPort1
+[4]   - SKXPort2
+[5]   - SKXPort3
+[6]   - SKXPort4
+[7]   - SKXPort5
+[8]   - SKXPort6
+[9]   - SKXPort7
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    
+ -      -     40.00  36.00  18.50  18.50  26.00  36.00  39.00  16.00  
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    Instructions:
+ -      -      -     1.00    -      -     1.00    -      -     1.00   pushq	%rbp
+ -      -      -      -      -      -      -     1.00    -      -     movl	$.LC0, %ebp
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC2, %edi
+ -      -     1.00    -      -      -     1.00    -      -     1.00   pushq	%rbx
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -      -     1.00    -     movl	$.LC1, %ebx
+ -      -      -      -      -      -      -     1.00    -      -     subq	$8, %rsp
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$8, __cpu_model+12(%rip)
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$16, __cpu_model+12(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -      -     1.00    -     movl	$.LC3, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -     0.50   0.50   1.00   1.00   1.00    -     callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$32, __cpu_model+12(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -      -     1.00    -     movl	$.LC4, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00   1.00    -      -     1.00    -      -     1.00   callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$-128, __cpu_model+12(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC5, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -      -     1.00   1.00   1.00    -      -     callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$1, __cpu_model+13(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC6, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -     1.00   1.00    -     1.00    -     1.00    -     callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$2, __cpu_model+13(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -     1.00    -      -     movl	$.LC7, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$4, __cpu_model+13(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC8, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00   1.00    -     1.00   1.00    -      -      -     callq	printf
+ -      -     1.00    -     0.50   0.50    -      -      -      -     testb	$64, __cpu_model+13(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC9, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -     1.00    -     1.00   1.00   1.00    -     callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$16, __cpu_model+13(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC10, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -      -      -     1.00   1.00    -     1.00   callq	printf
+ -      -      -      -     0.50   0.50    -      -      -      -     movq	stdout(%rip), %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$10, %edi
+ -      -      -      -     0.50   0.50   1.00   1.00   1.00    -     callq	putc
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$-128, __cpu_model+13(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -     1.00    -      -     movl	$.LC11, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -     1.00    -      -     1.00    -     1.00   1.00   callq	printf
+ -      -     1.00    -     0.50   0.50    -      -      -      -     testb	$16, __cpu_model+14(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC12, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$32, __cpu_model+14(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -     1.00    -      -     movl	$.LC13, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -     1.00   0.50   0.50   1.00    -     1.00    -     callq	printf
+ -      -     1.00    -     0.50   0.50    -      -      -      -     testb	$64, __cpu_model+14(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC14, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -      -      -     1.00    -     1.00   1.00   callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$-128, __cpu_model+14(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC15, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$1, __cpu_model+15(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC16, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -     0.50   0.50   1.00    -     1.00    -     callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$2, __cpu_model+15(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC17, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$4, __cpu_model+15(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -      -     1.00    -     movl	$.LC18, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$8, __cpu_model+15(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC19, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -     0.50   0.50   1.00    -     1.00    -     callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$16, __cpu_model+15(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC20, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$32, __cpu_model+15(%rip)
+ -      -     1.00    -      -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -      -      -      -      -      -      -     1.00    -     movl	$.LC21, %edi
+ -      -     1.00    -      -      -      -      -      -      -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -      -      -      -     1.00   1.00   1.00   1.00   callq	printf
+ -      -      -     1.00   0.50   0.50    -      -      -      -     testb	$64, __cpu_model+15(%rip)
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC22, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -     0.50   0.50   1.00    -     1.00    -     callq	printf
+ -      -      -      -     0.50   0.50    -      -      -      -     movl	__cpu_model+12(%rip), %eax
+ -      -      -      -      -      -      -     1.00    -      -     movq	%rbp, %rsi
+ -      -      -     1.00    -      -      -      -      -      -     movl	$.LC23, %edi
+ -      -      -      -      -      -      -     1.00    -      -     testl	%eax, %eax
+ -      -     1.00    -      -      -      -      -      -      -     cmovnsq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00    -      -      -     1.00    -     1.00   1.00   callq	printf
+ -      -      -      -     0.50   0.50    -     1.00    -      -     testb	$8, __cpu_features2(%rip)
+ -      -      -     1.00    -      -      -      -      -      -     movq	%rbp, %rsi
+ -      -     1.00    -      -      -      -      -      -      -     movl	$.LC24, %edi
+ -      -      -      -      -      -      -      -     1.00    -     cmoveq	%rbx, %rsi
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -     1.00   1.00    -      -     1.00    -      -     1.00   callq	printf
+ -      -      -      -      -      -      -     1.00    -      -     addq	$8, %rsp
+ -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -     1.00   0.50   0.50    -      -      -      -     popq	%rbx
+ -      -      -     1.00   0.50   0.50    -      -      -      -     popq	%rbp
+ -      -     1.00    -     0.50   0.50    -      -     1.00    -     retq
+
+
+Timeline view:
+                    0123456789          0123456789          0123
+Index     0123456789          0123456789          0123456789    
+
+[0,0]     DeeER.    .    .    .    .    .    .    .    .    .  .   pushq	%rbp
+[0,1]     DeE-R.    .    .    .    .    .    .    .    .    .  .   movl	$.LC0, %ebp
+[0,2]     DeE-R.    .    .    .    .    .    .    .    .    .  .   movl	$.LC2, %edi
+[0,3]     .D=eeER   .    .    .    .    .    .    .    .    .  .   pushq	%rbx
+[0,4]     .DeE--R   .    .    .    .    .    .    .    .    .  .   movq	%rbp, %rsi
+[0,5]     .DeE--R   .    .    .    .    .    .    .    .    .  .   movl	$.LC1, %ebx
+[0,6]     .D===eER  .    .    .    .    .    .    .    .    .  .   subq	$8, %rsp
+[0,7]     . DeeeeeeER    .    .    .    .    .    .    .    .  .   testb	$8, __cpu_model+12(%rip)
+[0,8]     . D======eER   .    .    .    .    .    .    .    .  .   cmoveq	%rbx, %rsi
+[0,9]     . D--------R   .    .    .    .    .    .    .    .  .   xorl	%eax, %eax
+Truncated display due to cycle limit
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    11.8   0.1    75.6      pushq	%rbp
+1.     10    1.0    1.0    86.5      movl	$.LC0, %ebp
+2.     10    1.0    1.0    86.5      movl	$.LC2, %edi
+3.     10    12.8   0.0    73.8      pushq	%rbx
+4.     10    1.9    0.0    85.7      movq	%rbp, %rsi
+5.     10    1.0    1.0    85.7      movl	$.LC1, %ebx
+6.     10    13.9   0.0    72.9      subq	$8, %rsp
+7.     10    1.0    1.0    81.0      testb	$8, __cpu_model+12(%rip)
+8.     10    7.0    0.0    80.1      cmoveq	%rbx, %rsi
+9.     10    0.0    0.0    88.1      xorl	%eax, %eax
+10.    10    13.8   0.0    0.0       callq	printf
+11.    10    1.0    1.0    106.8     testb	$16, __cpu_model+12(%rip)
+12.    10    1.0    1.0    110.8     movq	%rbp, %rsi
+13.    10    1.0    1.0    110.8     movl	$.LC3, %edi
+14.    10    6.0    0.0    105.8     cmoveq	%rbx, %rsi
+15.    10    0.0    0.0    112.8     xorl	%eax, %eax
+16.    10    12.8   1.0    0.0       callq	printf
+17.    10    1.0    1.0    105.8     testb	$32, __cpu_model+12(%rip)
+18.    10    1.0    1.0    109.8     movq	%rbp, %rsi
+19.    10    1.0    1.0    109.8     movl	$.LC4, %edi
+20.    10    6.0    0.0    104.8     cmoveq	%rbx, %rsi
+21.    10    0.0    0.0    111.8     xorl	%eax, %eax
+22.    10    11.8   1.9    0.0       callq	printf
+23.    10    1.0    1.0    104.8     testb	$-128, __cpu_model+12(%rip)
+24.    10    1.0    1.0    108.8     movq	%rbp, %rsi
+25.    10    1.0    1.0    108.8     movl	$.LC5, %edi
+26.    10    6.0    0.0    103.8     cmoveq	%rbx, %rsi
+27.    10    0.0    0.0    110.8     xorl	%eax, %eax
+28.    10    10.9   2.8    0.0       callq	printf
+29.    10    1.0    1.0    103.9     testb	$1, __cpu_model+13(%rip)
+30.    10    1.0    1.0    107.9     movq	%rbp, %rsi
+31.    10    1.0    1.0    107.9     movl	$.LC6, %edi
+32.    10    6.0    0.0    102.9     cmoveq	%rbx, %rsi
+33.    10    0.0    0.0    109.9     xorl	%eax, %eax
+34.    10    10.0   3.7    0.0       callq	printf
+35.    10    1.0    1.0    103.0     testb	$2, __cpu_model+13(%rip)
+36.    10    1.0    1.0    107.0     movq	%rbp, %rsi
+37.    10    1.0    1.0    107.0     movl	$.LC7, %edi
+38.    10    6.0    0.0    102.0     cmoveq	%rbx, %rsi
+39.    10    0.0    0.0    109.0     xorl	%eax, %eax
+40.    10    9.1    4.6    0.0       callq	printf
+41.    10    1.0    1.0    102.1     testb	$4, __cpu_model+13(%rip)
+42.    10    1.0    1.0    106.1     movq	%rbp, %rsi
+43.    10    1.0    1.0    106.1     movl	$.LC8, %edi
+44.    10    6.0    0.0    101.1     cmoveq	%rbx, %rsi
+45.    10    0.0    0.0    108.1     xorl	%eax, %eax
+46.    10    8.2    5.5    0.0       callq	printf
+47.    10    1.0    1.0    101.2     testb	$64, __cpu_model+13(%rip)
+48.    10    1.0    1.0    105.2     movq	%rbp, %rsi
+49.    10    1.0    1.0    105.2     movl	$.LC9, %edi
+50.    10    6.8    0.8    99.4      cmoveq	%rbx, %rsi
+51.    10    0.0    0.0    107.2     xorl	%eax, %eax
+52.    10    7.3    6.4    0.0       callq	printf
+53.    10    1.0    1.0    100.3     testb	$16, __cpu_model+13(%rip)
+54.    10    1.0    1.0    101.3     movq	%rbp, %rsi
+55.    10    1.0    1.0    101.3     movl	$.LC10, %edi
+56.    10    4.4    0.4    97.9      cmoveq	%rbx, %rsi
+57.    10    0.0    0.0    103.3     xorl	%eax, %eax
+58.    10    3.4    3.4    0.0       callq	printf
+59.    10    1.0    1.0    97.4      movq	stdout(%rip), %rsi
+60.    10    1.0    1.0    101.4     movl	$10, %edi
+61.    10    3.4    3.4    0.0       callq	putc
+62.    10    1.0    1.0    96.4      testb	$-128, __cpu_model+13(%rip)
+63.    10    1.0    1.0    100.4     movq	%rbp, %rsi
+64.    10    1.0    1.0    100.4     movl	$.LC11, %edi
+65.    10    6.0    0.0    95.4      cmoveq	%rbx, %rsi
+66.    10    0.0    0.0    102.4     xorl	%eax, %eax
+67.    10    3.0    3.0    0.0       callq	printf
+68.    10    1.0    1.0    96.0      testb	$16, __cpu_model+14(%rip)
+69.    10    1.0    1.0    100.0     movq	%rbp, %rsi
+70.    10    1.4    1.4    99.6      movl	$.LC12, %edi
+71.    10    6.0    0.0    95.0      cmoveq	%rbx, %rsi
+72.    10    0.0    0.0    102.0     xorl	%eax, %eax
+73.    10    2.2    2.2    0.0       callq	printf
+74.    10    1.3    1.3    94.9      testb	$32, __cpu_model+14(%rip)
+75.    10    1.0    1.0    99.2      movq	%rbp, %rsi
+76.    10    1.3    1.3    98.9      movl	$.LC13, %edi
+77.    10    6.3    0.0    93.9      cmoveq	%rbx, %rsi
+78.    10    0.0    0.0    101.2     xorl	%eax, %eax
+79.    10    1.9    1.9    0.0       callq	printf
+80.    10    1.3    1.3    94.6      testb	$64, __cpu_model+14(%rip)
+81.    10    1.0    1.0    98.9      movq	%rbp, %rsi
+82.    10    1.3    1.3    98.6      movl	$.LC14, %edi
+83.    10    6.3    0.0    93.6      cmoveq	%rbx, %rsi
+84.    10    0.0    0.0    100.9     xorl	%eax, %eax
+85.    10    1.6    1.6    0.0       callq	printf
+86.    10    1.3    1.3    94.3      testb	$-128, __cpu_model+14(%rip)
+87.    10    1.0    1.0    98.6      movq	%rbp, %rsi
+88.    10    1.3    1.3    98.3      movl	$.LC15, %edi
+89.    10    6.3    0.0    93.3      cmoveq	%rbx, %rsi
+90.    10    0.0    0.0    100.6     xorl	%eax, %eax
+91.    10    1.2    1.2    0.0       callq	printf
+92.    10    1.0    1.0    94.2      testb	$1, __cpu_model+15(%rip)
+93.    10    1.0    1.0    98.2      movq	%rbp, %rsi
+94.    10    1.2    1.2    98.0      movl	$.LC16, %edi
+95.    10    6.0    0.0    93.2      cmoveq	%rbx, %rsi
+96.    10    0.0    0.0    100.2     xorl	%eax, %eax
+97.    10    1.0    1.0    0.0       callq	printf
+98.    10    1.0    1.0    94.0      testb	$2, __cpu_model+15(%rip)
+99.    10    1.0    1.0    98.0      movq	%rbp, %rsi
+100.   10    1.0    1.0    98.0      movl	$.LC17, %edi
+101.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+102.   10    0.0    0.0    100.0     xorl	%eax, %eax
+103.   10    1.0    1.0    0.0       callq	printf
+104.   10    1.0    1.0    94.0      testb	$4, __cpu_model+15(%rip)
+105.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+106.   10    1.0    1.0    98.0      movl	$.LC18, %edi
+107.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+108.   10    0.0    0.0    100.0     xorl	%eax, %eax
+109.   10    1.0    1.0    0.0       callq	printf
+110.   10    1.0    1.0    94.0      testb	$8, __cpu_model+15(%rip)
+111.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+112.   10    1.0    1.0    98.0      movl	$.LC19, %edi
+113.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+114.   10    0.0    0.0    100.0     xorl	%eax, %eax
+115.   10    1.0    1.0    0.0       callq	printf
+116.   10    1.0    1.0    94.0      testb	$16, __cpu_model+15(%rip)
+117.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+118.   10    1.0    1.0    98.0      movl	$.LC20, %edi
+119.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+120.   10    0.0    0.0    100.0     xorl	%eax, %eax
+121.   10    1.0    1.0    0.0       callq	printf
+122.   10    1.0    1.0    94.0      testb	$32, __cpu_model+15(%rip)
+123.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+124.   10    1.0    1.0    98.0      movl	$.LC21, %edi
+125.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+126.   10    0.0    0.0    100.0     xorl	%eax, %eax
+127.   10    1.0    1.0    0.0       callq	printf
+128.   10    1.0    1.0    94.0      testb	$64, __cpu_model+15(%rip)
+129.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+130.   10    1.0    1.0    98.0      movl	$.LC22, %edi
+131.   10    6.0    0.0    93.0      cmoveq	%rbx, %rsi
+132.   10    0.0    0.0    100.0     xorl	%eax, %eax
+133.   10    1.0    1.0    0.0       callq	printf
+134.   10    1.0    1.0    95.0      movl	__cpu_model+12(%rip), %eax
+135.   10    1.0    1.0    99.0      movq	%rbp, %rsi
+136.   10    1.0    1.0    98.0      movl	$.LC23, %edi
+137.   10    5.0    0.0    94.0      testl	%eax, %eax
+138.   10    6.0    0.0    93.0      cmovnsq	%rbx, %rsi
+139.   10    0.0    0.0    100.0     xorl	%eax, %eax
+140.   10    1.0    1.0    0.0       callq	printf
+141.   10    1.0    1.0    94.0      testb	$8, __cpu_features2(%rip)
+142.   10    1.0    1.0    98.0      movq	%rbp, %rsi
+143.   10    1.0    1.0    98.0      movl	$.LC24, %edi
+144.   10    1.0    1.0    79.4      cmoveq	%rbx, %rsi
+145.   10    0.0    0.0    81.4      xorl	%eax, %eax
+146.   10    1.0    1.0    0.0       callq	printf
+147.   10    1.0    1.0    98.0      addq	$8, %rsp
+148.   10    0.0    0.0    100.0     xorl	%eax, %eax
+149.   10    2.0    0.0    92.0      popq	%rbx
+150.   10    8.0    0.0    86.0      popq	%rbp
+151.   10    1.0    1.0    91.0      retq
+       10    2.5    0.9    82.7      <total>

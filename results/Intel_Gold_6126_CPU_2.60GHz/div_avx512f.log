@@ -9,36 +9,36 @@
 
  Performance counter stats for '../../bin/div_avx512f':
 
-         33,282.25 msec task-clock                       #    0.998 CPUs utilized          
-            13,128      context-switches                 #  394.444 /sec                   
-                11      cpu-migrations                   #    0.331 /sec                   
+         33,281.62 msec task-clock                       #    0.998 CPUs utilized          
+            13,139      context-switches                 #  394.783 /sec                   
+                 5      cpu-migrations                   #    0.150 /sec                   
                 59      page-faults                      #    1.773 /sec                   
-    96,365,059,933      cycles                           #    2.895 GHz                    
-    12,276,969,103      instructions                     #    0.13  insn per cycle         
-     4,056,791,959      branches                         #  121.891 M/sec                  
-         1,096,655      branch-misses                    #    0.03% of all branches        
+    96,364,102,859      cycles                           #    2.895 GHz                    
+    12,277,097,328      instructions                     #    0.13  insn per cycle         
+     4,056,813,807      branches                         #  121.894 M/sec                  
+         1,069,089      branch-misses                    #    0.03% of all branches        
 
-      33.346538511 seconds time elapsed
+      33.345820960 seconds time elapsed
 
-      33.248458000 seconds user
-       0.001970000 seconds sys
+      33.247010000 seconds user
+       0.002969000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_avx512f"
-	User time (seconds): 33.59
+	User time (seconds): 33.57
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:33.74
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:33.73
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31104
+	Maximum resident set size (kbytes): 30972
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4776
+	Minor (reclaiming a frame) page faults: 4778
 	Voluntary context switches: 6
-	Involuntary context switches: 13275
+	Involuntary context switches: 13285
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

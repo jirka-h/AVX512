@@ -5,41 +5,41 @@
 
  Performance counter stats for '../../bin/div_avx256f':
 
-         36,593.25 msec task-clock                       #    0.999 CPUs utilized          
-            13,349      context-switches                 #  364.794 /sec                   
+         36,583.69 msec task-clock                       #    0.999 CPUs utilized          
+            13,743      context-switches                 #  375.659 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                61      page-faults                      #    1.667 /sec                   
-   112,234,139,306      cycles                           #    3.067 GHz                    
-    24,294,751,532      instructions                     #    0.22  insn per cycle         
-     8,060,615,477      branches                         #  220.276 M/sec                  
-           255,462      branch-misses                    #    0.00% of all branches        
-   561,169,088,405      slots                            #   15.335 G/sec                  
-    15,404,641,642      topdown-retiring                 #      2.7% Retiring              
-    15,404,641,642      topdown-bad-spec                 #      2.7% Bad Speculation       
-     2,275,175,022      topdown-fe-bound                 #      0.4% Frontend Bound        
-   530,340,029,293      topdown-be-bound                 #     94.1% Backend Bound         
+                60      page-faults                      #    1.640 /sec                   
+   112,234,072,117      cycles                           #    3.068 GHz                    
+    24,297,612,042      instructions                     #    0.22  insn per cycle         
+     8,061,290,635      branches                         #  220.352 M/sec                  
+           235,901      branch-misses                    #    0.00% of all branches        
+   561,164,564,825      slots                            #   15.339 G/sec                  
+    15,404,517,465      topdown-retiring                 #      2.7% Retiring              
+    19,805,808,170      topdown-bad-spec                 #      3.5% Bad Speculation       
+     2,273,227,089      topdown-fe-bound                 #      0.4% Frontend Bound        
+   526,591,656,924      topdown-be-bound                 #     93.4% Backend Bound         
 
-      36.645096839 seconds time elapsed
+      36.636839855 seconds time elapsed
 
-      36.569920000 seconds user
-       0.001975000 seconds sys
+      36.560490000 seconds user
+       0.002959000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_avx256f"
-	User time (seconds): 37.09
-	System time (seconds): 0.04
+	User time (seconds): 37.07
+	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:37.22
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:37.21
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57152
+	Maximum resident set size (kbytes): 57280
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11726
+	Minor (reclaiming a frame) page faults: 11729
 	Voluntary context switches: 6
-	Involuntary context switches: 13571
+	Involuntary context switches: 13956
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

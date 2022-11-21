@@ -51,6 +51,44 @@ void printTimer(struct timespec * start, struct timespec * end) {
   fprintf(stdout,"Time elapsed: %g s\n", run_time);
 }
 
+double HarmonicSeriesAVX512_four_vectors(const unsigned long long int N) {
+  struct timespec t[2];
+  unsigned long long int i;
+  int j;
+  __m512d sumv[4];
+  const __m512d onesv = _mm512_set1_pd(1.0);
+  const __m512d addv =_mm512_set1_pd(4.0*8.0);
+  __m512d divv[4];
+
+  for (j=0; j<4; ++j) {
+    sumv[j] = _mm512_setzero_pd();
+    divv[j] = _mm512_set_pd(8*j + 1.0, 8*j + 2.0, 8*j + 3.0, 8*j + 4.0, 8*j + 5.0, 8*j + 6.0, 8*j + 7.0, 8*j + 8.0);
+  }
+
+  clock_gettime(CLOCK_MONOTONIC, &t[0]);
+  for(i=0; i<N; ++i) {
+    for (j=0; j<4; ++j) {
+      sumv[j] = _mm512_add_pd( _mm512_div_pd(onesv, divv[j]), sumv[j]);
+      divv[j] = _mm512_add_pd(addv, divv[j]);
+    }
+  }
+  clock_gettime(CLOCK_MONOTONIC, &t[1]);
+  printTimer(&t[0], &t[1]);
+
+  double c[8];
+  double sum = 0.0;;
+  for (j=1; j<4; ++j) {
+    sumv[0] = _mm512_add_pd(sumv[j], sumv[0]);
+  }
+
+  _mm512_storeu_pd(c, sumv[0]); // write sumv to c array
+  for (i=0; i<8; ++i) {
+    //printf("%d %g\n", i, c[i]);
+    sum += c[i];
+  }
+  return sum;
+}
+
 double HarmonicSeriesAVX512(const unsigned long long int N) {
   struct timespec t[2];
   unsigned long long int i;
@@ -133,6 +171,7 @@ void usage(char *s) {
   printf("0 HarmonicSeriesAVX512\n");
   printf("1 HarmonicSeriesAVX256\n");
   printf("2 HarmonicSeriesPlain\n");
+  printf("3 HarmonicSeriesAVX512_four_vectors\n");
 }
 
 int main(int argc, char **argv) {
@@ -143,8 +182,8 @@ int main(int argc, char **argv) {
     return 1;
   }
   int method = atoi(argv[1]);
-  if (method > 2) {
-    fprintf(stderr,"Method has to be in range 0-2\n");
+  if (method > 3) {
+    fprintf(stderr,"Method has to be in range 0-3\n");
     usage(argv[0]);
     return 1;
   }
@@ -186,6 +225,15 @@ int main(int argc, char **argv) {
       printf("Plain sum:\n");
       printf("Sum %g\n", sumPlain);
       printf("Difference Sum - Formula %g\n", sumPlain - HarmonicAproxD(8*N) );
+      printTimer(&t[0], &t[1]);
+      break;
+    case 3:
+      clock_gettime(CLOCK_MONOTONIC, &t[0]);
+      double sumHarmonicSeriesAVX512_four_vectors = HarmonicSeriesAVX512_four_vectors(N/4);
+      clock_gettime(CLOCK_MONOTONIC, &t[1]);
+      printf("HarmonicSeriesAVX512_four_vectors sum:\n");
+      printf("Sum %g\n", sumHarmonicSeriesAVX512_four_vectors);
+      printf("Difference Sum - Formula %g\n", sumHarmonicSeriesAVX512_four_vectors - HarmonicAproxD(8*N) );
       printTimer(&t[0], &t[1]);
       break;
   }

@@ -1,145 +1,145 @@
 Dump of assembler code for function HarmonicSeriesAVX256:
 harmonic_series.c:
-80	double HarmonicSeriesAVX256(const unsigned long long int N) {
-81	  struct timespec t[2];
-82	  unsigned long long int i;
-83	  __m256d sumv = _mm256_setzero_pd();
-84	  __m256d onesv =_mm256_set1_pd(1.0);
-85	  __m256d fourv =_mm256_set1_pd(4.0);
-86	  __m256d divv = _mm256_set_pd(1.0, 2.0, 3.0, 4.0);
-87	
-88	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
-   0x0000000000402640 <+0>:	4c 8d 54 24 08	lea    0x8(%rsp),%r10
-   0x0000000000402645 <+5>:	48 83 e4 e0	and    $0xffffffffffffffe0,%rsp
-   0x0000000000402649 <+9>:	41 ff 72 f8	push   -0x8(%r10)
-   0x000000000040264d <+13>:	55	push   %rbp
-   0x000000000040264e <+14>:	48 89 e5	mov    %rsp,%rbp
-   0x0000000000402651 <+17>:	41 52	push   %r10
-   0x0000000000402653 <+19>:	53	push   %rbx
-   0x0000000000402654 <+20>:	48 8d 75 d0	lea    -0x30(%rbp),%rsi
+118	double HarmonicSeriesAVX256(const unsigned long long int N) {
+119	  struct timespec t[2];
+120	  unsigned long long int i;
+121	  __m256d sumv = _mm256_setzero_pd();
+122	  __m256d onesv =_mm256_set1_pd(1.0);
+123	  __m256d fourv =_mm256_set1_pd(4.0);
+124	  __m256d divv = _mm256_set_pd(1.0, 2.0, 3.0, 4.0);
+125	
+126	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
+   0x00000000004028d0 <+0>:	4c 8d 54 24 08	lea    0x8(%rsp),%r10
+   0x00000000004028d5 <+5>:	48 83 e4 e0	and    $0xffffffffffffffe0,%rsp
+   0x00000000004028d9 <+9>:	41 ff 72 f8	push   -0x8(%r10)
+   0x00000000004028dd <+13>:	55	push   %rbp
+   0x00000000004028de <+14>:	48 89 e5	mov    %rsp,%rbp
+   0x00000000004028e1 <+17>:	41 52	push   %r10
+   0x00000000004028e3 <+19>:	53	push   %rbx
+   0x00000000004028e4 <+20>:	48 8d 75 d0	lea    -0x30(%rbp),%rsi
 
-80	double HarmonicSeriesAVX256(const unsigned long long int N) {
-   0x0000000000402658 <+24>:	48 89 fb	mov    %rdi,%rbx
+118	double HarmonicSeriesAVX256(const unsigned long long int N) {
+   0x00000000004028e8 <+24>:	48 89 fb	mov    %rdi,%rbx
 
-87	
-88	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
-   0x000000000040265b <+27>:	bf 01 00 00 00	mov    $0x1,%edi
+125	
+126	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
+   0x00000000004028eb <+27>:	bf 01 00 00 00	mov    $0x1,%edi
 
-80	double HarmonicSeriesAVX256(const unsigned long long int N) {
-   0x0000000000402660 <+32>:	48 83 ec 60	sub    $0x60,%rsp
+118	double HarmonicSeriesAVX256(const unsigned long long int N) {
+   0x00000000004028f0 <+32>:	48 83 ec 60	sub    $0x60,%rsp
 
-87	
-88	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
-   0x0000000000402664 <+36>:	e8 f7 e9 ff ff	call   0x401060 <clock_gettime@plt>
+125	
+126	  clock_gettime(CLOCK_MONOTONIC, &t[0]);
+   0x00000000004028f4 <+36>:	e8 67 e7 ff ff	call   0x401060 <clock_gettime@plt>
 
-89	  for(i=0; i<N; ++i) {
-   0x0000000000402669 <+41>:	48 85 db	test   %rbx,%rbx
-   0x000000000040266c <+44>:	0f 84 de 00 00 00	je     0x402750 <HarmonicSeriesAVX256+272>
+127	  for(i=0; i<N; ++i) {
+   0x00000000004028f9 <+41>:	48 85 db	test   %rbx,%rbx
+   0x00000000004028fc <+44>:	0f 84 de 00 00 00	je     0x4029e0 <HarmonicSeriesAVX256+272>
 
-86	  __m256d divv = _mm256_set_pd(1.0, 2.0, 3.0, 4.0);
-   0x0000000000402672 <+50>:	c5 fd 28 05 e6 0b 00 00	vmovapd 0xbe6(%rip),%ymm0        # 0x403260
+124	  __m256d divv = _mm256_set_pd(1.0, 2.0, 3.0, 4.0);
+   0x0000000000402902 <+50>:	c5 fd 28 05 56 0a 00 00	vmovapd 0xa56(%rip),%ymm0        # 0x403360
 
-83	  __m256d sumv = _mm256_setzero_pd();
-   0x000000000040267a <+58>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+121	  __m256d sumv = _mm256_setzero_pd();
+   0x000000000040290a <+58>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
 
-89	  for(i=0; i<N; ++i) {
-   0x000000000040267e <+62>:	31 c0	xor    %eax,%eax
-   0x0000000000402680 <+64>:	c4 e2 7d 19 25 ef 0b 00 00	vbroadcastsd 0xbef(%rip),%ymm4        # 0x403278
-   0x0000000000402689 <+73>:	c4 e2 7d 19 1d ce 0b 00 00	vbroadcastsd 0xbce(%rip),%ymm3        # 0x403260
-   0x0000000000402692 <+82>:	66 0f 1f 44 00 00	nopw   0x0(%rax,%rax,1)
-
-/usr/lib/gcc/x86_64-redhat-linux/11/include/avxintrin.h:
-143	  return (__m256d) ((__v4df)__A + (__v4df)__B);
-   0x0000000000402698 <+88>:	c5 dd 5e d0	vdivpd %ymm0,%ymm4,%ymm2
-
-harmonic_series.c:
-89	  for(i=0; i<N; ++i) {
-   0x000000000040269c <+92>:	48 83 c0 01	add    $0x1,%rax
+127	  for(i=0; i<N; ++i) {
+   0x000000000040290e <+62>:	31 c0	xor    %eax,%eax
+   0x0000000000402910 <+64>:	c4 e2 7d 19 25 5f 0a 00 00	vbroadcastsd 0xa5f(%rip),%ymm4        # 0x403378
+   0x0000000000402919 <+73>:	c4 e2 7d 19 1d 3e 0a 00 00	vbroadcastsd 0xa3e(%rip),%ymm3        # 0x403360
+   0x0000000000402922 <+82>:	66 0f 1f 44 00 00	nopw   0x0(%rax,%rax,1)
 
 /usr/lib/gcc/x86_64-redhat-linux/11/include/avxintrin.h:
 143	  return (__m256d) ((__v4df)__A + (__v4df)__B);
-   0x00000000004026a0 <+96>:	c5 fd 58 c3	vaddpd %ymm3,%ymm0,%ymm0
-   0x00000000004026a4 <+100>:	c5 f5 58 ca	vaddpd %ymm2,%ymm1,%ymm1
+   0x0000000000402928 <+88>:	c5 dd 5e d0	vdivpd %ymm0,%ymm4,%ymm2
 
 harmonic_series.c:
-89	  for(i=0; i<N; ++i) {
-   0x00000000004026a8 <+104>:	48 39 c3	cmp    %rax,%rbx
-   0x00000000004026ab <+107>:	75 eb	jne    0x402698 <HarmonicSeriesAVX256+88>
-   0x00000000004026ad <+109>:	c4 e3 7d 19 c8 01	vextractf128 $0x1,%ymm1,%xmm0
-   0x00000000004026b3 <+115>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
-   0x00000000004026b7 <+119>:	c5 f9 17 4d b8	vmovhpd %xmm1,-0x48(%rbp)
-   0x00000000004026bc <+124>:	c5 f9 13 45 c0	vmovlpd %xmm0,-0x40(%rbp)
-   0x00000000004026c1 <+129>:	c5 f9 17 45 a8	vmovhpd %xmm0,-0x58(%rbp)
-   0x00000000004026c6 <+134>:	c5 f9 13 4d b0	vmovlpd %xmm1,-0x50(%rbp)
-   0x00000000004026cb <+139>:	c5 f8 77	vzeroupper 
+127	  for(i=0; i<N; ++i) {
+   0x000000000040292c <+92>:	48 83 c0 01	add    $0x1,%rax
 
-90	    sumv = _mm256_add_pd( _mm256_div_pd(onesv, divv), sumv);
-91	    divv = _mm256_add_pd(fourv, divv);
-92	  }
-93	  clock_gettime(CLOCK_MONOTONIC, &t[1]);
-   0x00000000004026ce <+142>:	48 8d 75 e0	lea    -0x20(%rbp),%rsi
-   0x00000000004026d2 <+146>:	bf 01 00 00 00	mov    $0x1,%edi
-   0x00000000004026d7 <+151>:	c5 fb 11 5d c8	vmovsd %xmm3,-0x38(%rbp)
-   0x00000000004026dc <+156>:	e8 7f e9 ff ff	call   0x401060 <clock_gettime@plt>
+/usr/lib/gcc/x86_64-redhat-linux/11/include/avxintrin.h:
+143	  return (__m256d) ((__v4df)__A + (__v4df)__B);
+   0x0000000000402930 <+96>:	c5 fd 58 c3	vaddpd %ymm3,%ymm0,%ymm0
+   0x0000000000402934 <+100>:	c5 f5 58 ca	vaddpd %ymm2,%ymm1,%ymm1
+
+harmonic_series.c:
+127	  for(i=0; i<N; ++i) {
+   0x0000000000402938 <+104>:	48 39 c3	cmp    %rax,%rbx
+   0x000000000040293b <+107>:	75 eb	jne    0x402928 <HarmonicSeriesAVX256+88>
+   0x000000000040293d <+109>:	c4 e3 7d 19 c8 01	vextractf128 $0x1,%ymm1,%xmm0
+   0x0000000000402943 <+115>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
+   0x0000000000402947 <+119>:	c5 f9 17 4d b8	vmovhpd %xmm1,-0x48(%rbp)
+   0x000000000040294c <+124>:	c5 f9 13 45 c0	vmovlpd %xmm0,-0x40(%rbp)
+   0x0000000000402951 <+129>:	c5 f9 17 45 a8	vmovhpd %xmm0,-0x58(%rbp)
+   0x0000000000402956 <+134>:	c5 f9 13 4d b0	vmovlpd %xmm1,-0x50(%rbp)
+   0x000000000040295b <+139>:	c5 f8 77	vzeroupper 
+
+128	    sumv = _mm256_add_pd( _mm256_div_pd(onesv, divv), sumv);
+129	    divv = _mm256_add_pd(fourv, divv);
+130	  }
+131	  clock_gettime(CLOCK_MONOTONIC, &t[1]);
+   0x000000000040295e <+142>:	48 8d 75 e0	lea    -0x20(%rbp),%rsi
+   0x0000000000402962 <+146>:	bf 01 00 00 00	mov    $0x1,%edi
+   0x0000000000402967 <+151>:	c5 fb 11 5d c8	vmovsd %xmm3,-0x38(%rbp)
+   0x000000000040296c <+156>:	e8 ef e6 ff ff	call   0x401060 <clock_gettime@plt>
 
 51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
-   0x00000000004026e1 <+161>:	c5 f0 57 c9	vxorps %xmm1,%xmm1,%xmm1
-   0x00000000004026e5 <+165>:	be 10 30 40 00	mov    $0x403010,%esi
-   0x00000000004026ea <+170>:	48 8b 3d 8f 29 00 00	mov    0x298f(%rip),%rdi        # 0x405080 <stdout@GLIBC_2.2.5>
+   0x0000000000402971 <+161>:	c5 f0 57 c9	vxorps %xmm1,%xmm1,%xmm1
+   0x0000000000402975 <+165>:	be 10 30 40 00	mov    $0x403010,%esi
+   0x000000000040297a <+170>:	48 8b 3d ff 26 00 00	mov    0x26ff(%rip),%rdi        # 0x405080 <stdout@GLIBC_2.2.5>
 
 49	    ( (double)(end->tv_nsec) - (double)(start->tv_nsec) ) / 1.0E9;
-   0x00000000004026f1 <+177>:	c4 e1 f3 2a 55 d8	vcvtsi2sdq -0x28(%rbp),%xmm1,%xmm2
+   0x0000000000402981 <+177>:	c4 e1 f3 2a 55 d8	vcvtsi2sdq -0x28(%rbp),%xmm1,%xmm2
 
 50	
 51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
-   0x00000000004026f7 <+183>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0000000000402987 <+183>:	b8 01 00 00 00	mov    $0x1,%eax
 
 49	    ( (double)(end->tv_nsec) - (double)(start->tv_nsec) ) / 1.0E9;
-   0x00000000004026fc <+188>:	c4 e1 f3 2a 45 e8	vcvtsi2sdq -0x18(%rbp),%xmm1,%xmm0
-   0x0000000000402702 <+194>:	c5 fb 5c c2	vsubsd %xmm2,%xmm0,%xmm0
-   0x0000000000402706 <+198>:	c5 fb 5e 05 ea 0a 00 00	vdivsd 0xaea(%rip),%xmm0,%xmm0        # 0x4031f8
+   0x000000000040298c <+188>:	c4 e1 f3 2a 45 e8	vcvtsi2sdq -0x18(%rbp),%xmm1,%xmm0
+   0x0000000000402992 <+194>:	c5 fb 5c c2	vsubsd %xmm2,%xmm0,%xmm0
+   0x0000000000402996 <+198>:	c5 fb 5e 05 a2 08 00 00	vdivsd 0x8a2(%rip),%xmm0,%xmm0        # 0x403240
 
 48	  double run_time = (double)(end->tv_sec) - (double)(start->tv_sec) +
-   0x000000000040270e <+206>:	c4 e1 f3 2a 55 e0	vcvtsi2sdq -0x20(%rbp),%xmm1,%xmm2
-   0x0000000000402714 <+212>:	c4 e1 f3 2a 4d d0	vcvtsi2sdq -0x30(%rbp),%xmm1,%xmm1
-   0x000000000040271a <+218>:	c5 eb 5c d1	vsubsd %xmm1,%xmm2,%xmm2
-   0x000000000040271e <+222>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
+   0x000000000040299e <+206>:	c4 e1 f3 2a 55 e0	vcvtsi2sdq -0x20(%rbp),%xmm1,%xmm2
+   0x00000000004029a4 <+212>:	c4 e1 f3 2a 4d d0	vcvtsi2sdq -0x30(%rbp),%xmm1,%xmm1
+   0x00000000004029aa <+218>:	c5 eb 5c d1	vsubsd %xmm1,%xmm2,%xmm2
+   0x00000000004029ae <+222>:	c5 fb 58 c2	vaddsd %xmm2,%xmm0,%xmm0
 
 50	
 51	  fprintf(stdout,"Time elapsed: %g s\n", run_time);
-   0x0000000000402722 <+226>:	e8 69 e9 ff ff	call   0x401090 <fprintf@plt>
+   0x00000000004029b2 <+226>:	e8 d9 e6 ff ff	call   0x401090 <fprintf@plt>
 
-94	  printTimer(&t[0], &t[1]);
-95	
-96	  double c[4];
-97	  double sum = 0.0;;
-98	  _mm256_storeu_pd(c, sumv); // write sumv to c array
-99	  for (i=0; i<4; ++i) {
-100	    //printf("%d %g\n", i, c[i]);
-101	    sum += c[i];
-   0x0000000000402727 <+231>:	c5 fb 10 5d c8	vmovsd -0x38(%rbp),%xmm3
-   0x000000000040272c <+236>:	c5 e3 58 45 b0	vaddsd -0x50(%rbp),%xmm3,%xmm0
-   0x0000000000402731 <+241>:	c5 fb 58 45 b8	vaddsd -0x48(%rbp),%xmm0,%xmm0
-   0x0000000000402736 <+246>:	c5 fb 58 45 c0	vaddsd -0x40(%rbp),%xmm0,%xmm0
+132	  printTimer(&t[0], &t[1]);
+133	
+134	  double c[4];
+135	  double sum = 0.0;;
+136	  _mm256_storeu_pd(c, sumv); // write sumv to c array
+137	  for (i=0; i<4; ++i) {
+138	    //printf("%d %g\n", i, c[i]);
+139	    sum += c[i];
+   0x00000000004029b7 <+231>:	c5 fb 10 5d c8	vmovsd -0x38(%rbp),%xmm3
+   0x00000000004029bc <+236>:	c5 e3 58 45 b0	vaddsd -0x50(%rbp),%xmm3,%xmm0
+   0x00000000004029c1 <+241>:	c5 fb 58 45 b8	vaddsd -0x48(%rbp),%xmm0,%xmm0
+   0x00000000004029c6 <+246>:	c5 fb 58 45 c0	vaddsd -0x40(%rbp),%xmm0,%xmm0
 
-102	  }
-103	  return sum;
-   0x000000000040273b <+251>:	c5 fb 58 45 a8	vaddsd -0x58(%rbp),%xmm0,%xmm0
+140	  }
+141	  return sum;
+   0x00000000004029cb <+251>:	c5 fb 58 45 a8	vaddsd -0x58(%rbp),%xmm0,%xmm0
 
-104	}
-   0x0000000000402740 <+256>:	48 83 c4 60	add    $0x60,%rsp
-   0x0000000000402744 <+260>:	5b	pop    %rbx
-   0x0000000000402745 <+261>:	41 5a	pop    %r10
-   0x0000000000402747 <+263>:	5d	pop    %rbp
-   0x0000000000402748 <+264>:	49 8d 62 f8	lea    -0x8(%r10),%rsp
-   0x000000000040274c <+268>:	c3	ret    
-   0x000000000040274d <+269>:	0f 1f 00	nopl   (%rax)
+142	}
+   0x00000000004029d0 <+256>:	48 83 c4 60	add    $0x60,%rsp
+   0x00000000004029d4 <+260>:	5b	pop    %rbx
+   0x00000000004029d5 <+261>:	41 5a	pop    %r10
+   0x00000000004029d7 <+263>:	5d	pop    %rbp
+   0x00000000004029d8 <+264>:	49 8d 62 f8	lea    -0x8(%r10),%rsp
+   0x00000000004029dc <+268>:	c3	ret    
+   0x00000000004029dd <+269>:	0f 1f 00	nopl   (%rax)
 
-89	  for(i=0; i<N; ++i) {
-   0x0000000000402750 <+272>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
-   0x0000000000402754 <+276>:	c5 fb 11 5d b0	vmovsd %xmm3,-0x50(%rbp)
-   0x0000000000402759 <+281>:	c5 fb 11 5d a8	vmovsd %xmm3,-0x58(%rbp)
-   0x000000000040275e <+286>:	c5 fb 11 5d b8	vmovsd %xmm3,-0x48(%rbp)
-   0x0000000000402763 <+291>:	c5 fb 11 5d c0	vmovsd %xmm3,-0x40(%rbp)
-   0x0000000000402768 <+296>:	e9 61 ff ff ff	jmp    0x4026ce <HarmonicSeriesAVX256+142>
+127	  for(i=0; i<N; ++i) {
+   0x00000000004029e0 <+272>:	c5 e1 57 db	vxorpd %xmm3,%xmm3,%xmm3
+   0x00000000004029e4 <+276>:	c5 fb 11 5d b0	vmovsd %xmm3,-0x50(%rbp)
+   0x00000000004029e9 <+281>:	c5 fb 11 5d a8	vmovsd %xmm3,-0x58(%rbp)
+   0x00000000004029ee <+286>:	c5 fb 11 5d b8	vmovsd %xmm3,-0x48(%rbp)
+   0x00000000004029f3 <+291>:	c5 fb 11 5d c0	vmovsd %xmm3,-0x40(%rbp)
+   0x00000000004029f8 <+296>:	e9 61 ff ff ff	jmp    0x40295e <HarmonicSeriesAVX256+142>
 End of assembler dump.

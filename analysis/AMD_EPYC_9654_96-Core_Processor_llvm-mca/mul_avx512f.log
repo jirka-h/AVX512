@@ -1,0 +1,2 @@
+error: found an unsupported instruction in the input assembly sequence.
+note: instruction: 	vmovapd	%zmm1, %zmm0

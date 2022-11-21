@@ -25,36 +25,36 @@ Extension AVX512BITALG    is unsupported
 
  Performance counter stats for '../../bin/detect_avx':
 
-              1.18 msec task-clock                       #    0.465 CPUs utilized          
+              1.18 msec task-clock                       #    0.446 CPUs utilized          
                  0      context-switches                 #    0.000 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
-                58      page-faults                      #   49.047 K/sec                  
-         1,176,383      cycles                           #    0.995 GHz                    
-           906,724      instructions                     #    0.77  insn per cycle         
-           205,109      branches                         #  173.447 M/sec                  
-             6,965      branch-misses                    #    3.40% of all branches        
+                56      page-faults                      #   47.304 K/sec                  
+         1,177,160      cycles                           #    0.994 GHz                    
+           905,485      instructions                     #    0.77  insn per cycle         
+           204,371      branches                         #  172.637 M/sec                  
+             7,526      branch-misses                    #    3.68% of all branches        
 
-       0.002545375 seconds time elapsed
+       0.002651913 seconds time elapsed
 
        0.000000000 seconds user
-       0.002673000 seconds sys
+       0.002797000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/detect_avx"
-	User time (seconds): 0.31
-	System time (seconds): 0.04
-	Percent of CPU this job got: 96%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.36
+	User time (seconds): 0.16
+	System time (seconds): 0.05
+	Percent of CPU this job got: 95%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.23
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 30928
+	Maximum resident set size (kbytes): 31060
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4777
+	Minor (reclaiming a frame) page faults: 4776
 	Voluntary context switches: 6
-	Involuntary context switches: 146
+	Involuntary context switches: 94
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

@@ -1,0 +1,175 @@
+warning: found a call in the input assembly sequence.
+note: call instructions are not correctly modeled. Assume a latency of 100cy.
+warning: found a return instruction in the input assembly sequence.
+note: program counter updates are ignored.
+Iterations:        10000
+Instructions:      130000
+Total Cycles:      51073
+Total uOps:        130000
+
+Dispatch Width:    6
+uOps Per Cycle:    2.55
+IPC:               2.55
+Block RThroughput: 5.0
+
+
+Cycles with backend pressure increase [ 32.30% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 30.36% ]
+  - Zn3ALU0  [ 0.40% ]
+  - Zn3ALU1  [ 0.35% ]
+  - Zn3ALU2  [ 0.35% ]
+  - Zn3ALU3  [ 0.35% ]
+  - Zn3BRU1  [ 0.12% ]
+  - Zn3FPP1  [ 30.33% ]
+  Data Dependencies:      [ 3.09% ]
+  - Register Dependencies [ 3.09% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 4.    vdivsd	%xmm1, %xmm0, %xmm0
+ |
+ |    < loop carried > 
+ |
+ |      0.    movabsq	$32000000000, %rax
+ |      1.    subq	$8, %rsp
+ |      2.    vmovsd	.LC0(%rip), %xmm0
+ |      3.    vmovsd	.LC1(%rip), %xmm1
+ +----> 4.    vdivsd	%xmm1, %xmm0, %xmm0               ## RESOURCE interference:  Zn3FPP1 [ probability: 94% ]
+ |      5.    subq	$1, %rax
+ |      6.    jne	.L2
+ |      7.    movl	$.LC2, %edi
+ |      8.    movl	$1, %eax
+ |      9.    callq	printf
+ |      10.   xorl	%eax, %eax
+ |      11.   addq	$8, %rsp
+ |      12.   retq
+ |
+ |    < loop carried > 
+ |
+ +----> 4.    vdivsd	%xmm1, %xmm0, %xmm0               ## RESOURCE interference:  Zn3FPP1 [ probability: 94% ]
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      1     1.00                        movabsq	$32000000000, %rax
+ 1      1     0.25                        subq	$8, %rsp
+ 1      8     0.50    *                   vmovsd	.LC0(%rip), %xmm0
+ 1      8     0.50    *                   vmovsd	.LC1(%rip), %xmm1
+ 1      13    5.00                        vdivsd	%xmm1, %xmm0, %xmm0
+ 1      1     0.25                        subq	$1, %rax
+ 1      1     0.50                        jne	.L2
+ 1      1     0.50                        movl	$.LC2, %edi
+ 1      1     0.50                        movl	$1, %eax
+ 1      1     0.50                        callq	printf
+ 1      0     0.17                        xorl	%eax, %eax
+ 1      1     0.25                        addq	$8, %rsp
+ 1      5     0.50                  U     retq
+
+
+Retire Control Unit - number of cycles where we saw N instructions retired:
+[# retired], [# cycles]
+ 0,           31071  (60.8%)
+ 2,           17  (0.0%)
+ 4,           1  (0.0%)
+ 5,           9970  (19.5%)
+ 8,           10014  (19.6%)
+
+Total ROB Entries:                256
+Max Used ROB Entries:             256  ( 100.0% )
+Average Used ROB Entries per cy:  255  ( 99.6% )
+
+
+Resources:
+[0]   - Zn3AGU0
+[1]   - Zn3AGU1
+[2]   - Zn3AGU2
+[3]   - Zn3ALU0
+[4]   - Zn3ALU1
+[5]   - Zn3ALU2
+[6]   - Zn3ALU3
+[7]   - Zn3BRU1
+[8]   - Zn3FPP0
+[9]   - Zn3FPP1
+[10]  - Zn3FPP2
+[11]  - Zn3FPP3
+[12.0] - Zn3FPP45
+[12.1] - Zn3FPP45
+[13]  - Zn3FPSt
+[14.0] - Zn3LSU
+[14.1] - Zn3LSU
+[14.2] - Zn3LSU
+[15.0] - Zn3Load
+[15.1] - Zn3Load
+[15.2] - Zn3Load
+[16.0] - Zn3Store
+[16.1] - Zn3Store
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] 
+0.33   0.33   0.33   2.85   3.62   2.63   2.85   2.05    -     5.00    -      -     1.00   1.00    -     1.00   1.00   1.00   1.00   1.00   1.00    -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] Instructions:
+ -      -      -     0.01   2.70   0.87   0.42    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movabsq	$32000000000, %rax
+ -      -      -     0.10   0.27   0.06   0.58    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$8, %rsp
+ -      -      -      -      -      -      -      -      -      -      -      -      -     1.00    -     0.84    -     0.16   0.84    -     0.16    -      -     vmovsd	.LC0(%rip), %xmm0
+ -      -      -      -      -      -      -      -      -      -      -      -     1.00    -      -      -     0.16   0.84    -     0.16   0.84    -      -     vmovsd	.LC1(%rip), %xmm1
+ -      -      -      -      -      -      -      -      -     5.00    -      -      -      -      -      -      -      -      -      -      -      -      -     vdivsd	%xmm1, %xmm0, %xmm0
+ -      -      -     0.16   0.06   0.58   0.20    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$1, %rax
+ -      -      -     0.16    -      -      -     0.84    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     jne	.L2
+ -      -      -     1.26   0.13   0.40   0.22    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$.LC2, %edi
+ -      -      -     0.32   0.42   0.11   1.16    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %eax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     callq	printf
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+ -      -      -     0.05   0.06   0.63   0.26    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$8, %rsp
+0.33   0.33   0.33   0.79    -      -      -     0.21    -      -      -      -      -      -      -     0.16   0.84    -     0.16   0.84    -      -      -     retq
+
+
+Timeline view:
+                    0123456789          0123456789          0123456789        
+Index     0123456789          0123456789          0123456789          01234567
+
+[0,0]     DeER .    .    .    .    .    .    .    .    .    .    .    .    . .   movabsq	$32000000000, %rax
+[0,1]     DeER .    .    .    .    .    .    .    .    .    .    .    .    . .   subq	$8, %rsp
+[0,2]     DeeeeeeeeER    .    .    .    .    .    .    .    .    .    .    . .   vmovsd	.LC0(%rip), %xmm0
+[0,3]     DeeeeeeeeER    .    .    .    .    .    .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm1
+[0,4]     D========eeeeeeeeeeeeeER .    .    .    .    .    .    .    .    . .   vdivsd	%xmm1, %xmm0, %xmm0
+[0,5]     D=eE-------------------R .    .    .    .    .    .    .    .    . .   subq	$1, %rax
+[0,6]     .D=eE------------------R .    .    .    .    .    .    .    .    . .   jne	.L2
+[0,7]     .DeE-------------------R .    .    .    .    .    .    .    .    . .   movl	$.LC2, %edi
+[0,8]     .DeE-------------------R .    .    .    .    .    .    .    .    . .   movl	$1, %eax
+Truncated display due to cycle limit
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    4.7    4.7    87.9      movabsq	$32000000000, %rax
+1.     10    4.9    0.2    87.6      subq	$8, %rsp
+2.     10    1.0    1.0    85.1      vmovsd	.LC0(%rip), %xmm0
+3.     10    1.0    1.0    84.9      vmovsd	.LC1(%rip), %xmm1
+4.     10    21.5   12.7   61.4      vdivsd	%xmm1, %xmm0, %xmm0
+5.     10    4.9    0.0    89.8      subq	$1, %rax
+6.     10    5.7    0.0    88.8      jne	.L2
+7.     10    4.3    4.3    90.1      movl	$.LC2, %edi
+8.     10    4.8    4.8    89.5      movl	$1, %eax
+9.     10    4.8    0.2    0.0       callq	printf
+10.    10    0.0    0.0    104.6     xorl	%eax, %eax
+11.    10    5.1    0.9    98.3      addq	$8, %rsp
+12.    10    2.2    2.2    97.1      retq
+       10    5.0    2.5    81.9      <total>

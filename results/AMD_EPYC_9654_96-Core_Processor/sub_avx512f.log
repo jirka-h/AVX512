@@ -9,34 +9,34 @@
 
  Performance counter stats for '../../bin/sub_avx512f':
 
-          3,266.31 msec task-clock                #    1.000 CPUs utilized          
-                 3      context-switches          #    0.918 /sec                   
+          3,266.12 msec task-clock                #    1.000 CPUs utilized          
+                 3      context-switches          #    0.919 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                63      page-faults               #   19.288 /sec                   
-    12,032,972,408      cycles                    #    3.684 GHz                      (66.65%)
-            43,355      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
-         3,676,057      stalled-cycles-backend    #    0.03% backend cycles idle      (66.69%)
-    12,017,927,128      instructions              #    1.00  insn per cycle         
+                61      page-faults               #   18.677 /sec                   
+    12,032,252,687      cycles                    #    3.684 GHz                      (66.65%)
+            48,359      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.68%)
+         3,999,466      stalled-cycles-backend    #    0.03% backend cycles idle      (66.69%)
+    12,017,683,232      instructions              #    1.00  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.69%)
-     4,002,958,353      branches                  #    1.226 G/sec                    (66.66%)
-            92,818      branch-misses             #    0.00% of all branches          (66.63%)
+     4,003,038,356      branches                  #    1.226 G/sec                    (66.66%)
+            91,022      branch-misses             #    0.00% of all branches          (66.63%)
 
-       3.266707106 seconds time elapsed
+       3.266519574 seconds time elapsed
 
-       3.249890000 seconds user
-       0.000993000 seconds sys
+       3.250867000 seconds user
+       0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/sub_avx512f"
 	User time (seconds): 3.25
-	System time (seconds): 0.01
+	System time (seconds): 0.00
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.29
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15244
+	Maximum resident set size (kbytes): 15416
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 1510

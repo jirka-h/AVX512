@@ -25,22 +25,22 @@ Extension AVX512BITALG    is supported
 
  Performance counter stats for '../../bin/detect_avx':
 
-              1.87 msec task-clock                #    0.889 CPUs utilized          
+              0.32 msec task-clock                #    0.609 CPUs utilized          
                  0      context-switches          #    0.000 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                59      page-faults               #   31.475 K/sec                  
-         6,903,195      cycles                    #    3.683 GHz                      (95.23%)
-            27,531      stalled-cycles-frontend   #    0.40% frontend cycles idle   
-            80,769      stalled-cycles-backend    #    1.17% backend cycles idle    
-         4,494,847      instructions              #    0.65  insn per cycle         
-                                                  #    0.02  stalled cycles per insn
-         1,313,229      branches                  #  700.574 M/sec                    (4.77%)
+                57      page-faults               #  177.774 K/sec                  
+         1,172,460      cycles                    #    3.657 GHz                    
+            26,635      stalled-cycles-frontend   #    2.27% frontend cycles idle   
+            65,108      stalled-cycles-backend    #    5.55% backend cycles idle    
+           856,649      instructions              #    0.73  insn per cycle         
+                                                  #    0.08  stalled cycles per insn
+     <not counted>      branches                                                      (0.00%)
      <not counted>      branch-misses                                                 (0.00%)
 
-       0.002107927 seconds time elapsed
+       0.000526073 seconds time elapsed
 
-       0.000000000 seconds user
-       0.002173000 seconds sys
+       0.000599000 seconds user
+       0.000000000 seconds sys
 
 
 Some events weren't counted. Try disabling the NMI watchdog:
@@ -50,16 +50,16 @@ Some events weren't counted. Try disabling the NMI watchdog:
 	Command being timed: "perf stat ../../bin/detect_avx"
 	User time (seconds): 0.00
 	System time (seconds): 0.00
-	Percent of CPU this job got: 57%
+	Percent of CPU this job got: 48%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.02
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15220
+	Maximum resident set size (kbytes): 15336
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1507
+	Minor (reclaiming a frame) page faults: 1509
 	Voluntary context switches: 5
 	Involuntary context switches: 0
 	Swaps: 0

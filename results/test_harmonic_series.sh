@@ -1,6 +1,12 @@
 #!/bin/bash
 
-declare -A methods=([0]=HarmonicSeriesAVX512 [1]=HarmonicSeriesAVX256 [2]=HarmonicSeriesPlain)
+declare -A methods=([0]=HarmonicSeriesAVX512 [1]=HarmonicSeriesAVX256 [2]=HarmonicSeriesPlain [3]=HarmonicSeriesAVX512_four_vectors)
+
+cpu_name=$(lscpu | grep -Poh "^\s*Model name:\s+\K.*$" | sed -e 's/(.*)//g' | tr -cd 'A-Za-z0-9 ._-' | tr ' ' '_' | tr -s '_')
+dir_name=${cpu_name}_harmonic_series
+[ -d "$dir_name" ] && rm -rf "./${dir_name}"
+mkdir "./$dir_name"
+pushd "./$dir_name" || exit 1
 
 dir="$(pwd)/.."
 for thread in 1 2 4 8 16; do

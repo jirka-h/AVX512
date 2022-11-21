@@ -1,0 +1,4 @@
+/usr/bin/time: cannot run /home/AVX512/results/Intel_Platinum_8351N_CPU_2.40GHz_harmonic_series/../harmonic_series: No such file or directory
+Command exited with non-zero status 127
+0.00user 0.00system 0:00.00elapsed 52%CPU (0avgtext+0avgdata 976maxresident)k
+0inputs+0outputs (0major+30minor)pagefaults 0swaps

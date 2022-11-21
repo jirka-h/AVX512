@@ -1,41 +1,40 @@
 Plain sum:
 Sum 24.7662
 Difference Sum - Formula -4.80693e-10
-Performed 3.2e+10 HarmonicSeriesPlain operations. Avg: 3.27059 CPU cycles/call
-Time elapsed: 40.2531 s
+Time elapsed: 39.0741 s
 
  Performance counter stats for '../../bin/harmonic_series 2 4e9':
 
-         40,185.44 msec task-clock                       #    0.998 CPUs utilized          
-            16,512      context-switches                 #  410.895 /sec                   
-                10      cpu-migrations                   #    0.249 /sec                   
-                73      page-faults                      #    1.817 /sec                   
-   132,294,202,581      cycles                           #    3.292 GHz                    
-   192,341,813,718      instructions                     #    1.45  insn per cycle         
-    32,070,144,184      branches                         #  798.054 M/sec                  
-         1,282,268      branch-misses                    #    0.00% of all branches        
+         39,008.50 msec task-clock                       #    0.998 CPUs utilized          
+            15,954      context-switches                 #  408.988 /sec                   
+                 9      cpu-migrations                   #    0.231 /sec                   
+                74      page-faults                      #    1.897 /sec                   
+   128,437,564,664      cycles                           #    3.293 GHz                    
+   192,331,485,215      instructions                     #    1.50  insn per cycle         
+    32,067,995,162      branches                         #  822.077 M/sec                  
+         1,260,139      branch-misses                    #    0.00% of all branches        
 
-      40.255757385 seconds time elapsed
+      39.076686828 seconds time elapsed
 
-      40.148685000 seconds user
-       0.002977000 seconds sys
+      38.973426000 seconds user
+       0.001978000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/harmonic_series 2 4e9"
-	User time (seconds): 40.45
-	System time (seconds): 0.04
+	User time (seconds): 39.29
+	System time (seconds): 0.03
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:40.61
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.44
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31108
+	Maximum resident set size (kbytes): 31172
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4789
+	Minor (reclaiming a frame) page faults: 4790
 	Voluntary context switches: 6
-	Involuntary context switches: 16656
+	Involuntary context switches: 16097
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

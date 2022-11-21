@@ -5,41 +5,41 @@
 
  Performance counter stats for '../../bin/sub_avx256f':
 
-         10,367.22 msec task-clock                       #    0.998 CPUs utilized          
-             3,837      context-switches                 #  370.109 /sec                   
-                 1      cpu-migrations                   #    0.096 /sec                   
-                59      page-faults                      #    5.691 /sec                   
-    32,067,008,848      cycles                           #    3.093 GHz                    
-    24,084,562,590      instructions                     #    0.75  insn per cycle         
-     8,017,416,224      branches                         #  773.343 M/sec                  
-            70,137      branch-misses                    #    0.00% of all branches        
-   160,333,654,760      slots                            #   15.465 G/sec                  
-    15,718,985,760      topdown-retiring                 #      9.8% Retiring              
-     4,401,316,013      topdown-bad-spec                 #      2.7% Bad Speculation       
-     3,772,556,582      topdown-fe-bound                 #      2.3% Frontend Bound        
-   137,061,260,878      topdown-be-bound                 #     85.2% Backend Bound         
+         10,368.88 msec task-clock                       #    0.998 CPUs utilized          
+             3,785      context-switches                 #  365.035 /sec                   
+                 0      cpu-migrations                   #    0.000 /sec                   
+                59      page-faults                      #    5.690 /sec                   
+    32,067,261,717      cycles                           #    3.093 GHz                    
+    24,084,149,265      instructions                     #    0.75  insn per cycle         
+     8,017,321,375      branches                         #  773.210 M/sec                  
+            76,574      branch-misses                    #    0.00% of all branches        
+   160,334,723,800      slots                            #   15.463 G/sec                  
+    15,719,090,568      topdown-retiring                 #      9.8% Retiring              
+     5,030,108,981      topdown-bad-spec                 #      3.1% Bad Speculation       
+     3,772,581,736      topdown-fe-bound                 #      2.3% Frontend Bound        
+   136,500,540,512      topdown-be-bound                 #     84.8% Backend Bound         
 
-      10.383417899 seconds time elapsed
+      10.384949494 seconds time elapsed
 
-      10.360782000 seconds user
-       0.001973000 seconds sys
+      10.362452000 seconds user
+       0.001976000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/sub_avx256f"
 	User time (seconds): 10.88
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.95
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.96
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57308
+	Maximum resident set size (kbytes): 57404
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11729
-	Voluntary context switches: 5
-	Involuntary context switches: 4055
+	Minor (reclaiming a frame) page faults: 11730
+	Voluntary context switches: 6
+	Involuntary context switches: 4011
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

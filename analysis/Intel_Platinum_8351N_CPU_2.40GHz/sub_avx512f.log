@@ -1,0 +1,136 @@
+0 210.70250878024842223
+1 -298.32623522916156844
+2 198.78716728995914309
+3 -304.00380778976318652
+4 128.06117621755288383
+5 -349.88874229943007776
+6 70.04203779538981678
+7 -410.17500538597477089
+	Command being timed: "../../bin/sub_avx512f"
+	User time (seconds): 5.19
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.24
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1564
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 71
+	Voluntary context switches: 1
+	Involuntary context switches: 1927
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 210.70250878024842223
+1 -298.32623522916156844
+2 198.78716728995914309
+3 -304.00380778976318652
+4 128.06117621755288383
+5 -349.88874229943007776
+6 70.04203779538981678
+7 -410.17500538597477089
+	Command being timed: "../../bin/sub_avx512f"
+	User time (seconds): 5.17
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1588
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 74
+	Voluntary context switches: 1
+	Involuntary context switches: 1907
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 210.70250878024842223
+1 -298.32623522916156844
+2 198.78716728995914309
+3 -304.00380778976318652
+4 128.06117621755288383
+5 -349.88874229943007776
+6 70.04203779538981678
+7 -410.17500538597477089
+	Command being timed: "../../bin/sub_avx512f"
+	User time (seconds): 5.17
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1488
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 69
+	Voluntary context switches: 1
+	Involuntary context switches: 1896
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+ Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/sub_avx512f' (3 runs):
+
+    80,097,804,462      TOPDOWN.SLOTS                    #      4.5 %  tma_branch_instructions_percent
+                                                  #      0.0 %  tma_nop_instructions_percent
+                                                  #      0.0 %  tma_memory_operations_percent
+                                                  #      0.0 %  tma_other_light_ops_percent  ( +-  0.05% )  (28.47%)
+     7,688,294,878      topdown-retiring                 #      9.6% Retiring                ( +-  0.43% )  (28.47%)
+     4,003,761,341      BR_INST_RETIRED.ALL_BRANCHES                                         ( +-  0.03% )  (28.49%)
+    12,038,365,590      INST_RETIRED.ANY                                                     ( +-  0.03% )  (32.07%)
+                 0      FP_ARITH_INST_RETIRED.128B_PACKED_SINGLE                                     (35.65%)
+     8,075,314,599      UOPS_EXECUTED.THREAD             #     1.00 Execute_per_Issue        ( +-  0.08% )  (35.67%)
+                 0      FP_ARITH_INST_RETIRED.SCALAR_DOUBLE                                     (35.70%)
+                 0      FP_ARITH_INST_RETIRED.512B_PACKED_SINGLE                                     (35.72%)
+     1,885,430,033      topdown-fe-bound                 #      2.3% Frontend Bound          ( +-  0.17% )  (28.47%)
+        20,657,026      IDQ.MS_UOPS                                                          ( +-  4.47% )  (35.75%)
+                 0      UOPS_EXECUTED.X87                                                    (35.77%)
+    67,328,569,325      topdown-be-bound                 #     83.4% Backend Bound           ( +-  1.50% )  (28.47%)
+                 0      FP_ARITH_INST_RETIRED.SCALAR_SINGLE                                     (35.80%)
+        21,503,033      MEM_INST_RETIRED.ANY                                                 ( +-  8.75% )  (32.23%)
+         4,230,125      cpu/UOPS_DECODED.DEC0,cmask=0x1/                                     ( +-  0.07% )  (28.65%)
+         8,021,115      UOPS_DECODED.DEC0                                                    ( +-  0.43% )  (28.65%)
+                 0      FP_ARITH_INST_RETIRED.256B_PACKED_DOUBLE                                     (28.65%)
+         2,055,737      INST_RETIRED.NOP                                                     ( +-  0.42% )  (28.65%)
+                 0      FP_ARITH_INST_RETIRED.128B_PACKED_DOUBLE                                     (28.65%)
+     8,078,841,954      UOPS_ISSUED.ANY                                                      ( +-  0.03% )  (28.64%)
+        42,011,512      IDQ.MITE_UOPS                                                        ( +-  0.08% )  (28.62%)
+     4,004,274,958      FP_ARITH_INST_RETIRED.512B_PACKED_DOUBLE                                     ( +-  0.04% )  (28.60%)
+                 0      FP_ARITH_INST_RETIRED.256B_PACKED_SINGLE                                     (28.58%)
+     3,455,199,408      topdown-bad-spec                 #      4.7% Bad Speculation         ( +- 29.15% )  (28.47%)
+     7,092,327,161      UOPS_EXECUTED.CORE_CYCLES_GE_1   #     2.28 ILP                      ( +-  0.04% )  (24.98%)
+     8,077,975,773      UOPS_EXECUTED.THREAD                                                 ( +-  0.05% )  (24.98%)
+     8,075,281,712      UOPS_EXECUTED.THREAD             #     1.14 Execute                  ( +-  0.04% )  (21.38%)
+     7,089,438,227      cpu/UOPS_EXECUTED.THREAD,cmask=1/                                     ( +-  0.02% )  (21.38%)
+    16,051,943,329      CPU_CLK_UNHALTED.THREAD          # 16051229629.33 CLKS               ( +-  0.00% )  (21.37%)
+           919,769      arith.divider_active                                                 ( +-  0.97% )  (21.36%)
+        13,754,936      L1-dcache-loads                                                      ( +- 18.06% )  (21.36%)
+           441,786      L1-dcache-load-misses            #    2.72% of all L1-dcache accesses  ( +- 16.88% )  (21.35%)
+            16,852      LLC-loads                                                            ( +- 44.16% )  (21.34%)
+                 4      LLC-load-misses                  #    0.02% of all LL-cache accesses  ( +-18541.67% )  (24.90%)
+
+           5.23304 +- 0.00652 seconds time elapsed  ( +-  0.12% )
+

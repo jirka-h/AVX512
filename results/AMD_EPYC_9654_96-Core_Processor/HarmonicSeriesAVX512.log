@@ -1,40 +1,39 @@
-Time elapsed: 9.79616 s
+Time elapsed: 9.79631 s
 AVX512:
 Sum 24.7662
 Difference Sum - Formula -1.40332e-12
-Performed 4e+09 HarmonicSeriesAVX512 operations. Avg: 5.86878 CPU cycles/call
-Time elapsed: 9.79625 s
+Time elapsed: 9.79637 s
 
  Performance counter stats for '../../bin/harmonic_series 0 4e9':
 
-          9,796.42 msec task-clock                #    1.000 CPUs utilized          
+          9,796.60 msec task-clock                #    1.000 CPUs utilized          
                  5      context-switches          #    0.510 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                72      page-faults               #    7.350 /sec                   
-    36,089,391,804      cycles                    #    3.684 GHz                      (66.66%)
-           126,519      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-        10,031,160      stalled-cycles-backend    #    0.03% backend cycles idle      (66.66%)
-    24,053,657,244      instructions              #    0.67  insn per cycle         
+                72      page-faults               #    7.349 /sec                   
+    36,088,116,127      cycles                    #    3.684 GHz                      (66.66%)
+           121,191      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+        10,337,818      stalled-cycles-backend    #    0.03% backend cycles idle      (66.66%)
+    24,056,045,427      instructions              #    0.67  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     4,009,618,100      branches                  #  409.294 M/sec                    (66.68%)
-           270,476      branch-misses             #    0.01% of all branches          (66.66%)
+     4,009,952,880      branches                  #  409.321 M/sec                    (66.68%)
+           271,006      branch-misses             #    0.01% of all branches          (66.66%)
 
-       9.796987937 seconds time elapsed
+       9.797238892 seconds time elapsed
 
-       9.751284000 seconds user
+       9.751445000 seconds user
        0.000000000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/harmonic_series 0 4e9"
 	User time (seconds): 9.75
-	System time (seconds): 0.00
+	System time (seconds): 0.01
 	Percent of CPU this job got: 99%
 	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:09.82
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15352
+	Maximum resident set size (kbytes): 15364
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
 	Minor (reclaiming a frame) page faults: 1521

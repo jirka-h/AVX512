@@ -5,36 +5,36 @@
 
  Performance counter stats for '../../bin/sub_avx256f':
 
-          9,803.13 msec task-clock                       #    0.998 CPUs utilized          
-             4,028      context-switches                 #  410.889 /sec                   
-                 4      cpu-migrations                   #    0.408 /sec                   
-                59      page-faults                      #    6.018 /sec                   
-    32,111,213,716      cycles                           #    3.276 GHz                    
-    24,084,241,803      instructions                     #    0.75  insn per cycle         
-     8,017,292,467      branches                         #  817.830 M/sec                  
-           325,134      branch-misses                    #    0.00% of all branches        
+          9,794.96 msec task-clock                       #    0.998 CPUs utilized          
+             3,982      context-switches                 #  406.535 /sec                   
+                 0      cpu-migrations                   #    0.000 /sec                   
+                59      page-faults                      #    6.024 /sec                   
+    32,110,902,090      cycles                           #    3.278 GHz                    
+    24,083,676,847      instructions                     #    0.75  insn per cycle         
+     8,017,169,411      branches                         #  818.499 M/sec                  
+           321,712      branch-misses                    #    0.00% of all branches        
 
-       9.821656538 seconds time elapsed
+       9.813202780 seconds time elapsed
 
-       9.793941000 seconds user
-       0.001973000 seconds sys
+       9.784641000 seconds user
+       0.002970000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/sub_avx256f"
 	User time (seconds): 10.10
 	System time (seconds): 0.04
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.18
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:10.19
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 31092
+	Maximum resident set size (kbytes): 30948
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 4775
+	Minor (reclaiming a frame) page faults: 4778
 	Voluntary context switches: 6
-	Involuntary context switches: 4173
+	Involuntary context switches: 4130
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

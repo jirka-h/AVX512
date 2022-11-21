@@ -1,0 +1,115 @@
+0 24.53253668079271677
+1 16.44465057627291671
+2 11.02317856826629416
+3 7.38905732167703544
+4 4.95303308049624480
+5 3.32011725278397885
+6 2.22554107607292417
+7 1.49182474713380642
+	Command being timed: "../../bin/mul_avx512f"
+	User time (seconds): 3.25
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.26
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1708
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 73
+	Voluntary context switches: 1
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 24.53253668079271677
+1 16.44465057627291671
+2 11.02317856826629416
+3 7.38905732167703544
+4 4.95303308049624480
+5 3.32011725278397885
+6 2.22554107607292417
+7 1.49182474713380642
+	Command being timed: "../../bin/mul_avx512f"
+	User time (seconds): 3.25
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.26
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 75
+	Voluntary context switches: 1
+	Involuntary context switches: 3
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+0 24.53253668079271677
+1 16.44465057627291671
+2 11.02317856826629416
+3 7.38905732167703544
+4 4.95303308049624480
+5 3.32011725278397885
+6 2.22554107607292417
+7 1.49182474713380642
+	Command being timed: "../../bin/mul_avx512f"
+	User time (seconds): 3.24
+	System time (seconds): 0.00
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.26
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1708
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 73
+	Voluntary context switches: 1
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+ Performance counter stats for 'taskset -c 1 /usr/bin/time -v ../../bin/mul_avx512f' (3 runs):
+
+    12,030,059,229      cycles                                                        ( +-  0.00% )  (35.66%)
+           251,917      stalled-cycles-frontend   #    0.00% frontend cycles idle     ( +-  3.93% )  (35.70%)
+         3,853,250      stalled-cycles-backend    #    0.03% backend cycles idle      ( +-  1.44% )  (35.73%)
+           217,372      cache-misses                                                  ( +-  8.27% )  (35.77%)
+                 0      sse_avx_stalls                                                (35.80%)
+    32,005,233,633      fp_ret_sse_avx_ops.all                                        ( +-  0.01% )  (28.65%)
+                 0      fp_ret_sse_avx_ops.div_flops                                     (21.46%)
+     4,000,203,358      fpu_pipe_assignment.total                                     ( +-  0.01% )  (21.43%)
+     2,000,177,287      fpu_pipe_assignment.total0                                     ( +-  0.01% )  (21.40%)
+     2,000,449,219      fpu_pipe_assignment.total1                                     ( +-  0.01% )  (28.53%)
+               525      fpu_pipe_assignment.total2                                     ( +-  4.60% )  (28.52%)
+                 5      fpu_pipe_assignment.total3                                     ( +- 33.33% )  (35.65%)
+         6,769,528      L1-dcache-loads                                               ( +-  0.34% )  (35.65%)
+           149,662      L1-dcache-load-misses     #    2.21% of all L1-dcache accesses  ( +-  9.35% )  (35.65%)
+   <not supported>      LLC-loads                                                   
+   <not supported>      LLC-load-misses                                             
+
+         3.2682894 +- 0.0000762 seconds time elapsed  ( +-  0.00% )
+

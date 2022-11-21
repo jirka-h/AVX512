@@ -1,30 +1,6 @@
 power_meter-acpi-0
 Adapter: ACPI interface
-power1:       84.00 W  (interval =   1.00 s)
-
-pch_lewisburg-virtual-0
-Adapter: Virtual device
-temp1:        +30.0°C  
-
-coretemp-isa-0000
-Adapter: ISA adapter
-Package id 0:  +50.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 0:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 1:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 3:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 4:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 5:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 6:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 8:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 9:        +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 10:       +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 11:       +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 12:       +49.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 13:       +50.0°C  (high = +90.0°C, crit = +100.0°C)
-
-power_meter-acpi-0
-Adapter: ACPI interface
-power1:      151.00 W  (interval =   1.00 s)
+power1:       57.00 W  (interval =   1.00 s)
 
 pch_lewisburg-virtual-0
 Adapter: Virtual device
@@ -32,17 +8,41 @@ temp1:        +31.0°C
 
 coretemp-isa-0000
 Adapter: ISA adapter
-Package id 0:  +58.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 0:        +55.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 1:        +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 3:        +56.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 4:        +58.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 5:        +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 6:        +55.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 8:        +55.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 9:        +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 10:       +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 11:       +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 12:       +57.0°C  (high = +90.0°C, crit = +100.0°C)
-Core 13:       +55.0°C  (high = +90.0°C, crit = +100.0°C)
+Package id 0:  +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 0:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 1:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 3:        +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 4:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 5:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 6:        +32.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 8:        +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 9:        +32.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 10:       +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 11:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 12:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 13:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
+
+power_meter-acpi-0
+Adapter: ACPI interface
+power1:       56.00 W  (interval =   1.00 s)
+
+pch_lewisburg-virtual-0
+Adapter: Virtual device
+temp1:        +31.0°C  
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 0:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 1:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 3:        +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 4:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 5:        +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 6:        +32.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 8:        +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 9:        +32.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 10:       +30.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 11:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 12:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
+Core 13:       +31.0°C  (high = +90.0°C, crit = +100.0°C)
 

@@ -1,0 +1,276 @@
+warning: found a return instruction in the input assembly sequence.
+note: program counter updates are ignored.
+Iterations:        10000
+Instructions:      120000
+Total Cycles:      50023
+Total uOps:        130000
+
+Dispatch Width:    6
+uOps Per Cycle:    2.60
+IPC:               2.40
+Block RThroughput: 5.0
+
+
+Cycles with backend pressure increase [ 39.95% ]
+Throughput Bottlenecks: 
+  Resource Pressure       [ 39.94% ]
+  - Zn3FPP1  [ 39.94% ]
+  - Zn3FPP2  [ 0.00% ]
+  Data Dependencies:      [ 20.02% ]
+  - Register Dependencies [ 20.02% ]
+  - Memory Dependencies   [ 0.00% ]
+
+Critical sequence based on the simulation:
+
+              Instruction                                 Dependency Information
+ +----< 6.    vdivsd	%xmm0, %xmm2, %xmm0
+ |
+ |    < loop carried > 
+ |
+ |      0.    vmovsd	.LC1(%rip), %xmm2
+ |      1.    vxorps	%xmm3, %xmm3, %xmm3
+ |      2.    vxorpd	%xmm1, %xmm1, %xmm1
+ |      3.    movl	$1, %eax
+ |      4.    vcvtsi2sd	%rax, %xmm3, %xmm0
+ |      5.    addq	$1, %rax
+ +----> 6.    vdivsd	%xmm0, %xmm2, %xmm0               ## RESOURCE interference:  Zn3FPP1 [ probability: 99% ]
+ |      7.    vaddsd	%xmm0, %xmm1, %xmm1
+ |      8.    cmpq	$1000000001, %rax
+ |      9.    jne	.L2
+ |      10.   vmovsd	%xmm1, %xmm1, %xmm0
+ |      11.   retq
+ |
+ |    < loop carried > 
+ |
+ +----> 6.    vdivsd	%xmm0, %xmm2, %xmm0               ## RESOURCE interference:  Zn3FPP1 [ probability: 99% ]
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      8     0.50    *                   vmovsd	.LC1(%rip), %xmm2
+ 1      0     0.17                        vxorps	%xmm3, %xmm3, %xmm3
+ 1      0     0.17                        vxorpd	%xmm1, %xmm1, %xmm1
+ 1      1     0.50                        movl	$1, %eax
+ 2      4     1.00                        vcvtsi2sd	%rax, %xmm3, %xmm0
+ 1      1     0.25                        addq	$1, %rax
+ 1      13    5.00                        vdivsd	%xmm0, %xmm2, %xmm0
+ 1      3     0.50                        vaddsd	%xmm0, %xmm1, %xmm1
+ 1      1     0.25                        cmpq	$1000000001, %rax
+ 1      1     0.50                        jne	.L2
+ 1      1     0.50                        vmovsd	%xmm1, %xmm1, %xmm0
+ 1      5     0.50                  U     retq
+
+
+Retire Control Unit - number of cycles where we saw N instructions retired:
+[# retired], [# cycles]
+ 0,           20022  (40.0%)
+ 1,           10000  (20.0%)
+ 2,           1  (0.0%)
+ 3,           10000  (20.0%)
+ 6,           1  (0.0%)
+ 8,           9999  (20.0%)
+
+Total ROB Entries:                256
+Max Used ROB Entries:             256  ( 100.0% )
+Average Used ROB Entries per cy:  255  ( 99.6% )
+
+
+Resources:
+[0]   - Zn3AGU0
+[1]   - Zn3AGU1
+[2]   - Zn3AGU2
+[3]   - Zn3ALU0
+[4]   - Zn3ALU1
+[5]   - Zn3ALU2
+[6]   - Zn3ALU3
+[7]   - Zn3BRU1
+[8]   - Zn3FPP0
+[9]   - Zn3FPP1
+[10]  - Zn3FPP2
+[11]  - Zn3FPP3
+[12.0] - Zn3FPP45
+[12.1] - Zn3FPP45
+[13]  - Zn3FPSt
+[14.0] - Zn3LSU
+[14.1] - Zn3LSU
+[14.2] - Zn3LSU
+[15.0] - Zn3Load
+[15.1] - Zn3Load
+[15.2] - Zn3Load
+[16.0] - Zn3Store
+[16.1] - Zn3Store
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] 
+0.33   0.33   0.33   1.00   2.00   1.00   1.00   1.00    -     5.00   3.00   1.00   0.50   0.50    -     0.67   0.67   0.67   0.67   0.67   0.67    -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12.0] [12.1] [13]   [14.0] [14.1] [14.2] [15.0] [15.1] [15.2] [16.0] [16.1] Instructions:
+ -      -      -      -      -      -      -      -      -      -      -      -     0.50   0.50    -     0.33   0.33   0.33   0.33   0.33   0.33    -      -     vmovsd	.LC1(%rip), %xmm2
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     vxorps	%xmm3, %xmm3, %xmm3
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     vxorpd	%xmm1, %xmm1, %xmm1
+ -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %eax
+ -      -      -      -      -      -      -      -      -      -     2.00    -      -      -      -      -      -      -      -      -      -      -      -     vcvtsi2sd	%rax, %xmm3, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$1, %rax
+ -      -      -      -      -      -      -      -      -     5.00    -      -      -      -      -      -      -      -      -      -      -      -      -     vdivsd	%xmm0, %xmm2, %xmm0
+ -      -      -      -      -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -     vaddsd	%xmm0, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     cmpq	$1000000001, %rax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -      -      -      -     jne	.L2
+ -      -      -      -      -      -      -      -      -      -     1.00    -      -      -      -      -      -      -      -      -      -      -      -     vmovsd	%xmm1, %xmm1, %xmm0
+0.33   0.33   0.33   1.00    -      -      -      -      -      -      -      -      -      -      -     0.33   0.33   0.33   0.33   0.33   0.33    -      -     retq
+
+
+Timeline view:
+                    0123456789          0123456789          0123456789          012
+Index     0123456789          0123456789          0123456789          0123456789   
+
+[0,0]     DeeeeeeeeER    .    .    .    .    .    .    .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[0,1]     D---------R    .    .    .    .    .    .    .    .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[0,2]     D---------R    .    .    .    .    .    .    .    .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[0,3]     DeE-------R    .    .    .    .    .    .    .    .    .    .    .    . .   movl	$1, %eax
+[0,4]     D==eeeE---R    .    .    .    .    .    .    .    .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[0,5]     .DeE------R    .    .    .    .    .    .    .    .    .    .    .    . .   addq	$1, %rax
+[0,6]     .D=======eeeeeeeeeeeeeER .    .    .    .    .    .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[0,7]     .D====================eeeER   .    .    .    .    .    .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[0,8]     .D=eE---------------------R   .    .    .    .    .    .    .    .    . .   cmpq	$1000000001, %rax
+[0,9]     .D==eE--------------------R   .    .    .    .    .    .    .    .    . .   jne	.L2
+[0,10]    .D=======================eER  .    .    .    .    .    .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[0,11]    . DeeeeeE------------------R  .    .    .    .    .    .    .    .    . .   retq
+[1,0]     . DeeeeeeeeE---------------R  .    .    .    .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[1,1]     . D------------------------R  .    .    .    .    .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[1,2]     . D------------------------R  .    .    .    .    .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[1,3]     . DeE----------------------R  .    .    .    .    .    .    .    .    . .   movl	$1, %eax
+[1,4]     .  D=eeeE------------------R  .    .    .    .    .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[1,5]     .  DeE---------------------R  .    .    .    .    .    .    .    .    . .   addq	$1, %rax
+[1,6]     .  D==========eeeeeeeeeeeeeER .    .    .    .    .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[1,7]     .  D=======================eeeER   .    .    .    .    .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[1,8]     .  D=eE------------------------R   .    .    .    .    .    .    .    . .   cmpq	$1000000001, %rax
+[1,9]     .   D=eE-----------------------R   .    .    .    .    .    .    .    . .   jne	.L2
+[1,10]    .   D=========================eER  .    .    .    .    .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[1,11]    .   DeeeeeE---------------------R  .    .    .    .    .    .    .    . .   retq
+[2,0]     .   DeeeeeeeeE------------------R  .    .    .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[2,1]     .   D---------------------------R  .    .    .    .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[2,2]     .   D---------------------------R  .    .    .    .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[2,3]     .    DeE------------------------R  .    .    .    .    .    .    .    . .   movl	$1, %eax
+[2,4]     .    D==eeeE--------------------R  .    .    .    .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[2,5]     .    D=eE-----------------------R  .    .    .    .    .    .    .    . .   addq	$1, %rax
+[2,6]     .    D=============eeeeeeeeeeeeeER .    .    .    .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[2,7]     .    D==========================eeeER   .    .    .    .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[2,8]     .    .D=eE--------------------------R   .    .    .    .    .    .    . .   cmpq	$1000000001, %rax
+[2,9]     .    .D==eE-------------------------R   .    .    .    .    .    .    . .   jne	.L2
+[2,10]    .    .D=============================eER .    .    .    .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[2,11]    .    .DeeeeeE-------------------------R .    .    .    .    .    .    . .   retq
+[3,0]     .    .DeeeeeeeeE----------------------R .    .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[3,1]     .    .D-------------------------------R .    .    .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[3,2]     .    . D------------------------------R .    .    .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[3,3]     .    . DeE----------------------------R .    .    .    .    .    .    . .   movl	$1, %eax
+[3,4]     .    . D==eeeE------------------------R .    .    .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[3,5]     .    . D=eE---------------------------R .    .    .    .    .    .    . .   addq	$1, %rax
+[3,6]     .    . D================eeeeeeeeeeeeeE-R.    .    .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[3,7]     .    .  D============================eeeER   .    .    .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[3,8]     .    .  D=eE-----------------------------R   .    .    .    .    .    . .   cmpq	$1000000001, %rax
+[3,9]     .    .  D==eE----------------------------R   .    .    .    .    .    . .   jne	.L2
+[3,10]    .    .  D===============================eER  .    .    .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[3,11]    .    .  DeeeeeE---------------------------R  .    .    .    .    .    . .   retq
+[4,0]     .    .  DeeeeeeeeE------------------------R  .    .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[4,1]     .    .   D--------------------------------R  .    .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[4,2]     .    .   D--------------------------------R  .    .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[4,3]     .    .   DeE------------------------------R  .    .    .    .    .    . .   movl	$1, %eax
+[4,4]     .    .   D==eeeE--------------------------R  .    .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[4,5]     .    .   D=eE-----------------------------R  .    .    .    .    .    . .   addq	$1, %rax
+[4,6]     .    .    D==================eeeeeeeeeeeeeER .    .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[4,7]     .    .    D===============================eeeER   .    .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[4,8]     .    .    D=eE--------------------------------R   .    .    .    .    . .   cmpq	$1000000001, %rax
+[4,9]     .    .    D==eE-------------------------------R   .    .    .    .    . .   jne	.L2
+[4,10]    .    .    D==================================eER  .    .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[4,11]    .    .    DeeeeeE------------------------------R  .    .    .    .    . .   retq
+[5,0]     .    .    .DeeeeeeeeE--------------------------R  .    .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[5,1]     .    .    .D-----------------------------------R  .    .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[5,2]     .    .    .D-----------------------------------R  .    .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[5,3]     .    .    .DeE---------------------------------R  .    .    .    .    . .   movl	$1, %eax
+[5,4]     .    .    .D==eeeE-----------------------------R  .    .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[5,5]     .    .    . DeE--------------------------------R  .    .    .    .    . .   addq	$1, %rax
+[5,6]     .    .    . D=====================eeeeeeeeeeeeeER .    .    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[5,7]     .    .    . D==================================eeeER   .    .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[5,8]     .    .    . D=eE-----------------------------------R   .    .    .    . .   cmpq	$1000000001, %rax
+[5,9]     .    .    . D==eE----------------------------------R   .    .    .    . .   jne	.L2
+[5,10]    .    .    . D======================================eER .    .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[5,11]    .    .    .  DeeeeeE---------------------------------R .    .    .    . .   retq
+[6,0]     .    .    .  DeeeeeeeeE------------------------------R .    .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[6,1]     .    .    .  D---------------------------------------R .    .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[6,2]     .    .    .  D---------------------------------------R .    .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[6,3]     .    .    .  DeE-------------------------------------R .    .    .    . .   movl	$1, %eax
+[6,4]     .    .    .   D=eeeE---------------------------------R .    .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[6,5]     .    .    .   DeE------------------------------------R .    .    .    . .   addq	$1, %rax
+[6,6]     .    .    .   D========================eeeeeeeeeeeeeE-R.    .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[6,7]     .    .    .   D=====================================eeeER   .    .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[6,8]     .    .    .   D=eE--------------------------------------R   .    .    . .   cmpq	$1000000001, %rax
+[6,9]     .    .    .    D=eE-------------------------------------R   .    .    . .   jne	.L2
+[6,10]    .    .    .    D=======================================eER  .    .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[6,11]    .    .    .    DeeeeeE-----------------------------------R  .    .    . .   retq
+[7,0]     .    .    .    DeeeeeeeeE--------------------------------R  .    .    . .   vmovsd	.LC1(%rip), %xmm2
+[7,1]     .    .    .    D-----------------------------------------R  .    .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[7,2]     .    .    .    D-----------------------------------------R  .    .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[7,3]     .    .    .    .DeE--------------------------------------R  .    .    . .   movl	$1, %eax
+[7,4]     .    .    .    .D==eeeE----------------------------------R  .    .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[7,5]     .    .    .    .D=eE-------------------------------------R  .    .    . .   addq	$1, %rax
+[7,6]     .    .    .    .D===========================eeeeeeeeeeeeeER .    .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[7,7]     .    .    .    .D========================================eeeER   .    . .   vaddsd	%xmm0, %xmm1, %xmm1
+[7,8]     .    .    .    . D=eE----------------------------------------R   .    . .   cmpq	$1000000001, %rax
+[7,9]     .    .    .    . D==eE---------------------------------------R   .    . .   jne	.L2
+[7,10]    .    .    .    . D==========================================eER  .    . .   vmovsd	%xmm1, %xmm1, %xmm0
+[7,11]    .    .    .    . DeeeeeE--------------------------------------R  .    . .   retq
+[8,0]     .    .    .    . DeeeeeeeeE-----------------------------------R  .    . .   vmovsd	.LC1(%rip), %xmm2
+[8,1]     .    .    .    . D--------------------------------------------R  .    . .   vxorps	%xmm3, %xmm3, %xmm3
+[8,2]     .    .    .    .  D-------------------------------------------R  .    . .   vxorpd	%xmm1, %xmm1, %xmm1
+[8,3]     .    .    .    .  DeE-----------------------------------------R  .    . .   movl	$1, %eax
+[8,4]     .    .    .    .  D==eeeE-------------------------------------R  .    . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[8,5]     .    .    .    .  D=eE----------------------------------------R  .    . .   addq	$1, %rax
+[8,6]     .    .    .    .  D==============================eeeeeeeeeeeeeER .    . .   vdivsd	%xmm0, %xmm2, %xmm0
+[8,7]     .    .    .    .   D==========================================eeeER   . .   vaddsd	%xmm0, %xmm1, %xmm1
+[8,8]     .    .    .    .   D=eE-------------------------------------------R   . .   cmpq	$1000000001, %rax
+[8,9]     .    .    .    .   D==eE------------------------------------------R   . .   jne	.L2
+[8,10]    .    .    .    .   D=============================================eER  . .   vmovsd	%xmm1, %xmm1, %xmm0
+[8,11]    .    .    .    .   DeeeeeE-----------------------------------------R  . .   retq
+[9,0]     .    .    .    .   DeeeeeeeeE--------------------------------------R  . .   vmovsd	.LC1(%rip), %xmm2
+[9,1]     .    .    .    .    D----------------------------------------------R  . .   vxorps	%xmm3, %xmm3, %xmm3
+[9,2]     .    .    .    .    D----------------------------------------------R  . .   vxorpd	%xmm1, %xmm1, %xmm1
+[9,3]     .    .    .    .    DeE--------------------------------------------R  . .   movl	$1, %eax
+[9,4]     .    .    .    .    D==eeeE----------------------------------------R  . .   vcvtsi2sd	%rax, %xmm3, %xmm0
+[9,5]     .    .    .    .    D=eE-------------------------------------------R  . .   addq	$1, %rax
+[9,6]     .    .    .    .    .D================================eeeeeeeeeeeeeER . .   vdivsd	%xmm0, %xmm2, %xmm0
+[9,7]     .    .    .    .    .D=============================================eeeER.   vaddsd	%xmm0, %xmm1, %xmm1
+[9,8]     .    .    .    .    .D=eE----------------------------------------------R.   cmpq	$1000000001, %rax
+[9,9]     .    .    .    .    .D==eE---------------------------------------------R.   jne	.L2
+[9,10]    .    .    .    .    .D================================================eER   vmovsd	%xmm1, %xmm1, %xmm0
+[9,11]    .    .    .    .    .DeeeeeE--------------------------------------------R   retq
+
+
+Average Wait times (based on the timeline view):
+[0]: Executions
+[1]: Average time spent waiting in a scheduler's queue
+[2]: Average time spent waiting in a scheduler's queue while ready
+[3]: Average time elapsed from WB until retire stage
+
+      [0]    [1]    [2]    [3]
+0.     10    1.0    1.0    24.0      vmovsd	.LC1(%rip), %xmm2
+1.     10    0.0    0.0    32.8      vxorps	%xmm3, %xmm3, %xmm3
+2.     10    0.0    0.0    32.6      vxorpd	%xmm1, %xmm1, %xmm1
+3.     10    1.0    1.0    30.4      movl	$1, %eax
+4.     10    2.8    0.0    26.4      vcvtsi2sd	%rax, %xmm3, %xmm0
+5.     10    1.6    0.0    29.4      addq	$1, %rax
+6.     10    20.8   13.0   0.2       vdivsd	%xmm0, %xmm2, %xmm0
+7.     10    33.6   0.0    0.0       vaddsd	%xmm0, %xmm1, %xmm1
+8.     10    2.0    0.0    33.4      cmpq	$1000000001, %rax
+9.     10    2.8    0.0    32.4      jne	.L2
+10.    10    36.4   0.2    0.0       vmovsd	%xmm1, %xmm1, %xmm0
+11.    10    1.0    1.0    31.2      retq
+       10    8.6    1.4    22.7      <total>

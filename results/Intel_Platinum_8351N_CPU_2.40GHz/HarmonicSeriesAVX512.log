@@ -1,47 +1,46 @@
-Time elapsed: 20.8872 s
+Time elapsed: 20.882 s
 AVX512:
 Sum 24.7662
 Difference Sum - Formula -1.40332e-12
-Performed 4e+09 HarmonicSeriesAVX512 operations. Avg: 12.5322 CPU cycles/call
-Time elapsed: 20.8872 s
+Time elapsed: 20.882 s
 
  Performance counter stats for '../../bin/harmonic_series 0 4e9':
 
-         20,859.67 msec task-clock                       #    0.999 CPUs utilized          
-             7,727      context-switches                 #  370.428 /sec                   
+         20,854.41 msec task-clock                       #    0.999 CPUs utilized          
+             7,740      context-switches                 #  371.145 /sec                   
                  0      cpu-migrations                   #    0.000 /sec                   
                 73      page-faults                      #    3.500 /sec                   
-    64,556,690,701      cycles                           #    3.095 GHz                    
-    24,169,813,258      instructions                     #    0.37  insn per cycle         
-     4,034,951,886      branches                         #  193.433 M/sec                  
-           143,151      branch-misses                    #    0.00% of all branches        
-   322,781,794,245      slots                            #   15.474 G/sec                  
-    27,847,841,072      topdown-retiring                 #      8.6% Retiring              
-     8,860,676,704      topdown-bad-spec                 #      2.7% Bad Speculation       
-         1,618,425      topdown-fe-bound                 #      0.0% Frontend Bound        
-   287,306,355,521      topdown-be-bound                 #     88.7% Backend Bound         
+    64,553,748,497      cycles                           #    3.095 GHz                    
+    24,169,595,941      instructions                     #    0.37  insn per cycle         
+     4,034,920,178      branches                         #  193.480 M/sec                  
+           139,502      branch-misses                    #    0.00% of all branches        
+   322,763,784,725      slots                            #   15.477 G/sec                  
+    27,846,287,309      topdown-retiring                 #      8.6% Retiring              
+     8,860,182,325      topdown-bad-spec                 #      2.7% Bad Speculation       
+         1,657,441      topdown-fe-bound                 #      0.0% Frontend Bound        
+   287,320,191,937      topdown-be-bound                 #     88.7% Backend Bound         
 
-      20.890171472 seconds time elapsed
+      20.885000637 seconds time elapsed
 
-      20.845398000 seconds user
-       0.002966000 seconds sys
+      20.840623000 seconds user
+       0.002967000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/harmonic_series 0 4e9"
-	User time (seconds): 21.36
-	System time (seconds): 0.04
+	User time (seconds): 21.35
+	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.47
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.46
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57400
+	Maximum resident set size (kbytes): 57584
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11744
-	Voluntary context switches: 5
-	Involuntary context switches: 7947
+	Minor (reclaiming a frame) page faults: 11746
+	Voluntary context switches: 6
+	Involuntary context switches: 7956
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

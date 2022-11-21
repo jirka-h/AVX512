@@ -5,22 +5,22 @@
 
  Performance counter stats for '../../bin/add_avx256f':
 
-          6,531.88 msec task-clock                #    1.000 CPUs utilized          
-                 5      context-switches          #    0.765 /sec                   
+          6,531.40 msec task-clock                #    1.000 CPUs utilized          
+                 4      context-switches          #    0.612 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                62      page-faults               #    9.492 /sec                   
-    24,063,557,087      cycles                    #    3.684 GHz                      (66.66%)
-            84,636      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-         6,851,250      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    24,032,291,008      instructions              #    1.00  insn per cycle         
+                63      page-faults               #    9.646 /sec                   
+    24,063,014,542      cycles                    #    3.684 GHz                      (66.66%)
+            56,085      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
+         7,184,632      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    24,029,908,362      instructions              #    1.00  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.68%)
-     8,007,908,033      branches                  #    1.226 G/sec                    (66.67%)
-           183,008      branch-misses             #    0.00% of all branches          (66.66%)
+     8,005,725,208      branches                  #    1.226 G/sec                    (66.67%)
+           177,361      branch-misses             #    0.00% of all branches          (66.66%)
 
-       6.532416660 seconds time elapsed
+       6.531919089 seconds time elapsed
 
-       6.501043000 seconds user
-       0.000000000 seconds sys
+       6.500160000 seconds user
+       0.000996000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/add_avx256f"

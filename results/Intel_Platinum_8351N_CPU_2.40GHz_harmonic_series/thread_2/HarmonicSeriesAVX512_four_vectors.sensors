@@ -1,0 +1,110 @@
+power_meter-acpi-0
+Adapter: ACPI interface
+power1:       95.00 W  (interval =   1.00 s)
+
+nvme-pci-0500
+Adapter: PCI adapter
+Composite:    +47.9°C  (low  = -273.1°C, high = +71.8°C)
+                       (crit = +75.8°C)
+Sensor 1:     +56.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +49.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +37.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 0:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 1:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 2:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 3:        +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 4:        +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 5:        +34.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 6:        +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 7:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 8:        +28.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 9:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 10:       +33.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 11:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 12:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 13:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 14:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 15:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 16:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 17:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 18:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 19:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 20:       +36.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 21:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 22:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 23:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 24:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 25:       +28.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 26:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 27:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 28:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 29:       +33.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 30:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 31:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 32:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 33:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 34:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 35:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+
+pch_lewisburg-virtual-0
+Adapter: Virtual device
+temp1:        +48.0°C  
+
+power_meter-acpi-0
+Adapter: ACPI interface
+power1:       99.00 W  (interval =   1.00 s)
+
+nvme-pci-0500
+Adapter: PCI adapter
+Composite:    +47.9°C  (low  = -273.1°C, high = +71.8°C)
+                       (crit = +75.8°C)
+Sensor 1:     +56.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +49.9°C  (low  = -273.1°C, high = +65261.8°C)
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +37.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 0:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 1:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 2:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 3:        +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 4:        +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 5:        +34.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 6:        +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 7:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 8:        +28.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 9:        +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 10:       +33.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 11:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 12:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 13:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 14:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 15:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 16:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 17:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 18:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 19:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 20:       +36.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 21:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 22:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 23:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 24:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 25:       +28.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 26:       +30.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 27:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 28:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 29:       +33.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 30:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 31:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 32:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 33:       +32.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 34:       +31.0°C  (high = +83.0°C, crit = +93.0°C)
+Core 35:       +29.0°C  (high = +83.0°C, crit = +93.0°C)
+
+pch_lewisburg-virtual-0
+Adapter: Virtual device
+temp1:        +48.0°C  
+

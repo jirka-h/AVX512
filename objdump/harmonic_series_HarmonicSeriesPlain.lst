@@ -1,50 +1,50 @@
 Dump of assembler code for function HarmonicSeriesPlain:
 harmonic_series.c:
-106	double HarmonicSeriesPlain(const unsigned long long int N) {
-107	  unsigned long long int i;
-108	  double sum = 0.0;
-109	
-110	  for(i=1; i<N+1; ++i) {
-   0x0000000000402770 <+0>:	48 8d 47 01	lea    0x1(%rdi),%rax
-   0x0000000000402774 <+4>:	48 83 f8 01	cmp    $0x1,%rax
-   0x0000000000402778 <+8>:	76 36	jbe    0x4027b0 <HarmonicSeriesPlain+64>
-   0x000000000040277a <+10>:	c5 fb 10 15 f6 0a 00 00	vmovsd 0xaf6(%rip),%xmm2        # 0x403278
-   0x0000000000402782 <+18>:	c5 e0 57 db	vxorps %xmm3,%xmm3,%xmm3
+144	double HarmonicSeriesPlain(const unsigned long long int N) {
+145	  unsigned long long int i;
+146	  double sum = 0.0;
+147	
+148	  for(i=1; i<N+1; ++i) {
+   0x0000000000402a00 <+0>:	48 8d 47 01	lea    0x1(%rdi),%rax
+   0x0000000000402a04 <+4>:	48 83 f8 01	cmp    $0x1,%rax
+   0x0000000000402a08 <+8>:	76 36	jbe    0x402a40 <HarmonicSeriesPlain+64>
+   0x0000000000402a0a <+10>:	c5 fb 10 15 66 09 00 00	vmovsd 0x966(%rip),%xmm2        # 0x403378
+   0x0000000000402a12 <+18>:	c5 e0 57 db	vxorps %xmm3,%xmm3,%xmm3
 
-108	  double sum = 0.0;
-   0x0000000000402786 <+22>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+146	  double sum = 0.0;
+   0x0000000000402a16 <+22>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
 
-109	
-110	  for(i=1; i<N+1; ++i) {
-   0x000000000040278a <+26>:	b8 01 00 00 00	mov    $0x1,%eax
-   0x000000000040278f <+31>:	90	nop
+147	
+148	  for(i=1; i<N+1; ++i) {
+   0x0000000000402a1a <+26>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0000000000402a1f <+31>:	90	nop
 
-111	    sum += 1.0/i;
-   0x0000000000402790 <+32>:	62 f1 e7 08 7b c0	vcvtusi2sd %rax,%xmm3,%xmm0
-   0x0000000000402796 <+38>:	48 89 c2	mov    %rax,%rdx
+149	    sum += 1.0/i;
+   0x0000000000402a20 <+32>:	62 f1 e7 08 7b c0	vcvtusi2sd %rax,%xmm3,%xmm0
+   0x0000000000402a26 <+38>:	48 89 c2	mov    %rax,%rdx
 
-110	  for(i=1; i<N+1; ++i) {
-   0x0000000000402799 <+41>:	48 83 c0 01	add    $0x1,%rax
+148	  for(i=1; i<N+1; ++i) {
+   0x0000000000402a29 <+41>:	48 83 c0 01	add    $0x1,%rax
 
-111	    sum += 1.0/i;
-   0x000000000040279d <+45>:	c5 eb 5e c0	vdivsd %xmm0,%xmm2,%xmm0
-   0x00000000004027a1 <+49>:	c5 f3 58 c8	vaddsd %xmm0,%xmm1,%xmm1
+149	    sum += 1.0/i;
+   0x0000000000402a2d <+45>:	c5 eb 5e c0	vdivsd %xmm0,%xmm2,%xmm0
+   0x0000000000402a31 <+49>:	c5 f3 58 c8	vaddsd %xmm0,%xmm1,%xmm1
 
-110	  for(i=1; i<N+1; ++i) {
-   0x00000000004027a5 <+53>:	48 39 d7	cmp    %rdx,%rdi
-   0x00000000004027a8 <+56>:	75 e6	jne    0x402790 <HarmonicSeriesPlain+32>
+148	  for(i=1; i<N+1; ++i) {
+   0x0000000000402a35 <+53>:	48 39 d7	cmp    %rdx,%rdi
+   0x0000000000402a38 <+56>:	75 e6	jne    0x402a20 <HarmonicSeriesPlain+32>
 
-115	}
-   0x00000000004027aa <+58>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
-   0x00000000004027ae <+62>:	c3	ret    
-   0x00000000004027af <+63>:	90	nop
+153	}
+   0x0000000000402a3a <+58>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
+   0x0000000000402a3e <+62>:	c3	ret    
+   0x0000000000402a3f <+63>:	90	nop
 
-108	  double sum = 0.0;
-   0x00000000004027b0 <+64>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+146	  double sum = 0.0;
+   0x0000000000402a40 <+64>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
 
-112	  }
-113	
-114	  return sum;
-   0x00000000004027b4 <+68>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
-   0x00000000004027b8 <+72>:	c3	ret    
+150	  }
+151	
+152	  return sum;
+   0x0000000000402a44 <+68>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
+   0x0000000000402a48 <+72>:	c3	ret    
 End of assembler dump.

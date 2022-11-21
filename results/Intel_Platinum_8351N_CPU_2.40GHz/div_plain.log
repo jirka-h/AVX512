@@ -2,41 +2,41 @@
 
  Performance counter stats for '../../bin/div_plain':
 
-        144,920.00 msec task-clock                       #    0.999 CPUs utilized          
-            53,727      context-switches                 #  370.736 /sec                   
-                 1      cpu-migrations                   #    0.007 /sec                   
-                57      page-faults                      #    0.393 /sec                   
-   448,920,082,302      cycles                           #    3.098 GHz                    
-    97,171,266,456      instructions                     #    0.22  insn per cycle         
-    32,240,970,944      branches                         #  222.474 M/sec                  
-           843,596      branch-misses                    #    0.00% of all branches        
- 2,244,593,467,445      slots                            #   15.488 G/sec                  
-    61,616,293,361      topdown-retiring                 #      2.7% Retiring              
-    88,023,273,233      topdown-bad-spec                 #      3.9% Bad Speculation       
-     8,804,740,253      topdown-fe-bound                 #      0.4% Frontend Bound        
- 2,103,285,265,791      topdown-be-bound                 #     93.0% Backend Bound         
+        145,262.65 msec task-clock                       #    0.999 CPUs utilized          
+            53,481      context-switches                 #  368.168 /sec                   
+                 0      cpu-migrations                   #    0.000 /sec                   
+                59      page-faults                      #    0.406 /sec                   
+   448,922,263,349      cycles                           #    3.090 GHz                    
+    97,171,411,229      instructions                     #    0.22  insn per cycle         
+    32,240,957,784      branches                         #  221.949 M/sec                  
+           900,596      branch-misses                    #    0.00% of all branches        
+ 2,244,591,374,660      slots                            #   15.452 G/sec                  
+    61,616,233,814      topdown-retiring                 #      2.7% Retiring              
+    79,220,872,046      topdown-bad-spec                 #      3.5% Bad Speculation       
+     8,877,339,471      topdown-fe-bound                 #      0.4% Frontend Bound        
+ 2,110,953,337,557      topdown-be-bound                 #     93.4% Backend Bound         
 
-     145.118859463 seconds time elapsed
+     145.460988878 seconds time elapsed
 
-     144.830403000 seconds user
-       0.002971000 seconds sys
+     145.172972000 seconds user
+       0.001975000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_plain"
-	User time (seconds): 145.34
-	System time (seconds): 0.04
+	User time (seconds): 145.68
+	System time (seconds): 0.05
 	Percent of CPU this job got: 99%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:25.68
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.03
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 57360
+	Maximum resident set size (kbytes): 57376
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 11726
+	Minor (reclaiming a frame) page faults: 11731
 	Voluntary context switches: 6
-	Involuntary context switches: 53936
+	Involuntary context switches: 53704
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

@@ -1,0 +1,2 @@
+error: found an unsupported instruction in the input assembly sequence.
+note: instruction: 	vdivpd	%zmm0, %zmm4, %zmm2

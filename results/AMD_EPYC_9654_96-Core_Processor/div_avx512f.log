@@ -9,22 +9,22 @@
 
  Performance counter stats for '../../bin/div_avx512f':
 
-         14,225.14 msec task-clock                #    1.000 CPUs utilized          
-                 6      context-switches          #    0.422 /sec                   
+         14,222.00 msec task-clock                #    1.000 CPUs utilized          
+                 5      context-switches          #    0.352 /sec                   
                  0      cpu-migrations            #    0.000 /sec                   
-                61      page-faults               #    4.288 /sec                   
-    52,403,087,405      cycles                    #    3.684 GHz                      (66.66%)
-           181,252      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.66%)
-        15,732,248      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
-    12,073,463,788      instructions              #    0.23  insn per cycle         
+                61      page-faults               #    4.289 /sec                   
+    52,394,621,037      cycles                    #    3.684 GHz                      (66.66%)
+           118,518      stalled-cycles-frontend   #    0.00% frontend cycles idle     (66.67%)
+        15,572,692      stalled-cycles-backend    #    0.03% backend cycles idle      (66.67%)
+    12,072,677,219      instructions              #    0.23  insn per cycle         
                                                   #    0.00  stalled cycles per insn  (66.67%)
-     4,014,138,176      branches                  #  282.186 M/sec                    (66.67%)
-           393,762      branch-misses             #    0.01% of all branches          (66.67%)
+     4,014,053,332      branches                  #  282.243 M/sec                    (66.67%)
+           381,019      branch-misses             #    0.01% of all branches          (66.66%)
 
-      14.225872879 seconds time elapsed
+      14.222740347 seconds time elapsed
 
-      14.156409000 seconds user
-       0.000996000 seconds sys
+      14.156438000 seconds user
+       0.000995000 seconds sys
 
 
 	Command being timed: "perf stat ../../bin/div_avx512f"
@@ -36,12 +36,12 @@
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 15380
+	Maximum resident set size (kbytes): 15472
 	Average resident set size (kbytes): 0
 	Major (requiring I/O) page faults: 0
-	Minor (reclaiming a frame) page faults: 1506
+	Minor (reclaiming a frame) page faults: 1507
 	Voluntary context switches: 6
-	Involuntary context switches: 7
+	Involuntary context switches: 6
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 8

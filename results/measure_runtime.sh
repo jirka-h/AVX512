@@ -25,7 +25,7 @@ while IFS= read -r -d '' bin; do
 
   bin_name=$(basename "$bin")
   if [[ "$bin_name" == "harmonic_series" ]]; then
-    declare -A methods=([0]=HarmonicSeriesAVX512 [1]=HarmonicSeriesAVX256 [2]=HarmonicSeriesPlain)
+    declare -A methods=([0]=HarmonicSeriesAVX512 [1]=HarmonicSeriesAVX256 [2]=HarmonicSeriesPlain [3]=HarmonicSeriesAVX512_four_vectors)
     for method in "${!methods[@]}"; do
       name=${methods[$method]}
       command=("turbostat" "-o" "${name}.turbostat" "/usr/bin/time" "-v" "perf" "stat" "${bin}" "$method" "4e9")
