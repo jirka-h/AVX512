@@ -5,46 +5,46 @@ harmonic_series.c:
 146	  double sum = 0.0;
 147	
 148	  for(i=1; i<N+1; ++i) {
-   0x0000000000402a00 <+0>:	48 8d 47 01	lea    0x1(%rdi),%rax
-   0x0000000000402a04 <+4>:	48 83 f8 01	cmp    $0x1,%rax
-   0x0000000000402a08 <+8>:	76 36	jbe    0x402a40 <HarmonicSeriesPlain+64>
-   0x0000000000402a0a <+10>:	c5 fb 10 15 66 09 00 00	vmovsd 0x966(%rip),%xmm2        # 0x403378
-   0x0000000000402a12 <+18>:	c5 e0 57 db	vxorps %xmm3,%xmm3,%xmm3
+   0x0000000000402bd0 <+0>:	48 8d 47 01	lea    0x1(%rdi),%rax
+   0x0000000000402bd4 <+4>:	48 83 f8 01	cmp    $0x1,%rax
+   0x0000000000402bd8 <+8>:	76 36	jbe    0x402c10 <HarmonicSeriesPlain+64>
+   0x0000000000402bda <+10>:	c5 fb 10 15 96 07 00 00	vmovsd 0x796(%rip),%xmm2        # 0x403378
+   0x0000000000402be2 <+18>:	c5 e0 57 db	vxorps %xmm3,%xmm3,%xmm3
 
 146	  double sum = 0.0;
-   0x0000000000402a16 <+22>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+   0x0000000000402be6 <+22>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
 
 147	
 148	  for(i=1; i<N+1; ++i) {
-   0x0000000000402a1a <+26>:	b8 01 00 00 00	mov    $0x1,%eax
-   0x0000000000402a1f <+31>:	90	nop
+   0x0000000000402bea <+26>:	b8 01 00 00 00	mov    $0x1,%eax
+   0x0000000000402bef <+31>:	90	nop
 
 149	    sum += 1.0/i;
-   0x0000000000402a20 <+32>:	62 f1 e7 08 7b c0	vcvtusi2sd %rax,%xmm3,%xmm0
-   0x0000000000402a26 <+38>:	48 89 c2	mov    %rax,%rdx
+   0x0000000000402bf0 <+32>:	62 f1 e7 08 7b c0	vcvtusi2sd %rax,%xmm3,%xmm0
+   0x0000000000402bf6 <+38>:	48 89 c2	mov    %rax,%rdx
 
 148	  for(i=1; i<N+1; ++i) {
-   0x0000000000402a29 <+41>:	48 83 c0 01	add    $0x1,%rax
+   0x0000000000402bf9 <+41>:	48 83 c0 01	add    $0x1,%rax
 
 149	    sum += 1.0/i;
-   0x0000000000402a2d <+45>:	c5 eb 5e c0	vdivsd %xmm0,%xmm2,%xmm0
-   0x0000000000402a31 <+49>:	c5 f3 58 c8	vaddsd %xmm0,%xmm1,%xmm1
+   0x0000000000402bfd <+45>:	c5 eb 5e c0	vdivsd %xmm0,%xmm2,%xmm0
+   0x0000000000402c01 <+49>:	c5 f3 58 c8	vaddsd %xmm0,%xmm1,%xmm1
 
 148	  for(i=1; i<N+1; ++i) {
-   0x0000000000402a35 <+53>:	48 39 d7	cmp    %rdx,%rdi
-   0x0000000000402a38 <+56>:	75 e6	jne    0x402a20 <HarmonicSeriesPlain+32>
+   0x0000000000402c05 <+53>:	48 39 d7	cmp    %rdx,%rdi
+   0x0000000000402c08 <+56>:	75 e6	jne    0x402bf0 <HarmonicSeriesPlain+32>
 
 153	}
-   0x0000000000402a3a <+58>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
-   0x0000000000402a3e <+62>:	c3	ret    
-   0x0000000000402a3f <+63>:	90	nop
+   0x0000000000402c0a <+58>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
+   0x0000000000402c0e <+62>:	c3	ret    
+   0x0000000000402c0f <+63>:	90	nop
 
 146	  double sum = 0.0;
-   0x0000000000402a40 <+64>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
+   0x0000000000402c10 <+64>:	c5 f1 57 c9	vxorpd %xmm1,%xmm1,%xmm1
 
 150	  }
 151	
 152	  return sum;
-   0x0000000000402a44 <+68>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
-   0x0000000000402a48 <+72>:	c3	ret    
+   0x0000000000402c14 <+68>:	c5 f3 10 c1	vmovsd %xmm1,%xmm1,%xmm0
+   0x0000000000402c18 <+72>:	c3	ret    
 End of assembler dump.

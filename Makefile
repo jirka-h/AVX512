@@ -48,6 +48,22 @@ div_four_independent_vectors_avx512f: div_four_independent_vectors_avx512f.c
 	gcc $(CFLAGS) $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst
 
+div_avx256f_approx:	div_avx256f_approx.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
+div_avx512f_approx: div_avx512f_approx.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
+div_two_independent_vectors_avx256f_approx:	div_two_independent_vectors_avx256f_approx.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
+div_four_independent_vectors_avx256f_approx:	div_four_independent_vectors_avx256f_approx.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
 fma_avx256f:	fma_avx256f.c
 	gcc $(CFLAGS) -mfma $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst

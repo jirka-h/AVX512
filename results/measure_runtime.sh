@@ -50,6 +50,9 @@ while IFS= read -r -d '' bin; do
   fi
 done < <(find ../../bin -maxdepth 1 -type f -executable -print0 | sort -z)
 
+column -s $'\t' -t results.txt > results.txt.column
+[ -s results.txt.column ] && mv --force results.txt.column results.txt
+
 echo "=================================================================================="
 tail -v -n +1 results.txt
 echo "=================================================================================="
