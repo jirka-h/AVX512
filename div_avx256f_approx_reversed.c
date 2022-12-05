@@ -1,5 +1,5 @@
 /*
-gcc -O3 -Wall -Wextra -o div_avx256f_approx div_avx256f_approx.c -mavx512f
+gcc -O3 -Wall -Wextra -o div_avx256f_approx_reversed div_avx256f_approx_reversed.c -mavx512f
 */
 
 #include <stdio.h>
@@ -59,13 +59,12 @@ int main(void) {
   }
   __m256d divv = _mm256_set_pd(1.0000000001, 1.0000000002, 1.0000000003, 1.0000000004);
   __m256d av = _mm256_set_pd(2.22554107593822170, 4.95303308029771472, 11.02317856892717884, 24.53253668667874265);
-  volatile __m256d rec; //This is to avoid moving the rec out of loop
+  __m256d rec;
   __attribute__ ((aligned (32))) double out[4];
 
   for(i=0; i<2*N; ++i) {
-    //av = _mm256_div_pd(av, divv);
-    rec = _m256d_recip_double_r5(divv);
-    av = _mm256_mul_pd(av, rec);
+    rec = _m256d_recip_double_r5(av);
+    av = _mm256_mul_pd(divv, rec);
   }
 
   _mm256_store_pd(out, av);

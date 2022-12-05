@@ -56,6 +56,14 @@ div_avx512f_approx: div_avx512f_approx.c
 	gcc $(CFLAGS) $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst
 
+div_avx256f_approx_reversed:	div_avx256f_approx_reversed.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
+div_avx512f_approx_reversed: div_avx512f_approx_reversed.c
+	gcc $(CFLAGS) $< -o bin/$@
+	objdump -S bin/$@ > ./objdump/$@.lst
+
 div_two_independent_vectors_avx256f_approx:	div_two_independent_vectors_avx256f_approx.c
 	gcc $(CFLAGS) $< -o bin/$@
 	objdump -S bin/$@ > ./objdump/$@.lst

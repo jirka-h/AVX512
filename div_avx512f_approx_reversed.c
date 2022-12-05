@@ -1,5 +1,5 @@
 /*
-gcc -O3 -Wall -Wextra -o div_avx512f_approx div_avx512f_approx.c -mavx512f
+gcc -O3 -Wall -Wextra -o div_avx512f_approx_reversed div_avx512f_approx_reversed.c -mavx512f
 */
 
 #include <stdio.h>
@@ -30,7 +30,7 @@ int main(void) {
   }
   __m512d divv = _mm512_set_pd(1.0000000001, 1.0000000002, 1.0000000003, 1.0000000004, 1.0000000005, 1.0000000006, 1.0000000007, 1.0000000008);
   __m512d av = _mm512_set_pd(1.49182474713380642, 2.22554107607292417, 3.32011725278397885, 4.95303308049624480, 7.38905732167703544, 11.02317856826629416, 16.44465057627291671, 24.53253668079271677);
-  volatile __m512d rec; //This is to avoid moving the rec out of loop
+  __m512d rec;
   __attribute__ ((aligned (64))) double out[8];
 
   for(i=0; i<N; ++i) {

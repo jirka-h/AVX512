@@ -1,5 +1,5 @@
 
-bin/div_avx256f_approx:     file format elf64-x86-64
+bin/div_avx256f_approx_reversed:     file format elf64-x86-64
 
 
 Disassembly of section .init:
@@ -47,116 +47,113 @@ int main(void) {
   40105e:	48 89 e5             	mov    %rsp,%rbp
   401061:	41 52                	push   %r10
   401063:	53                   	push   %rbx
-  401064:	48 83 ec 40          	sub    $0x40,%rsp
+  401064:	48 83 ec 20          	sub    $0x20,%rsp
   const unsigned long long int N = (unsigned long long int) 4.0e9;
   unsigned long long int i;
   if( ! __builtin_cpu_supports("avx512f")) {
   401068:	f6 05 ee 3f 00 00 80 	testb  $0x80,0x3fee(%rip)        # 40505d <__cpu_model+0xd>
-  40106f:	0f 84 98 00 00 00    	je     40110d <main+0xbd>
+  40106f:	0f 84 9a 00 00 00    	je     40110f <main+0xbf>
+    printf("CPU does not support avx512f, exiting.\n");
+    return 1;
+  }
+  __m256d divv = _mm256_set_pd(1.0000000001, 1.0000000002, 1.0000000003, 1.0000000004);
+  __m256d av = _mm256_set_pd(2.22554107593822170, 4.95303308029771472, 11.02317856892717884, 24.53253668667874265);
+  401075:	c5 fd 28 05 e3 1f 00 	vmovapd 0x1fe3(%rip),%ymm0        # 403060 <__dso_handle+0x58>
+  40107c:	00 
+  40107d:	c4 e2 7d 19 1d 1a 20 	vbroadcastsd 0x201a(%rip),%ymm3        # 4030a0 <__dso_handle+0x98>
+  401084:	00 00 
+  401086:	48 bb 00 50 d6 dc 01 	movabs $0x1dcd65000,%rbx
+  40108d:	00 00 00 
+  401090:	c5 fd 28 25 e8 1f 00 	vmovapd 0x1fe8(%rip),%ymm4        # 403080 <__dso_handle+0x78>
+  401097:	00 
+  401098:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+  40109f:	00 
+}
+
+extern __inline __m128 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
+_mm256_cvtpd_ps (__m256d __A)
+{
+  return (__m128)__builtin_ia32_cvtpd2ps256 ((__v4df) __A);
+  4010a0:	c5 fd 5a c8          	vcvtpd2ps %ymm0,%xmm1
 }
 
 extern __inline __m128 __attribute__((__gnu_inline__, __always_inline__, __artificial__))
 _mm_rcp_ps (__m128 __A)
 {
   return (__m128) __builtin_ia32_rcpps ((__v4sf)__A);
-  401075:	c5 f8 53 0d 33 20 00 	vrcpps 0x2033(%rip),%xmm1        # 4030b0 <__dso_handle+0xa8>
-  40107c:	00 
-#endif
-
-extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
-_mm256_sub_pd (__m256d __A, __m256d __B)
-{
-  return (__m256d) ((__v4df)__A - (__v4df)__B);
-  40107d:	c4 e2 7d 19 25 1a 20 	vbroadcastsd 0x201a(%rip),%ymm4        # 4030a0 <__dso_handle+0x98>
-  401084:	00 00 
-  return (__m256d) ((__v4df)__A + (__v4df)__B);
-  401086:	48 bb 00 50 d6 dc 01 	movabs $0x1dcd65000,%rbx
-  40108d:	00 00 00 
+  4010a4:	c5 f8 53 c9          	vrcpps %xmm1,%xmm1
 }
 
 extern __inline __m256d __attribute__((__gnu_inline__, __always_inline__, __artificial__))
 _mm256_cvtps_pd (__m128 __A)
 {
   return (__m256d)__builtin_ia32_cvtps2pd256 ((__v4sf) __A);
-  401090:	c5 fc 5a c9          	vcvtps2pd %xmm1,%ymm1
+  4010a8:	c5 fc 5a c9          	vcvtps2pd %xmm1,%ymm1
   return (__m256d) ((__v4df)__A * (__v4df)__B);
-  401094:	c5 f5 59 05 e4 1f 00 	vmulpd 0x1fe4(%rip),%ymm1,%ymm0        # 403080 <__dso_handle+0x78>
-  40109b:	00 
+  4010ac:	c5 f5 59 c0          	vmulpd %ymm0,%ymm1,%ymm0
   return (__m256d) ((__v4df)__A - (__v4df)__B);
-  40109c:	c5 dd 5c c0          	vsubpd %ymm0,%ymm4,%ymm0
+  4010b0:	c5 e5 5c c0          	vsubpd %ymm0,%ymm3,%ymm0
   return (__m256d) ((__v4df)__A * (__v4df)__B);
-  4010a0:	c5 fd 59 d8          	vmulpd %ymm0,%ymm0,%ymm3
+  4010b4:	c5 fd 59 d0          	vmulpd %ymm0,%ymm0,%ymm2
   return (__m256d) ((__v4df)__A + (__v4df)__B);
-  4010a4:	c5 fd 58 d3          	vaddpd %ymm3,%ymm0,%ymm2
-  4010a8:	c5 e5 58 dc          	vaddpd %ymm4,%ymm3,%ymm3
-    printf("CPU does not support avx512f, exiting.\n");
-    return 1;
-  }
-  __m256d divv = _mm256_set_pd(1.0000000001, 1.0000000002, 1.0000000003, 1.0000000004);
-  __m256d av = _mm256_set_pd(2.22554107593822170, 4.95303308029771472, 11.02317856892717884, 24.53253668667874265);
-  4010ac:	c5 fd 28 05 ac 1f 00 	vmovapd 0x1fac(%rip),%ymm0        # 403060 <__dso_handle+0x58>
-  4010b3:	00 
+  4010b8:	c5 fd 58 c2          	vaddpd %ymm2,%ymm0,%ymm0
+  4010bc:	c5 ed 58 d3          	vaddpd %ymm3,%ymm2,%ymm2
   return (__m256d) ((__v4df)__A * (__v4df)__B);
-  4010b4:	c5 ed 59 d3          	vmulpd %ymm3,%ymm2,%ymm2
-  4010b8:	c5 ed 59 d1          	vmulpd %ymm1,%ymm2,%ymm2
+  4010c0:	c5 fd 59 c2          	vmulpd %ymm2,%ymm0,%ymm0
+  4010c4:	c5 fd 59 c1          	vmulpd %ymm1,%ymm0,%ymm0
   return (__m256d) ((__v4df)__A + (__v4df)__B);
-  4010bc:	c5 ed 58 d1          	vaddpd %ymm1,%ymm2,%ymm2
-  volatile __m256d rec; //This is to avoid moving the rec out of loop
+  4010c8:	c5 fd 58 c1          	vaddpd %ymm1,%ymm0,%ymm0
+  return (__m256d) ((__v4df)__A * (__v4df)__B);
+  4010cc:	c5 fd 59 c4          	vmulpd %ymm4,%ymm0,%ymm0
+  __m256d rec;
   __attribute__ ((aligned (32))) double out[4];
 
   for(i=0; i<2*N; ++i) {
-    //av = _mm256_div_pd(av, divv);
-    rec = _m256d_recip_double_r5(divv);
-  4010c0:	c5 fd 29 55 b0       	vmovapd %ymm2,-0x50(%rbp)
-    av = _mm256_mul_pd(av, rec);
-  4010c5:	c5 fd 28 4d b0       	vmovapd -0x50(%rbp),%ymm1
-  return (__m256d) ((__v4df)__A * (__v4df)__B);
-  4010ca:	c5 fd 59 c1          	vmulpd %ymm1,%ymm0,%ymm0
-  for(i=0; i<2*N; ++i) {
-  4010ce:	48 83 eb 01          	sub    $0x1,%rbx
-  4010d2:	75 ec                	jne    4010c0 <main+0x70>
+  4010d0:	48 83 eb 01          	sub    $0x1,%rbx
+  4010d4:	75 ca                	jne    4010a0 <main+0x50>
 }
 
 extern __inline void __attribute__((__gnu_inline__, __always_inline__, __artificial__))
 _mm256_store_pd (double *__P, __m256d __A)
 {
   *(__m256d *)__P = __A;
-  4010d4:	c5 fd 29 45 d0       	vmovapd %ymm0,-0x30(%rbp)
+  4010d6:	c5 fd 29 45 d0       	vmovapd %ymm0,-0x30(%rbp)
+    rec = _m256d_recip_double_r5(av);
+    av = _mm256_mul_pd(divv, rec);
   }
 
   _mm256_store_pd(out, av);
   for (i=0; i<4; ++i) {
-  4010d9:	c5 f8 77             	vzeroupper 
+  4010db:	c5 f8 77             	vzeroupper 
     printf("%llu %.17f\n", i, out[i]);
-  4010dc:	c5 fb 10 44 dd d0    	vmovsd -0x30(%rbp,%rbx,8),%xmm0
-  4010e2:	48 89 de             	mov    %rbx,%rsi
-  4010e5:	bf 37 30 40 00       	mov    $0x403037,%edi
-  4010ea:	b8 01 00 00 00       	mov    $0x1,%eax
+  4010de:	c5 fb 10 44 dd d0    	vmovsd -0x30(%rbp,%rbx,8),%xmm0
+  4010e4:	48 89 de             	mov    %rbx,%rsi
+  4010e7:	bf 37 30 40 00       	mov    $0x403037,%edi
+  4010ec:	b8 01 00 00 00       	mov    $0x1,%eax
   for (i=0; i<4; ++i) {
-  4010ef:	48 83 c3 01          	add    $0x1,%rbx
+  4010f1:	48 83 c3 01          	add    $0x1,%rbx
     printf("%llu %.17f\n", i, out[i]);
-  4010f3:	e8 48 ff ff ff       	call   401040 <printf@plt>
+  4010f5:	e8 46 ff ff ff       	call   401040 <printf@plt>
   for (i=0; i<4; ++i) {
-  4010f8:	48 83 fb 04          	cmp    $0x4,%rbx
-  4010fc:	75 de                	jne    4010dc <main+0x8c>
+  4010fa:	48 83 fb 04          	cmp    $0x4,%rbx
+  4010fe:	75 de                	jne    4010de <main+0x8e>
   }
 
   return 0;
-  4010fe:	31 c0                	xor    %eax,%eax
+  401100:	31 c0                	xor    %eax,%eax
 }
-  401100:	48 83 c4 40          	add    $0x40,%rsp
-  401104:	5b                   	pop    %rbx
-  401105:	41 5a                	pop    %r10
-  401107:	5d                   	pop    %rbp
-  401108:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
-  40110c:	c3                   	ret    
+  401102:	48 83 c4 20          	add    $0x20,%rsp
+  401106:	5b                   	pop    %rbx
+  401107:	41 5a                	pop    %r10
+  401109:	5d                   	pop    %rbp
+  40110a:	49 8d 62 f8          	lea    -0x8(%r10),%rsp
+  40110e:	c3                   	ret    
     printf("CPU does not support avx512f, exiting.\n");
-  40110d:	bf 10 30 40 00       	mov    $0x403010,%edi
-  401112:	e8 19 ff ff ff       	call   401030 <puts@plt>
+  40110f:	bf 10 30 40 00       	mov    $0x403010,%edi
+  401114:	e8 17 ff ff ff       	call   401030 <puts@plt>
     return 1;
-  401117:	b8 01 00 00 00       	mov    $0x1,%eax
-  40111c:	eb e2                	jmp    401100 <main+0xb0>
-  40111e:	66 90                	xchg   %ax,%ax
+  401119:	b8 01 00 00 00       	mov    $0x1,%eax
+  40111e:	eb e2                	jmp    401102 <main+0xb2>
 
 0000000000401120 <has_cpu_feature.part.0.constprop.0>:
   401120:	89 f9                	mov    %edi,%ecx
@@ -914,7 +911,7 @@ _mm256_store_pd (double *__P, __m256d __A)
   401eee:	83 e9 25             	sub    $0x25,%ecx
   401ef1:	81 f9 9a 00 00 00    	cmp    $0x9a,%ecx
   401ef7:	77 16                	ja     401f0f <__cpu_indicator_init+0x23f>
-  401ef9:	48 8d 15 c0 11 00 00 	lea    0x11c0(%rip),%rdx        # 4030c0 <__dso_handle+0xb8>
+  401ef9:	48 8d 15 a8 11 00 00 	lea    0x11a8(%rip),%rdx        # 4030a8 <__dso_handle+0xa0>
   401f00:	48 63 04 8a          	movslq (%rdx,%rcx,4),%rax
   401f04:	48 01 d0             	add    %rdx,%rax
   401f07:	3e ff e0             	notrack jmp *%rax
@@ -947,7 +944,7 @@ _mm256_store_pd (double *__P, __m256d __A)
   401f6b:	83 e8 10             	sub    $0x10,%eax
   401f6e:	83 f8 09             	cmp    $0x9,%eax
   401f71:	77 1b                	ja     401f8e <__cpu_indicator_init+0x2be>
-  401f73:	48 8d 15 b2 13 00 00 	lea    0x13b2(%rip),%rdx        # 40332c <__dso_handle+0x324>
+  401f73:	48 8d 15 9a 13 00 00 	lea    0x139a(%rip),%rdx        # 403314 <__dso_handle+0x30c>
   401f7a:	48 63 04 82          	movslq (%rdx,%rax,4),%rax
   401f7e:	48 01 d0             	add    %rdx,%rax
   401f81:	3e ff e0             	notrack jmp *%rax
@@ -997,55 +994,55 @@ _mm256_store_pd (double *__P, __m256d __A)
   402047:	c7 05 03 30 00 00 06 	movl   $0x6,0x3003(%rip)        # 405054 <__cpu_model+0x4>
   40204e:	00 00 00 
   402051:	e9 b9 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402056:	48 8b 05 2b 13 00 00 	mov    0x132b(%rip),%rax        # 403388 <__dso_handle+0x380>
+  402056:	48 8b 05 13 13 00 00 	mov    0x1313(%rip),%rax        # 403370 <__dso_handle+0x368>
   40205d:	48 89 05 f0 2f 00 00 	mov    %rax,0x2ff0(%rip)        # 405054 <__cpu_model+0x4>
   402064:	e9 a6 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402069:	48 8b 05 10 13 00 00 	mov    0x1310(%rip),%rax        # 403380 <__dso_handle+0x378>
+  402069:	48 8b 05 f8 12 00 00 	mov    0x12f8(%rip),%rax        # 403368 <__dso_handle+0x360>
   402070:	48 89 05 dd 2f 00 00 	mov    %rax,0x2fdd(%rip)        # 405054 <__cpu_model+0x4>
   402077:	e9 93 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  40207c:	48 8b 05 f5 12 00 00 	mov    0x12f5(%rip),%rax        # 403378 <__dso_handle+0x370>
+  40207c:	48 8b 05 dd 12 00 00 	mov    0x12dd(%rip),%rax        # 403360 <__dso_handle+0x358>
   402083:	48 89 05 ca 2f 00 00 	mov    %rax,0x2fca(%rip)        # 405054 <__cpu_model+0x4>
   40208a:	e9 80 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  40208f:	48 8b 05 22 13 00 00 	mov    0x1322(%rip),%rax        # 4033b8 <__dso_handle+0x3b0>
+  40208f:	48 8b 05 0a 13 00 00 	mov    0x130a(%rip),%rax        # 4033a0 <__dso_handle+0x398>
   402096:	48 89 05 b7 2f 00 00 	mov    %rax,0x2fb7(%rip)        # 405054 <__cpu_model+0x4>
   40209d:	e9 6d fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
   4020a2:	c7 05 a8 2f 00 00 0e 	movl   $0xe,0x2fa8(%rip)        # 405054 <__cpu_model+0x4>
   4020a9:	00 00 00 
   4020ac:	e9 5e fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  4020b1:	48 8b 05 f0 12 00 00 	mov    0x12f0(%rip),%rax        # 4033a8 <__dso_handle+0x3a0>
+  4020b1:	48 8b 05 d8 12 00 00 	mov    0x12d8(%rip),%rax        # 403390 <__dso_handle+0x388>
   4020b8:	48 89 05 95 2f 00 00 	mov    %rax,0x2f95(%rip)        # 405054 <__cpu_model+0x4>
   4020bf:	e9 4b fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  4020c4:	48 8b 05 95 12 00 00 	mov    0x1295(%rip),%rax        # 403360 <__dso_handle+0x358>
+  4020c4:	48 8b 05 7d 12 00 00 	mov    0x127d(%rip),%rax        # 403348 <__dso_handle+0x340>
   4020cb:	48 89 05 82 2f 00 00 	mov    %rax,0x2f82(%rip)        # 405054 <__cpu_model+0x4>
   4020d2:	e9 38 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  4020d7:	48 8b 05 92 12 00 00 	mov    0x1292(%rip),%rax        # 403370 <__dso_handle+0x368>
+  4020d7:	48 8b 05 7a 12 00 00 	mov    0x127a(%rip),%rax        # 403358 <__dso_handle+0x350>
   4020de:	48 89 05 6f 2f 00 00 	mov    %rax,0x2f6f(%rip)        # 405054 <__cpu_model+0x4>
   4020e5:	e9 25 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  4020ea:	48 8b 05 9f 12 00 00 	mov    0x129f(%rip),%rax        # 403390 <__dso_handle+0x388>
+  4020ea:	48 8b 05 87 12 00 00 	mov    0x1287(%rip),%rax        # 403378 <__dso_handle+0x370>
   4020f1:	48 89 05 5c 2f 00 00 	mov    %rax,0x2f5c(%rip)        # 405054 <__cpu_model+0x4>
   4020f8:	e9 12 fe ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  4020fd:	48 8b 05 ac 12 00 00 	mov    0x12ac(%rip),%rax        # 4033b0 <__dso_handle+0x3a8>
+  4020fd:	48 8b 05 94 12 00 00 	mov    0x1294(%rip),%rax        # 403398 <__dso_handle+0x390>
   402104:	48 89 05 49 2f 00 00 	mov    %rax,0x2f49(%rip)        # 405054 <__cpu_model+0x4>
   40210b:	e9 ff fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402110:	48 8b 05 51 12 00 00 	mov    0x1251(%rip),%rax        # 403368 <__dso_handle+0x360>
+  402110:	48 8b 05 39 12 00 00 	mov    0x1239(%rip),%rax        # 403350 <__dso_handle+0x348>
   402117:	48 89 05 36 2f 00 00 	mov    %rax,0x2f36(%rip)        # 405054 <__cpu_model+0x4>
   40211e:	e9 ec fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402123:	48 8b 05 76 12 00 00 	mov    0x1276(%rip),%rax        # 4033a0 <__dso_handle+0x398>
+  402123:	48 8b 05 5e 12 00 00 	mov    0x125e(%rip),%rax        # 403388 <__dso_handle+0x380>
   40212a:	48 89 05 23 2f 00 00 	mov    %rax,0x2f23(%rip)        # 405054 <__cpu_model+0x4>
   402131:	e9 d9 fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
   402136:	c7 05 14 2f 00 00 0c 	movl   $0xc,0x2f14(%rip)        # 405054 <__cpu_model+0x4>
   40213d:	00 00 00 
   402140:	e9 ca fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402145:	48 8b 05 4c 12 00 00 	mov    0x124c(%rip),%rax        # 403398 <__dso_handle+0x390>
+  402145:	48 8b 05 34 12 00 00 	mov    0x1234(%rip),%rax        # 403380 <__dso_handle+0x378>
   40214c:	48 89 05 01 2f 00 00 	mov    %rax,0x2f01(%rip)        # 405054 <__cpu_model+0x4>
   402153:	e9 b7 fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  402158:	48 8b 05 f9 11 00 00 	mov    0x11f9(%rip),%rax        # 403358 <__dso_handle+0x350>
+  402158:	48 8b 05 e1 11 00 00 	mov    0x11e1(%rip),%rax        # 403340 <__dso_handle+0x338>
   40215f:	48 89 05 ee 2e 00 00 	mov    %rax,0x2eee(%rip)        # 405054 <__cpu_model+0x4>
   402166:	e9 a4 fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
   40216b:	c7 05 df 2e 00 00 0d 	movl   $0xd,0x2edf(%rip)        # 405054 <__cpu_model+0x4>
   402172:	00 00 00 
   402175:	e9 95 fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
-  40217a:	48 8b 05 3f 12 00 00 	mov    0x123f(%rip),%rax        # 4033c0 <__dso_handle+0x3b8>
+  40217a:	48 8b 05 27 12 00 00 	mov    0x1227(%rip),%rax        # 4033a8 <__dso_handle+0x3a0>
   402181:	48 89 05 cc 2e 00 00 	mov    %rax,0x2ecc(%rip)        # 405054 <__cpu_model+0x4>
   402188:	e9 82 fd ff ff       	jmp    401f0f <__cpu_indicator_init+0x23f>
   40218d:	c7 05 bd 2e 00 00 0b 	movl   $0xb,0x2ebd(%rip)        # 405054 <__cpu_model+0x4>
