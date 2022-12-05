@@ -28,9 +28,9 @@ int main(void) {
     printf("CPU does not support avx512f, exiting.\n");
     return 1;
   }
-  __m512d divv[2];
+  volatile  __m512d divv[2]; //This is to avoid compiler moving this out of loop
   __m512d av[2];
-  volatile __m512d rec[2]; //This is to avoid moving the rec out of loop
+  volatile __m512d rec[2]; //This is to avoid compiler moving this out of loop
   divv[0] = _mm512_set_pd(1.0000000001, 1.0000000002, 1.0000000003, 1.0000000004, 1.0000000005, 1.0000000006, 1.0000000007, 1.0000000008);
   divv[1] = _mm512_set_pd(1.0000000002, 1.0000000001, 1.0000000004, 1.0000000003, 1.0000000008, 1.0000000006, 1.0000000007, 1.0000000005);
   av[0] =  _mm512_set_pd(1.49182474713380642, 2.22554107607292417, 3.32011725278397885, 4.95303308049624480, 7.38905732167703544, 11.02317856826629416, 16.44465057627291671, 24.53253668079271677);
