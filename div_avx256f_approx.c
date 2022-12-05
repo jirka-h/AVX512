@@ -35,21 +35,6 @@ static FORCE_INLINE __m256d _m256d_div_double_r5(__m256d a, __m256d b) {
   return res;
 }
 
-/*
-static FORCE_INLINE __m256d _m256d_div_double_nr2(__m256d a, __m256d b) {
-  __m256d muls, res_prev;
-  __m256d res = _mm256_cvtps_pd(_mm_rcp_ps(_mm256_cvtpd_ps(b)));
-  __m256d x =  _mm256_mul_pd(a, res);
-  muls = _mm_mul_pd(b, _mm_mul_pd(res, res));
-  res_prev = res;
-  res = _mm_sub_pd(_mm_add_pd(res, res), muls);
-  x =  _mm_sub_pd(x,  _mm_mul_pd(b,a)
-  muls = _mm_mul_pd(b, _mm_mul_pd(res, res));
-  res = _mm_sub_pd(_mm_add_pd(res, res), muls);
-  return x;
-}
-*/
-
 int main(void) {
   const unsigned long long int N = (unsigned long long int) 4.0e9;
   unsigned long long int i;

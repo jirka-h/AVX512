@@ -8,7 +8,7 @@ gcc -O3 -Wall -Wextra -o div_avx512f_approx_reversed div_avx512f_approx_reversed
 # define FORCE_INLINE __attribute__((always_inline)) inline
 
 // Inspired by https://github.com/stgatilov/recip_rsqrt_benchmark/blob/master/routines_sse.h#L108
-static FORCE_INLINE __m512d _m256d_recip_double_r5(__m512d a) {
+static FORCE_INLINE __m512d _m512d_recip_double_r5(__m512d a) {
   //inspired by http://www.mersenneforum.org/showthread.php?t=11765
   const __m512d one = _mm512_set1_pd(1.0);
   __m512d x = _mm512_cvtps_pd(_mm256_rcp_ps(_mm512_cvtpd_ps(a)));
@@ -35,7 +35,7 @@ int main(void) {
 
   for(i=0; i<N; ++i) {
     //av = _mm512_div_pd(av, divv);
-    rec = _m256d_recip_double_r5(av);
+    rec = _m512d_recip_double_r5(av);
     av = _mm512_mul_pd(divv, rec);
   }
 

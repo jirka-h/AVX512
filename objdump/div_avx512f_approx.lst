@@ -97,7 +97,7 @@ _mm256_rcp_ps (__m256 __A)
 
   for(i=0; i<N; ++i) {
     //av = _mm512_div_pd(av, divv);
-    rec = _m256d_recip_double_r5(av);
+    rec = _m512d_recip_double_r5(av);
   4010d4:	62 f1 fd 48 29 8d 50 	vmovapd %zmm1,-0xb0(%rbp)
   4010db:	ff ff ff 
     av = _mm512_mul_pd(divv, rec);
