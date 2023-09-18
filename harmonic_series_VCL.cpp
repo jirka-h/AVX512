@@ -546,7 +546,18 @@ int main(int argc, char **argv) {
   double elapsed_time = time_diff(&t[0], &t[1]);
   printf("Sum of first %llu (%g) elements of Harmonic Series completed in %g seconds using %d threads.\n", 8*N, (double) (8*N), elapsed_time, omp_get_max_threads());
   printf("Sum %g, lower order correction term %g\n", res.sum, -res.cor);
-  printf("Difference Sum - Formula %g\n", res.sum - HarmonicAproxD(8*N) );
+  double controlSum = HarmonicAproxD(8*N);
+  double epsilon[2];
+  double next;
+  epsilon[0] = nextafter(controlSum, 2.0*controlSum + 1.0);
+  epsilon[1] = nextafter(controlSum, -2.0*controlSum - 1.0);
+  if (res.sum >= controlSum) {
+    next = epsilon[0];
+  } else {
+    next = epsilon[1];
+  }
+  printf("Difference Sum - Formula %g. Difference is %g epsilons.\n", res.sum - controlSum, floor ( (res.sum - controlSum) / (next - controlSum) ) );
+  printf("Sum:    \t%a\nFormula:\t%a\n", res.sum, controlSum);
   printf("Avg: %g operations/second\n", (double) (8 * N) / elapsed_time);
   printf("Mop/s total = %g\n", (double) (8 * N) / elapsed_time / 1e6);
   return EXIT_SUCCESS;
